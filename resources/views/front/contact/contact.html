@@ -1,15 +1,14 @@
-<!doctype html>
-<html ng-app>
-	<head>
-		<title>Hello AngularJS</title>
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
-    	<script src="hello.js"></script>
-	</head>
 
-	<body>
-		<div ng-controller="Hello">
-			<p>The ID is {{greeting.id}}</p>
-			<p>The content is {{greeting.content}}</p>
-		</div>
-	</body>
-</html>
+@extends('layouts.master')
+
+@section('content')
+
+<!-- TOUJOURs inclure son fichier ou ses ^^ js-->
+<script src="{{ asset('/js/front/contact/contact.js') }}"></script>
+
+<div ng-controller="Hello">
+	<p>The ID is {{greeting.id}}</p>
+	<p>The content is {{greeting.content}}</p>
+</div>
+
+@stop
