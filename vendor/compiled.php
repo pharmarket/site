@@ -16614,7 +16614,7 @@ class Carbon extends DateTime
     public static function setLocale($locale)
     {
         static::translator()->setLocale($locale);
-        static::translator()->addResource('array', require '/Applications/MAMP/htdocs/site-v2/vendor/nesbot/carbon/src/Carbon' . '/Lang/' . $locale . '.php', $locale);
+        static::translator()->addResource('array', require '/var/www/laravel/site/vendor/nesbot/carbon/src/Carbon' . '/Lang/' . $locale . '.php', $locale);
     }
     public function formatLocalized($format)
     {
