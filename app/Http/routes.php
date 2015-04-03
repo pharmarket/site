@@ -16,12 +16,7 @@
 Route::group(['prefix' => 'admin'], function()
 {
 	/*** je te met une liste exaustives des pages **/
-    Route::get('/', function()
-    {
-    	/*** si pas log**/
-        return 'admin login';
-        /*** si log return dashbord ? *****/ 
-    });
+    Route::get('/', [ 'as' => 'accueil', 'uses' => 'Admin@index']);
 
     Route::get('dashbord', function()
     {
