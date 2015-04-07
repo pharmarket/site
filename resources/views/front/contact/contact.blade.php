@@ -1,7 +1,9 @@
 
-@extends('layouts.master')
-
+@extends('front.layout.app')
+@extends('front.layout.menu')
 @section('content')
+
+
 
 <!-- TOUJOURs inclure son fichier ou ses ^^ js-->
 <script src="{{ asset('/js/front/contact/contact.js') }}"></script>
