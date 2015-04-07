@@ -105,6 +105,12 @@ Route::get('commande', function()
 {
     return View::make('front.commande.payment');
 });
+
+Route::get('contact', function()
+{
+    return View::make('front.contact.contact');
+});
+
 Route::get('/', function()
 {
      return View::make('front.home.home');
