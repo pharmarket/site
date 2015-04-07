@@ -41,7 +41,7 @@ Route::group(['prefix' => 'admin'], function()
     {
         return 'customers';
     });
-    
+
     Route::get('stats', function()
     {
         return 'stats';
@@ -55,7 +55,7 @@ Route::group(['prefix' => 'admin'], function()
     {
         return 'contact';
     });
-    
+
 
 });
 
@@ -103,12 +103,17 @@ Route::get('mon-compte', function()
 });
 Route::get('commande', function()
 {
-    return View::make('front.commande.payment');
+    return View::make('front.commande.adresse');
 });
 
 Route::get('contact', function()
 {
     return View::make('front.contact.contact');
+});
+
+Route::get('contact2', function()
+{
+    return View::make('front.contact.contact2');
 });
 
 Route::get('/', function()

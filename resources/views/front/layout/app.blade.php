@@ -3,7 +3,7 @@
 <!--[if IE 7]><html class="no-js lt-ie9 lt-ie8 ie7" lang="fr"><![endif]-->
 <!--[if IE 8]><html class="no-js lt-ie9 ie8" lang="fr"><![endif]-->
 <!--[if gt IE 8]> <html class="no-js ie9" lang="fr"><![endif]-->
-<html class="" lang="fr"><head>
+<html class="" lang="fr" ng-app="myApp"><head>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<meta charset="utf-8">
 	<title>Pharmarket</title>
@@ -14,6 +14,7 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<link rel="icon" type="image/vnd.microsoft.icon" href="img/favicon.ico">
 	<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+
 	<link rel="stylesheet" href="css/default-boostrap/css/global.css" type="text/css" media="all">
 	<link rel="stylesheet" href="css/default-boostrap/css/highdpi.css" type="text/css" media="all">
 	<link rel="stylesheet" href="css/default-boostrap/css/responsive-tables.css" type="text/css" media="all">
@@ -85,31 +86,9 @@
 	var usingSecureMode = false;
 	</script>
 
-	<script type="text/javascript" src="css/default-boostrap/js/jquery-1.js"></script>
-	<script type="text/javascript" src="css/default-boostrap/js/jquery-migrate-1.js"></script>
-	<script type="text/javascript" src="css/default-boostrap/js/jquery_002.js"></script>
-	<script type="text/javascript" src="css/default-boostrap/js/tools.js"></script>
-	<script type="text/javascript" src="css/default-boostrap/js/global.js"></script>
-	<script type="text/javascript" src="css/default-boostrap/js/10-bootstrap.js"></script>
-	<script type="text/javascript" src="css/default-boostrap/js/15-jquery_002.js"></script>
-	<script type="text/javascript" src="css/default-boostrap/js/15-jquery.js"></script>
-	<script type="text/javascript" src="css/default-boostrap/js/jquery_004.js"></script>
-	<script type="text/javascript" src="css/default-boostrap/js/products-comparison.js"></script>
-	<script type="text/javascript" src="css/default-boostrap/js/ajax-cart.js"></script>
-	<script type="text/javascript" src="css/default-boostrap/js/jquery.js"></script>
-	<script type="text/javascript" src="css/default-boostrap/js/jquery_006.js"></script>
-	<script type="text/javascript" src="css/default-boostrap/js/jquery_003.js"></script>
-	<script type="text/javascript" src="css/default-boostrap/js/treeManagement.js"></script>
-	<script type="text/javascript" src="css/default-boostrap/js/blockfacebook.js"></script>
-	<script type="text/javascript" src="css/default-boostrap/js/blocknewsletter.js"></script>
-	<script type="text/javascript" src="css/default-boostrap/js/jquery_005.js"></script>
-	<script type="text/javascript" src="css/default-boostrap/js/blocksearch.js"></script>
-	<script type="text/javascript" src="css/default-boostrap/js/homeslider.js"></script>
-	<script type="text/javascript" src="css/default-boostrap/js/hoverIntent.js"></script>
-	<script type="text/javascript" src="css/default-boostrap/js/superfish-modified.js"></script>
-	<script type="text/javascript" src="css/default-boostrap/js/blocktopmenu.js"></script>
-	<script type="text/javascript" src="css/default-boostrap/js/index.js"></script>
-
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
 
 
 
@@ -246,7 +225,240 @@
 							@yield('content')
 
 							<!-- Scripts -->
-							<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-							<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
-						</body>
-						</html>
+
+
+							<!-- Footer -->
+				<div class="footer-container">
+					<footer id="footer" class="container">
+						<div class="row"><!-- Block Newsletter module-->
+				<div id="newsletter_block_left" class="block">
+				<h4>Lettre d'informations</h4>
+				<div class="block_content">
+				<form action="//localhost:8888/prestashop/" method="post">
+				<div class="form-group">
+				<input class="inputNew form-control grey newsletter-input" id="newsletter-input" name="email" size="18" value="Saisissez votre adresse e-mail" type="text">
+								<button type="submit" name="submitNewsletter" class="btn btn-default button button-small">
+										<span>ok</span>
+								</button>
+				<input name="action" value="0" type="hidden">
+				</div>
+				</form>
+				</div>
+				</div>
+				<!-- /Block Newsletter module-->
+				<section id="social_block" class="pull-right">
+				<ul>
+					<li class="facebook">
+				<a target="_blank" class="_blank" href="http://www.facebook.com/prestashop">
+					<span>Facebook</span>
+				</a>
+				</li>
+							<li class="twitter">
+				<a target="_blank" class="_blank" href="http://www.twitter.com/prestashop">
+					<span>Twitter</span>
+				</a>
+				</li>
+							<li class="rss">
+				<a target="_blank" class="_blank" href="http://www.prestashop.com/blog/en/">
+					<span>RSS</span>
+				</a>
+				</li>
+															<li class="google-plus">
+						<a target="_blank" class="_blank" href="https://www.google.com/+prestashop">
+							<span>Google Plus</span>
+						</a>
+					</li>
+																	</ul>
+				<h4>Nous suivre</h4>
+				</section>
+				<div class="clearfix"></div>
+				<!-- Block categories module -->
+				<section class="blockcategories_footer footer-block col-xs-12 col-sm-2">
+				<h4>Catégories</h4>
+				<div style="" class="category_footer toggle-footer">
+				<div class="list">
+				<ul style="display: block;" class="tree dynamized">
+
+				<li class="last">
+				<span class="grower CLOSE"> </span><a href="http://localhost:8888/prestashop/3-femmes" title="Vous trouverez ici toutes les collections mode pour femmes.
+				Cette catégorie regroupe tous les basiques de votre garde-robe et bien plus encore&nbsp;:
+				chaussures, accessoires, T-shirts imprimés, robes élégantes et jeans pour femmes&nbsp;!">
+				Femmes
+				</a>
+				<ul style="display: none;">
+
+				<li>
+				<span class="grower CLOSE"> </span><a href="http://localhost:8888/prestashop/4-tops" title="Choisissez parmi une large sélection de T-shirts à manches courtes, longues ou 3/4, de tops, de débardeurs, de chemisiers et bien plus encore.
+				Trouvez la coupe qui vous va le mieux&nbsp;!">
+				Tops
+				</a>
+				<ul style="display: none;">
+
+				<li>
+				<a href="http://localhost:8888/prestashop/5-t-shirts" title="Les must have de votre garde-robe&nbsp;: découvrez les divers modèles ainsi que les différentes
+				coupes et couleurs de notre collection&nbsp;!">
+				T-shirts
+				</a>
+				</li>
+
+
+				<li class="last">
+				<a href="http://localhost:8888/prestashop/7-chemisiers" title="Coordonnez vos accessoires à vos chemisiers préférés, pour un look parfait.">
+				Chemisiers
+				</a>
+				</li>
+
+									</ul>
+				</li>
+
+
+				<li class="last">
+				<span class="grower CLOSE"> </span><a href="http://localhost:8888/prestashop/8-robes" title="Trouvez votre nouvelle pièce préférée parmi une large sélection de robes décontractées, d'été et de soirée&nbsp;!
+				Nous avons des robes pour tous les styles et toutes les occasions.">
+				Robes
+				</a>
+				<ul style="display: none;">
+
+				<li>
+				<a href="http://localhost:8888/prestashop/9-robes-decontractees" title="Vous cherchez une robe pour la vie de tous les jours&nbsp;? Découvrez
+				notre sélection de robes et trouvez celle qui vous convient.">
+				Robes décontractées
+				</a>
+				</li>
+
+
+				<li>
+				<a href="http://localhost:8888/prestashop/10-robes-soiree" title="Trouvez la robe parfaite pour une soirée inoubliable&nbsp;!">
+				Robes de soirée
+				</a>
+				</li>
+
+
+				<li class="last">
+				<a href="http://localhost:8888/prestashop/11-robes-ete" title="Courte, longue, en soie ou imprimée, trouvez votre robe d'été idéale&nbsp;!">
+				Robes d'été
+				</a>
+				</li>
+
+									</ul>
+				</li>
+
+									</ul>
+				</li>
+
+
+
+										</ul>
+				</div>
+				</div> <!-- .category_footer -->
+				</section>
+				<!-- /Block categories module -->
+				<!-- MODULE Block footer -->
+				<section class="footer-block col-xs-12 col-sm-2" id="block_various_links_footer">
+				<h4>Informations</h4>
+				<ul style="" class="toggle-footer">
+							<li class="item">
+					<a href="http://localhost:8888/prestashop/promotions" title="Promotions">
+						Promotions
+					</a>
+				</li>
+									<li class="item">
+				<a href="http://localhost:8888/prestashop/nouveaux-produits" title="Nouveaux produits">
+					Nouveaux produits
+				</a>
+				</li>
+										<li class="item">
+					<a href="http://localhost:8888/prestashop/meilleures-ventes" title="Meilleures ventes">
+						Meilleures ventes
+					</a>
+				</li>
+										<li class="item">
+					<a href="http://localhost:8888/prestashop/magasins" title="Nos magasins">
+						Nos magasins
+					</a>
+				</li>
+									<li class="item">
+				<a href="http://localhost:8888/prestashop/nous-contacter" title="Contactez-nous">
+					Contactez-nous
+				</a>
+				</li>
+															<li class="item">
+						<a href="http://localhost:8888/prestashop/content/3-conditions-utilisation" title="Conditions d'utilisation">
+							Conditions d'utilisation
+						</a>
+					</li>
+																<li class="item">
+						<a href="http://localhost:8888/prestashop/content/4-a-propos" title="A propos">
+							A propos
+						</a>
+					</li>
+													<li>
+				<a href="http://localhost:8888/prestashop/plan-site" title="sitemap">
+					sitemap
+				</a>
+				</li>
+					</ul>
+
+				</section>
+				<section class="bottom-footer col-xs-12">
+				<div>
+				© 2014 <a target="_blank" class="_blank" href="http://www.prestashop.com/">Logiciel e-commerce par PrestaShop™</a>
+				</div>
+				</section>
+				<!-- /MODULE Block footer -->
+				<!-- Block myaccount module -->
+				<section class="footer-block col-xs-12 col-sm-4">
+				<h4><a href="http://localhost:8888/prestashop/mon-compte" title="Gérer mon compte client" rel="nofollow">Mon compte</a></h4>
+				<div style="" class="block_content toggle-footer">
+				<ul class="bullet">
+				<li><a href="http://localhost:8888/prestashop/historique-commandes" title="Mes commandes" rel="nofollow">Mes commandes</a></li>
+						<li><a href="http://localhost:8888/prestashop/avoirs" title="Mes avoirs" rel="nofollow">Mes avoirs</a></li>
+				<li><a href="http://localhost:8888/prestashop/adresses" title="Mes adresses" rel="nofollow">Mes adresses</a></li>
+				<li><a href="http://localhost:8888/prestashop/identite" title="Gérer mes informations personnelles" rel="nofollow">Mes informations personnelles</a></li>
+
+						<li><a href="http://localhost:8888/prestashop/?mylogout" title="Déconnexion" rel="nofollow">Déconnexion</a></li>		</ul>
+				</div>
+				</section>
+				<!-- /Block myaccount module -->
+				<!-- MODULE Block contact infos -->
+				<section id="block_contact_infos" class="footer-block col-xs-12 col-sm-4">
+				<div>
+				<h4>Informations sur votre boutique</h4>
+				<ul style="" class="toggle-footer">
+													<li>
+								<i class="icon-map-marker"></i>My Company, 42 avenue des Champs Elysées
+				75000 Paris
+				France            	</li>
+																			<li>
+								<i class="icon-phone"></i>Appelez-nous au :
+								<span>0123-456-789</span>
+							</li>
+																			<li>
+								<i class="icon-envelope-alt"></i>E-mail :
+								<span><a href="mailto:%73%61%6c%65%73@%79%6f%75%72%63%6f%6d%70%61%6e%79.%63%6f%6d">sales@yourcompany.com</a></span>
+							</li>
+										</ul>
+				</div>
+				</section>
+				<!-- /MODULE Block contact infos -->
+				</div>
+					</footer>
+				</div><!-- #footer -->
+					</div><!-- #page -->
+					<script type="text/javascript" src="css/default-boostrap/js/tools.js"></script>
+					<script type="text/javascript" src="css/default-boostrap/js/global.js"></script>
+					<script type="text/javascript" src="css/default-boostrap/js/products-comparison.js"></script>
+					<script type="text/javascript" src="css/default-boostrap/js/ajax-cart.js"></script>
+
+					<script type="text/javascript" src="css/default-boostrap/js/treeManagement.js"></script>
+					<script type="text/javascript" src="css/default-boostrap/js/blockfacebook.js"></script>
+					<script type="text/javascript" src="css/default-boostrap/js/blocknewsletter.js"></script>
+
+					<script type="text/javascript" src="css/default-boostrap/js/blocksearch.js"></script>
+					<script type="text/javascript" src="css/default-boostrap/js/homeslider.js"></script>
+					<script type="text/javascript" src="css/default-boostrap/js/hoverIntent.js"></script>
+
+					<script type="text/javascript" src="css/default-boostrap/js/superfish-modified.js"></script>
+					<script type="text/javascript" src="css/default-boostrap/js/blocktopmenu.js"></script>
+					<script type="text/javascript" src="css/default-boostrap/js/index.js"></script>
+				</body></html>
