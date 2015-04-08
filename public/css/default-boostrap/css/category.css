@@ -2,7 +2,7 @@
 								Categories Page Styles
 ************************************************************************************************ */
 .content_scene_cat {
-  border-top: 5px solid #333;
+  border-top: 5px solid #39322C;
   color: #d7d7d7;
   line-height: 19px;
   margin: 0 0 26px 0; }
@@ -43,7 +43,7 @@
   padding: 15px 0 0px 0; }
   #subcategories p.subcategory-heading {
     font-weight: bold;
-    color: #333;
+    color: #39322C;
     margin: 0 0 15px 0; }
   #subcategories ul {
     margin: 0 0 0 -20px; }
@@ -71,7 +71,7 @@
       #subcategories ul li .cat_desc {
         display: none; }
       #subcategories ul li:hover .subcategory-image a {
-        border: 5px solid #333;
+        border: 5px solid #39322C;
         padding: 5px; }
 
 /*# sourceMappingURL=category.css.map */
