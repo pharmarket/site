@@ -1,21 +1,25 @@
 <!-- app/views/index.php -->
 
-<!doctype html> <html lang="en"> <head> <meta charset="UTF-8"> <title>Laravel and Angular Contact System</title>
+<!doctype html>
+<html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <title>Laravel and Angular Contact System</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"> <!-- load bootstrap via cdn -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
-    <style>
-        body        { padding-top:30px; }
-        form        { padding-bottom:20px; }
-        .Contact    { padding-bottom:20px; }
-    </style>
+        <!-- CSS -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"> <!-- load bootstrap via cdn -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+        <style>
+            body        { padding-top:30px; }
+            form        { padding-bottom:20px; }
+            .Contact    { padding-bottom:20px; }
+        </style>
 
-    <!-- JS -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script> <!-- load angular -->
+        <!-- JS -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script> <!-- load angular -->
 
-    <!-- ANGULAR -->
+        <!-- ANGULAR -->
 
         <script src="{{ asset('js/front/contact/app.js') }}" type="text/javascript"></script>
         <script src="{{ asset('js/front/contact/services/contactService.js') }}" type="text/javascript"></script>

@@ -14,6 +14,7 @@
 }
 */
 /** ceci est un exemple simple de recuperation de données**/
+
 var app = angular.module('myApp', []);
 
 app.controller('customersCtrl', function($scope, $http) {
