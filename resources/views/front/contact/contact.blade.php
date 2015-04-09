@@ -1,7 +1,10 @@
 
 @extends('front.layout.app')
 @section('content')
-<div id="contact-page" class="container">
+<script src="{{ asset('js/front/contact/app.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/front/contact/services/contactService.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/front/contact/controllers/mainCtrl.js') }}" type="text/javascript"></script>
+<div id="contact-page" class="container"  ng-app="ContactApp" ng-controller="mainController">
      <div class="bg">
        <div class="row">
          <div class="col-sm-12">
@@ -15,18 +18,18 @@
            <div class="contact-form">
              <h2 class="title text-center">Get In Touch</h2>
              <div class="status alert alert-success" style="display: none"></div>
-             <form id="main-contact-form" class="contact-form row" name="contact-form" method="post">
+             <form id="main-contact-form" class="contact-form row" name="contact-form" method="post" ng-submit="submitContact()">
                    <div class="form-group col-md-6">
-                       <input type="text" name="name" class="form-control" required="required" placeholder="Name">
+                       <input type="text" name="name" class="form-control" required="required" ng-model="ContactData.author" placeholder="Name">
                    </div>
                    <div class="form-group col-md-6">
-                       <input type="email" name="email" class="form-control" required="required" placeholder="Email">
+                       <input type="email" name="email" class="form-control" required="required" ng-model="ContactData.email" placeholder="Email">
                    </div>
                    <div class="form-group col-md-12">
-                       <input type="text" name="subject" class="form-control" required="required" placeholder="Subject">
+                       <input type="text" name="subject" class="form-control" required="required" ng-model="ContactData.subject" placeholder="Subject">
                    </div>
                    <div class="form-group col-md-12">
-                       <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Your Message Here"></textarea>
+                       <textarea name="message" id="message" required="required" class="form-control" ng-model="ContactData.text" rows="8" placeholder="Your Message Here"></textarea>
                    </div>
                    <div class="form-group col-md-12">
                        <input type="submit" name="submit" class="btn btn-primary pull-right" value="Submit">
@@ -67,7 +70,7 @@
        </div>
      </div>
    </div><!--/#contact-page-->
- 
+
 <div ng-app="myApp" ng-controller="customersCtrl">
 
 <ul>

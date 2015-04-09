@@ -1,0 +1,28 @@
+/controllers/
+            mainCtrl.js
+
+            dans le controller on ecris les differentes fonctions que l'on utilise ici :
+            -Contact.get : liste tout les contacts lors du load de la page
+            -submitContact : sauvegarder un contact
+            -deleteContact : supprimer un contact grace a son id
+
+
+
+/services/
+          contactService.js
+
+          get
+          save
+          destroy
+
+          les fonctions sont a siplement copier coller et il faut en crées d'autre si necessaire
+          exemple on peu etofer avec :
+
+          update
+
+
+
+
+/app.js
+
+    on met en relation le controler le service avec le ngapp
