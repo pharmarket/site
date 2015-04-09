@@ -39,11 +39,11 @@
     <div class="wrapper">
 
       <header class="main-header">
-        @include('layout.admin.header')
+        @include('admin.layout.header')
       </header>
       <!-- Left side column. contains the logo and sidebar -->
       <aside class="main-sidebar">
-        @include('layout.admin.sidebar')
+        @include('admin.layout.sidebar')
       </aside>
 
       <!-- Content Wrapper. Contains page content -->
