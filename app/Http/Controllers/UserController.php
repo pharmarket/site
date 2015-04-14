@@ -1,4 +1,4 @@
-<?php namespace App\Http\Controllers\Ws;
+<?php namespace App\Http\Controllers;
 
 class UserController extends Controller {
 	/**

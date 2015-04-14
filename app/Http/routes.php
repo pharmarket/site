@@ -18,13 +18,13 @@ Route::group(['prefix' => 'ws', 'middleware' => 'authentification'], function()
 //Front : Get / Update / Store
 //Admin : Get / Destroy / Update / Store
 //Forum : Get / Update
-    Route::resource('user', 'Ws\UserController', ['only' => ['store', 'destroy', 'update', 'show', 'index']]);
+    Route::resource('user', 'UserController', ['only' => ['store', 'destroy', 'update', 'show', 'index']]);
 
     //Ressource : Contact
     //Front : Store
     //Admin : Get / Destroy / Update
     //Forum : Nan
-    Route::resource('contact', 'Ws\ContactController', ['only' => ['store', 'destroy', 'update', 'show', 'index']]);
+    Route::resource('contact', 'ContactController', ['only' => ['store', 'destroy', 'update', 'show', 'index']]);
 });
 
 
