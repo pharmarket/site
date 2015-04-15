@@ -1,16 +1,6 @@
 @extends('layout.admin')
 
 @section('content')
-
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-          <h1>
-            {{ ucfirst(Route::currentRouteName()) }}
-          </h1>
-        </section>
-
-        <!-- Main content -->
-        <section class="content">
           <!-- Small boxes (Stat box) -->
           <div class="row">
             <div class="col-lg-3 col-xs-6">
@@ -127,8 +117,8 @@
             </section><!-- right col -->
           </div><!-- /.row (main row) -->
 
-        </section><!-- /.content -->
-
-
-
+@stop
+@section('footer')
+  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+  <script src="{{ asset('js/pages/dashboard.js') }}" type="text/javascript"></script>
 @stop

@@ -6,4 +6,7 @@ class Contact extends Model {
 
 	protected $table = 'contact';
 
+	public function getDoneAttribute($value){
+	        return $value ? '✔': '';
+	}
 }

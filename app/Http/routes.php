@@ -29,50 +29,9 @@ Route::group(['prefix' => 'ws', 'middleware' => 'authentification'], function()
 
 
 /*** Partie admin mettre un commentaire sur chaque route pour connaitre l'avancement ***/
-Route::group(['prefix' => 'admin'], function()
-{
-	/*** je te met une liste exaustives des pages **/
+Route::group(['prefix' => 'admin'], function(){
     Route::get('/', [ 'as' => 'accueil', 'uses' => 'Admin@index']);
-
-    Route::get('dashbord', function()
-    {
-        return 'admin';
-    });
-
-    Route::get('catalogue', function()
-    {
-        return 'catalogue';
-    });
-
-    Route::get('produit', function()
-    {
-        return 'produit';
-    });
-    Route::get('commandes', function()
-    {
-        return 'comande';
-    });
-
-    Route::get('customers', function()
-    {
-        return 'customers';
-    });
-
-    Route::get('stats', function()
-    {
-        return 'stats';
-    });
-    Route::get('dashbord', function()
-    {
-        return 'admin';
-    });
-
-    Route::get('contact', function()
-    {
-        return 'contact';
-    });
-
-
+    Route::get('contact', [ 'as' => 'contact', 'uses' => 'Admin\ContactController@index']);
 });
 
 

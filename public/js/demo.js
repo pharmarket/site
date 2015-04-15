@@ -129,9 +129,9 @@ $(function () {
 
 function change_layout(cls) {
   $("body").toggleClass(cls);
-  $.AdminLTE.layout.fixSidebar();  
+  $.AdminLTE.layout.fixSidebar();
 }
-function change_skin(cls) {  
+function change_skin(cls) {
   $.each(my_skins, function (i) {
     $("body").removeClass(my_skins[i]);
   });
@@ -160,3 +160,12 @@ function setup() {
   if (tmp && $.inArray(tmp, my_skins))
     change_skin(tmp);
 }
+
+
+//Fonction perso
+
+$(function () {
+  $(".datatable").dataTable({"oLanguage": {
+    "sUrl": "//cdn.datatables.net/plug-ins/1.10.6/i18n/French.json"
+  }});
+});
