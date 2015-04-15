@@ -1,11 +1,9 @@
 
 @extends('front.layout.app')
 
-@extends('front.layout.menu')
+
 
 @section('content')
-
-
 	<!-- Menu -->
 	<div id="block_top_menu" class="sf-contener clearfix col-lg-12">
 		<div class="cat-title">Catégories</div>
@@ -1181,4 +1179,4 @@ extensible pour un confort inégalé. Pour un look estival, portez-le avec
 
 </div>
 
-					@endsection
+					@stop
