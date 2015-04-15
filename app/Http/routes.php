@@ -11,22 +11,6 @@
 |
 */
 
-Route::group(['prefix' => 'ws', 'middleware' => 'authentification'], function()
-{
-
-//Ressource : User
-//Front : Get / Update / Store
-//Admin : Get / Destroy / Update / Store
-//Forum : Get / Update
-    Route::resource('user', 'UserController', ['only' => ['store', 'destroy', 'update', 'show', 'index']]);
-
-    //Ressource : Contact
-    //Front : Store
-    //Admin : Get / Destroy / Update
-    //Forum : Nan
-    Route::resource('contact', 'ContactController', ['only' => ['store', 'destroy', 'update', 'show', 'index']]);
-});
-
 
 /*** Partie admin mettre un commentaire sur chaque route pour connaitre l'avancement ***/
 Route::group(['prefix' => 'admin'], function(){
@@ -60,10 +44,6 @@ Route::group(['prefix' => 'forum'], function()
 
 });
 
-//*** en creation ne pas faire gaffe je test les template voir si sa peu être interessant**/
-//Route::get('/', 'WelcomeController@index');
-
-//Route::get('/', 'HomeController@index');
 Route::get('categorie', function()
 {
     return 'la categorie';

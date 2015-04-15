@@ -1,4 +1,4 @@
-@extends('layout.admin')
+@extends('admin.layout.admin')
 
 @section('content')
           <!-- Small boxes (Stat box) -->

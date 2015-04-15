@@ -10,7 +10,7 @@ class Admin extends Controller {
 	{
     	// /*** si pas log**/
      //    return 'admin login';
-     //    /*** si log return dashbord ? *****/ 
+     //    /*** si log return dashbord ? *****/
 		return view('admin.index');
 	}
 
