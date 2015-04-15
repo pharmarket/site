@@ -1,121 +1,56 @@
+
 @extends('front.layout.app')
 @section('content')
 
-<!-- contact-page Ajouter ses scripts il y en a tj au minimum 3 par block   -->
-
-<script src="{{ asset('js/front/contact/app.js') }}" type="text/javascript"></script>
-<script src="{{ asset('js/front/contact/services/contactService.js') }}" type="text/javascript"></script>
-<script src="{{ asset('js/front/contact/controllers/mainCtrl.js') }}" type="text/javascript"></script>
-
-<!-- contact-page ng-app="ContactApp" ng-controller="mainController"  -->
-
-<div id="contact-page" class="container"  ng-app="ContactApp" ng-controller="mainController">
-
-     <div class="bg">
-       <div class="row">
-         <div class="col-sm-12">
-
-         <h2 class="title text-center">Contact <strong>Us</strong></h2>
-
-         <div id="gmap" class="contact-map">
-         </div>
-       </div>
-     </div>
-
-       <div class="row">
-         <div class="col-sm-8">
-           <div class="contact-form">
-             <h2 class="title text-center">Get In Touch</h2>
-             <div class="status alert alert-success" style="display: none"></div>
-             <form id="main-contact-form" class="contact-form row" name="contact-form" method="post" ng-submit="submitContact()">
-
-                   <div class="form-group col-md-6">
-                       <input type="text" name="name" class="form-control" required="required" ng-model="ContactData.author" placeholder="Name">
-                   </div>
-
-                   <div class="form-group col-md-6">
-                       <input type="email" name="email" class="form-control" required="required" ng-model="ContactData.email" placeholder="Email">
-                   </div>
-
-                   <div class="form-group col-md-12">
-                       <input type="text" name="subject" class="form-control" required="required" ng-model="ContactData.subject" placeholder="Subject">
-                   </div>
-
-                   <div class="form-group col-md-12">
-                       <textarea name="message" id="message" required="required" class="form-control" ng-model="ContactData.text" rows="8" placeholder="Your Message Here"></textarea>
-                   </div>
-
-                   <div class="form-group col-md-12">
-                       <input type="submit" name="submit" class="btn btn-primary pull-right" value="Submit">
-                   </div>
-
-               </form>
-           </div>
-         </div>
-         
-         <div class="col-sm-4">
-           <div class="contact-info">
-             <h2 class="title text-center">Contact Info</h2>
-
-             <address>
-               <p>E-Shopper Inc.</p>
-               <p>935 W. Webster Ave New Streets Chicago, IL 60614, NY</p>
-               <p>Newyork USA</p>
-               <p>Mobile: +2346 17 38 93</p>
-               <p>Fax: 1-714-252-0026</p>
-               <p>Email: info@e-shopper.com</p>
-             </address>
-
-             <div class="social-networks">
-               <h2 class="title text-center">Social Networking</h2>
-
-               <ul>
-                 <li>
-                   <a href="#"><i class="fa fa-facebook"></i></a>
-                 </li>
-                 <li>
-                   <a href="#"><i class="fa fa-twitter"></i></a>
-                 </li>
-                 <li>
-                   <a href="#"><i class="fa fa-google-plus"></i></a>
-                 </li>
-                 <li>
-                   <a href="#"><i class="fa fa-youtube"></i></a>
-                 </li>
-               </ul>
-
-             </div>
-           </div>
-         </div>
-       </div>
-     </div>
-   </div>
+<h1 class="page-heading bottom-indent">
+	Service client - Contactez-nous</h1>
 
 
-   <!-- ci dessous je en garderai rien    -->
-
-
-<div ng-app="myApp" ng-controller="customersCtrl">
-
-<ul>
-  <li ng-repeat="x in names">
-		@{{ x.Name + ', ' + x.Country }}
-  </li>
-</ul>
-
-REcherche U2 :=>
-@{{test.name}} =====> @{{test.url}}
-
-@{{test.stats.listeners}}
-<ul>
-  <li ng-repeat="y in test.bandmembers.member">
-		@{{ y.name + '- ' + y.yearfrom }}
-  </li>
-</ul>
-
-</div>
-
-<script src="{{ asset('js/front/contact/contact.js') }}" type="text/javascript"></script>
-
+	<form action="/prestashop/nous-contacter" method="post" class="contact-form-box" enctype="multipart/form-data">
+		<fieldset>
+			<h3 class="page-subheading">Envoyez un message</h3>
+			<div class="clearfix">
+				<div class="col-xs-12 col-md-3">
+					<div class="form-group selector1">
+						<label for="id_contact">Objet</label>
+											<select id="id_contact" class="form-control" name="id_contact">
+							<option value="0">Choisissez</option>
+															<option value="2">Service client</option>
+															<option value="1">Webmaster</option>
+													</select>
+					</div>
+						<p id="desc_contact0" class="desc_contact">&nbsp;</p>
+													<p id="desc_contact2" class="desc_contact contact-title unvisible">
+								<i class="icon-comment-alt"></i>Pour toute question sur un produit ou une commande
+							</p>
+													<p id="desc_contact1" class="desc_contact contact-title unvisible">
+								<i class="icon-comment-alt"></i>En cas de problème technique sur ce site
+							</p>
+																<p class="form-group">
+						<label for="email">Adresse e-mail</label>
+													<input class="form-control grey validate" type="text" id="email" name="from" data-validate="isEmail" value="" />
+											</p>
+																		<div class="form-group selector1">
+								<label>R&eacute;f&eacute;rence de commande</label>
+																	<input class="form-control grey" type="text" name="id_order" id="id_order" value="" />
+															</div>
+																												<p class="form-group">
+							<label for="fileUpload">Joindre un fichier</label>
+							<input type="hidden" name="MAX_FILE_SIZE" value="33554432" />
+							<input type="file" name="fileUpload" id="fileUpload" class="form-control" />
+						</p>
+									</div>
+				<div class="col-xs-12 col-md-9">
+					<div class="form-group">
+						<label for="message">Message</label>
+						<textarea class="form-control" id="message" name="message"></textarea>
+					</div>
+				</div>
+			</div>
+			<div class="submit">
+				<button type="submit" name="submitMessage" id="submitMessage" class="button btn btn-default button-medium"><span>Envoyer<i class="icon-chevron-right right"></i></span></button>
+			</div>
+		</fieldset>
+	</form>
 
 @stop
