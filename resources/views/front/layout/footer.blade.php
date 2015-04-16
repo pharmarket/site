@@ -14,8 +14,11 @@
 </div>
 <!-- /.container -->
 
-<!-- jQuery -->
-<script src="js/jquery.js"></script>
+
+<!-- jQuery 2.1.3 -->
+<script src="{{ asset('js/jquery/jquery-2.1.3.min.js') }}" type="text/javascript"></script>
+<!-- jQuery UI 1.11.2 -->
+<script src="{{ asset('js/jquery/jquery-1.11.2.min.js') }}" type="text/javascript"></script>
 
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
