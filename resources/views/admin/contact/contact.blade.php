@@ -8,11 +8,6 @@
 @section('content')
 <div class="row">
 	<div class="col-xs-12">
-
-	  <div>
-	    <div class="box-header">
-	      <h3 class="box-title">Data Table With Full Features</h3>
-	    </div><!-- /.box-header -->
 	    <div class="box-body">
 	      <table class="datatable table table-bordered table-striped" >
 	        <thead>
@@ -23,7 +18,7 @@
 	            <th>Phone</th>
 	            <th>Done</th>
 	            <th>added</th>
-	            <th></th>
+	            <th style="width:70px;"></th>
 	          </tr>
 	        </thead>
 	        <tbody>
@@ -36,12 +31,13 @@
 	            <td>{{ $row->done  }}</td>
 	            <td>{{ $row->created_at  }}</td>
 	            <td>
+	            	@if(empty($row->done))
+				<a href="{{ route('admin.contact.done', $row->id) }}"><i class="fa fa-check-circle-o"></i></a>
+			@endif
 
-	            	{!! Form::open(array('route' => array('admin.contact.destroy', $row->id), 'method' => 'delete')) !!}
-				<button type="submit" class="fa fa-trash-o"></button>
+	            	{!! Form::open(array('route' => array('admin.contact.destroy', $row->id), 'method' => 'delete', 'style' => 'display:inline;')) !!}
+				<button style="border:none;display:inline;background: none;" type="submit" ><i class="fa fa-trash-o"></i></button>
 			{!!  Form::close() !!}
-
-
 	          </tr>
 	          @endforeach
 

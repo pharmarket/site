@@ -19,14 +19,17 @@ class ContactController extends Controller {
 	}
 
 	/**
-	 * Display the specified resource.
+	 * Indique que le contact a été traité
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($contact)
+	public function done($contact)
 	{
-		return view('admin.contact.show', compact('contact'));
+		$contact->done = 1;
+		$contact->save();
+
+		return redirect()->back();
 	}
 
 	/**

@@ -15,13 +15,21 @@
   <!-- /.search form -->
   <!-- sidebar menu: : style can be found in sidebar.less -->
   <ul class="sidebar-menu">
-    <li class="active treeview">
+    <li class="treeview">
       <a href="#">
         <i class="fa fa-user"></i> <span>Utilisateur</span> <i class="fa fa-angle-left pull-right"></i>
       </a>
       <ul class="treeview-menu">
         <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i>Liste</a></li>
         <li><a href="index2.html"><i class="fa fa-circle-o"></i>Ajouter</a></li>
+      </ul>
+    </li>
+    <li class="treeview">
+      <a href="#">
+        <i class="fa fa-user"></i> <span>Contact</span> <i class="fa fa-angle-left pull-right"></i>
+      </a>
+      <ul class="treeview-menu">
+        <li><a href="{{ route('admin.contact.index') }}"><i class="fa fa-circle-o"></i>Liste</a></li>
       </ul>
     </li>
   </ul>

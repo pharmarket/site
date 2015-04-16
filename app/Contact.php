@@ -13,4 +13,13 @@ class Contact extends Model {
 	public function getCreatedAtAttribute($value){
 		return date('d/m/Y H\Hi', date_timestamp_get(date_create($value)));
 	}
+
+	//Cette conction empeche le model d'essayer de remplir updated_at (fonction timestamps), c'est bien par ce qu'il nexiste pas
+	public function setUpdatedAt($value){
+	   //Do-nothing
+	}
+
+	public function getUpdatedAtColumn(){
+	    //Do-nothing
+	}
 }
