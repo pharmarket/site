@@ -9,4 +9,8 @@ class Contact extends Model {
 	public function getDoneAttribute($value){
 	        return $value ? '✔': '';
 	}
+
+	public function getCreatedAtAttribute($value){
+		return date('d/m/Y H\Hi', date_timestamp_get(date_create($value)));
+	}
 }

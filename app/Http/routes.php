@@ -15,7 +15,7 @@
 /*** Partie admin mettre un commentaire sur chaque route pour connaitre l'avancement ***/
 Route::group(['prefix' => 'admin'], function(){
     Route::get('/', [ 'as' => 'accueil', 'uses' => 'Admin@index']);
-    Route::get('contact', [ 'as' => 'contact', 'uses' => 'Admin\ContactController@index']);
+    Route::resource('contact', 'Admin\ContactController', ['only' => ['destroy', 'show', 'index']]);
 });
 
 

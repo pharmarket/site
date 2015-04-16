@@ -24,8 +24,12 @@ class RouteServiceProvider extends ServiceProvider {
 	{
 		parent::boot($router);
 
-		$router->model('user', 'App\User');
-		$router->model('contact', 'App\Contact');
+		$router->model('user', 'App\User', function() {
+			\App::abort(404);
+		});
+		$router->model('contact', 'App\Contact', function() {
+			\App::abort(404);
+		});
 	}
 
 	/**

@@ -23,6 +23,7 @@
 	            <th>Phone</th>
 	            <th>Done</th>
 	            <th>added</th>
+	            <th></th>
 	          </tr>
 	        </thead>
 	        <tbody>
@@ -33,7 +34,14 @@
 	            <td>{{ $row->mail  }}</td>
 	            <td>{{ $row->phone  }}</td>
 	            <td>{{ $row->done  }}</td>
-	            <td>{{ $row->added  }}</td>
+	            <td>{{ $row->created_at  }}</td>
+	            <td>
+
+	            	{!! Form::open(array('route' => array('admin.contact.destroy', $row->id), 'method' => 'delete')) !!}
+				<button type="submit" class="fa fa-trash-o"></button>
+			{!!  Form::close() !!}
+
+
 	          </tr>
 	          @endforeach
 
