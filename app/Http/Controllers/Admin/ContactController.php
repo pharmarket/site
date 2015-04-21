@@ -45,4 +45,25 @@ class ContactController extends Controller {
 		return redirect()->back();
 	}
 
+	/**
+	 * Envoie un mail à la demande de contact
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function mail($contact)
+	{
+		//Verification :requete type post + content non vide
+
+		//evoir du mail
+		\Mail::send('mail.contact', ['content' => \Input::get('content')], function($message) use ($contact){
+		    $message->to($contact->mail, '')->subject('Reponse à votre demande de contact');
+		});
+		if(\Input::get('done')){
+			$contact->done = 1;
+			$contact->save();
+		}
+
+		return redirect()->back();
+	}
 }

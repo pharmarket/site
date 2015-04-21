@@ -6,6 +6,10 @@ class Contact extends Model {
 
 	protected $table = 'contact';
 
+	public function langue(){
+       	 	return $this->belongsTo('App\Langue');
+    	}
+
 	public function getDoneAttribute($value){
 	        return $value ? '✔': '';
 	}

@@ -17,12 +17,13 @@ Route::group(['prefix' => 'admin'], function(){
     Route::get('/', [ 'as' => 'accueil', 'uses' => 'Admin@index']);
     Route::resource('contact', 'Admin\ContactController', ['only' => ['destroy', 'index']]);
     Route::get('contact/done/{contact}', ['as' => 'admin.contact.done', 'uses' => 'Admin\ContactController@done']);
+    Route::post('contact/mail/{contact}', ['as' => 'admin.contact.mail', 'uses' => 'Admin\ContactController@mail']);
 });
 
 
 Route::group(['prefix' => 'forum'], function()
 {
-	Route::get('/', function()
+    Route::get('/', function()
     {
         return 'le forum';
     });

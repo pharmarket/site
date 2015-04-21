@@ -27,6 +27,8 @@
     <link href="{{ asset('plugins/daterangepicker/daterangepicker-bs3.css') }}" rel="stylesheet" type="text/css" />
     <!-- bootstrap wysihtml5 - text editor -->
     <link href="{{ asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}" rel="stylesheet" type="text/css" />
+    <!-- DATA TABLES -->
+    <link href="{{ asset('plugins/datatables/dataTables.bootstrap.css') }}" rel="stylesheet" type="text/css" />
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -92,9 +94,16 @@
     <script src="{{ asset('plugins/fastclick/fastclick.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('js/app.min.js') }}" type="text/javascript"></script>
-
+    <!-- DATA TABES SCRIPT -->
+    <script src="{{ asset('plugins/datatables/jquery.dataTables.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('plugins/datatables/dataTables.bootstrap.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/jquery.dataTables.columnFilter.js') }}" type="text/javascript"></script>
+    <!-- SlimScroll -->
+    <script src="{{ asset('plugins/slimScroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
+    <!-- FastClick -->
+    <script src="{{ asset('plugins/fastclick/fastclick.min.js') }}"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="{{ asset('js/pages/dashboard.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/demo.js') }}" type="text/javascript"></script>
 
     @yield('footer')
   </body>

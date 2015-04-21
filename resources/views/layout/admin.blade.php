@@ -92,9 +92,19 @@
     <script src="{{ asset('plugins/fastclick/fastclick.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('js/app.min.js') }}" type="text/javascript"></script>
+    <!-- DATA TABES SCRIPT -->
+    <script src="{{ asset('plugins/datatables/jquery.dataTables.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('plugins/datatables/dataTables.bootstrap.js') }}" type="text/javascript"></script>
+    <!-- SlimScroll -->
+    <script src="{{ asset('plugins/slimScroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
+    <!-- FastClick -->
+    <script src="{{ asset('plugins/fastclick/fastclick.min.js') }}"></script>
 
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{ asset('js/pages/dashboard.js') }}" type="text/javascript"></script>
+
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="{{ asset('js/demo.js') }}" type="text/javascript"></script>
 
     @yield('footer')
   </body>

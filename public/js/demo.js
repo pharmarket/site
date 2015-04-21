@@ -167,5 +167,10 @@ function setup() {
 $(function () {
   $(".datatable").dataTable({"oLanguage": {
     "sUrl": "//cdn.datatables.net/plug-ins/1.10.6/i18n/French.json"
-  }});
+  }}).columnFilter();
+});
+
+//Effacer les données des formulaires, quand on ferme un modal
+$('.modal').on('hidden.bs.modal', function(){
+    $(this).find('form')[0].reset();
 });
