@@ -58,6 +58,10 @@ Route::get('mon-compte', function()
 {
     return View::make('front.compte.compte');
 });
+Route::get('faq', function()
+{
+    return View::make('front.faq.faq');
+});
 Route::get('commande', function()
 {
     return View::make('front.commande.adresse');
