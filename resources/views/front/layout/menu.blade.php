@@ -55,7 +55,7 @@
 
                           </li>
 
-                          <li><a href="contact">{{ Lang::get('menu.contact') }}</a></li>
+                          <li><a href="<?= route('contact'); ?>">{{ Lang::get('menu.contact') }}</a></li>
 
                       </ul>
                       <div class="dropdown" style="float:right; height:43px;">

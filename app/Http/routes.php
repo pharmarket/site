@@ -68,7 +68,7 @@ Route::get('commande', function()
     return View::make('front.commande.adresse');
 });
 
-Route::get('contact',['as' => 'contact'], function()
+Route::get('contact',['as' => 'contact', 'uses' => 'ContactController@index'], function()
 {
     return View::make('front.contact.contact');
 });
