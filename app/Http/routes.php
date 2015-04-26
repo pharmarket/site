@@ -46,6 +46,12 @@ Route::group(['prefix' => 'forum'], function()
 
 });
 
+Route::get('lang/{lang}',function($lang)
+{
+    App::setLocale($lang);
+    return redirect()->back();
+});
+
 Route::get('categorie', function()
 {
     return 'la categorie';

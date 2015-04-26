@@ -1,1182 +1,399 @@
 
-@extends('front.layout.app')
+@extends('front.layout.home')
 
 
 
 @section('content')
-	<!-- Menu -->
-	<div id="block_top_menu" class="sf-contener clearfix col-lg-12">
-		<div class="cat-title">Catégories</div>
-		<ul class="sf-menu clearfix menu-content sf-js-enabled sf-arrows">
-			<li><a class="sf-with-ul" href="http://localhost:8888/prestashop/3-femmes" title="Femmes">Femmes</a><ul class="submenu-container clearfix first-in-line-xs" style="display: none;"><li><a class="sf-with-ul" href="http://localhost:8888/prestashop/4-tops" title="Tops">Tops</a><ul style="display: none;"><li><a href="http://localhost:8888/prestashop/5-t-shirts" title="T-shirts">T-shirts</a></li><li><a href="http://localhost:8888/prestashop/7-chemisiers" title="Chemisiers">Chemisiers</a></li></ul></li><li><a class="sf-with-ul" href="http://localhost:8888/prestashop/8-robes" title="Robes">Robes</a><ul style="display: none;"><li><a href="http://localhost:8888/prestashop/9-robes-decontractees" title="Robes décontractées">Robes décontractées</a></li><li><a href="http://localhost:8888/prestashop/10-robes-soiree" title="Robes de soirée">Robes de soirée</a></li><li><a href="http://localhost:8888/prestashop/11-robes-ete" title="Robes d'été">Robes d'été</a></li></ul></li><li class="category-thumbnail"><div><img src="mirage_fichiers/3-0_thumb.jpg" alt="Femmes" title="Femmes" class="imgm"></div><div><img src="mirage_fichiers/3-1_thumb.jpg" alt="Femmes" title="Femmes" class="imgm"></div></li></ul></li><li><a class="sf-with-ul" href="http://localhost:8888/prestashop/8-robes" title="Robes">Robes</a><ul class="submenu-container clearfix first-in-line-xs" style="display: none;"><li><a href="http://localhost:8888/prestashop/9-robes-decontractees" title="Robes décontractées">Robes décontractées</a></li><li><a href="http://localhost:8888/prestashop/10-robes-soiree" title="Robes de soirée">Robes de soirée</a></li><li><a href="http://localhost:8888/prestashop/11-robes-ete" title="Robes d'été">Robes d'été</a></li><li class="category-thumbnail"></li></ul></li><li><a href="http://localhost:8888/prestashop/5-t-shirts" title="T-shirts">T-shirts</a></li>
-					</ul>
-	</div>
-	<!--/ Menu -->
+<!--start wrapper-->
+<section class="wrapper">
+
+	<!--Start Slider-->
+			<div class="slider-wrapper">
+					<div class="slider">
+							<div class="fs_loader"></div>
+							<div class="slide">
+									<!--1- slide background-->
+									<imgsrc="front/images/fraction-slider/gadgets/laptop-lg.png" data-position="-30,550" data-in="bottom" data-delay="500" data-out="fade"  width="800" height="750">                                     <!--3- laptop-->
+
+									<p class="para-new" data-position="10,600" data-in="top"  data-out="Right" data-delay="">Welcome to Eve</p>
 							</div>
-						</div>
+							<div class="slide">
+									<imgsrc="front/images/fraction-slider/fraction_2.png" data-in="fade" data-delay="" data-out="fade" width="1920" height="450">     <!--2- slide background-->
+
+									<imgsrc="front/images/fraction-slider/slider-boy.png" width="600" height="600" data-position="8,1240" data-in="bottomLeft" data-delay="500" data-out="fade" style="width:auto; height:auto">
+
+									<p class="claim light-pink" data-position="40,230" data-in="top"  data-out="left" data-delay="1800" data-ease-in="easeOutBounce">the Rain template design</p>
+
+									<p class="teaser turky small" data-position="150,230" data-in="left" data-out="left" data-delay="5500">unlimited elements</p>
+
+									<p class="teaser turky small" data-position="210,230"  data-in="left" data-out="left" data-delay="6500">many transitions</p>
+
+									<p class="teaser turky small" data-position="270,230" data-in="left" data-out="left" data-delay="8000">unlimited elements</p>
+
+									<p class="teaser turky small" data-position="150,670" data-in="right" data-out="right" data-delay="5500">unlimited slides</p>
+
+									<p class="teaser turky small" data-position="210,670" data-in="right" data-out="right" data-delay="6500">background animation</p>
+
+									<p class="teaser turky small" data-position="270,670" data-in="right" data-out="right" data-delay="8000">unlimited slides</p>
+
+									<a href=""	class="slider-read" data-position="350,230" data-in="bottom" data-out="Right" data-delay="9500">Download Now</a>
+							</div>
+							<div class="slide">
+									<imgsrc="front/images/fraction-slider/build.png" data-in="fade" data-out="fade" width="1920" height="450"/>                                     <!--3- slide background-->
+
+									<p class="claim light-pink" data-position="30,250" data-in="top" data-out="top" data-ease-in="easeOutBounce" data-delay="1500">Easy Responsive Design</p>
+
+									<p class="claim  theme-colored" data-position="110,250" data-in="left" data-out="Right" data-delay="2500">Easy customization</p>
+
+									<imgsrc="front/images/fraction-slider/gadgets/laptop.png" width="456" height="272" data-position="103,1180" data-in="bottom" data-out="bottom" data-delay="400">
+
+									<imgsrc="front/images/fraction-slider/gadgets/mack.png" width="357" height="313" data-position="60,1040" data-in="top" data-out="bottom" data-delay="200">
+
+									<imgsrc="front/images/fraction-slider/gadgets/ipad.png" width="120" height="170" data-position="230,1030" data-in="left" data-delay="300" data-out="left">
+
+									<imgsrc="front/images/fraction-slider/gadgets/smartphone.png" width="70" height="140" data-position="270,1320" data-in="right" data-delay="300" data-out="right">
+
+									<div class="para-2"	data-position="200,250" data-in="left" data-out="right" data-delay="3000">
+											Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, aspernatur consequatur consequuntur debitis
+											delectus nostrum quam quod reiciendis sit!
+									</div>
+
+									<a href=""	class="slider-read" data-position="360,250" data-in="bottom"  data-out="Right" data-delay="3500">Free Download</a>
+							</div>
+							<div class="slide">
+									<imgsrc="front/images/fraction-slider/fraction_6.png" data-in="fade" data-out="fade" width="1920" height="auto">         <!--4- slide background-->
+
+									<p class="claim light-pink" data-position="50,1050" data-in="top"  data-out="top" data-ease-in="jswing">We Design Creative Websites</p>
+
+									<p class="teaser turky" data-position="120,1180" data-in="left" data-delay="1500">animate multiple elements</p>
+
+									<p class="teaser turky" data-position="170,1180" data-in="left"  data-delay="3000">full control over each element</p>
+
+									<p class="teaser turky" data-position="220,1180" data-in="left"  data-delay="4500" data-out="none">opensource and free</p>
+
+									<p class="teaser turky" data-position="270,1180" data-in="left" data-delay="5500" data-out="none">Download free</p>
+
+									<imgsrc="front/images/fraction-slider/slider-girl.png" width="480" height="480" data-position="-20,250" data-in="right" data-delay="500" data-out="fade" style="width:auto; height:auto">
+
+									<a href=""	class="slider-read" data-position="340,1330" data-in="bottom" data-out="top" data-delay="6500">download Now</a>
+							</div>
 					</div>
-				</header>
 			</div>
-			<div class="columns-container">
-				<div id="columns" class="container">
-										<div id="slider_row" class="row">
-						<div id="top_column" class="center_column col-xs-12 col-sm-12"><!-- Module HomeSlider -->
-    		<div class="col-xs-8" id="homepage-slider">
-						<div style="max-width: 779px; margin: 0px auto;" class="bx-wrapper"><div style="width: 100%; overflow: hidden; position: relative; height: 448px;" class="bx-viewport"><ul id="homeslider" style="max-height: 448px; width: 515%; position: relative; left: -779px;"><li style="float: left; list-style: outside none none; position: relative; width: 779px;" class="homeslider-container bx-clone">
-							<a href="http://www.prestashop.com/?utm_source=back-office&amp;utm_medium=v16_homeslider&amp;utm_campaign=back-office-FR&amp;utm_content=download" title="sample-3">
-								<img src="mirage_fichiers/sample-3.jpg" alt="sample-3" height="448" width="779">
-							</a>
-															<div class="homeslider-description"><h2>EXCEPTEUR<br>OCCAECAT</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-tristique in tortor et dignissim. Quisque non tempor leo. Maecenas
-egestas sem elit</p>
-				<p><button class="btn btn-default" type="button">Shop now !</button></p></div>
-													</li>
-															<li style="float: left; list-style: outside none none; position: relative; width: 779px;" class="homeslider-container">
-							<a href="http://www.prestashop.com/?utm_source=back-office&amp;utm_medium=v16_homeslider&amp;utm_campaign=back-office-FR&amp;utm_content=download" title="sample-1">
-								<img src="mirage_fichiers/sample-1.jpg" alt="sample-1" height="448" width="779">
-							</a>
-															<div class="homeslider-description"><h2>EXCEPTEUR<br>OCCAECAT</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-tristique in tortor et dignissim. Quisque non tempor leo. Maecenas
-egestas sem elit</p>
-				<p><button class="btn btn-default" type="button">Shop now !</button></p></div>
-													</li>
-																				<li style="float: left; list-style: outside none none; position: relative; width: 779px;" class="homeslider-container">
-							<a href="http://www.prestashop.com/?utm_source=back-office&amp;utm_medium=v16_homeslider&amp;utm_campaign=back-office-FR&amp;utm_content=download" title="sample-2">
-								<img src="mirage_fichiers/sample-2.jpg" alt="sample-2" height="448" width="779">
-							</a>
-															<div class="homeslider-description"><h2>EXCEPTEUR<br>OCCAECAT</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-tristique in tortor et dignissim. Quisque non tempor leo. Maecenas
-egestas sem elit</p>
-				<p><button class="btn btn-default" type="button">Shop now !</button></p></div>
-													</li>
-																				<li style="float: left; list-style: outside none none; position: relative; width: 779px;" class="homeslider-container">
-							<a href="http://www.prestashop.com/?utm_source=back-office&amp;utm_medium=v16_homeslider&amp;utm_campaign=back-office-FR&amp;utm_content=download" title="sample-3">
-								<img src="mirage_fichiers/sample-3.jpg" alt="sample-3" height="448" width="779">
-							</a>
-															<div class="homeslider-description"><h2>EXCEPTEUR<br>OCCAECAT</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-tristique in tortor et dignissim. Quisque non tempor leo. Maecenas
-egestas sem elit</p>
-				<p><button class="btn btn-default" type="button">Shop now !</button></p></div>
-													</li>
-												<li style="float: left; list-style: outside none none; position: relative; width: 779px;" class="homeslider-container bx-clone">
-							<a href="http://www.prestashop.com/?utm_source=back-office&amp;utm_medium=v16_homeslider&amp;utm_campaign=back-office-FR&amp;utm_content=download" title="sample-1">
-								<img src="mirage_fichiers/sample-1.jpg" alt="sample-1" height="448" width="779">
-							</a>
-															<div class="homeslider-description"><h2>EXCEPTEUR<br>OCCAECAT</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-tristique in tortor et dignissim. Quisque non tempor leo. Maecenas
-egestas sem elit</p>
-				<p><button class="btn btn-default" type="button">Shop now !</button></p></div>
-													</li></ul></div><div class="bx-controls bx-has-controls-direction"><div class="bx-controls-direction"><a class="bx-prev" href="">Prev</a><a class="bx-next" href="">Next</a></div></div></div>
+	<!--End Slider-->
+
+	<!--start info service-->
+	<section class="info_service">
+		<div class="container">
+			<div class="row sub_content">
+				<div class="col-sm-4 col-md-4 col-lg-4">
+					<div class="serviceBox_2">
+						<i class="fa fa-bell"></i>
+						<h3>Web Design</h3>
+						<p>Integer ultrices scelerisque nulla fringilla. Praesent leo massa, ullamcorper venenatis tempor.</p>
+					</div>
+				</div>
+				<div class="col-sm-4 col-md-4 col-lg-4">
+					<div class="serviceBox_2">
+						<i class="fa fa-briefcase"></i>
+						<h3>Web Design</h3>
+						<p>Integer ultrices scelerisque nulla fringilla. Praesent leo massa, ullamcorper venenatis tempor.</p>
+					</div>
+				</div>
+				<div class="col-sm-4 col-md-4 col-lg-4">
+					<div class="serviceBox_2">
+						<i class="fa fa-rocket"></i>
+						<h3>Web Design</h3>
+						<p>Integer ultrices scelerisque nulla fringilla. Praesent leo massa, ullamcorper venenatis tempor.</p>
+					</div>
+				</div>
+			</div>
 		</div>
-	<!-- /Module HomeSlider -->
-<div id="htmlcontent_top">
-	<ul class="htmlcontent-home clearfix row">
-									<li class="htmlcontent-item-1 col-xs-4">
-														<a href="http://www.prestashop.com/" class="item-link" title="">
-																		<img src="mirage_fichiers/banner-img6.jpg" class="item-img " title="" alt="" height="219" width="381">
-																													</a>
-									</li>
-									<li class="htmlcontent-item-2 col-xs-4">
-														<a href="http://www.prestashop.com/" class="item-link" title="">
-																		<img src="mirage_fichiers/banner-img7.jpg" class="item-img " title="" alt="" height="219" width="381">
-																													</a>
-									</li>
-			</ul>
-</div>
-</div>
-					</div>
-					<div class="row">
-																		<div id="center_column" class="center_column col-xs-12 col-sm-12">
-	            <ul id="home-page-tabs" class="nav nav-tabs clearfix">
-			<li class="active"><a data-toggle="tab" href="#homefeatured" class="homefeatured">Populaire</a></li><li><a data-toggle="tab" href="#blockbestsellers" class="blockbestsellers">Meilleures Ventes</a></li><li><a data-toggle="tab" href="#blockspecials" class="blockspecials">Promotions</a></li>
+	</section>
+	<!--end info service-->
 
-		</ul>
-		<div class="tab-content">
-
-
-
-	<!-- Products list -->
-	<ul id="homefeatured" class="product_list grid row homefeatured tab-pane active">
-
-
-
-								<li class="ajax_block_product col-xs-12 col-sm-4 col-md-3 first-in-line first-item-of-tablet-line first-item-of-mobile-line">
-			<div class="product-container" itemscope="" itemtype="http://schema.org/Product">
-				<div class="left-block">
-					<div class="product-image-container">
-						<a class="product_img_link" href="http://localhost:8888/prestashop/t-shirts/1-t-shirt-delave-manches-courtes.html" title="T-shirt délavé à manches courtes" itemprop="url">
-							<img class="replace-2x img-responsive" src="mirage_fichiers/t-shirt-delave-manches-courtes.jpg" alt="T-shirt délavé à manches courtes" title="T-shirt délavé à manches courtes" itemprop="image" height="250" width="250">
-						</a>
-													<div class="quick-view-wrapper-mobile">
-							<a class="quick-view-mobile" href="http://localhost:8888/prestashop/t-shirts/1-t-shirt-delave-manches-courtes.html" rel="http://localhost:8888/prestashop/t-shirts/1-t-shirt-delave-manches-courtes.html">
-								<i class="icon-eye-open"></i>
-							</a>
+	<!--Start recent work-->
+	<section class="latest_work">
+		<div class="container">
+			<div class="row sub_content">
+				<div class="carousel-intro">
+					<div class="col-md-12">
+						<div class="dividerHeading">
+							<h4><span>Recent Work</span></h4>
 						</div>
-						<a class="quick-view" href="http://localhost:8888/prestashop/t-shirts/1-t-shirt-delave-manches-courtes.html" rel="http://localhost:8888/prestashop/t-shirts/1-t-shirt-delave-manches-courtes.html">
-							<span>Aperçu rapide</span>
-						</a>
-																			<div class="content_price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
-																	<span itemprop="price" class="price product-price">
-										19,81 €									</span>
-									<meta itemprop="priceCurrency" content="EUR">
-																																								<link itemprop="availability" href="http://schema.org/InStock">En stock
+						<div class="carousel-navi">
+							<div id="work-prev" class="arrow-left jcarousel-prev"><i class="fa fa-angle-left"></i></div>
+							<div id="work-next" class="arrow-right jcarousel-next"><i class="fa fa-angle-right"></i></div>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
 
+									<div class="jcarousel recent-work-jc">
+											<ul class="jcarousel-list">
+													<!-- Recent Work Item -->
+													<li class="col-sm-3 col-md-3 col-lg-3">
+															<div class="recent-item">
+																	<figure>
+																			<div class="touching medium">
+																					<imgsrc="front/images/portfolio/portfolio_1.png" alt="" />
+																			</div>
+																			<div class="option">
+																					<a href="images/portfolio/full/portfolio_1.png" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
+																					<a href="portfolio_single.html" class="hover-link"><i class="fa fa-link"></i></a>
+																			</div>
+																			<figcaption class="item-description">
+																					<h5>Touch and Swipe</h5>
+																					<span>Technology</span>
+																			</figcaption>
+																	</figure>
 															</div>
-																			<a class="new-box" href="http://localhost:8888/prestashop/t-shirts/1-t-shirt-delave-manches-courtes.html">
-								<span class="new-label">Nouveau</span>
-							</a>
+													</li>
+
+													<!-- Recent Work Item -->
+													<li class="col-sm-3 col-md-3 col-lg-3">
+															<div class="recent-item">
+																	<figure>
+																			<div class="touching medium">
+																					<imgsrc="front/images/portfolio/portfolio_2.png" alt="" />
+																			</div>
+																			<div class="option">
+																					<a href="images/portfolio/full/portfolio_2.png" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
+																					<a href="portfolio_single.html" class="hover-link"><i class="fa fa-link"></i></a>
+																			</div>
+																			<figcaption class="item-description">
+																					<h5>Touch and Swipe</h5>
+																					<span>Technology</span>
+																			</figcaption>
+																	</figure>
+															</div>
+													</li>
+
+													<!-- Recent Work Item -->
+													<li class="col-sm-3 col-md-3 col-lg-3">
+															<div class="recent-item">
+																	<figure>
+																			<div class="touching medium">
+																					<imgsrc="front/images/portfolio/portfolio_3.png" alt="" />
+																			</div>
+																			<div class="option">
+																					<a href="images/portfolio/full/portfolio_8.png" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
+																					<a href="portfolio_single.html" class="hover-link"><i class="fa fa-link"></i></a>
+																			</div>
+																			<figcaption class="item-description">
+																					<h5>Touch and Swipe</h5>
+																					<span>Technology</span>
+																			</figcaption>
+																	</figure>
+															</div>
+													</li>
+
+													<!-- Recent Work Item -->
+													<li class="col-sm-3 col-md-3 col-lg-3">
+															<div class="recent-item">
+																	<figure>
+																			<div class="touching medium">
+																					<imgsrc="front/images/portfolio/portfolio_4.png" alt="" />
+																			</div>
+																			<div class="option">
+																					<a href="images/portfolio/full/portfolio_3.png" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
+																					<a href="portfolio_single.html" class="hover-link"><i class="fa fa-link"></i></a>
+																			</div>
+																			<figcaption class="item-description">
+																					<h5>Touch and Swipe</h5>
+																					<span>Technology</span>
+																			</figcaption>
+																	</figure>
+															</div>
+													</li>
+
+													<!-- Recent Work Item -->
+													<li class="col-sm-3 col-md-3 col-lg-3">
+															<div class="recent-item">
+																	<figure>
+																			<div class="touching medium">
+																					<imgsrc="front/images/portfolio/portfolio_5.png" alt="" />
+																			</div>
+																			<div class="option">
+																					<a href="images/portfolio/full/portfolio_4.png" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
+																					<a href="portfolio_single.html" class="hover-link"><i class="fa fa-link"></i></a>
+																			</div>
+																			<figcaption class="item-description">
+																					<h5>Touch and Swipe</h5>
+																					<span>Technology</span>
+																			</figcaption>
+																	</figure>
+															</div>
+													</li>
+
+													<!-- Recent Work Item -->
+													<li class="col-sm-3 col-md-3 col-lg-3">
+															<div class="recent-item">
+																	<figure>
+																			<div class="touching medium">
+																					<imgsrc="front/images/portfolio/portfolio_5.png" alt="" />
+																			</div>
+																			<div class="option">
+																					<a href="images/portfolio/full/portfolio_1.png" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
+																					<a href="portfolio_single.html" class="hover-link"><i class="fa fa-link"></i></a>
+																			</div>
+																			<figcaption class="item-description">
+																					<h5>Touch and Swipe</h5>
+																					<span>Technology</span>
+																			</figcaption>
+																	</figure>
+															</div>
+													</li>
+
+													<!-- Recent Work Item -->
+													<li class="col-sm-3 col-md-3 col-lg-3">
+															<div class="recent-item">
+																	<figure>
+																			<div class="touching medium">
+																					<imgsrc="front/images/portfolio/portfolio_2.png" alt="" />
+																			</div>
+																			<div class="option">
+																					<a href="images/portfolio/full/portfolio_7.png" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
+																					<a href="portfolio_single.html" class="hover-link"><i class="fa fa-link"></i></a>
+																			</div>
+																			<figcaption class="item-description">
+																					<h5>Touch and Swipe</h5>
+																					<span>Technology</span>
+																			</figcaption>
+																	</figure>
+															</div>
+													</li>
+
+													<!-- Recent Work Item -->
+													<li class="col-sm-3 col-md-3 col-lg-3">
+															<div class="recent-item">
+																	<figure>
+																			<div class="touching medium">
+																					<imgsrc="front/images/portfolio/portfolio_3.png" alt="" />
+																			</div>
+																			<div class="option">
+																					<a href="images/portfolio/full/portfolio_8.png" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
+																					<a href="portfolio_single.html" class="hover-link"><i class="fa fa-link"></i></a>
+																			</div>
+																			<figcaption class="item-description">
+																					<h5>Touch and Swipe</h5>
+																					<span>Technology</span>
+																			</figcaption>
+																	</figure>
+															</div>
+													</li>
+											</ul>
+									</div>
+			</div>
+		</div>
+	</section>
+	<!--Start recent work-->
+
+	<section class="fetaure_bottom">
+		<div class="container">
+			<div class="row sub_content">
+									<div class="col-lg-6">
+											<div class="eve-tab">
+													<div class="dividerHeading">
+															<h4><span>Eve Features</span></h4>
+													</div>
+													<div class="widget widget_tab">
+															<ul id="myTab" class="nav nav-tabs">
+																	<li class="active"><a href="#Popular" data-toggle="tab">Popular</a></li>
+																	<li class=""><a href="#Recent" data-toggle="tab">Recent</a></li>
+																	<li class="last-tab"><a href="#Recent-Comment" data-toggle="tab"><i class="fa fa-comments-o"></i></a></li>
+															</ul>
+
+															<div id="myTabContent" class="tab-content clearfix">
+																	<div class="tab-pane fade active in" id="Popular">
+																			<h3>Unique & Clean Design</h3>
+																			<p>Fusce lacinia tempor malesuada. Ut lacus sapien, placerat a ornare nec, elementum sit amet felis. Maecenas pretium lorem hendrerit eros sagittis fermentum. Donec in ut odio libero, at vulputate urna. Nulla tristique mi a massa convallis cursus. Nulla eu mi magna. Etiam suscipit commodo ad gravida.</p>
+																			<ul class="list_style circle">
+																					<li><a href="#"><i class="fa fa-check"></i> Donec convallis, metus nec tempus aliquet</a></li>
+																					<li><a href="#"><i class="fa fa-check"></i> Aenean commodo ligula eget dolor</a></li>
+																					<li><a href="#"><i class="fa fa-check"></i> Cum sociis natoque penatibus mag dis parturient</a></li>
+																			</ul>
 																	</div>
-
-
-				</div>
-				<div class="right-block">
-					<h5 itemprop="name">
-												<a class="product-name" href="http://localhost:8888/prestashop/t-shirts/1-t-shirt-delave-manches-courtes.html" title="T-shirt délavé à manches courtes" itemprop="url">
-							T-shirt délavé à manches courtes
-						</a>
-					</h5>
-
-					<p class="product-desc" itemprop="description">
-						T-shirt délavé à manches courtes et col rond. Matière douce et
-extensible pour un confort inégalé. Pour un look estival, portez-le avec
- un chapeau de paille&nbsp;!
-					</p>
-										<div class="content_price">
-													<span class="price product-price">
-								19,81 €							</span>
-
-
-											</div>
-										<div style="display: none;" class="button-container">
-																													<a class="button ajax_add_to_cart_button btn btn-default" href="http://localhost:8888/prestashop/panier?add=1&amp;id_product=1&amp;token=c205de65ddcd1e67a4aad110be2047bc" rel="nofollow" title="Ajouter au panier" data-id-product="1" data-minimal_quantity="1">
-									<span>Ajouter au panier</span>
-								</a>
-																			<a class="button lnk_view btn btn-default" href="http://localhost:8888/prestashop/t-shirts/1-t-shirt-delave-manches-courtes.html" title="Afficher">
-							<span>Détails</span>
-						</a>
-					</div>
-										<div class="product-flags">
-																														</div>
-																		<span class="availability">
-																	<span class="available-now">
-										En stock									</span>
-															</span>
-															</div>
-							</div><!-- .product-container> -->
-		</li>
-
-
-
-								<li class="ajax_block_product col-xs-12 col-sm-4 col-md-3 last-item-of-mobile-line">
-			<div class="product-container" itemscope="" itemtype="http://schema.org/Product">
-				<div class="left-block">
-					<div class="product-image-container">
-						<a class="product_img_link" href="http://localhost:8888/prestashop/chemisiers/2-chemisier.html" title="Chemisier" itemprop="url">
-							<img class="replace-2x img-responsive" src="mirage_fichiers/chemisier.jpg" alt="Chemisier" title="Chemisier" itemprop="image" height="250" width="250">
-						</a>
-													<div class="quick-view-wrapper-mobile">
-							<a class="quick-view-mobile" href="http://localhost:8888/prestashop/chemisiers/2-chemisier.html" rel="http://localhost:8888/prestashop/chemisiers/2-chemisier.html">
-								<i class="icon-eye-open"></i>
-							</a>
-						</div>
-						<a class="quick-view" href="http://localhost:8888/prestashop/chemisiers/2-chemisier.html" rel="http://localhost:8888/prestashop/chemisiers/2-chemisier.html">
-							<span>Aperçu rapide</span>
-						</a>
-																			<div class="content_price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
-																	<span itemprop="price" class="price product-price">
-										32,40 €									</span>
-									<meta itemprop="priceCurrency" content="EUR">
-																																								<link itemprop="availability" href="http://schema.org/InStock">En stock
-
-															</div>
-																			<a class="new-box" href="http://localhost:8888/prestashop/chemisiers/2-chemisier.html">
-								<span class="new-label">Nouveau</span>
-							</a>
+																	<div class="tab-pane fade" id="Recent">
+																			<h3>Easy to Customize</h3>
+																			<p>Fusce lacinia tempor malesuada. Ut lacus sapien, placerat a ornare nec, elementum sit amet felis. Maecenas pretium lorem hendrerit eros sagittis fermentum. Donec in ut odio libero, at vulputate urna. Nulla tristique mi a massa convallis cursus. Nulla eu mi magna. Etiam suscipit commodo ad gravida.</p>
+																			<ul class="list_style">
+																					<li><a href="#"><i class="fa fa-check"></i> Donec convallis, metus nec tempus aliquet</a></li>
+																					<li><a href="#"><i class="fa fa-check"></i> Aenean commodo ligula eget dolor</a></li>
+																					<li><a href="#"><i class="fa fa-check"></i> Cum sociis natoque penatibus mag dis parturient</a></li>
+																			</ul>
 																	</div>
-
-
-				</div>
-				<div class="right-block">
-					<h5 itemprop="name">
-												<a class="product-name" href="http://localhost:8888/prestashop/chemisiers/2-chemisier.html" title="Chemisier" itemprop="url">
-							Chemisier
-						</a>
-					</h5>
-
-					<p class="product-desc" itemprop="description">
-						Chemisier à manches courtes drapées, pour un style féminin et élégant.
-					</p>
-										<div class="content_price">
-													<span class="price product-price">
-								32,40 €							</span>
-
-
-											</div>
-										<div style="display: none;" class="button-container">
-																													<a class="button ajax_add_to_cart_button btn btn-default" href="http://localhost:8888/prestashop/panier?add=1&amp;id_product=2&amp;token=c205de65ddcd1e67a4aad110be2047bc" rel="nofollow" title="Ajouter au panier" data-id-product="2" data-minimal_quantity="1">
-									<span>Ajouter au panier</span>
-								</a>
-																			<a class="button lnk_view btn btn-default" href="http://localhost:8888/prestashop/chemisiers/2-chemisier.html" title="Afficher">
-							<span>Détails</span>
-						</a>
-					</div>
-										<div class="product-flags">
-																														</div>
-																		<span class="availability">
-																	<span class="available-now">
-										En stock									</span>
-															</span>
-															</div>
-							</div><!-- .product-container> -->
-		</li>
-
-
-
-								<li class="ajax_block_product col-xs-12 col-sm-4 col-md-3 last-item-of-tablet-line first-item-of-mobile-line">
-			<div class="product-container" itemscope="" itemtype="http://schema.org/Product">
-				<div class="left-block">
-					<div class="product-image-container">
-						<a class="product_img_link" href="http://localhost:8888/prestashop/robes-decontractees/3-robe-imprimee.html" title="Robe imprimée" itemprop="url">
-							<img class="replace-2x img-responsive" src="mirage_fichiers/robe-imprimee_002.jpg" alt="Robe imprimée" title="Robe imprimée" itemprop="image" height="250" width="250">
-						</a>
-													<div class="quick-view-wrapper-mobile">
-							<a class="quick-view-mobile" href="http://localhost:8888/prestashop/robes-decontractees/3-robe-imprimee.html" rel="http://localhost:8888/prestashop/robes-decontractees/3-robe-imprimee.html">
-								<i class="icon-eye-open"></i>
-							</a>
-						</div>
-						<a class="quick-view" href="http://localhost:8888/prestashop/robes-decontractees/3-robe-imprimee.html" rel="http://localhost:8888/prestashop/robes-decontractees/3-robe-imprimee.html">
-							<span>Aperçu rapide</span>
-						</a>
-																			<div class="content_price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
-																	<span itemprop="price" class="price product-price">
-										31,20 €									</span>
-									<meta itemprop="priceCurrency" content="EUR">
-																																								<link itemprop="availability" href="http://schema.org/InStock">En stock
-
-															</div>
-																			<a class="new-box" href="http://localhost:8888/prestashop/robes-decontractees/3-robe-imprimee.html">
-								<span class="new-label">Nouveau</span>
-							</a>
+																	<div class="tab-pane fade" id="Recent-Comment">
+																			<h3>Free Support & Updates</h3>
+																			<p>Fusce lacinia tempor malesuada. Ut lacus sapien, placerat a ornare nec, elementum sit amet felis. Maecenas pretium lorem hendrerit eros sagittis fermentum. Donec in ut odio libero, at vulputate urna. Nulla tristique mi a massa convallis cursus. Nulla eu mi magna. Etiam suscipit commodo ad gravida.</p>
+																			<ul class="list_style square">
+																					<li><a href="#"><i class="fa fa-check"></i> Donec convallis, metus nec tempus aliquet</a></li>
+																					<li><a href="#"><i class="fa fa-check"></i> Aenean commodo ligula eget dolor</a></li>
+																					<li><a href="#"><i class="fa fa-check"></i> Cum sociis natoque penatibus mag dis parturient</a></li>
+																			</ul>
 																	</div>
-
-
-				</div>
-				<div class="right-block">
-					<h5 itemprop="name">
-												<a class="product-name" href="http://localhost:8888/prestashop/robes-decontractees/3-robe-imprimee.html" title="Robe imprimée" itemprop="url">
-							Robe imprimée
-						</a>
-					</h5>
-
-					<p class="product-desc" itemprop="description">
-						Robe imprimée 100&nbsp;% coton. Haut rayé noir et blanc et bas composé d'une jupe patineuse taille haute.
-					</p>
-										<div class="content_price">
-													<span class="price product-price">
-								31,20 €							</span>
-
-
+															</div>
+													</div>
 											</div>
-										<div style="display: none;" class="button-container">
-																													<a class="button ajax_add_to_cart_button btn btn-default" href="http://localhost:8888/prestashop/panier?add=1&amp;id_product=3&amp;token=c205de65ddcd1e67a4aad110be2047bc" rel="nofollow" title="Ajouter au panier" data-id-product="3" data-minimal_quantity="1">
-									<span>Ajouter au panier</span>
-								</a>
-																			<a class="button lnk_view btn btn-default" href="http://localhost:8888/prestashop/robes-decontractees/3-robe-imprimee.html" title="Afficher">
-							<span>Détails</span>
-						</a>
+									</div>
+
+									<div class="col-lg-6 ">
+					<div class="dividerHeading">
+						<h4><span>Why Choose Us?</span></h4>
 					</div>
-										<div class="product-flags">
-																														</div>
-																		<span class="availability">
-																	<span class="available-now">
-										En stock									</span>
-															</span>
-															</div>
-							</div><!-- .product-container> -->
-		</li>
-
-
-
-								<li class="ajax_block_product col-xs-12 col-sm-4 col-md-3 last-in-line first-item-of-tablet-line last-item-of-mobile-line">
-			<div class="product-container" itemscope="" itemtype="http://schema.org/Product">
-				<div class="left-block">
-					<div class="product-image-container">
-						<a class="product_img_link" href="http://localhost:8888/prestashop/robes-soiree/4-robe-imprimee.html" title="Robe imprimée" itemprop="url">
-							<img class="replace-2x img-responsive" src="mirage_fichiers/robe-imprimee.jpg" alt="Robe imprimée" title="Robe imprimée" itemprop="image" height="250" width="250">
-						</a>
-													<div class="quick-view-wrapper-mobile">
-							<a class="quick-view-mobile" href="http://localhost:8888/prestashop/robes-soiree/4-robe-imprimee.html" rel="http://localhost:8888/prestashop/robes-soiree/4-robe-imprimee.html">
-								<i class="icon-eye-open"></i>
-							</a>
-						</div>
-						<a class="quick-view" href="http://localhost:8888/prestashop/robes-soiree/4-robe-imprimee.html" rel="http://localhost:8888/prestashop/robes-soiree/4-robe-imprimee.html">
-							<span>Aperçu rapide</span>
-						</a>
-																			<div class="content_price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
-																	<span itemprop="price" class="price product-price">
-										61,19 €									</span>
-									<meta itemprop="priceCurrency" content="EUR">
-																																								<link itemprop="availability" href="http://schema.org/InStock">En stock
-
-															</div>
-																			<a class="new-box" href="http://localhost:8888/prestashop/robes-soiree/4-robe-imprimee.html">
-								<span class="new-label">Nouveau</span>
-							</a>
-																	</div>
-
-
+					<p>Cras mattis consectetur purus sit amet fermen. Lorem ipsum dolor sit amet, consec adipiscing elit. Maecenas sed diam eget risus varius bland sit amet non fringilla ullamcorper magna. Nulla eu mi magna. Etiam suscipit commodo ad gravida.</p>
+					<ul class="list_style circle">
+						<li><a href="#"><i class="fa fa-angle-right"></i> Donec convallis, metus nec tempus aliquet</a></li>
+						<li><a href="#"><i class="fa fa-angle-right"></i> Aenean commodo ligula eget dolor</a></li>
+						<li><a href="#"><i class="fa fa-angle-right"></i> Cum sociis natoque penatibus mag ipsum</a></li>
+						<li><a href="#"><i class="fa fa-angle-right"></i> Lorem ipsum dolor sit amet cons adipiscing</a></li>
+						<li><a href="#"><i class="fa fa-angle-right"></i> Accumsan vulputate faucibus turpis dictum</a></li>
+						<li><a href="#"><i class="fa fa-angle-right"></i> Nullam ultrices eros accumsan vulputate</a></li>
+						<li><a href="#"><i class="fa fa-angle-right"></i> Nunc aliquet tincidunt metus sit amet</a></li>
+					</ul>
 				</div>
-				<div class="right-block">
-					<h5 itemprop="name">
-												<a class="product-name" href="http://localhost:8888/prestashop/robes-soiree/4-robe-imprimee.html" title="Robe imprimée" itemprop="url">
-							Robe imprimée
-						</a>
-					</h5>
-
-					<p class="product-desc" itemprop="description">
-						Robe de soirée imprimée à manches droites et volants, avec fine ceinture noire à la taille.
-					</p>
-										<div class="content_price">
-													<span class="price product-price">
-								61,19 €							</span>
-
-
-											</div>
-										<div style="display: none;" class="button-container">
-																													<a class="button ajax_add_to_cart_button btn btn-default" href="http://localhost:8888/prestashop/panier?add=1&amp;id_product=4&amp;token=c205de65ddcd1e67a4aad110be2047bc" rel="nofollow" title="Ajouter au panier" data-id-product="4" data-minimal_quantity="1">
-									<span>Ajouter au panier</span>
-								</a>
-																			<a class="button lnk_view btn btn-default" href="http://localhost:8888/prestashop/robes-soiree/4-robe-imprimee.html" title="Afficher">
-							<span>Détails</span>
-						</a>
+			</div>
+		</div>
+	</section>
+	<section class="clients">
+		<div class="container">
+			<div class="row sub_content">
+				<div class="col-lg-12 col-md-12 col-sm-12">
+					<div class="dividerHeading">
+						<h4><span>Our Clients</span></h4>
 					</div>
-										<div class="product-flags">
-																														</div>
-																		<span class="availability">
-																	<span class="available-now">
-										En stock									</span>
-															</span>
-															</div>
-							</div><!-- .product-container> -->
-		</li>
 
-
-
-								<li class="ajax_block_product col-xs-12 col-sm-4 col-md-3 first-in-line last-line first-item-of-mobile-line">
-			<div class="product-container" itemscope="" itemtype="http://schema.org/Product">
-				<div class="left-block">
-					<div class="product-image-container">
-						<a class="product_img_link" href="http://localhost:8888/prestashop/robes-ete/5-robe-ete-imprimee.html" title="Robe d'été imprimée" itemprop="url">
-							<img class="replace-2x img-responsive" src="mirage_fichiers/robe-ete-imprimee.jpg" alt="Robe d'été imprimée" title="Robe d'été imprimée" itemprop="image" height="250" width="250">
-						</a>
-													<div class="quick-view-wrapper-mobile">
-							<a class="quick-view-mobile" href="http://localhost:8888/prestashop/robes-ete/5-robe-ete-imprimee.html" rel="http://localhost:8888/prestashop/robes-ete/5-robe-ete-imprimee.html">
-								<i class="icon-eye-open"></i>
-							</a>
-						</div>
-						<a class="quick-view" href="http://localhost:8888/prestashop/robes-ete/5-robe-ete-imprimee.html" rel="http://localhost:8888/prestashop/robes-ete/5-robe-ete-imprimee.html">
-							<span>Aperçu rapide</span>
-						</a>
-																			<div class="content_price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
-																	<span itemprop="price" class="price product-price">
-										34,78 €									</span>
-									<meta itemprop="priceCurrency" content="EUR">
-
-										<span class="old-price product-price">
-											36,61 €
-										</span>
-																					<span class="price-percent-reduction">-5%</span>
-																																																		<link itemprop="availability" href="http://schema.org/InStock">En stock
-
-															</div>
-																			<a class="new-box" href="http://localhost:8888/prestashop/robes-ete/5-robe-ete-imprimee.html">
-								<span class="new-label">Nouveau</span>
-							</a>
-																	</div>
-
-
+					<div class="our_clients">
+						<ul class="client_items clearfix">
+							<li class="col-sm-3 col-md-3 col-lg-3"><a href="services.html"  data-placement="bottom" data-toggle="tooltip" title="Client 1" ><imgsrc="front/images/clients/1.png" alt="" /></a></li>
+							<li class="col-sm-3 col-md-3 col-lg-3"><a href="services.html" data-placement="bottom" data-toggle="tooltip" title="Client 2" ><imgsrc="front/images/clients/2.png" alt="" /></a></li>
+							<li class="col-sm-3 col-md-3 col-lg-3"><a href="services.html" data-placement="bottom" data-toggle="tooltip" title="Client 3" ><imgsrc="front/images/clients/3.png" alt="" /></a></li>
+							<li class="col-sm-3 col-md-3 col-lg-3"><a href="services.html" data-placement="bottom" data-toggle="tooltip" title="Client 4" ><imgsrc="front/images/clients/4.png" alt="" /></a></li>
+						</ul><!--/ .client_items-->
+					</div>
 				</div>
-				<div class="right-block">
-					<h5 itemprop="name">
-												<a class="product-name" href="http://localhost:8888/prestashop/robes-ete/5-robe-ete-imprimee.html" title="Robe d'été imprimée" itemprop="url">
-							Robe d'été imprimée
-						</a>
-					</h5>
+			</div>
+		</div>
+	</section>
+</section>
+<!--end wrapper-->
 
-					<p class="product-desc" itemprop="description">
-						Longue robe imprimée à fines bretelles réglables. Décolleté en V et armature sous la poitrine. Volants au bas de la robe.
-					</p>
-										<div class="content_price">
-													<span class="price product-price">
-								34,78 €							</span>
-
-								<span class="old-price product-price">
-									36,61 €
-								</span>
-
-																	<span class="price-percent-reduction">-5%</span>
-
-
-											</div>
-										<div style="display: none;" class="button-container">
-																													<a class="button ajax_add_to_cart_button btn btn-default" href="http://localhost:8888/prestashop/panier?add=1&amp;id_product=5&amp;token=c205de65ddcd1e67a4aad110be2047bc" rel="nofollow" title="Ajouter au panier" data-id-product="5" data-minimal_quantity="1">
-									<span>Ajouter au panier</span>
-								</a>
-																			<a class="button lnk_view btn btn-default" href="http://localhost:8888/prestashop/robes-ete/5-robe-ete-imprimee.html" title="Afficher">
-							<span>Détails</span>
-						</a>
-					</div>
-										<div class="product-flags">
-																																	<span class="discount">Prix réduit !</span>
-												</div>
-																		<span class="availability">
-																	<span class="available-now">
-										En stock									</span>
-															</span>
-															</div>
-							</div><!-- .product-container> -->
-		</li>
-
-
-
-								<li class="ajax_block_product col-xs-12 col-sm-4 col-md-3 last-line last-item-of-tablet-line last-item-of-mobile-line">
-			<div class="product-container" itemscope="" itemtype="http://schema.org/Product">
-				<div class="left-block">
-					<div class="product-image-container">
-						<a class="product_img_link" href="http://localhost:8888/prestashop/robes-ete/6-robe-ete-imprimee.html" title="Robe d'été imprimée" itemprop="url">
-							<img class="replace-2x img-responsive" src="mirage_fichiers/robe-ete-imprimee_002.jpg" alt="Robe d'été imprimée" title="Robe d'été imprimée" itemprop="image" height="250" width="250">
-						</a>
-													<div class="quick-view-wrapper-mobile">
-							<a class="quick-view-mobile" href="http://localhost:8888/prestashop/robes-ete/6-robe-ete-imprimee.html" rel="http://localhost:8888/prestashop/robes-ete/6-robe-ete-imprimee.html">
-								<i class="icon-eye-open"></i>
-							</a>
-						</div>
-						<a class="quick-view" href="http://localhost:8888/prestashop/robes-ete/6-robe-ete-imprimee.html" rel="http://localhost:8888/prestashop/robes-ete/6-robe-ete-imprimee.html">
-							<span>Aperçu rapide</span>
-						</a>
-																			<div class="content_price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
-																	<span itemprop="price" class="price product-price">
-										36,60 €									</span>
-									<meta itemprop="priceCurrency" content="EUR">
-																																								<link itemprop="availability" href="http://schema.org/InStock">En stock
-
-															</div>
-																			<a class="new-box" href="http://localhost:8888/prestashop/robes-ete/6-robe-ete-imprimee.html">
-								<span class="new-label">Nouveau</span>
-							</a>
-																	</div>
-
-
+<section class="promo_box">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-9 col-md-9 col-lg-9">
+				<div class="promo_content no-padd">
+					<h3>Eve is awesome responsive template, with clean design.</h3>
+					<p>Lorem ipsum dolor sit amet, cons adipiscing elit. Aenean commodo ligula eget dolor. </p>
 				</div>
-				<div class="right-block">
-					<h5 itemprop="name">
-												<a class="product-name" href="http://localhost:8888/prestashop/robes-ete/6-robe-ete-imprimee.html" title="Robe d'été imprimée" itemprop="url">
-							Robe d'été imprimée
-						</a>
-					</h5>
-
-					<p class="product-desc" itemprop="description">
-						Robe en mousseline sans manches, longueur genoux. Décolleté en V avec élastique sous la poitrine.
-					</p>
-										<div class="content_price">
-													<span class="price product-price">
-								36,60 €							</span>
-
-
-											</div>
-										<div style="display: none;" class="button-container">
-																													<a class="button ajax_add_to_cart_button btn btn-default" href="http://localhost:8888/prestashop/panier?add=1&amp;id_product=6&amp;token=c205de65ddcd1e67a4aad110be2047bc" rel="nofollow" title="Ajouter au panier" data-id-product="6" data-minimal_quantity="1">
-									<span>Ajouter au panier</span>
-								</a>
-																			<a class="button lnk_view btn btn-default" href="http://localhost:8888/prestashop/robes-ete/6-robe-ete-imprimee.html" title="Afficher">
-							<span>Détails</span>
-						</a>
-					</div>
-										<div class="product-flags">
-																														</div>
-																		<span class="availability">
-																	<span class="available-now">
-										En stock									</span>
-															</span>
-															</div>
-							</div><!-- .product-container> -->
-		</li>
-
-
-
-								<li class="ajax_block_product col-xs-12 col-sm-4 col-md-3 last-line first-item-of-tablet-line first-item-of-mobile-line last-mobile-line">
-			<div class="product-container" itemscope="" itemtype="http://schema.org/Product">
-				<div class="left-block">
-					<div class="product-image-container">
-						<a class="product_img_link" href="http://localhost:8888/prestashop/robes-ete/7-robe-mousseline-imprimee.html" title="Robe en mousseline imprimée" itemprop="url">
-							<img class="replace-2x img-responsive" src="mirage_fichiers/robe-mousseline-imprimee.jpg" alt="Robe en mousseline imprimée" title="Robe en mousseline imprimée" itemprop="image" height="250" width="250">
-						</a>
-													<div class="quick-view-wrapper-mobile">
-							<a class="quick-view-mobile" href="http://localhost:8888/prestashop/robes-ete/7-robe-mousseline-imprimee.html" rel="http://localhost:8888/prestashop/robes-ete/7-robe-mousseline-imprimee.html">
-								<i class="icon-eye-open"></i>
-							</a>
-						</div>
-						<a class="quick-view" href="http://localhost:8888/prestashop/robes-ete/7-robe-mousseline-imprimee.html" rel="http://localhost:8888/prestashop/robes-ete/7-robe-mousseline-imprimee.html">
-							<span>Aperçu rapide</span>
-						</a>
-																			<div class="content_price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
-																	<span itemprop="price" class="price product-price">
-										19,68 €									</span>
-									<meta itemprop="priceCurrency" content="EUR">
-
-										<span class="old-price product-price">
-											24,60 €
-										</span>
-																					<span class="price-percent-reduction">-20%</span>
-																																																		<link itemprop="availability" href="http://schema.org/InStock">En stock
-
-															</div>
-																			<a class="new-box" href="http://localhost:8888/prestashop/robes-ete/7-robe-mousseline-imprimee.html">
-								<span class="new-label">Nouveau</span>
-							</a>
-																	</div>
-
-
-				</div>
-				<div class="right-block">
-					<h5 itemprop="name">
-												<a class="product-name" href="http://localhost:8888/prestashop/robes-ete/7-robe-mousseline-imprimee.html" title="Robe en mousseline imprimée" itemprop="url">
-							Robe en mousseline imprimée
-						</a>
-					</h5>
-
-					<p class="product-desc" itemprop="description">
-						Robe en mousseline imprimée à bretelles, longueur genoux. Profond décolleté en V.
-					</p>
-										<div class="content_price">
-													<span class="price product-price">
-								19,68 €							</span>
-
-								<span class="old-price product-price">
-									24,60 €
-								</span>
-
-																	<span class="price-percent-reduction">-20%</span>
-
-
-											</div>
-										<div style="display: none;" class="button-container">
-																													<a class="button ajax_add_to_cart_button btn btn-default" href="http://localhost:8888/prestashop/panier?add=1&amp;id_product=7&amp;token=c205de65ddcd1e67a4aad110be2047bc" rel="nofollow" title="Ajouter au panier" data-id-product="7" data-minimal_quantity="1">
-									<span>Ajouter au panier</span>
-								</a>
-																			<a class="button lnk_view btn btn-default" href="http://localhost:8888/prestashop/robes-ete/7-robe-mousseline-imprimee.html" title="Afficher">
-							<span>Détails</span>
-						</a>
-					</div>
-										<div class="product-flags">
-																																	<span class="discount">Prix réduit !</span>
-												</div>
-																		<span class="availability">
-																	<span class="available-now">
-										En stock									</span>
-															</span>
-															</div>
-							</div><!-- .product-container> -->
-		</li>
-		</ul>
-
-
-
-
-
-
-
-
-
-	<!-- Products list -->
-	<ul id="blockbestsellers" class="product_list grid row blockbestsellers tab-pane">
-
-
-
-								<li class="ajax_block_product col-xs-12 col-sm-4 col-md-3 first-in-line first-item-of-tablet-line first-item-of-mobile-line">
-			<div class="product-container" itemscope="" itemtype="http://schema.org/Product">
-				<div class="left-block">
-					<div class="product-image-container">
-						<a class="product_img_link" href="http://localhost:8888/prestashop/chemisiers/2-chemisier.html" title="Chemisier" itemprop="url">
-							<img class="replace-2x img-responsive" src="mirage_fichiers/chemisier.jpg" alt="Chemisier" title="Chemisier" itemprop="image" height="250" width="250">
-						</a>
-													<div class="quick-view-wrapper-mobile">
-							<a class="quick-view-mobile" href="http://localhost:8888/prestashop/chemisiers/2-chemisier.html" rel="http://localhost:8888/prestashop/chemisiers/2-chemisier.html">
-								<i class="icon-eye-open"></i>
-							</a>
-						</div>
-						<a class="quick-view" href="http://localhost:8888/prestashop/chemisiers/2-chemisier.html" rel="http://localhost:8888/prestashop/chemisiers/2-chemisier.html">
-							<span>Aperçu rapide</span>
-						</a>
-																			<div class="content_price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
-																	<span itemprop="price" class="price product-price">
-										32,40 €									</span>
-									<meta itemprop="priceCurrency" content="EUR">
-																																								<link itemprop="availability" href="http://schema.org/InStock">En stock
-
-															</div>
-																			<a class="new-box" href="http://localhost:8888/prestashop/chemisiers/2-chemisier.html">
-								<span class="new-label">Nouveau</span>
-							</a>
-																	</div>
-
-
-				</div>
-				<div class="right-block">
-					<h5 itemprop="name">
-												<a class="product-name" href="http://localhost:8888/prestashop/chemisiers/2-chemisier.html" title="Chemisier" itemprop="url">
-							Chemisier
-						</a>
-					</h5>
-
-					<p class="product-desc" itemprop="description">
-						Chemisier à manches courtes drapées, pour un style féminin et élégant.
-					</p>
-										<div class="content_price">
-													<span class="price product-price">
-								32,40 €							</span>
-
-
-											</div>
-										<div style="display: none;" class="button-container">
-																													<a class="button ajax_add_to_cart_button btn btn-default" href="http://localhost:8888/prestashop/panier?add=1&amp;id_product=2&amp;token=c205de65ddcd1e67a4aad110be2047bc" rel="nofollow" title="Ajouter au panier" data-id-product="2" data-minimal_quantity="1">
-									<span>Ajouter au panier</span>
-								</a>
-																			<a class="button lnk_view btn btn-default" href="http://localhost:8888/prestashop/chemisiers/2-chemisier.html" title="Afficher">
-							<span>Détails</span>
-						</a>
-					</div>
-										<div class="product-flags">
-																														</div>
-																		<span class="availability">
-																	<span class="available-now">
-										En stock									</span>
-															</span>
-															</div>
-							</div><!-- .product-container> -->
-		</li>
-
-
-
-								<li class="ajax_block_product col-xs-12 col-sm-4 col-md-3 last-item-of-mobile-line">
-			<div class="product-container" itemscope="" itemtype="http://schema.org/Product">
-				<div class="left-block">
-					<div class="product-image-container">
-						<a class="product_img_link" href="http://localhost:8888/prestashop/t-shirts/1-t-shirt-delave-manches-courtes.html" title="T-shirt délavé à manches courtes" itemprop="url">
-							<img class="replace-2x img-responsive" src="mirage_fichiers/t-shirt-delave-manches-courtes.jpg" alt="T-shirt délavé à manches courtes" title="T-shirt délavé à manches courtes" itemprop="image" height="250" width="250">
-						</a>
-													<div class="quick-view-wrapper-mobile">
-							<a class="quick-view-mobile" href="http://localhost:8888/prestashop/t-shirts/1-t-shirt-delave-manches-courtes.html" rel="http://localhost:8888/prestashop/t-shirts/1-t-shirt-delave-manches-courtes.html">
-								<i class="icon-eye-open"></i>
-							</a>
-						</div>
-						<a class="quick-view" href="http://localhost:8888/prestashop/t-shirts/1-t-shirt-delave-manches-courtes.html" rel="http://localhost:8888/prestashop/t-shirts/1-t-shirt-delave-manches-courtes.html">
-							<span>Aperçu rapide</span>
-						</a>
-																			<div class="content_price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
-																	<span itemprop="price" class="price product-price">
-										19,81 €									</span>
-									<meta itemprop="priceCurrency" content="EUR">
-																																								<link itemprop="availability" href="http://schema.org/InStock">En stock
-
-															</div>
-																			<a class="new-box" href="http://localhost:8888/prestashop/t-shirts/1-t-shirt-delave-manches-courtes.html">
-								<span class="new-label">Nouveau</span>
-							</a>
-																	</div>
-
-
-				</div>
-				<div class="right-block">
-					<h5 itemprop="name">
-												<a class="product-name" href="http://localhost:8888/prestashop/t-shirts/1-t-shirt-delave-manches-courtes.html" title="T-shirt délavé à manches courtes" itemprop="url">
-							T-shirt délavé à manches courtes
-						</a>
-					</h5>
-
-					<p class="product-desc" itemprop="description">
-						T-shirt délavé à manches courtes et col rond. Matière douce et
-extensible pour un confort inégalé. Pour un look estival, portez-le avec
- un chapeau de paille&nbsp;!
-					</p>
-										<div class="content_price">
-													<span class="price product-price">
-								19,81 €							</span>
-
-
-											</div>
-										<div style="display: none;" class="button-container">
-																													<a class="button ajax_add_to_cart_button btn btn-default" href="http://localhost:8888/prestashop/panier?add=1&amp;id_product=1&amp;token=c205de65ddcd1e67a4aad110be2047bc" rel="nofollow" title="Ajouter au panier" data-id-product="1" data-minimal_quantity="1">
-									<span>Ajouter au panier</span>
-								</a>
-																			<a class="button lnk_view btn btn-default" href="http://localhost:8888/prestashop/t-shirts/1-t-shirt-delave-manches-courtes.html" title="Afficher">
-							<span>Détails</span>
-						</a>
-					</div>
-										<div class="product-flags">
-																														</div>
-																		<span class="availability">
-																	<span class="available-now">
-										En stock									</span>
-															</span>
-															</div>
-							</div><!-- .product-container> -->
-		</li>
-
-
-
-								<li class="ajax_block_product col-xs-12 col-sm-4 col-md-3 last-item-of-tablet-line first-item-of-mobile-line">
-			<div class="product-container" itemscope="" itemtype="http://schema.org/Product">
-				<div class="left-block">
-					<div class="product-image-container">
-						<a class="product_img_link" href="http://localhost:8888/prestashop/robes-decontractees/3-robe-imprimee.html" title="Robe imprimée" itemprop="url">
-							<img class="replace-2x img-responsive" src="mirage_fichiers/robe-imprimee_002.jpg" alt="Robe imprimée" title="Robe imprimée" itemprop="image" height="250" width="250">
-						</a>
-													<div class="quick-view-wrapper-mobile">
-							<a class="quick-view-mobile" href="http://localhost:8888/prestashop/robes-decontractees/3-robe-imprimee.html" rel="http://localhost:8888/prestashop/robes-decontractees/3-robe-imprimee.html">
-								<i class="icon-eye-open"></i>
-							</a>
-						</div>
-						<a class="quick-view" href="http://localhost:8888/prestashop/robes-decontractees/3-robe-imprimee.html" rel="http://localhost:8888/prestashop/robes-decontractees/3-robe-imprimee.html">
-							<span>Aperçu rapide</span>
-						</a>
-																			<div class="content_price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
-																	<span itemprop="price" class="price product-price">
-										31,20 €									</span>
-									<meta itemprop="priceCurrency" content="EUR">
-																																								<link itemprop="availability" href="http://schema.org/InStock">En stock
-
-															</div>
-																			<a class="new-box" href="http://localhost:8888/prestashop/robes-decontractees/3-robe-imprimee.html">
-								<span class="new-label">Nouveau</span>
-							</a>
-																	</div>
-
-
-				</div>
-				<div class="right-block">
-					<h5 itemprop="name">
-												<a class="product-name" href="http://localhost:8888/prestashop/robes-decontractees/3-robe-imprimee.html" title="Robe imprimée" itemprop="url">
-							Robe imprimée
-						</a>
-					</h5>
-
-					<p class="product-desc" itemprop="description">
-						Robe imprimée 100&nbsp;% coton. Haut rayé noir et blanc et bas composé d'une jupe patineuse taille haute.
-					</p>
-										<div class="content_price">
-													<span class="price product-price">
-								31,20 €							</span>
-
-
-											</div>
-										<div style="display: none;" class="button-container">
-																													<a class="button ajax_add_to_cart_button btn btn-default" href="http://localhost:8888/prestashop/panier?add=1&amp;id_product=3&amp;token=c205de65ddcd1e67a4aad110be2047bc" rel="nofollow" title="Ajouter au panier" data-id-product="3" data-minimal_quantity="1">
-									<span>Ajouter au panier</span>
-								</a>
-																			<a class="button lnk_view btn btn-default" href="http://localhost:8888/prestashop/robes-decontractees/3-robe-imprimee.html" title="Afficher">
-							<span>Détails</span>
-						</a>
-					</div>
-										<div class="product-flags">
-																														</div>
-																		<span class="availability">
-																	<span class="available-now">
-										En stock									</span>
-															</span>
-															</div>
-							</div><!-- .product-container> -->
-		</li>
-
-
-
-								<li class="ajax_block_product col-xs-12 col-sm-4 col-md-3 last-in-line first-item-of-tablet-line last-item-of-mobile-line">
-			<div class="product-container" itemscope="" itemtype="http://schema.org/Product">
-				<div class="left-block">
-					<div class="product-image-container">
-						<a class="product_img_link" href="http://localhost:8888/prestashop/robes-ete/6-robe-ete-imprimee.html" title="Robe d'été imprimée" itemprop="url">
-							<img class="replace-2x img-responsive" src="mirage_fichiers/robe-ete-imprimee_002.jpg" alt="Robe d'été imprimée" title="Robe d'été imprimée" itemprop="image" height="250" width="250">
-						</a>
-													<div class="quick-view-wrapper-mobile">
-							<a class="quick-view-mobile" href="http://localhost:8888/prestashop/robes-ete/6-robe-ete-imprimee.html" rel="http://localhost:8888/prestashop/robes-ete/6-robe-ete-imprimee.html">
-								<i class="icon-eye-open"></i>
-							</a>
-						</div>
-						<a class="quick-view" href="http://localhost:8888/prestashop/robes-ete/6-robe-ete-imprimee.html" rel="http://localhost:8888/prestashop/robes-ete/6-robe-ete-imprimee.html">
-							<span>Aperçu rapide</span>
-						</a>
-																			<div class="content_price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
-																	<span itemprop="price" class="price product-price">
-										36,60 €									</span>
-									<meta itemprop="priceCurrency" content="EUR">
-																																								<link itemprop="availability" href="http://schema.org/InStock">En stock
-
-															</div>
-																			<a class="new-box" href="http://localhost:8888/prestashop/robes-ete/6-robe-ete-imprimee.html">
-								<span class="new-label">Nouveau</span>
-							</a>
-																	</div>
-
-
-				</div>
-				<div class="right-block">
-					<h5 itemprop="name">
-												<a class="product-name" href="http://localhost:8888/prestashop/robes-ete/6-robe-ete-imprimee.html" title="Robe d'été imprimée" itemprop="url">
-							Robe d'été imprimée
-						</a>
-					</h5>
-
-					<p class="product-desc" itemprop="description">
-						Robe en mousseline sans manches, longueur genoux. Décolleté en V avec élastique sous la poitrine.
-					</p>
-										<div class="content_price">
-													<span class="price product-price">
-								36,60 €							</span>
-
-
-											</div>
-										<div style="display: none;" class="button-container">
-																													<a class="button ajax_add_to_cart_button btn btn-default" href="http://localhost:8888/prestashop/panier?add=1&amp;id_product=6&amp;token=c205de65ddcd1e67a4aad110be2047bc" rel="nofollow" title="Ajouter au panier" data-id-product="6" data-minimal_quantity="1">
-									<span>Ajouter au panier</span>
-								</a>
-																			<a class="button lnk_view btn btn-default" href="http://localhost:8888/prestashop/robes-ete/6-robe-ete-imprimee.html" title="Afficher">
-							<span>Détails</span>
-						</a>
-					</div>
-										<div class="product-flags">
-																														</div>
-																		<span class="availability">
-																	<span class="available-now">
-										En stock									</span>
-															</span>
-															</div>
-							</div><!-- .product-container> -->
-		</li>
-
-
-
-								<li class="ajax_block_product col-xs-12 col-sm-4 col-md-3 first-in-line last-line first-item-of-mobile-line last-mobile-line">
-			<div class="product-container" itemscope="" itemtype="http://schema.org/Product">
-				<div class="left-block">
-					<div class="product-image-container">
-						<a class="product_img_link" href="http://localhost:8888/prestashop/robes-ete/7-robe-mousseline-imprimee.html" title="Robe en mousseline imprimée" itemprop="url">
-							<img class="replace-2x img-responsive" src="mirage_fichiers/robe-mousseline-imprimee.jpg" alt="Robe en mousseline imprimée" title="Robe en mousseline imprimée" itemprop="image" height="250" width="250">
-						</a>
-													<div class="quick-view-wrapper-mobile">
-							<a class="quick-view-mobile" href="http://localhost:8888/prestashop/robes-ete/7-robe-mousseline-imprimee.html" rel="http://localhost:8888/prestashop/robes-ete/7-robe-mousseline-imprimee.html">
-								<i class="icon-eye-open"></i>
-							</a>
-						</div>
-						<a class="quick-view" href="http://localhost:8888/prestashop/robes-ete/7-robe-mousseline-imprimee.html" rel="http://localhost:8888/prestashop/robes-ete/7-robe-mousseline-imprimee.html">
-							<span>Aperçu rapide</span>
-						</a>
-																			<div class="content_price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
-																	<span itemprop="price" class="price product-price">
-										19,68 €									</span>
-									<meta itemprop="priceCurrency" content="EUR">
-
-										<span class="old-price product-price">
-											24,60 €
-										</span>
-																					<span class="price-percent-reduction">-20%</span>
-																																																		<link itemprop="availability" href="http://schema.org/InStock">En stock
-
-															</div>
-																			<a class="new-box" href="http://localhost:8888/prestashop/robes-ete/7-robe-mousseline-imprimee.html">
-								<span class="new-label">Nouveau</span>
-							</a>
-																	</div>
-
-
-				</div>
-				<div class="right-block">
-					<h5 itemprop="name">
-												<a class="product-name" href="http://localhost:8888/prestashop/robes-ete/7-robe-mousseline-imprimee.html" title="Robe en mousseline imprimée" itemprop="url">
-							Robe en mousseline imprimée
-						</a>
-					</h5>
-
-					<p class="product-desc" itemprop="description">
-						Robe en mousseline imprimée à bretelles, longueur genoux. Profond décolleté en V.
-					</p>
-										<div class="content_price">
-													<span class="price product-price">
-								19,68 €							</span>
-
-								<span class="old-price product-price">
-									24,60 €
-								</span>
-
-																	<span class="price-percent-reduction">-20%</span>
-
-
-											</div>
-										<div style="display: none;" class="button-container">
-																													<a class="button ajax_add_to_cart_button btn btn-default" href="http://localhost:8888/prestashop/panier?add=1&amp;id_product=7&amp;token=c205de65ddcd1e67a4aad110be2047bc" rel="nofollow" title="Ajouter au panier" data-id-product="7" data-minimal_quantity="1">
-									<span>Ajouter au panier</span>
-								</a>
-																			<a class="button lnk_view btn btn-default" href="http://localhost:8888/prestashop/robes-ete/7-robe-mousseline-imprimee.html" title="Afficher">
-							<span>Détails</span>
-						</a>
-					</div>
-										<div class="product-flags">
-																																	<span class="discount">Prix réduit !</span>
-												</div>
-																		<span class="availability">
-																	<span class="available-now">
-										En stock									</span>
-															</span>
-															</div>
-							</div><!-- .product-container> -->
-		</li>
-
-
-
-								<li class="ajax_block_product col-xs-12 col-sm-4 col-md-3 last-line last-item-of-tablet-line last-item-of-mobile-line last-mobile-line">
-			<div class="product-container" itemscope="" itemtype="http://schema.org/Product">
-				<div class="left-block">
-					<div class="product-image-container">
-						<a class="product_img_link" href="http://localhost:8888/prestashop/robes-ete/5-robe-ete-imprimee.html" title="Robe d'été imprimée" itemprop="url">
-							<img class="replace-2x img-responsive" src="mirage_fichiers/robe-ete-imprimee.jpg" alt="Robe d'été imprimée" title="Robe d'été imprimée" itemprop="image" height="250" width="250">
-						</a>
-													<div class="quick-view-wrapper-mobile">
-							<a class="quick-view-mobile" href="http://localhost:8888/prestashop/robes-ete/5-robe-ete-imprimee.html" rel="http://localhost:8888/prestashop/robes-ete/5-robe-ete-imprimee.html">
-								<i class="icon-eye-open"></i>
-							</a>
-						</div>
-						<a class="quick-view" href="http://localhost:8888/prestashop/robes-ete/5-robe-ete-imprimee.html" rel="http://localhost:8888/prestashop/robes-ete/5-robe-ete-imprimee.html">
-							<span>Aperçu rapide</span>
-						</a>
-																			<div class="content_price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
-																	<span itemprop="price" class="price product-price">
-										34,78 €									</span>
-									<meta itemprop="priceCurrency" content="EUR">
-
-										<span class="old-price product-price">
-											36,61 €
-										</span>
-																					<span class="price-percent-reduction">-5%</span>
-																																																		<link itemprop="availability" href="http://schema.org/InStock">En stock
-
-															</div>
-																			<a class="new-box" href="http://localhost:8888/prestashop/robes-ete/5-robe-ete-imprimee.html">
-								<span class="new-label">Nouveau</span>
-							</a>
-																	</div>
-
-
-				</div>
-				<div class="right-block">
-					<h5 itemprop="name">
-												<a class="product-name" href="http://localhost:8888/prestashop/robes-ete/5-robe-ete-imprimee.html" title="Robe d'été imprimée" itemprop="url">
-							Robe d'été imprimée
-						</a>
-					</h5>
-
-					<p class="product-desc" itemprop="description">
-						Longue robe imprimée à fines bretelles réglables. Décolleté en V et armature sous la poitrine. Volants au bas de la robe.
-					</p>
-										<div class="content_price">
-													<span class="price product-price">
-								34,78 €							</span>
-
-								<span class="old-price product-price">
-									36,61 €
-								</span>
-
-																	<span class="price-percent-reduction">-5%</span>
-
-
-											</div>
-										<div style="display: none;" class="button-container">
-																													<a class="button ajax_add_to_cart_button btn btn-default" href="http://localhost:8888/prestashop/panier?add=1&amp;id_product=5&amp;token=c205de65ddcd1e67a4aad110be2047bc" rel="nofollow" title="Ajouter au panier" data-id-product="5" data-minimal_quantity="1">
-									<span>Ajouter au panier</span>
-								</a>
-																			<a class="button lnk_view btn btn-default" href="http://localhost:8888/prestashop/robes-ete/5-robe-ete-imprimee.html" title="Afficher">
-							<span>Détails</span>
-						</a>
-					</div>
-										<div class="product-flags">
-																																	<span class="discount">Prix réduit !</span>
-												</div>
-																		<span class="availability">
-																	<span class="available-now">
-										En stock									</span>
-															</span>
-															</div>
-							</div><!-- .product-container> -->
-		</li>
-		</ul>
-
-
-
-
-
-
-
-
-
-	<!-- Products list -->
-	<ul id="blockspecials" class="product_list grid row blockspecials tab-pane">
-
-
-
-								<li class="ajax_block_product col-xs-12 col-sm-4 col-md-3 first-in-line last-line first-item-of-tablet-line first-item-of-mobile-line last-mobile-line">
-			<div class="product-container" itemscope="" itemtype="http://schema.org/Product">
-				<div class="left-block">
-					<div class="product-image-container">
-						<a class="product_img_link" href="http://localhost:8888/prestashop/robes-ete/5-robe-ete-imprimee.html" title="Robe d'été imprimée" itemprop="url">
-							<img class="replace-2x img-responsive" src="mirage_fichiers/robe-ete-imprimee.jpg" alt="Robe d'été imprimée" title="Robe d'été imprimée" itemprop="image" height="250" width="250">
-						</a>
-													<div class="quick-view-wrapper-mobile">
-							<a class="quick-view-mobile" href="http://localhost:8888/prestashop/robes-ete/5-robe-ete-imprimee.html" rel="http://localhost:8888/prestashop/robes-ete/5-robe-ete-imprimee.html">
-								<i class="icon-eye-open"></i>
-							</a>
-						</div>
-						<a class="quick-view" href="http://localhost:8888/prestashop/robes-ete/5-robe-ete-imprimee.html" rel="http://localhost:8888/prestashop/robes-ete/5-robe-ete-imprimee.html">
-							<span>Aperçu rapide</span>
-						</a>
-																			<div class="content_price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
-																	<span itemprop="price" class="price product-price">
-										34,78 €									</span>
-									<meta itemprop="priceCurrency" content="EUR">
-
-										<span class="old-price product-price">
-											36,61 €
-										</span>
-																					<span class="price-percent-reduction">-5%</span>
-																																																		<link itemprop="availability" href="http://schema.org/InStock">Disponible
-
-															</div>
-																							</div>
-
-
-				</div>
-				<div class="right-block">
-					<h5 itemprop="name">
-												<a class="product-name" href="http://localhost:8888/prestashop/robes-ete/5-robe-ete-imprimee.html" title="Robe d'été imprimée" itemprop="url">
-							Robe d'été imprimée
-						</a>
-					</h5>
-
-					<p class="product-desc" itemprop="description">
-						Longue robe imprimée à fines bretelles réglables. Décolleté en V et armature sous la poitrine. Volants au bas de la robe.
-					</p>
-										<div class="content_price">
-													<span class="price product-price">
-								34,78 €							</span>
-
-								<span class="old-price product-price">
-									36,61 €
-								</span>
-
-																	<span class="price-percent-reduction">-5%</span>
-
-
-											</div>
-										<div style="display: none;" class="button-container">
-																													<a class="button ajax_add_to_cart_button btn btn-default" href="http://localhost:8888/prestashop/panier?add=1&amp;id_product=5&amp;token=c205de65ddcd1e67a4aad110be2047bc" rel="nofollow" title="Ajouter au panier" data-id-product="5" data-minimal_quantity="1">
-									<span>Ajouter au panier</span>
-								</a>
-																			<a class="button lnk_view btn btn-default" href="http://localhost:8888/prestashop/robes-ete/5-robe-ete-imprimee.html" title="Afficher">
-							<span>Détails</span>
-						</a>
-					</div>
-										<div class="product-flags">
-																																	<span class="discount">Prix réduit !</span>
-												</div>
-																		<span class="availability">
-																	<span class="available-now">
-										Disponible									</span>
-															</span>
-															</div>
-							</div><!-- .product-container> -->
-		</li>
-
-
-
-								<li class="ajax_block_product col-xs-12 col-sm-4 col-md-3 last-line last-item-of-mobile-line last-mobile-line">
-			<div class="product-container" itemscope="" itemtype="http://schema.org/Product">
-				<div class="left-block">
-					<div class="product-image-container">
-						<a class="product_img_link" href="http://localhost:8888/prestashop/robes-ete/7-robe-mousseline-imprimee.html" title="Robe en mousseline imprimée" itemprop="url">
-							<img class="replace-2x img-responsive" src="mirage_fichiers/robe-mousseline-imprimee.jpg" alt="Robe en mousseline imprimée" title="Robe en mousseline imprimée" itemprop="image" height="250" width="250">
-						</a>
-													<div class="quick-view-wrapper-mobile">
-							<a class="quick-view-mobile" href="http://localhost:8888/prestashop/robes-ete/7-robe-mousseline-imprimee.html" rel="http://localhost:8888/prestashop/robes-ete/7-robe-mousseline-imprimee.html">
-								<i class="icon-eye-open"></i>
-							</a>
-						</div>
-						<a class="quick-view" href="http://localhost:8888/prestashop/robes-ete/7-robe-mousseline-imprimee.html" rel="http://localhost:8888/prestashop/robes-ete/7-robe-mousseline-imprimee.html">
-							<span>Aperçu rapide</span>
-						</a>
-																			<div class="content_price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
-																	<span itemprop="price" class="price product-price">
-										19,68 €									</span>
-									<meta itemprop="priceCurrency" content="EUR">
-
-										<span class="old-price product-price">
-											24,60 €
-										</span>
-																					<span class="price-percent-reduction">-20%</span>
-																																																		<link itemprop="availability" href="http://schema.org/InStock">Disponible
-
-															</div>
-																							</div>
-
-
-				</div>
-				<div class="right-block">
-					<h5 itemprop="name">
-												<a class="product-name" href="http://localhost:8888/prestashop/robes-ete/7-robe-mousseline-imprimee.html" title="Robe en mousseline imprimée" itemprop="url">
-							Robe en mousseline imprimée
-						</a>
-					</h5>
-
-					<p class="product-desc" itemprop="description">
-						Robe en mousseline imprimée à bretelles, longueur genoux. Profond décolleté en V.
-					</p>
-										<div class="content_price">
-													<span class="price product-price">
-								19,68 €							</span>
-
-								<span class="old-price product-price">
-									24,60 €
-								</span>
-
-																	<span class="price-percent-reduction">-20%</span>
-
-
-											</div>
-										<div style="display: none;" class="button-container">
-																													<a class="button ajax_add_to_cart_button btn btn-default" href="http://localhost:8888/prestashop/panier?add=1&amp;id_product=7&amp;token=c205de65ddcd1e67a4aad110be2047bc" rel="nofollow" title="Ajouter au panier" data-id-product="7" data-minimal_quantity="1">
-									<span>Ajouter au panier</span>
-								</a>
-																			<a class="button lnk_view btn btn-default" href="http://localhost:8888/prestashop/robes-ete/7-robe-mousseline-imprimee.html" title="Afficher">
-							<span>Détails</span>
-						</a>
-					</div>
-										<div class="product-flags">
-																																	<span class="discount">Prix réduit !</span>
-												</div>
-																		<span class="availability">
-																	<span class="available-now">
-										Disponible									</span>
-															</span>
-															</div>
-							</div><!-- .product-container> -->
-		</li>
-		</ul>
-
-
-
-
-
-</div>
-
-					@stop
+			</div>
+			<div class="col-sm-3 col-md-3 col-lg-3">
+				<a class="btn btn-lg btn-default" href="#fakelink">
+					<i class="fa fa-shopping-cart"></i>
+					Download Now
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+@stop

@@ -195,7 +195,7 @@ a:focus{
 /* Breadcrumbs
 ====================================*/
 #breadcrumbs ul {
-    float: right;
+    float: left;
     font-size: 12px;
     padding: 0;
 }
@@ -3823,7 +3823,7 @@ blockquote.default {
 }
 
 body {
-    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    padding-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
 .thumbnail img {
