@@ -11,6 +11,10 @@ class ContactController extends Controller {
 	{
 		return $contact;
 	}
+	public function index()
+	{
+		return \View::make('front.contact.contact');
+	}
 
 	/**
 	 * GHet contact by ID
@@ -19,7 +23,7 @@ class ContactController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index2()
 	{
 
 		$where = \Input::get('where');
