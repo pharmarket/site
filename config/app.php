@@ -13,7 +13,8 @@ return [
 	|
 	*/
 
-	'debug' => env('APP_DEBUG'),
+	//'debug' => env('APP_DEBUG'),
+	'debug' => 'true',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -53,6 +54,19 @@ return [
 	*/
 
 	'locale' => 'en',
+
+	/*
+	|--------------------------------------------------------------------------
+	| Application Multi-Locale Configuration
+	|--------------------------------------------------------------------------
+	|
+	| The application locale determines the default locale that will be used
+	| by the translation service provider. You are free to set this value
+	| to any of the locales which will be supported by the application.
+	|
+	*/
+
+	'locales' => ['en' => 'English', 'fr' => 'Français', 'de' => 'Deutschland', 'es' => 'Espagnol'],
 
 	/*
 	|--------------------------------------------------------------------------
@@ -136,6 +150,7 @@ return [
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Html\HtmlServiceProvider',
+		'App\Providers\ViewComposerServiceProvider',
 
 		/*
 		 * Application Service Providers...

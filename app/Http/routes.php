@@ -46,11 +46,6 @@ Route::group(['prefix' => 'forum'], function()
 
 });
 
-Route::get('lang/{lang}',function($lang)
-{
-    App::setLocale($lang);
-    return redirect()->back();
-});
 
 Route::get('categorie', function()
 {
@@ -73,7 +68,7 @@ Route::get('commande', function()
     return View::make('front.commande.adresse');
 });
 
-Route::get('contact', function()
+Route::get('contact',['as' => 'contact'], function()
 {
     return View::make('front.contact.contact');
 });
