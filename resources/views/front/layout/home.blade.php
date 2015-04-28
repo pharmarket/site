@@ -5,18 +5,18 @@
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<title>{{App::getLocale()}}</title>
+	<title>Pharmarket - {{App::getLocale()}}</title>
 	<meta name="description" content="">
 
     <!-- CSS FILES -->
-    <link rel="stylesheet" href="front/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="front/css/global.css" media="screen" data-name="skins">
-    <link rel="stylesheet" href="front/css/layout/wide.css" data-name="layout">
+    <link rel="stylesheet" href="{{ asset('front/css/bootstrap.min.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('front/css/global.css') }}" media="screen" data-name="skins">
+    <link rel="stylesheet" href="{{ asset('front/css/layout/wide.css') }}" data-name="layout">
 
-    <link rel="stylesheet" href="front/css/fractionslider.css"/>
-    <link rel="stylesheet" href="front/css/style-fraction.css"/>
+    <link rel="stylesheet" href="{{ asset('front/css/fractionslider.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('front/css/style-fraction.css') }}"/>
 
-    <link rel="stylesheet" type="text/css" href="front/css/switcher.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('front/css/switcher.css') }}" media="screen" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

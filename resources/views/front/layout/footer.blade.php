@@ -92,23 +92,23 @@
   </div>
 </section>
 
-<script type="text/javascript" src="front/js/jquery-1.10.2.min.js"></script>
-<script src="front/js/bootstrap.min.js"></script>
-<script src="front/js/jquery.easing.1.3.js"></script>
-<script src="front/js/retina-1.1.0.min.js"></script>
-<script type="text/javascript" src="front/js/jquery.cookie.js"></script> <!-- jQuery cookie -->
-<script type="text/javascript" src="front/js/styleswitch.js"></script> <!-- Style Colors Switcher -->
-<script src="front/js/jquery.fractionslider.js" type="text/javascript" charset="utf-8"></script>
-<script type="text/javascript" src="front/js/jquery.smartmenus.min.js"></script>
-<script type="text/javascript" src="front/js/jquery.smartmenus.bootstrap.min.js"></script>
-<script type="text/javascript" src="front/js/jquery.jcarousel.js"></script>
-<script type="text/javascript" src="front/js/jflickrfeed.js"></script>
-<script type="text/javascript" src="front/js/jquery.magnific-popup.min.js"></script>
-<script type="text/javascript" src="front/js/jquery.isotope.min.js"></script>
-<script type="text/javascript" src="front/js/swipe.js"></script>
-  <script type="text/javascript" src="front/js/jquery-scrolltofixed-min.js"></script>
+<script type="text/javascript" src="{{ asset('front/js/jquery-1.10.2.min.js') }}"></script>
+<script src="{{ asset('front/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('front/js/jquery.easing.1.3.js') }}"></script>
+<script src="{{ asset('front/js/retina-1.1.0.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('front/js/jquery.cookie.js') }}"></script> <!-- jQuery cookie -->
+<script type="text/javascript" src="{{ asset('front/js/styleswitch.js') }}"></script> <!-- Style Colors Switcher -->
+<script src="{{ asset('front/js/jquery.fractionslider.js') }}" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="{{ asset('front/js/jquery.smartmenus.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('front/js/jquery.smartmenus.bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('front/js/jquery.jcarousel.js') }}"></script>
+<script type="text/javascript" src="{{ asset('front/js/jflickrfeed.js') }}"></script>
+<script type="text/javascript" src="{{ asset('front/js/jquery.magnific-popup.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('front/js/jquery.isotope.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('front/js/swipe.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('front/js/jquery-scrolltofixed-min.js') }}"></script>
 
-<script src="front/js/main.js"></script>
+<script src="{{ asset('front/js/main.js') }}"></script>
 
 
 <!-- End Style Switcher -->
