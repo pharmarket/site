@@ -15,6 +15,11 @@ return [
 	'french'      => 'Français',
 	'english'     => 'English',
 	'spanish'     => 'Spanish',
-	'deutschland' => 'Deutschland',
+  'deutschland' => 'Deutschland',
+  'basket' => 'Panier',
+  'product' => '{0,1} produit|[2,Inf] produits',
+  'total' => 'Total',
+  'devise' => '€',
+  'purchase' => 'Commander',
 
 ];

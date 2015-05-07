@@ -37,6 +37,9 @@
 
   @include('front.layout.footer')
 
+<!-- jQuery 2.1.3 -->
+<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+@yield('footer')
 
 
 </body>

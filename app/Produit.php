@@ -7,4 +7,8 @@ class Produit extends Model {
 	protected $table = 'produit';
 	protected $fillable = ['categorie_id', 'marque_id', 'reference', 'nom', 'description'];
 
+	public function pays(){
+		return $this->belongsToMany('App\Pays');
+	}
+
 }

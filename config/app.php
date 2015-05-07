@@ -162,6 +162,9 @@ return [
 		'App\Providers\RouteServiceProvider',
 		 'App\Providers\UserServiceProvider',
 
+		//Ajout du provider pour le panier
+		 'Gloudemans\Shoppingcart\ShoppingcartServiceProvider'
+
 	],
 
 	/*
@@ -211,7 +214,8 @@ return [
 		'View'      => 'Illuminate\Support\Facades\View',
 		'User' => 'App\Facades\User_facades',
 		'Form'=> 'Illuminate\Html\FormFacade',
-		'HTML'=> 'Illuminate\Html\HtmlFacade'
+		'HTML'=> 'Illuminate\Html\HtmlFacade',
+		'Cart'            => 'Gloudemans\Shoppingcart\Facades\Cart',
 
 	],
 

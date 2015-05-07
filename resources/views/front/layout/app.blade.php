@@ -15,8 +15,10 @@
 
    <link rel="stylesheet" href="{{ asset('front/css/fractionslider.css') }}"/>
    <link rel="stylesheet" href="{{ asset('front/css/style-fraction.css') }}"/>
+   <link rel="stylesheet" href={{ asset('front/css/front.css')}}/>
 
    <link rel="stylesheet" type="text/css" href="{{ asset('front/css/switcher.css') }}" media="screen" />
+    @yield('header')
    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
    <!--[if lt IE 9]>
@@ -25,6 +27,7 @@
    <![endif]-->
 </head>
 <body>
+
 
 
  @include('front.layout.menu')
@@ -36,6 +39,9 @@
 
  @include('front.layout.footer')
 
+<!-- jQuery 2.1.3 -->
+<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+@yield('footer')
 
 
 </body>

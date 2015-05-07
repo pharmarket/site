@@ -9,6 +9,9 @@ class Pays extends Model {
 
 	public function devise(){
 		return $this->belongsTo('\App\Devise','devise_id');
-	} 
+	}
 
+	public function livreurs(){
+       	 	return $this->belongsToMany('App\Livreur', 'livreur_pays');
+    	}
 }

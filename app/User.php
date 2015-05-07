@@ -9,5 +9,13 @@ class User extends Model {
 
 
 
+	public function ville(){
+       	 	return $this->belongsTo('App\Ville');
+    	}
+
+	public function getFullnameAttribute(){
+       	 	return strtoupper($this->nom) . ' ' . $this->prenom;
+    	}
+
 
 }

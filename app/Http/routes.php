@@ -75,10 +75,25 @@ Route::get('contact2', function()
     return View::make('front.contact.contact2');
 });
 
-Route::get('/', function()
+//Route pour le panier
+// Route::resource('basket', 'Front\BasketController', ['only' => ['destroy', 'index']]);
+Route::get('basket/{basket}', ['as' => 'basket.destroy', 'uses' => 'Front\BasketController@destroy']);
+Route::get('basket', ['as' => 'basket.index', 'uses' => 'Front\BasketController@index']);
+Route::post('basket', ['as' => 'basket.post', 'uses' => 'Front\BasketController@post']);
+
+//Route pour la commande
+Route::get('purchase/address', ['as' => 'purchase.address', 'uses' => 'Front\PurchaseController@address']);
+Route::get('purchase/livraison', ['as' => 'purchase.livraison', 'uses' => 'Front\PurchaseController@livraison']);
+Route::post('purchase/livraison', ['as' => 'purchase.livraison.post', 'uses' => 'Front\PurchaseController@livraisonPost']);
+Route::get('purchase/payment', ['as' => 'purchase.payment', 'uses' => 'Front\PurchaseController@payment']);
+Route::post('purchase/confirm', ['as' => 'purchase.confirm', 'uses' => 'Front\PurchaseController@confirm']);
+Route::get('purchase/cancel', ['as' => 'purchase.cancel', 'uses' => 'Front\PurchaseController@cancel']);
+Route::get('purchase/return', ['as' => 'purchase.return', 'uses' => 'Front\PurchaseController@retour']);
+
+Route::get('/', ['as' => 'home', function()
 {
      return View::make('front.home.home');
-});
+}]);
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
