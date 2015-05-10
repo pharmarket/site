@@ -19,7 +19,8 @@ Route::group(['prefix' => 'admin'], function(){
             Route::resource('contact', 'Admin\ContactController', ['only' => ['destroy', 'index']]);
             Route::get('contact/done/{contact}', ['as' => 'admin.contact.done', 'uses' => 'Admin\ContactController@done']);
             Route::post('contact/mail/{contact}', ['as' => 'admin.contact.mail', 'uses' => 'Admin\ContactController@mail']);
-        });
+        	 Route::resource('newsletter_mail', 'Admin\NewsletterMailController');
+	});
 });
 
 
