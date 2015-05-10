@@ -22,4 +22,7 @@ return [
   'total' => 'Total',
   'devise' => '£',
   'purchase' => 'Order',
+  'suscribe' => 'Suscribe',
+  'logout' => 'Logout',
+
 ];

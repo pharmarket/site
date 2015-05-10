@@ -32,19 +32,34 @@ class Authenticate {
 	 */
 	public function handle($request, Closure $next)
 	{
-		if ($this->auth->guest())
-		{
-			if ($request->ajax())
-			{
+	        	$roles = $this->getRoles($request)[0];
+		if ($this->auth->guest()){
+			if ($request->ajax()){
 				return response('Unauthorized.', 401);
 			}
-			else
-			{
-				return redirect()->guest('auth/login');
+			else{
+				return \Redirect::guest(\Route('user.login'));
+			}
+		}elseif(\Auth::check()){
+			//Si, l'utilisateur n' pas bon le role on le redirige
+			if(\Auth::user()->role->label != $roles){
+				//Si c'est un client, on le redirge vers la home
+				if(\Auth::user()->role->label == 'customer'){
+					return \Redirect::route('home');
+				}
+				//Si c'est un client, on le redirge vers l'admin
+				elseif(\Auth::user()->role->label == 'admin'){
+					return \Redirect::route('accueil');
+				}
 			}
 		}
 
 		return $next($request);
 	}
 
+	public function getRoles($request){
+	        $actions = $request->route()->getAction();
+
+	        return $actions['roles'];
+	}
 }

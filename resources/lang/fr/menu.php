@@ -4,8 +4,8 @@ return [
 
 	'home'        => 'Accueil',
 	'submit'      => 'Se conecter',
-  'email'       => 'Email',
-  'password'    => 'Password',
+  'email'       => 'Mail',
+  'password'    => 'Mot de passe',
   'new'         => 'Les Nouveautées',
   'catalog'     => 'Le Catalogue',
   'top'         => 'Les Top Article',
@@ -21,5 +21,7 @@ return [
   'total' => 'Total',
   'devise' => '€',
   'purchase' => 'Commander',
+  'suscribe' => 'Inscription',
+  'logout' => 'Se déconnecter',
 
 ];

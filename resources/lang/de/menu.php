@@ -21,5 +21,8 @@ return [
   'total' => 'Gesamt',
   'devise' => '€',
   'purchase' => 'Bestellen',
+  'suscribe' => 'Aufschrift',
+  'logout' => 'Logout',
+
 
 ];

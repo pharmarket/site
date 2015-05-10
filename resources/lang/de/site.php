@@ -1,5 +1,6 @@
 <?php
 
 return [
-	'forgettransport' => 'Wählen Sie einen Verkehrsträger.'
+	'forgettransport' => 'Wählen Sie einen Verkehrsträger.',
+	'valid' => 'Bestätigen',
 ];
