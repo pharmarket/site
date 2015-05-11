@@ -63,7 +63,7 @@ class UserController extends Controller {
 				if(\Auth::user()->role->id == \Config::get('constant.role_customer')){
 			            	return redirect()->intended('/');
 				}else{
-					return \Redirect::route('accueil');
+					return \Redirect::to(route('accueil'));
 				}
 			}
 		}
@@ -73,6 +73,11 @@ class UserController extends Controller {
 
 	public function logout(){
 		\Auth::logout();
+		return \Redirect::back();
+	}
+
+	public function language($langue){
+		\Session::put('locale', $langue);
 		return \Redirect::back();
 	}
 

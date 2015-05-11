@@ -21,19 +21,12 @@ class Language implements Middleware {
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
-    {
-        // Make sure current locale exists.
-        $locale = $request->segment(1);
-
-        if ( ! array_key_exists($locale, $this->app->config->get('app.locales'))) {
-            $segments = $request->segments();
-            $segments[0] = $this->app->config->get('app.fallback_locale');
-
-            return $this->redirector->to(implode('/', $segments));
+    public function handle($request, Closure $next) {
+        \Session::forget('locale');
+        if(!session()->has('locale')){
+            session()->put('locale', strtolower(substr(\Request::server('HTTP_ACCEPT_LANGUAGE'), 0, 2)));
         }
-
-        $this->app->setLocale($locale);
+        $this->app->setLocale(session('locale'));
         return $next($request);
     }
 

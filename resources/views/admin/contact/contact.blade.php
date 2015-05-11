@@ -17,7 +17,7 @@
 	            <th style="width:70px;"></th>
 	          </tr>
 	        </thead>
-	        <tfoot>>
+	        <tfoot>
 	          <tr>
 	            <th>ID</th>
 	            <th>Message</th>

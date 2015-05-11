@@ -11,7 +11,7 @@ return [
   'top'         => 'Les Top Article',
   'category'    => 'par Category',
   'forum'       => 'Le Forum',
-  'langactiv'     => 'Français',
+  'langactiv'     => 'Deutschland',
 	'french'     => 'Français',
 	'english'     => 'English',
 	'spanish'     => 'Spanish',

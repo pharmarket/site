@@ -25,5 +25,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
        	 	return strtoupper($this->nom) . ' ' . $this->prenom;
     	}
 
+	public function getCreateddateAttribute(){
+		return date('d/m/Y H\Hi', date_timestamp_get(date_create($this->created_at)));
+	}
+
 
 }

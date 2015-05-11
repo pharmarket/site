@@ -102,8 +102,6 @@
     <script src="{{ asset('plugins/slimScroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
     <!-- FastClick -->
     <script src="{{ asset('plugins/fastclick/fastclick.min.js') }}"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="{{ asset('js/demo.js') }}" type="text/javascript"></script>
 
     @yield('footer')
   </body>

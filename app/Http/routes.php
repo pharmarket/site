@@ -87,12 +87,13 @@ Route::group(['middleware' => 'language'], function(){
         Route::post('purchase/confirm', ['as' => 'purchase.confirm', 'uses' => 'Front\PurchaseController@confirm']);
         Route::get('purchase/cancel', ['as' => 'purchase.cancel', 'uses' => 'Front\PurchaseController@cancel']);
         Route::get('purchase/return', ['as' => 'purchase.return', 'uses' => 'Front\PurchaseController@retour']);
-        Route::get('logout', ['as' => 'user.logout', 'uses' => 'UserController@logout']);
         Route::match(['get', 'post'], 'account', ['as' => 'user.account', 'uses' => 'UserController@suscribe']);
     });
+    Route::get('logout', ['as' => 'user.logout', 'uses' => 'UserController@logout']);
     //Route de gestion de  la connexion
     Route::match(['get', 'post'], 'login', ['as' => 'user.login', 'uses' => 'UserController@login']);
     Route::match(['get', 'post'], 'suscribe', ['as' => 'user.suscribe', 'uses' => 'UserController@suscribe']);
+    Route::get('language/{langue}', ['as' => 'user.language', 'uses' => 'UserController@language']);
 
     Route::get('/', ['as' => 'home', function(){
             return View::make('front.home.home');

@@ -94,10 +94,9 @@
                                           <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="<?= url(sprintf($changeLocaleUrl, 'fr')) ?>">{{ Lang::get('menu.french') }}</a></li>
-                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="<?= url(sprintf($changeLocaleUrl, 'en')) ?>">{{ Lang::get('menu.english') }}</a></li>
-                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="<?= url(sprintf($changeLocaleUrl,'es')) ?>">{{ Lang::get('menu.spanish') }}</a></li>
-                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="<?= url(sprintf($changeLocaleUrl, 'de')) ?>">{{ Lang::get('menu.deutschland') }}</a></li>
+                                    @foreach(Config::get('app.locales') as $key => $langue)
+                                          <li role=><a role="menuitem" tabindex="-1" href="{{route('user.language', $key)}}">{{ $langue }}</a></li>
+                                    @endforeach
                                     </ul>
                               </div>
                         </div>
