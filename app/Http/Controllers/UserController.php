@@ -84,7 +84,6 @@ class UserController extends Controller {
 	public function suscribe(\Request $request) {
 		$message = '';
 		$pays = \App\Pays::lists('nom', 'id');
-
 		if (\Request::isMethod('post')){
 			$v = \Validator::make(\Request::all(), [
 			        'mail' => 'required|max:100|email|unique:user,mail'. ((\Auth::check()) ? ','.\Auth::user()->id:''),
@@ -101,7 +100,7 @@ class UserController extends Controller {
 			        'mobile' => 'required_without:phone|numeric',
 			        'avatar' => 'image',
 			]);
-			if ($v->fails()){ return redirect()->back()->withErrors($v->errors()); }
+			if ($v->fails()){ return redirect()->back()->withInput()->withErrors($v->errors()); }
 
 			$user = \Input::except(['_token', 'password_confirmation', 'avatar']);
 

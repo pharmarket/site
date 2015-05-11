@@ -8,7 +8,7 @@
                       <!-- Logo / Mobile Menu -->
                         <div class="col-xs-12">
                                     <form id="logo">
-                                                      <h1><a href="index.html"><img src="{{ asset('front/images/Logo-pharmarket.jpg') }}" alt="Logo pharmarket" style="height:50px;"/></a></h1>
+                                                      <h1><a href="{{route('home')}}"><img src="{{ asset('front/images/Logo-pharmarket.jpg') }}" alt="Logo pharmarket" style="height:50px;"/></a></h1>
                                     </form>
                                     @if(Auth::check())
                                                       <div class="navbar-form navbar-right">
@@ -53,7 +53,7 @@
                         <div class="navbar-collapse collapse">
                               <ul class="nav navbar-nav">
                                     <li class="active">
-                                          <a href="/">{{ Lang::get('menu.home') }}</a>
+                                          <a href="{{route('home')}}">{{ Lang::get('menu.home') }}</a>
                                     </li>
 
                                     <li><a href="#">{{ Lang::get('menu.catalog') }}</a>

@@ -23,30 +23,30 @@
 					{!! Form::open(array('url' => route('user.suscribe'), 'class'=>'form-horizontal', 'role'=>'form', 'method'=>'POST', 'files' => true )) !!}
 
 						<div class="form-group">
-							{!! Form::label('pseudo',Lang::get('user.pseudo'), array('class' => 'col-md-4 control-label')); !!}
+							{!! Form::label('pseudo',Lang::get('user.pseudo'), array('class' => 'col-md-4 control-label')); !!}*
 							<div class="col-md-6">
-								{!! Form::text('pseudo', (Auth::user())?Auth::user()->pseudo:null, ["class"=>"form-control", "required",  "value"=>old('pseudo')]); !!}
+								{!! Form::text('pseudo', (Auth::user())?Auth::user()->pseudo:((Input::get('pseudo'))?:null), ["class"=>"form-control", "required"]); !!}
 							</div>
 						</div>
 
 						<div class="form-group">
-							{!! Form::label('mail', Lang::get('user.mail'), array('class' => 'col-md-4 control-label')); !!}
+							{!! Form::label('mail', Lang::get('user.mail'), array('class' => 'col-md-4 control-label')); !!}*
 							<div class="col-md-6">
-								{!! Form::email('mail', (Auth::user())?Auth::user()->mail:null, ["class"=>"form-control"]); !!}
+								{!! Form::email('mail', (Auth::user())?Auth::user()->mail:((Input::get('mail'))?:null), ["class"=>"form-control"]); !!}
 							</div>
 						</div>
 
 						@if(!Auth::check())
 
 							<div class="form-group">
-								{!! Form::label('password', Lang::get('user.password'), array('class' => 'col-md-4 control-label')); !!}
+								{!! Form::label('password', Lang::get('user.password'), array('class' => 'col-md-4 control-label')); !!}*
 								<div class="col-md-6">
 									{!! Form::password('password', ["class"=>"form-control"]); !!}
 								</div>
 							</div>
 
 							<div class="form-group">
-								{!! Form::label('password_confirmation', Lang::get('user.confirm_password'), array('class' => 'col-md-4 control-label')); !!}
+								{!! Form::label('password_confirmation', Lang::get('user.confirm_password'), array('class' => 'col-md-4 control-label')); !!}*
 								<div class="col-md-6">
 									{!! Form::password('password_confirmation', ["class"=>"form-control",  "value"=>old('password_confirmation')]); !!}
 								</div>
@@ -54,44 +54,44 @@
 						@endif
 
 						<div class="form-group">
-							{!! Form::label('ville#pays_id', Lang::get('user.pays'), array('class' => 'col-md-4 control-label')); !!}
+							{!! Form::label('ville#pays_id', Lang::get('user.pays'), array('class' => 'col-md-4 control-label')); !!}*
 							<div class="col-md-6">
-								{!! Form::select('ville#pays_id', $pays, (Auth::user())?Auth::user()->ville->pays_id:null, ["class"=>"form-control",  "value"=>old('pays_id')]); !!}
+								{!! Form::select('ville#pays_id', $pays, (Auth::user())?Auth::user()->ville->pays_id:((Input::get('ville#pays_id'))?:null), ["class"=>"form-control",  "value"=>old('pays_id')]); !!}
 							</div>
 						</div>
 
 						<div class="form-group">
-							{!! Form::label('ville#adresse', Lang::get('user.adresse'), array('class' => 'col-md-4 control-label')); !!}
+							{!! Form::label('ville#adresse', Lang::get('user.adresse'), array('class' => 'col-md-4 control-label')); !!}*
 							<div class="col-md-6">
-								{!! Form::text('ville#adresse', (Auth::user())?Auth::user()->ville->adresse:null, ["class"=>"form-control",  "value"=>old('ville_adresse')]); !!}
+								{!! Form::text('ville#adresse', (Auth::user())?Auth::user()->ville->adresse:((Input::get('ville#adresse'))?:null), ["class"=>"form-control",  "value"=>old('ville_adresse')]); !!}
 							</div>
 						</div>
 
 						<div class="form-group">
-							{!! Form::label('ville#cp', Lang::get('user.cp'), array('class' => 'col-md-4 control-label')); !!}
+							{!! Form::label('ville#cp', Lang::get('user.cp'), array('class' => 'col-md-4 control-label')); !!}*
 							<div class="col-md-6">
-								{!! Form::text('ville#cp', (Auth::user())?Auth::user()->ville->cp:null, ["class"=>"form-control",  "value"=>old('ville_cp')]); !!}
+								{!! Form::text('ville#cp', (Auth::user())?Auth::user()->ville->cp:((Input::get('ville#cp'))?:null), ["class"=>"form-control",  "value"=>old('ville_cp')]); !!}
 							</div>
 						</div>
 
 						<div class="form-group">
-							{!! Form::label('ville#nom', Lang::get('user.ville'), array('class' => 'col-md-4 control-label')); !!}
+							{!! Form::label('ville#nom', Lang::get('user.ville'), array('class' => 'col-md-4 control-label')); !!}*
 							<div class="col-md-6">
-								{!! Form::text('ville#nom', (Auth::user())?Auth::user()->ville->nom:null, ["class"=>"form-control",  "value"=>old('ville_nom')]); !!}
+								{!! Form::text('ville#nom', (Auth::user())?Auth::user()->ville->nom:((Input::get('ville#nom'))?:null), ["class"=>"form-control",  "value"=>old('ville_nom')]); !!}
 							</div>
 						</div>
 
 						<div class="form-group">
-							{!! Form::label('nom', Lang::get('user.nom'), array('class' => 'col-md-4 control-label')); !!}
+							{!! Form::label('nom', Lang::get('user.nom'), array('class' => 'col-md-4 control-label')); !!}*
 							<div class="col-md-6">
-								{!! Form::text('nom', (Auth::user())?Auth::user()->nom:null, ["class"=>"form-control",  "value"=>old('nom')]); !!}
+								{!! Form::text('nom', (Auth::user())?Auth::user()->nom:((Input::get('nom'))?:null), ["class"=>"form-control",  "value"=>old('nom')]); !!}
 							</div>
 						</div>
 
 						<div class="form-group">
-							{!! Form::label('prenom', Lang::get('user.prenom'), array('class' => 'col-md-4 control-label')); !!}
+							{!! Form::label('prenom', Lang::get('user.prenom'), array('class' => 'col-md-4 control-label')); !!}*
 							<div class="col-md-6">
-								{!! Form::text('prenom', (Auth::user())?Auth::user()->prenom:null, ["class"=>"form-control",  "value"=>old('prenom')]); !!}
+								{!! Form::text('prenom', (Auth::user())?Auth::user()->prenom:((Input::get('prenom'))?:null), ["class"=>"form-control",  "value"=>old('prenom')]); !!}
 							</div>
 						</div>
 
@@ -103,23 +103,23 @@
 						</div>
 
 						<div class="form-group">
-							{!! Form::label('birth', Lang::get('user.naissance'), array('class' => 'col-md-4 control-label')); !!}
+							{!! Form::label('birth', Lang::get('user.naissance'), array('class' => 'col-md-4 control-label')); !!}*
 							<div class="col-md-6">
-								{!! Form::input('date', 'birth', (Auth::user())?date('Y-m-d' , strtotime(Auth::user()->birth)):null, ["class"=>"form-control",  "value"=>old('birth')]); !!}
+								{!! Form::input('date', 'birth', (Auth::user())?date('Y-m-d' , strtotime(Auth::user()->birth)):((Input::get('birth'))?:null), ["class"=>"form-control",  "value"=>old('birth')]); !!}
 							</div>
 						</div>
 
 						<div class="form-group">
-							{!! Form::label('phone', Lang::get('user.phone'), array('class' => 'col-md-4 control-label')); !!}
+							{!! Form::label('phone', Lang::get('user.phone'), array('class' => 'col-md-4 control-label')); !!}**
 							<div class="col-md-6">
-								{!! Form::input('tel', 'phone', (Auth::user())?Auth::user()->phone:null, ["class"=>"form-control",  "value"=>old('phone')]); !!}
+								{!! Form::input('tel', 'phone', (Auth::user())?Auth::user()->phone:((Input::get('phone'))?:null), ["class"=>"form-control"]); !!}
 							</div>
 						</div>
 
 						<div class="form-group">
-							{!! Form::label('mobile', Lang::get('user.mobile'), array('class' => 'col-md-4 control-label')); !!}
+							{!! Form::label('mobile', Lang::get('user.mobile'), array('class' => 'col-md-4 control-label')); !!}**
 							<div class="col-md-6">
-								{!! Form::input('tel', 'mobile', (Auth::user())?Auth::user()->mobile:null, ["class"=>"form-control",  "value"=>old('mobile')]); !!}
+								{!! Form::input('tel', 'mobile', (Auth::user())?Auth::user()->mobile:((Input::get('mobile'))?:null), ["class"=>"form-control",  "value"=>old('mobile')]); !!}
 							</div>
 						</div>
 
@@ -131,6 +131,11 @@
 							</div>
 						</div>
 					{!! Form::close() !!}
+
+					<div>
+						<span>* {{Lang::get('site.required')}}</span><br/>
+						<span>** {{Lang::get('site.required_without')}}</span>
+					</div>
 				</div>
 			</div>
 		</div>

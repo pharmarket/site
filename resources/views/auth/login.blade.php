@@ -1,4 +1,4 @@
-@extends('front.layout.app')
+@extends('front.layout.home')
 
 @section('content')
 <div class="container-fluid">
