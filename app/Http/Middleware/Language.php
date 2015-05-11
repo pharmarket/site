@@ -22,7 +22,6 @@ class Language implements Middleware {
      * @return mixed
      */
     public function handle($request, Closure $next) {
-        \Session::forget('locale');
         if(!session()->has('locale')){
             session()->put('locale', strtolower(substr(\Request::server('HTTP_ACCEPT_LANGUAGE'), 0, 2)));
         }

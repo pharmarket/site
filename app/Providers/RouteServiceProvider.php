@@ -42,19 +42,8 @@ class RouteServiceProvider extends ServiceProvider {
 	 */
 	public function map(Router $router, Request $request)
 	{
-		// $part = ['admin', 'forum', 'ws'];
-		// $locale = $request->segment(1);
-		// $this->app->setLocale($locale);
-
-		// //Si le prefix est une langue, on localise la langue sur le front
-		// if(!in_array($locale, $part)){
-		// 	$router->group(['namespace' => $this->namespace,'prefix' => $locale ], function($router){
-		// 		require app_path('Http/routes.php');
-		// 	});
-		// }else{
-			$router->group(['namespace' => $this->namespace], function($router){
-				require app_path('Http/routes.php');
-			});
-		// }
+		$router->group(['namespace' => $this->namespace], function($router){
+			require app_path('Http/routes.php');
+		});
 	}
 }
