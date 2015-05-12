@@ -14,18 +14,21 @@
 
 /*** Partie admin mettre un commentaire sur chaque route pour connaitre l'avancement ***/
 Route::group(['prefix' => 'admin'], function(){
+<<<<<<< HEAD
         Route::group(['middleware' => 'auth', 'roles' => ['admin']], function(){
             Route::get('/', [ 'as' => 'accueil', 'uses' => 'Admin@index']);
             Route::resource('contact', 'Admin\ContactController', ['only' => ['destroy', 'index']]);
             Route::get('contact/done/{contact}', ['as' => 'admin.contact.done', 'uses' => 'Admin\ContactController@done']);
             Route::post('contact/mail/{contact}', ['as' => 'admin.contact.mail', 'uses' => 'Admin\ContactController@mail']);
-        	Route::resource('newsletter_mail', 'Admin\NewsletterMailController');
-            Route::get('newsletter/history', ['as' => 'admin.newsletter.history', 'uses' => 'Admin\NewsletterController@history']);
-            Route::resource('newsletter', 'Admin\NewsletterController');
-            Route::resource('cgu', 'Admin\CguController');
-            Route::resource('cgv', 'Admin\CgvController');
-            Route::resource('faq', 'Admin\FaqController');
-	});
+        });
+=======
+    Route::get('/', [ 'as' => 'accueil', 'uses' => 'Admin@index']);
+    Route::resource('contact', 'Admin\ContactController', ['only' => ['destroy', 'index']]);
+    Route::get('contact/done/{contact}', ['as' => 'admin.contact.done', 'uses' => 'Admin\ContactController@done']);
+    Route::post('contact/mail/{contact}', ['as' => 'admin.contact.mail', 'uses' => 'Admin\ContactController@mail']);
+
+    Route::resource('newsletter_mail', 'Admin\NewsletterMailController');
+>>>>>>> NewsletterMail
 });
 
 
@@ -52,7 +55,6 @@ Route::group(['prefix' => 'forum'], function()
 });
 
 
-
 Route::group(['middleware' => 'language'], function(){
     Route::get('categorie', function()
     {
@@ -75,7 +77,11 @@ Route::group(['middleware' => 'language'], function(){
         return View::make('front.commande.adresse');
     });
 
-    Route::match(['get', 'post'],'contact',['as' => 'contact', 'uses' => 'Front\ContactController@index']);
+    Route::get('contact',['as' => 'contact', 'uses' => 'ContactController@index']);
+
+    Route::get('contact2', function(){
+        return View::make('front.contact.contact2');
+    });
 
     //Route pour le panier
     Route::get('basket/{basket}', ['as' => 'basket.destroy', 'uses' => 'Front\BasketController@destroy']);
@@ -92,17 +98,6 @@ Route::group(['middleware' => 'language'], function(){
         Route::get('purchase/return', ['as' => 'purchase.return', 'uses' => 'Front\PurchaseController@retour']);
         Route::match(['get', 'post'], 'account', ['as' => 'user.account', 'uses' => 'UserController@suscribe']);
     });
-
-
-    //Route pour les CGU et CGV
-    Route::get('cgu', ['as' => 'cgu.index', 'uses' => 'Front\CguController@index']);
-    Route::get('cgv', ['as' => 'cgv.index', 'uses' => 'Front\CgvController@index']);
-
-    //Route pour le FAQ
-    Route::get('faq', ['as' => 'faq.index', 'uses' => 'Front\FaqController@index']);
-
-
-
     Route::get('logout', ['as' => 'user.logout', 'uses' => 'UserController@logout']);
     //Route de gestion de  la connexion
     Route::match(['get', 'post'], 'login', ['as' => 'user.login', 'uses' => 'UserController@login']);

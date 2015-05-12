@@ -8,9 +8,10 @@
 	        <thead>
 	          <tr>
 	            <th>ID</th>
+	            <th>Nom</th>
+	            <th>Sujet</th>
 	            <th>Message</th>
 	            <th> Mail </th>
-	            <th>Phone</th>
 	            <th>Done</th>
 	            <th>Langue</th>
 	            <th>added</th>
@@ -20,9 +21,10 @@
 	        <tfoot>
 	          <tr>
 	            <th>ID</th>
+	            <th>Nom</th>
+	            <th>Sujet</th>
 	            <th>Message</th>
 	            <th> Mail </th>
-	            <th>Phone</th>
 	            <th>Done</th>
 	            <th>Langue</th>
 	            <th>added</th>
@@ -33,9 +35,10 @@
 	        @foreach($contact as $row)
 	          <tr>
 	            <td>{{ $row->id  }}</td>
+	            <td>{{ $row->nom  }}</td>
+	            <td>{{ $row->sujet  }}</td>
 	            <td>{{ $row->message  }}</td>
 	            <td>{{ $row->mail  }}</td>
-	            <td>{{ $row->phone  }}</td>
 	            <td>{{ $row->done  }}</td>
 	            <td>{{ $row->langue->code  }}</td>
 	            <td>{{ $row->created_at  }}</td>
@@ -93,7 +96,7 @@ $(function () {
              null,
              null,
              null,
-             { type: "select", values: [ 'EN', 'FR']  }
+             { type: "select", values: [ 'EN', 'FR', 'DE', 'ES']  }
         ]
 
     })

@@ -66,7 +66,7 @@
                                     <li>
                                           <a href="{{URL::to('forum')}}">{{ Lang::get('menu.forum') }}</a>
                                     </li>
-                                    <li><a href="<?= route('contact'); ?>">{{ Lang::get('menu.contact') }}</a></li>
+                                    <li><a href="<?= route('contact'); ?>">{{ Lang::get('site.contact') }}</a></li>
                               </ul>
                               <div class="dropdown" id="dropdown_panier" style="float:right;">
                                     <button class="btn btn-default dropdown-toggle" style="height:43px;" type="button" id="select_panier" data-toggle="dropdown" aria-expanded="true">
