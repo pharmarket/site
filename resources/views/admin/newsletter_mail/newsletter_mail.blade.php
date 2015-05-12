@@ -1,25 +1,20 @@
 @extends('admin.layout.admin')
-
-@section('header')
-	<!-- DATA TABLES -->
-	<link href="{{ asset('plugins/datatables/dataTables.bootstrap.css') }}" rel="stylesheet" type="text/css" />
-@stop
-
 @section('content')
 <div class="row">
 
 	<div>
-		@include('admin.newsletter_mail.success')	
+		@if (Session::has('flash_message'))
+			<div class="alert alert-success" role="alert">
+			   	{!! Session::get('flash_message') !!}
+			</div>
+		@endif
+
 	</div>
 
 	<div class="col-xs-12">
-	  	<div>
-			<div class="box-header">
-		      	<h3 class="box-title"><a class="btn btn-info glyphicon glyphicon-pencil" href="{{ URL::to('admin/newsletter_mail/create') }}"></a></h3>
-		    </div><!-- /.box-header -->
 
 		    <div class="box-body">
-		      	<table class="datatable table table-bordered table-striped" >
+		      	<table class="table table-bordered table-striped" id="select_table">
 			        <thead>
 			        	<tr>
 				            <th>ID</th>
@@ -29,11 +24,20 @@
 				            <th></th>
 			          	</tr>
 			        </thead>
+			        <tfoot>
+			        	<tr>
+				            <th>ID</th>
+				            <th>Langue</th>
+				            <th> Mail </th>
+				            <th>Added</th>
+				            <th></th>
+			          	</tr>
+			        </tfoot>
 			        <tbody>
 				        @foreach($newsletter_mail as $row)
 				        	<tr>
 					            <td>{{ $row->id  }}</td>
-					            <td>{{ $row->langue->label }}</td>
+					            <td>{{ $row->langue->code}}</td>
 					            <td>{{ $row->mail }}</td>
 					            <td>{{ $row->created_at }}</td>
 					            <td>
@@ -68,13 +72,19 @@
 	</div><!-- /.col -->
 </div><!-- /.row -->
 @stop
-@section('footer')
-	<!-- DATA TABES SCRIPT -->
-	<script src="{{ asset('plugins/datatables/jquery.dataTables.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('plugins/datatables/dataTables.bootstrap.js') }}" type="text/javascript"></script>
-	<!-- SlimScroll -->
-	<script src="{{ asset('plugins/slimScroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
-	<!-- FastClick -->
-	<script src="{{ asset('plugins/fastclick/fastclick.min.js') }}"></script>
-@stop
 
+@section('footer')
+<script type="text/javascript">
+	$(function () {
+		console.log('test');
+		$('#select_table').dataTable({"oLanguage": {
+		    "sUrl": "//cdn.datatables.net/plug-ins/1.10.6/i18n/French.json"
+		}}).columnFilter({
+			aoColumns: [
+				null,
+			     	{ type: "select", values: [ 'EN', 'FR', 'DE', 'ES']  }
+			]
+		})
+	});
+</script>
+@stop

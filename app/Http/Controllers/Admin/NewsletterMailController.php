@@ -14,7 +14,7 @@ class NewsletterMailController extends Controller {
 	 * @return Response
 	 */
 	public function index()
-	{ 	
+	{
 		$newsletter_mail = \App\Newsletter_mail::with('langue')->get();
 		return view('admin.newsletter_mail.newsletter_mail', compact('newsletter_mail'));
 	}
@@ -27,7 +27,7 @@ class NewsletterMailController extends Controller {
 	public function create()
 	{
 		$langues = \App\Langue::lists('label', 'id');
-		return View('admin.newsletter_mail.create', compact('langues'));	
+		return View('admin.newsletter_mail.create', compact('langues'));
 	}
 
 	/**
@@ -38,7 +38,7 @@ class NewsletterMailController extends Controller {
 	public function store(NewsletterMailRequest $request)
 	{
 		$newsletter_mail = new \App\Newsletter_mail;
-		$newsletter_mail->create($request->all());	
+		$newsletter_mail->create($request->all());
 		return redirect('/admin/newsletter_mail')->withFlashMessage("Création de la newsletter effectuée avec succès");
 ;
 	}
@@ -62,7 +62,7 @@ class NewsletterMailController extends Controller {
 	 */
 	public function edit($newsletter_mail)
 	{
-			
+
 	}
 
 	/**
@@ -73,7 +73,7 @@ class NewsletterMailController extends Controller {
 	 */
 	public function update($newsletter_mail)
 	{
-		
+
 	}
 
 	/**
