@@ -3,7 +3,7 @@
 class PurchaseController extends Controller {
 	public function address(){
 		//Recuparation del'utilisateur
-		$user = \App\User::findOrFail(1);
+		$user =  \Auth::user();
 		$address = $user->ville;
 
 		return view('front.purchase.address', compact('user'));
@@ -11,7 +11,7 @@ class PurchaseController extends Controller {
 
 	public function livraison(){
 		//Recuparation du pays de l'adresse liés à l'utilisateur (donc l'adresse ou on envoie le paquet)
-		$user =  \App\User::findOrFail(1);
+		$user =  \Auth::user();
 
 		$livreurs = \DB::table('livreur')
 		            ->join('livreur_pays', 'livreur_pays.livreur_id', '=', 'livreur.id')
@@ -38,7 +38,7 @@ class PurchaseController extends Controller {
 	}
 	public function payment(){
 		//Ramplacer par l'utilisateur connecter quand ce sera possible
-		$user =  \App\User::findOrFail(1);
+		$user =  \Auth::user();
 		$livreur = \Session::get('livreur');
 
 		//Si il n'y a pas de livreur, on redirige vers la page de choix du livreur
@@ -67,11 +67,11 @@ class PurchaseController extends Controller {
 
 	public function retour(){// create new PDF document
 
-		if(\App\Library\Paypal::finishPayment()){
-			$user = \App\User::findOrFail(1);
-			$livreur =  \App\Livreur::find(\Session::get('livreur'));
-			$devise = \App\Devise::where('symbole', '=', \Lang::get('menu.devise'))->get()[0];
+		$user =  \Auth::user();
+		$livreur =  \App\Livreur::find(\Session::get('livreur'));
+		$devise = \App\Devise::where('symbole', '=', \Lang::get('menu.devise'))->get()[0];
 
+		try{
 			\DB::beginTransaction();
 			//On deentre la commande finaliseé
 			$livraison = \DB::table('commande_livraison')->insertGetId([
@@ -95,24 +95,30 @@ class PurchaseController extends Controller {
 
 			foreach (\Cart::content() as $row) {
 				//Recuperation d'exemplaire
-				$exemplaire  = \DB::table('produit_exemplaire')	->leftJoin('commande_exemplaire', 'produit_exemplaire.id', '=', 'commande_exemplaire.exemplaire_id')
-											->whereNull('exemplaire_id')
+				$exemplaire  = \DB::table('produit_exemplaire AS pe')	->leftJoin('commande_exemplaire AS ce', 'pe.id', '=', 'ce.exemplaire_id')
 											->where('produit_id', $row->id)
 											->limit($row->qty)
-											->get();
-				foreach($exemplaire as $value){
+											->select('ce.*','pe.*')
+											->lists('ce.id');
+
+				if(count($exemplaire) != $row->qty){ throw new \Exception('Il n\'y a plus assez de produit');}
+				foreach($exemplaire as $id){
 					$commande_exemplaire = \DB::table('commande_exemplaire')->insertGetId([
 						'commande_id' => $commande,
-						'exemplaire_id' => $value->id,
+						'exemplaire_id' => $id,
 						'devise_id' => $devise->id,
 						'montant' => $row->price,
 					]);
 				}
 			}
-			\DB::commit();
 
+			//On lance la finalisation du paiement
+			if(!\App\Library\Paypal::finishPayment()){throw new \Exception('Le paiement n\'a pas pu aboutir');}
+
+			\DB::commit();
 			//Vider le panier
-			// \Cart::destroy();
+			\Cart::destroy();
+
 
 			//cREATION DE LA FACTURE
 
@@ -174,12 +180,13 @@ class PurchaseController extends Controller {
 			// envoie du mail
 			\Mail::send('mail.purchase-'.\Lang::getLocale(), ['total' => \Cart::total() + $livreur->frais($user), 'commande' => $commande], function($message) use ($user, $file){
 			    	$message->to($user->mail, '')->subject(\Lang::get('purchase.mail_recap'));
-    				$message->attach($file);
+					$message->attach($file);
 			});
 
 			return view('front.purchase.return');
-		}else{
-			\Redirect::route('home');
+		}catch (Exception $e) {
+			\DB::rollback();
+		    	echo 'Exception reçue : ',  $e->getMessage(), "\n";
 		}
 	}
 }

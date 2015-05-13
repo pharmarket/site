@@ -26,7 +26,7 @@ class Paypal{
 	}
 
 	public static function getTotalCart(){
-		$user =  \App\User::findOrFail(1);
+		$user =  \Auth::user();
 
 		//Recuperation du prix du livreur
 		$livreurPrix = \DB::table('livreur')	->join('livreur_pays', 'livreur_pays.livreur_id', '=', 'livreur.id')

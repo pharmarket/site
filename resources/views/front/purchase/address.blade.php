@@ -10,7 +10,7 @@
 	<div id="columns" class="container">
 		<!-- Breadcrumb -->
 		<div class="breadcrumb clearfix">
-			<a class="home" href="http://localhost:8888/prestashop/" title="retour à Accueil"><i class="icon-home"></i></a>
+			<a class="home" href="{{route('home')}}" title="retour à Accueil"><i class="icon-home"></i></a>
 			<span class="navigation-pipe">&gt;</span>
 					{{Lang::get('purchase.breadscrumbs_address')}}
 		</div>
@@ -52,7 +52,7 @@
 								<li class="address_postcode address_city">{{$user->ville->cp}}, {{$user->ville->nom}}</li>
 								<li class="address_country_name">{{$user->ville->pays->nom}}</li>
 								<li class="address_phone">{{$user->phone}}</li>
-								<li class="address_update"><a class="button button-small btn btn-default" href="http://localhost:8888/prestashop/adresse?back=order.php%3Fstep%3D1&amp;id_address=5" title="{{Lang::get('purchase.update')}}"><span>{{Lang::get('purchase.update')}}<i class="icon-chevron-right right"></i></span></a></li>
+								<li class="address_update"><a class="button button-small btn btn-default" href="{{route('user.account')}}" title="{{Lang::get('purchase.update')}}"><span>{{Lang::get('purchase.update')}}<i class="icon-chevron-right right"></i></span></a></li>
 							</ul>
 						</div>
 					</div> <!-- end addresses -->

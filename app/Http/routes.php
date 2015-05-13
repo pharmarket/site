@@ -47,7 +47,7 @@ Route::group(['prefix' => 'forum'], function()
 });
 
 
-Route::group(['middleware' => 'language'], function(){
+Route::group(['middleware' => ['language']], function(){
     Route::get('categorie', function()
     {
         return 'la categorie';
