@@ -13,14 +13,14 @@
       <li class="dropdown user user-menu">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
           <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
-          <span class="hidden-xs">{{Auth::user()->fullname}}</span>
+          <span class="hidden-xs">{{Auth::user()->pseudo}}</span>
         </a>
         <ul class="dropdown-menu">
           <!-- User image -->
           <li class="user-header">
             <img src="{{asset(Auth::user()->avatar)}}" class="img-circle" alt="User Image" />
             <p>
-              {{Auth::user()->fullname}}
+              {{Auth::user()->pseudo}}
               <small>Membre depuis le  {{Auth::user()->createddate}}</small>
             </p>
           </li>
