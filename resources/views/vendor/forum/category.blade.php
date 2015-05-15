@@ -6,19 +6,24 @@
 <h2>{{ $category->title }}</h2>
 
 @if (!$category->subcategories->isEmpty())
-<table class="table table-category">
-	<thead>
+<table class="table table-category panel panel-default" >
+	<thead class="panel-heading">
 		<tr>
 			<th>{{ trans('forum::base.category') }}</th>
 			<th class="col-md-2">{{ trans('forum::base.threads') }}</th>
 			<th class="col-md-2 text-right">{{ trans('forum::base.posts') }}</th>
 		</tr>
 	</thead>
-	<tbody>
+	<tbody  class="panel-body">
 		@foreach ($category->subcategories as $subcategory)
 		<tr>
 			<td>
-				<a href="{{ $subcategory->Route }}">{{ $subcategory->title }}</a>
+
+  	<a href="{{ $subcategory->Route }}">{{ $subcategory->title }}</a>
+
+    Panel content
+
+
 				<br>
 				{{ $subcategory->subtitle }}
 				@if ($subcategory->newestThread)
@@ -35,6 +40,7 @@
 						({{ $subcategory->latestActiveThread->lastPost->author->pseudo }})
 					</a>
 				@endif
+
 			</td>
 			<td>{{ $subcategory->threadCount }}</td>
 			<td class="text-right">{{ $subcategory->postCount }}</td>

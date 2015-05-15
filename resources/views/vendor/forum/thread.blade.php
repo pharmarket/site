@@ -65,7 +65,15 @@
         @endforeach
     </tbody>
 </table>
-
+<ul class="shares">
+									<li class="shareslabel"><h3>Share This Story</h3></li>
+									<li><a data-original-title="Twitter" class="twitter" href="#" data-placement="bottom" data-toggle="tooltip" title=""></a></li>
+									<li><a data-original-title="Facebook" class="facebook" href="#" data-placement="bottom" data-toggle="tooltip" title=""></a></li>
+									<li><a data-original-title="Google Plus" class="gplus" href="#" data-placement="bottom" data-toggle="tooltip" title=""></a></li>
+									<li><a data-original-title="Pinterest" class="pinterest" href="#" data-placement="bottom" data-toggle="tooltip" title=""></a></li>
+									<li><a data-original-title="Yahoo" class="yahoo" href="#" data-placement="bottom" data-toggle="tooltip" title=""></a></li>
+									<li><a data-original-title="LinkedIn" class="linkedin" href="#" data-placement="bottom" data-toggle="tooltip" title=""></a></li>
+								</ul>
 {!! $thread->pageLinks !!}
 
 @if ($thread->canReply)

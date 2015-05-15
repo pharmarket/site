@@ -6,7 +6,7 @@
 <h2>{{ trans('forum::base.new_threads') }}</h2>
 
 @if (!$threads->isEmpty())
-	<table class="table table-index">
+	<table class="table table-index" style="border:solid 1px #78AB4E;">
 		<thead>
 			<tr>
 				<th>{{ trans('forum::base.subject') }}</th>

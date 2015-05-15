@@ -6,8 +6,8 @@
 <h2>{{ trans('forum::base.index') }}</h2>
 
 @foreach ($categories as $category)
-<table class="table table-index">
-    <thead>
+<table class="table table-index panel panel-default" >
+	<thead class="panel-heading">
         <tr>
             <td colspan="3">
                 <p class="lead"><a href="{{ $category->Route }}">{{ $category->title }}</a></p>
@@ -15,7 +15,7 @@
             </td>
         </tr>
     </thead>
-    <tbody>
+    <tbody class="panel-body">
         <tr>
             <th>{{ trans('forum::base.category') }}</th>
             <th>{{ trans('forum::base.threads') }}</th>
