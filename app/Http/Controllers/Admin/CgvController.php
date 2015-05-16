@@ -28,10 +28,6 @@ class CgvController extends Controller {
      */
     public function create()
     {
-        // fonction laravel lists permet de lister les donnée dans un tableau
-        $langue = \App\Langue::lists('label', 'id');
-
-        return view('admin.cgv.create', compact('langue'));
     }
 
     /**
@@ -41,10 +37,6 @@ class CgvController extends Controller {
      */
     public function store(CgvRequest $request)
     {
-        //dd($request->all());
-        $cgv = new Cgv;
-        $cgv->create($request->all());
-        return redirect('/admin/cgv')->withFlashMessage("Création de la CGV effectué avec succes");
     }
 
     /**

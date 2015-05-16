@@ -102,6 +102,7 @@
     <script src="{{ asset('plugins/slimScroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
     <!-- FastClick -->
     <script src="{{ asset('plugins/fastclick/fastclick.min.js') }}"></script>
+    <script src="{{ asset('js/perso.js') }}"></script>
 
     @yield('footer')
   </body>

@@ -49,18 +49,16 @@
             <i class="fa fa-tags"></i> <span>CGU</span> <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
-            <li class="active"><a href="{{ route('admin.cgu.index') }}"><i class="fa fa-list"></i>Liste CGU</a></li>
-            <li><a href="{{ route('admin.cgu.create') }}"><i class="fa fa-plus-circle"></i>Ajouter CGU</a></li>
+            <li class="active"><a href="{{ route('admin.cgu.index') }}"><i class="fa fa-list"></i>Liste</a></li>
         </ul>
     </li>
 
     <li class="treeview">
         <a href="#">
-            <i class="fa fa-tags"></i> <span>CGV</span> <i class="fa fa-angle-left pull-right"></i>
+            <i class="fa fa-shopping-cart"></i> <span>CGV</span> <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
-            <li class="active"><a href="{{ route('admin.cgv.index') }}"><i class="fa fa-list"></i>Liste CGV</a></li>
-            <li><a href="{{ route('admin.cgv.create') }}"><i class="fa fa-plus-circle"></i>Ajouter CGV</a></li>
+            <li class="active"><a href="{{ route('admin.cgv.index') }}"><i class="fa fa-list"></i>Liste</a></li>
         </ul>
     </li>
 
