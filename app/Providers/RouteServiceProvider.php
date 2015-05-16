@@ -36,6 +36,17 @@ class RouteServiceProvider extends ServiceProvider {
 		$router->model('newsletter_mail', 'App\Newsletter_mail', function() {
 			\App::abord(404);
 		});
+
+
+
+        $router->model('cgu', 'App\Cgu', function() {
+            \App::abort(404);
+        });
+
+        $router->model('cgv', 'App\Cgv', function() {
+            \App::abort(404);
+        });
+
 	}
 
 	/**

@@ -20,6 +20,9 @@ Route::group(['prefix' => 'admin'], function(){
             Route::get('contact/done/{contact}', ['as' => 'admin.contact.done', 'uses' => 'Admin\ContactController@done']);
             Route::post('contact/mail/{contact}', ['as' => 'admin.contact.mail', 'uses' => 'Admin\ContactController@mail']);
         	 Route::resource('newsletter_mail', 'Admin\NewsletterMailController');
+
+            Route::resource('cgu', 'Admin\CguController');
+            Route::resource('cgv', 'Admin\CgvController');
 	});
 });
 
@@ -90,6 +93,14 @@ Route::group(['middleware' => ['language']], function(){
         Route::get('purchase/return', ['as' => 'purchase.return', 'uses' => 'Front\PurchaseController@retour']);
         Route::match(['get', 'post'], 'account', ['as' => 'user.account', 'uses' => 'UserController@suscribe']);
     });
+
+
+    //Route pour les CGU et CGV
+    Route::get('cgu', ['as' => 'cgu.index', 'uses' => 'Front\CguController@index']);
+    Route::get('cgv', ['as' => 'cgv.index', 'uses' => 'Front\CgvController@index']);
+
+
+
     Route::get('logout', ['as' => 'user.logout', 'uses' => 'UserController@logout']);
     //Route de gestion de  la connexion
     Route::match(['get', 'post'], 'login', ['as' => 'user.login', 'uses' => 'UserController@login']);

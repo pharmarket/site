@@ -57,11 +57,15 @@
               </div>
               <div class="col-sm-6 col-md-3 col-lg-3">
                   <div class="widget_title">
-                      <h4><span>Flickr Gallery</span></h4>
+                      <h4><span>Conditions Générales</span></h4>
+
                   </div>
+                  <li><i class=""></i> <a href="{{ route('cgv.index') }}"><span>Conditions Générales de Vente</span></a></li>
+                  <li><i class=""></i> <a href="{{ route('cgu.index') }}"><span>Conditions Générales d'Utilisation</span></a></li>
                   <div class="widget_content">
                       <div class="flickr">
                           <ul id="flickrFeed" class="flickr-feed"></ul>
+
                       </div>
                   </div>
               </div>
