@@ -2,10 +2,16 @@
 @extends('front.layout.app')
 @section('content')
 
+@section('header')
+    <link href="{{ asset('front/css/faq.css') }}" rel="stylesheet" type="text/css" />
+
+@stop
+
 
     <section class="content faq">
         <div class="container">
             <div class="row">
+                <h1 class="title">FAQ</h1>
                 <div class="col-lg-12">
                     <div class="panel-group accordion" id="accordion">
                         @foreach($faq as $row)
