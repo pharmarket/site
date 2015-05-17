@@ -23,6 +23,8 @@ Route::group(['prefix' => 'admin'], function(){
 
             Route::resource('cgu', 'Admin\CguController');
             Route::resource('cgv', 'Admin\CgvController');
+
+            Route::resource('faq', 'Admin\FaqController');
 	});
 });
 
@@ -98,6 +100,9 @@ Route::group(['middleware' => ['language']], function(){
     //Route pour les CGU et CGV
     Route::get('cgu', ['as' => 'cgu.index', 'uses' => 'Front\CguController@index']);
     Route::get('cgv', ['as' => 'cgv.index', 'uses' => 'Front\CgvController@index']);
+
+    //Route pour le FAQ
+    Route::get('faq', ['as' => 'faq.index', 'uses' => 'Front\FaqController@index']);
 
 
 

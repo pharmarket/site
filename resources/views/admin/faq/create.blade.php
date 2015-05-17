@@ -1,0 +1,112 @@
+@extends('admin.layout.admin')
+
+@section('header')
+
+@stop
+
+@section('content')
+
+    <div class="row">
+        <div>
+            @include('admin.faq.errors')
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-xs-12">
+            <h3 style="text-align: center">Ajout d'une FAQ</h3>
+        </div><!-- /.col -->
+    </div>
+
+    {!! Form::open(array('route'=>'admin.faq.store')) !!}
+
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-xs-12">
+            <!-- general form elements -->
+            <div class="box box-success">
+                <div class="box-header">
+                    <h3 class="box-title">LANGUE</h3>
+                </div>
+                <!-- form start -->
+                <div class="box-body">
+                    <div class="form-group">
+                        {!! Form::label('langue_id', 'Langue :') !!}
+                        {!! Form::select('langue_id', $langue, '', ['class'=>'form-control']) !!}
+                    </div>
+                </div><!-- /.box-body -->
+            </div><!-- /.box -->
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+
+
+
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-xs-12">
+            <!-- general form elements -->
+            <div class="box box-success">
+                <div class="box-header">
+                    <h3 class="box-title">Informations générales</h3>
+                </div>
+                <!-- form start -->
+                <div class="box-body">
+
+                    <div class="form-group">
+                        {!! Form::label('question', 'Question :') !!}
+                        {!! Form::textarea('question', '', array('class'=>'form-control', 'name'=>'question', 'placeholder' => 'question :')) !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::label('answer', 'Reponse :') !!}
+                        {!! Form::textarea('answer', '', array('class'=>'form-control', 'name'=>'answer', 'placeholder' => 'reponse :')) !!}
+                    </div>
+
+                    <div class="form-group">
+                        {!! Form::label('order', 'Ordre :') !!}
+                        <select class="form-control" name="order">
+                            @for ($i = 1; $i <= $order; $i++)
+                                <option value={{$i}}>{{$i}}</option>
+                            @endfor
+                        </select>
+
+
+
+
+                    </div>
+                </div><!-- /.box-body -->
+            </div><!-- /.box -->
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+
+
+
+
+
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-xs-12">
+            <div style="text-align: center" >
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+    {!!  Form::close() !!}
+
+@stop
+@section('footer')
+    <!-- TINY MCE -->
+    <script src="{{ asset('tinymce/tinymce.min.js') }}"></script>
+
+    <script type="text/javascript">
+        tinymce.init({
+            selector: "textarea",
+            plugins: [
+                "",
+                "",
+                ""
+            ],
+            toolbar: "undo redo | styleselect | bold italic | bullist numlist"
+        });
+    </script>
+
+@stop

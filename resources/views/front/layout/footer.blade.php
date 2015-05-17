@@ -62,6 +62,9 @@
                   </div>
                   <li><i class=""></i> <a href="{{ route('cgv.index') }}"><span>Conditions Générales de Vente</span></a></li>
                   <li><i class=""></i> <a href="{{ route('cgu.index') }}"><span>Conditions Générales d'Utilisation</span></a></li>
+
+                  <li><i class=""></i> <a href="{{ route('faq.index') }}"><span>FAQ</span></a></li>
+
                   <div class="widget_content">
                       <div class="flickr">
                           <ul id="flickrFeed" class="flickr-feed"></ul>
@@ -111,8 +114,6 @@
 <script type="text/javascript" src="{{ asset('front/js/jquery.isotope.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('front/js/swipe.js') }}"></script>
   <script type="text/javascript" src="{{ asset('front/js/jquery-scrolltofixed-min.js') }}"></script>
-
-<script src="{{ asset('front/js/main.js') }}"></script>
 
 
 <!-- End Style Switcher -->

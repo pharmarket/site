@@ -47,6 +47,11 @@ class RouteServiceProvider extends ServiceProvider {
             \App::abort(404);
         });
 
+
+        $router->model('faq', 'App\Faq', function() {
+            \App::abord(404);
+        });
+
 	}
 
 	/**
