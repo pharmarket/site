@@ -24,8 +24,19 @@
 
                         <th></th>
                         <th></th>
+                        <th></th>
                     </tr>
                     </thead>
+                    <tfoot>
+                        <tr>
+                            <th>ID</th>
+                            <th>Langue</th>
+                            <th>question </th>
+                            <th>answer </th>
+                            <th>order</th>
+
+                        </tr>
+                    </tfoot>
                     <tbody>
                     @foreach($faq as $row)
 
@@ -50,12 +61,6 @@
                             </td>
 
                         </tr>
-
-
-
-
-
-
 
 
                         <!-- Modal Confirmation de suppression -->
