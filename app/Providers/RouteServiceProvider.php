@@ -32,8 +32,12 @@ class RouteServiceProvider extends ServiceProvider {
 		$router->model('contact', 'App\Contact', function() {
 			\App::abort(404);
 		});
-
+		
 		$router->model('newsletter_mail', 'App\Newsletter_mail', function() {
+			\App::abord(404);
+		});
+
+		$router->model('newsletter', 'App\Newsletter', function() {
 			\App::abord(404);
 		});
 

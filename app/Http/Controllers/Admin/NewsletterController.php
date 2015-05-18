@@ -1,12 +1,12 @@
 <?php namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests;
-use App\Http\Requests\NewsletterMailRequest;
+use App\Http\Requests\NewsletterRequest;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-class NewsletterMailController extends Controller {
+class NewsletterController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -15,8 +15,9 @@ class NewsletterMailController extends Controller {
 	 */
 	public function index()
 	{
-		$newsletter_mail = \App\Newsletter_mail::with('langue')->get();
-		return view('admin.newsletter_mail.newsletter_mail', compact('newsletter_mail'));
+		$newsletter = \App\Newsletter::with('langue')->get();
+		
+		return view('admin.newsletter.newsletter', compact('newsletter'));
 	}
 
 	/**
@@ -27,7 +28,7 @@ class NewsletterMailController extends Controller {
 	public function create()
 	{
 		$langues = \App\Langue::lists('label', 'id');
-		return View('admin.newsletter_mail.create', compact('langues'));
+		return View('admin.newsletter.create', compact('langues'));
 	}
 
 	/**
@@ -35,12 +36,12 @@ class NewsletterMailController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(NewsletterMailRequest $request)
+	public function store(NewsletterRequest $request)
 	{
-		$newsletter_mail = new \App\Newsletter_mail;
-		$newsletter_mail->create($request->all());
-		return redirect('/admin/newsletter_mail')->withFlashMessage("Création de la newsletter effectuée avec succès");
-;
+		// Enregistrement dans la table Newsletter
+		$newsletter = new \App\Newsletter;
+		$newsletter->create($request->all());
+		return redirect('/admin/newsletter')->withFlashMessage("Création de la newsletter effectuée avec succès");
 	}
 
 	/**
@@ -49,9 +50,9 @@ class NewsletterMailController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($newsletter_mail)
+	public function show($newsletter)
 	{
-		return View('admin.newsletter_mail.show', compact('newsletter_mail'));
+		return View('admin.newsletter.show', compact('newsletter'));
 	}
 
 	/**
@@ -60,9 +61,9 @@ class NewsletterMailController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($newsletter_mail)
+	public function edit()
 	{
-
+		//
 	}
 
 	/**
@@ -71,9 +72,9 @@ class NewsletterMailController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($newsletter_mail)
+	public function update($id)
 	{
-
+		//
 	}
 
 	/**
@@ -82,10 +83,22 @@ class NewsletterMailController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($newsletter_mail)
+	public function destroy($newsletter)
 	{
-		$newsletter_mail->delete();
+		$newsletter->delete();
 		return redirect()->back()->withFlashMessage("Suppression de la neswletter effectuer avec succès");
+	}
+
+	/**
+	 * Display a listing of the history.
+	 *
+	 * @return Response
+	 */
+	public function history()
+	{dd("test");
+		$newsletter = \App\Newsletter::with('langue')->get();
+		
+		return view('admin.newsletter.history', compact('newsletter'));
 	}
 
 }

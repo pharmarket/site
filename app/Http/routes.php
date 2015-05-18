@@ -11,6 +11,7 @@
 |
 */
 
+
 /*** Partie admin mettre un commentaire sur chaque route pour connaitre l'avancement ***/
 Route::group(['prefix' => 'admin'], function(){
         Route::group(['middleware' => 'auth', 'roles' => ['admin']], function(){
@@ -18,7 +19,9 @@ Route::group(['prefix' => 'admin'], function(){
             Route::resource('contact', 'Admin\ContactController', ['only' => ['destroy', 'index']]);
             Route::get('contact/done/{contact}', ['as' => 'admin.contact.done', 'uses' => 'Admin\ContactController@done']);
             Route::post('contact/mail/{contact}', ['as' => 'admin.contact.mail', 'uses' => 'Admin\ContactController@mail']);
-        	 Route::resource('newsletter_mail', 'Admin\NewsletterMailController');
+        	Route::resource('newsletter_mail', 'Admin\NewsletterMailController');
+            Route::resource('newsletter', 'Admin\NewsletterController');
+            Route::get('newsletter/history', ['as' => 'admin.newsletter.history', 'uses' => 'Admin\NewsletterController@history']);
 
             Route::resource('cgu', 'Admin\CguController');
             Route::resource('cgv', 'Admin\CgvController');
@@ -28,9 +31,31 @@ Route::group(['prefix' => 'admin'], function(){
 });
 
 
+Route::group(['prefix' => 'forum'], function()
+{
+    Route::get('/', function()
+    {
+        return 'le forum';
+    });
+
+    Route::get('sujet', function()
+    {
+        return 'les sujets';
+    });
+
+    Route::get('message', function()
+    {
+         return 'les messages';
+    });
+    Route::get('profil', function()
+    {
+         return 'le profil';
+    });
+});
 
 
-Route::group(['middleware' => ['language']], function(){
+
+Route::group(['middleware' => 'language'], function(){
     Route::get('categorie', function()
     {
         return 'la categorie';
