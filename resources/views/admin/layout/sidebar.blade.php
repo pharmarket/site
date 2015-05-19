@@ -48,7 +48,7 @@
     <ul class="treeview-menu">
       <li class="active"><a href="{{ route('admin.newsletter.index') }}"><i class="fa fa-list"></i>Liste newsletter</a></li>
       <li><a href="{{ route('admin.newsletter.create') }}"><i class="fa fa-plus-circle"></i>Ajouter newsletter</a></li>
-      <li><a href="{{ route('admin.newsletter.history') }}"><i class="fa fa-plus-circle"></i>Historique newsletter</a></li>
+      <li><a href="{{ route('admin.newsletter.history') }}"><i class="fa fa-database"></i>Historique newsletter</a></li>
     </ul>
   </li>
 

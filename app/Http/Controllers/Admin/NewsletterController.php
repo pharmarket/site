@@ -61,9 +61,12 @@ class NewsletterController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit()
+	public function edit($newsletter)
 	{
-		//
+		// Récuperer Langues
+		$langues = \App\Langue::lists('code', 'id');
+
+		return View('admin.newsletter.edit', compact('newsletter', 'langues'));
 	}
 
 	/**

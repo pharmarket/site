@@ -22,6 +22,7 @@
 				            <th>Content </th>
 				            <th>Added</th>
 				            <th>Updated</th>
+				            <th>Sended</th>
 				            <th></th>
 			          	</tr>
 			        </thead>
@@ -32,6 +33,7 @@
 				            <th> Mail </th>
 				            <th>Added</th>
 				            <th>Updated</th>
+				            <th>Sended</th>
 				            <th></th>
 			          	</tr>
 			        </tfoot>
@@ -42,7 +44,8 @@
 					            <td>{{ $row->langue->code}}</td>
 					            <td>{!! $row->content !!}</td>
 					            <td style="width: 125px">{{ $row->created_at }}</td>
-					            <td style="width:125px">{{ $row->updated_at }}</td>
+					            <td style="width: 125px">{{ $row->updated_at }}</td>
+					            <td style="width: 125px">{{ $row->sended_at }}</td>
 					            <td style="text-align: right; width: 100px">
 					            	<a class="btn btn-primary glyphicon glyphicon-edit" href="{{route('admin.newsletter.edit', $row->id)}}"></a>
 				                    <button type="submit" class="btn btn-danger glyphicon glyphicon-trash " data-toggle="modal" data-target="#{{ $row->id  }}"></button>
