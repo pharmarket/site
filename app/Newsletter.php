@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 class Newsletter extends Model {
 
 	protected $table = 'newsletter';
-	protected $fillable = ['langue_id', 'content'];
+	protected $fillable = ['langue_id', 'content', 'send_at'];
 
 	public function langue(){
 		return $this->belongsTo('\App\langue', 'langue_id');

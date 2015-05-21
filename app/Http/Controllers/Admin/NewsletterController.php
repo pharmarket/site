@@ -98,8 +98,9 @@ class NewsletterController extends Controller {
 	 * @return Response
 	 */
 	public function history()
-	{dd("test");
-		$newsletter = \App\Newsletter::with('langue')->get();
+	{
+		//$newsletter = \App\Newsletter::with('langue')->where('send_at', '<', new \DateTime('today'))->get();
+		$newsletter = \App\Newsletter::with('langue')->where('send_at', '!=', '0000-00-00 00:00:00')->get();
 		
 		return view('admin.newsletter.history', compact('newsletter'));
 	}
