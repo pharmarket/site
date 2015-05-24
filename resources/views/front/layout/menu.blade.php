@@ -64,7 +64,7 @@
                                           </ul>
                                     </li>
                                     <li>
-                                          <a href="forum">{{ Lang::get('menu.forum') }}</a>
+                                          <a href="{{URL::to('forum')}}">{{ Lang::get('menu.forum') }}</a>
                                     </li>
                                     <li><a href="<?= route('contact'); ?>">{{ Lang::get('menu.contact') }}</a></li>
                               </ul>

@@ -11,7 +11,6 @@
 |
 */
 
-
 /*** Partie admin mettre un commentaire sur chaque route pour connaitre l'avancement ***/
 Route::group(['prefix' => 'admin'], function(){
         Route::group(['middleware' => 'auth', 'roles' => ['admin']], function(){
