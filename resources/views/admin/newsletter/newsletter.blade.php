@@ -19,7 +19,7 @@
 	<div class="col-xs-12">
 
 		    <div class="box-body">
-		      	<table class="table table-bordered table-striped" id="select_table">
+		      	<table class="datatable table table-bordered table-striped">
 			        <thead>
 			        	<tr>
 				            <th>ID</th>
@@ -35,11 +35,10 @@
 			        	<tr>
 				            <th>ID</th>
 				            <th>Langue</th>
-				            <th> Mail </th>
+				            <th>Content </th>
 				            <th>Added</th>
 				            <th>Updated</th>
 				            <th>Sended</th>
-				            <th></th>
 			          	</tr>
 			        </tfoot>
 			        <tbody>
@@ -83,20 +82,4 @@
 	  	</div><!-- /.box -->
 	</div><!-- /.col -->
 </div><!-- /.row -->
-@stop
-
-@section('footer')
-<script type="text/javascript">
-	$(function () {
-		console.log('test');
-		$('#select_table').dataTable({"oLanguage": {
-		    "sUrl": "//cdn.datatables.net/plug-ins/1.10.6/i18n/French.json"
-		}}).columnFilter({
-			aoColumns: [
-				null,
-			     	{ type: "select", values: [ 'EN', 'FR', 'DE', 'ES']  }
-			]
-		})
-	});
-</script>
 @stop

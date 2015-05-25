@@ -20,9 +20,8 @@ Route::group(['prefix' => 'admin'], function(){
             Route::get('contact/done/{contact}', ['as' => 'admin.contact.done', 'uses' => 'Admin\ContactController@done']);
             Route::post('contact/mail/{contact}', ['as' => 'admin.contact.mail', 'uses' => 'Admin\ContactController@mail']);
         	Route::resource('newsletter_mail', 'Admin\NewsletterMailController');
-            Route::resource('newsletter', 'Admin\NewsletterController');
             Route::get('newsletter/history', ['as' => 'admin.newsletter.history', 'uses' => 'Admin\NewsletterController@history']);
-
+            Route::resource('newsletter', 'Admin\NewsletterController');
             Route::resource('cgu', 'Admin\CguController');
             Route::resource('cgv', 'Admin\CgvController');
 
