@@ -131,3 +131,5 @@
           });
       });
   </script>
+
+<script src="{{ asset('front/js/main.js') }}"></script>

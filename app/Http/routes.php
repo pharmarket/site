@@ -81,9 +81,9 @@ Route::group(['middleware' => 'language'], function(){
 	Route::match(['get', 'post'], 'suscribe', ['as' => 'user.suscribe', 'uses' => 'UserController@suscribe']);
 	Route::get('language/{langue}', ['as' => 'user.language', 'uses' => 'UserController@language']);
 
-	Route::get('/', ['as' => 'home', function(){
-		return View::make('front.home.home');
-	}]);
+
+  Route::get('/', ['as' => 'home', 'uses' => 'Front\HomeController@index']);
+
 });
 Route::controllers([
 	'auth' => 'Auth\AuthController',
