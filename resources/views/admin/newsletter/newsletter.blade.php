@@ -1,23 +1,16 @@
 @extends('admin.layout.admin')
 @section('content')
 
+<div class="row">
+	@include('admin.newsletter.succes')	
+</div>
+
 <div class="row navBlock">
 	<h3 style="text-align: center">Listing des newsletters</h3>
 </div>
 
 <div class="row">
-
-	<div>
-		@if (Session::has('flash_message'))
-			<div class="alert alert-success" role="alert">
-			   	{!! Session::get('flash_message') !!}
-			</div>
-		@endif
-
-	</div>
-
 	<div class="col-xs-12">
-
 		    <div class="box-body">
 		      	<table class="datatable table table-bordered table-striped">
 			        <thead>
@@ -26,8 +19,6 @@
 				            <th>Langue</th>
 				            <th>Content </th>
 				            <th>Added</th>
-				            <th>Updated</th>
-				            <th>Sended</th>
 				            <th></th>
 			          	</tr>
 			        </thead>
@@ -37,19 +28,15 @@
 				            <th>Langue</th>
 				            <th>Content </th>
 				            <th>Added</th>
-				            <th>Updated</th>
-				            <th>Sended</th>
 			          	</tr>
 			        </tfoot>
 			        <tbody>
 				        @foreach($newsletter as $row)
 				        	<tr>
-					            <td>{{ $row->id  }}</td>
+					            <td><a href="{{ route('admin.newsletter.show', $row->id) }}">{{ $row->id }}</a></td>
 					            <td>{{ $row->langue->code}}</td>
 					            <td>{!! $row->content !!}</td>
 					            <td style="width: 125px">{{ $row->created_at }}</td>
-					            <td style="width: 125px">{{ $row->updated_at }}</td>
-					            <td style="width: 125px">{{ $row->send_at }}</td>
 					            <td style="text-align: right; width: 100px">
 					            	<a class="btn btn-primary glyphicon glyphicon-edit" href="{{route('admin.newsletter.edit', $row->id)}}"></a>
 				                    <button type="submit" class="btn btn-danger glyphicon glyphicon-trash " data-toggle="modal" data-target="#{{ $row->id  }}"></button>

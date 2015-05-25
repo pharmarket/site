@@ -75,9 +75,14 @@ class NewsletterController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
-	{
-		//
+	public function update($newsletter, NewsletterRequest $request)
+	{	
+		$newsletter->langue_id  = $request->langue_id;
+		$newsletter->content 	= $request->content;
+
+		$newsletter->save();
+
+		return redirect('/admin/newsletter')->withFlashMessage("Mise à jour de la newsletter effectuée avec succès");
 	}
 
 	/**

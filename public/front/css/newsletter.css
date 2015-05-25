@@ -1,0 +1,56 @@
+.navTabs
+{
+	padding-top		: 10px;
+	padding-bottom	: 10px;
+}
+
+.navTabsAlignLeft
+{
+	text-align: left; 
+	padding: 5px;
+}
+
+.navTabsAlignRight 
+{
+	text-align	: right; 
+	padding 	: 5px;
+}
+
+.navImages
+{
+	text-align		: center;
+	padding-top		: 20px;
+	padding-bottom	: 20px;
+}
+
+.navBlock
+{
+	text-align		: center;
+	padding-top		: 10px;
+	padding-bottom	: 10px;
+}
+
+.navInformations
+{
+	margin-left	: 5%;
+	margin-right: 5%; 
+}
+
+.navTitle
+{
+	text-align		: center;
+	background-color: #dff0d8;
+	color  			: #3c763d;
+	padding-top		: 10px;
+	padding-bottom	: 10px;
+}
+
+.navButton
+{
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+.margeSuccess(){
+	margin-left: 5px;
+}

@@ -70,15 +70,15 @@
         </ul>
     </li>
 
-    <li class="treeview">
-        <a href="#">
-            <i class="fa fa-question-circle"></i> <span>FAQ</span> <i class="fa fa-angle-left pull-right"></i>
-        </a>
-        <ul class="treeview-menu">
-            <li class="active"><a href="{{ route('admin.faq.index') }}"><i class="fa fa-list"></i>Liste</a></li>
-            <li><a href="{{ route('admin.faq.create') }}"><i class="fa fa-plus-circle"></i>Ajouter</a></li>
-        </ul>
-    </li>
+  <li class="treeview">
+      <a href="#">
+          <i class="fa fa-question-circle"></i> <span>FAQ</span> <i class="fa fa-angle-left pull-right"></i>
+      </a>
+      <ul class="treeview-menu">
+          <li class="active"><a href="{{ route('admin.faq.index') }}"><i class="fa fa-list"></i>Liste</a></li>
+          <li><a href="{{ route('admin.faq.create') }}"><i class="fa fa-plus-circle"></i>Ajouter</a></li>
+      </ul>
+  </li>
 
 </ul>
 </section>

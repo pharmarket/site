@@ -6,13 +6,13 @@
 @stop
 
 @section('content')
-<div class="row">
+<div class="row navBlock">
 	<div class="col-md-6 col-md-offset-3 col-xs-12">
 		<h3 style="text-align: center">Détails de la Newsletter n° {{ $newsletter->id }}</h3>
 	</div><!-- /.col -->
 </div>
 
-<div class="row">
+<div class="row navTabs">
 	<div class="col-md-6 col-md-offset-3 col-xs-12">
 		<div class="box box-success">
 		    <div class="box-header"></div>
@@ -45,6 +45,13 @@
 		</div><!-- /.box -->
 	</div>
 </div>
+
+<div class="row">
+	<div class="col-md-12 navButton">
+		<a class="btn btn-primary" title="Previous" alt="Previous" href="{{URL::previous()}}">Previous</a>
+	</div>
+</div>
+
 
 </div><!-- /.row -->
 @stop

@@ -1,0 +1,66 @@
+.navTabs
+{
+	padding-top		: 10px;
+	padding-bottom	: 10px;
+}
+
+.navTabsAlignLeft
+{
+	text-align: left; 
+	padding: 5px;
+}
+
+.navTabsAlignRight 
+{
+	text-align	: right; 
+	padding 	: 5px;
+}
+
+.navImages
+{
+	text-align		: center;
+	padding-top		: 20px;
+	padding-bottom	: 20px;
+}
+
+.navBlock
+{
+	text-align		: center;
+	padding-top		: 10px;
+	padding-bottom	: 10px;
+}
+
+.navInformations
+{
+	margin-left	: 5%;
+	margin-right: 5%; 
+}
+
+.navModalInformations
+{
+	margin-left	: 20%;
+	margin-right: 20%;
+}
+
+.navTitle
+{
+	text-align		: center;
+	background-color: #dff0d8;
+	color  			: #3c763d;
+	padding-top		: 10px;
+	padding-bottom	: 10px;
+}
+
+.navButton
+{
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+.navVignette
+{
+	border 		  : solid green 1px; 
+	padding-top	  : 5px; padding-bottom: 5px; 
+	border-radius : 5px 5px 5px 5px; 
+	margin-bottom : 5px;
+}
