@@ -5,21 +5,10 @@
 	<h3 style="text-align: center">Listing des newsletters envoyées</h3>
 </div>
 
-<div class="row">
-
-	<div>
-		@if (Session::has('flash_message'))
-			<div class="alert alert-success" role="alert">
-			   	{!! Session::get('flash_message') !!}
-			</div>
-		@endif
-
-	</div>
-
+<div class="row navTabs">
 	<div class="col-xs-12">
-
 		    <div class="box-body">
-		      	<table class="table table-bordered table-striped" id="select_table">
+		      	<table class="datatable table table-bordered table-striped">
 			        <thead>
 			        	<tr>
 				            <th>ID</th>
@@ -45,7 +34,7 @@
 				        	<tr>
 					            <td>{{ $row->id  }}</td>
 					            <td>{{ $row->langue->code}}</td>
-					            <td>{!! $row->content !!}</td>
+					            <td>{!! mb_strimwidth($row->content, 0, 50, "...") !!}</td>
 					            <td style="width: 125px">{{ $row->created_at }}</td>
 					            <td style="width: 125px">{{ $row->send_at }}</td>
 					            <td style="text-align: right; width: 100px">
@@ -79,20 +68,4 @@
 	  	</div><!-- /.box -->
 	</div><!-- /.col -->
 </div><!-- /.row -->
-@stop
-
-@section('footer')
-<script type="text/javascript">
-	$(function () {
-		console.log('test');
-		$('#select_table').dataTable({"oLanguage": {
-		    "sUrl": "//cdn.datatables.net/plug-ins/1.10.6/i18n/French.json"
-		}}).columnFilter({
-			aoColumns: [
-				null,
-			     	{ type: "select", values: [ 'EN', 'FR', 'DE', 'ES']  }
-			]
-		})
-	});
-</script>
 @stop

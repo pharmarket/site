@@ -9,7 +9,7 @@
 	<h3 style="text-align: center">Listing des newsletters</h3>
 </div>
 
-<div class="row">
+<div class="row navTabs">
 	<div class="col-xs-12">
 		    <div class="box-body">
 		      	<table class="datatable table table-bordered table-striped">
@@ -35,7 +35,7 @@
 				        	<tr>
 					            <td><a href="{{ route('admin.newsletter.show', $row->id) }}">{{ $row->id }}</a></td>
 					            <td>{{ $row->langue->code}}</td>
-					            <td>{!! $row->content !!}</td>
+					            <td>{!! mb_strimwidth($row->content, 0, 50, "...") !!}</td>
 					            <td style="width: 125px">{{ $row->created_at }}</td>
 					            <td style="text-align: right; width: 100px">
 					            	<a class="btn btn-primary glyphicon glyphicon-edit" href="{{route('admin.newsletter.edit', $row->id)}}"></a>

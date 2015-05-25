@@ -1,9 +1,4 @@
 @extends('admin.layout.admin')
-
-@section('header')
-	
-@stop
-
 @section('content')
 
 {!! Form::open(array('route' => array('admin.newsletter.update', $newsletter->id), 'method' => 'put')) !!}
@@ -29,7 +24,7 @@
 			<div class="box-body">
 				<div class="form-group">
                 	{!! Form::label('id', 'Id :') !!}
-                    {!!Form::input('texte', 'id', $newsletter->id, ['class' => 'form-control', 'name'=>'id', 'placeholder' => 'id'])!!}      
+                    {!! Form::input('texte', 'id', $newsletter->id, ['class' => 'form-control', 'name'=>'id', 'placeholder' => 'id', 'disabled'])!!}      
                 </div>
                 <div class="form-group">
                 	{!! Form::label('langue', 'Langue :') !!}
@@ -57,17 +52,8 @@
 
 @stop
 @section('footer')
-	<!-- DATA TABES SCRIPT -->
-	<script src="{{ asset('plugins/datatables/jquery.dataTables.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('plugins/datatables/dataTables.bootstrap.js') }}" type="text/javascript"></script>
-	<!-- SlimScroll -->
-	<script src="{{ asset('plugins/slimScroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
-	<!-- FastClick -->
-	<script src="{{ asset('plugins/fastclick/fastclick.min.js') }}"></script>
-
 	<!-- TinyMCE-->
 	<script src="{{ asset('plugins/tinymce/tinymce.min.js') }}"></script>
-
     <script type="text/javascript">
         tinymce.init({
             selector: "textarea",

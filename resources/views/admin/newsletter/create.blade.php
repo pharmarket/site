@@ -51,13 +51,6 @@
 
 @stop
 @section('footer')
-	<!-- DATA TABES SCRIPT -->
-	<script src="{{ asset('plugins/datatables/jquery.dataTables.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('plugins/datatables/dataTables.bootstrap.js') }}" type="text/javascript"></script>
-	<!-- SlimScroll -->
-	<script src="{{ asset('plugins/slimScroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
-	<!-- FastClick -->
-	<script src="{{ asset('plugins/fastclick/fastclick.min.js') }}"></script>
 	<!-- TinyMCE-->
 	<script src="{{ asset('plugins/tinymce/tinymce.min.js') }}"></script>
 

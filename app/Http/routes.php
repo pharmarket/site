@@ -24,7 +24,6 @@ Route::group(['prefix' => 'admin'], function(){
             Route::resource('newsletter', 'Admin\NewsletterController');
             Route::resource('cgu', 'Admin\CguController');
             Route::resource('cgv', 'Admin\CgvController');
-
             Route::resource('faq', 'Admin\FaqController');
 	});
 });
