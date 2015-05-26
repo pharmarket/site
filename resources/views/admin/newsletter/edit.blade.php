@@ -5,7 +5,7 @@
 
 <div class="row">
 	<div>
-		@include('admin.newsletter.errors')	
+		@include('admin.newsletter.errors')
 	</div>
 </div><!-- /.row -->
 
@@ -20,15 +20,13 @@
 		<!-- general form elements -->
 		<div class="box box-success">
 			<div class="box-header"></div>
-			<!-- form start -->			
+			<!-- form start -->
 			<div class="box-body">
 				<div class="form-group">
-                	{!! Form::label('id', 'Id :') !!}
-                    {!! Form::input('texte', 'id', $newsletter->id, ['class' => 'form-control', 'name'=>'id', 'placeholder' => 'id', 'disabled'])!!}      
                 </div>
                 <div class="form-group">
                 	{!! Form::label('langue', 'Langue :') !!}
-                    {!! Form::select('langue_id', $langues, $newsletter->langue_id, ['class'=>'form-control']) !!}     
+                    {!! Form::select('langue_id', $langues, $newsletter->langue_id, ['class'=>'form-control']) !!}
                 </div>
                 <div>
                 	{!! Form::label('content', 'Contenu :') !!}

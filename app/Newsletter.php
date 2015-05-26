@@ -8,7 +8,7 @@ class Newsletter extends Model {
 	protected $fillable = ['langue_id', 'content', 'send_at'];
 
 	public function langue(){
-		return $this->belongsTo('\App\langue', 'langue_id');
+		return $this->belongsTo('\App\Langue', 'langue_id');
 	}
 
 }

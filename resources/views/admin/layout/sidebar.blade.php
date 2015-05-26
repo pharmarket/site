@@ -44,6 +44,7 @@
       <li><a href="{{ route('admin.newsletter_mail.create') }}"><i class="fa fa-plus-circle"></i>Ajouter email</a></li>
     </ul>
   </li>
+
   <li class="treeview">
     <a href="#">
       <i class="fa fa-newspaper-o"></i> <span>Newsletter</span> <i class="fa fa-angle-left pull-right"></i>
