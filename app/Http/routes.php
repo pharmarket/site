@@ -28,6 +28,15 @@ Route::group(['prefix' => 'admin'], function(){
 	});
 });
 
+Route::group(['prefix' => 'ws', 'middleware' => 'ws'], function(){
+            Route::resource('contact', 'Ws\ContactController', ['only' => ['store']]);;
+            Route::resource('user', 'Ws\UserController');
+
+    Route::get('/', ['as' => 'home', function(){
+            return 'lol';
+    }]);
+});
+
 
 Route::group(['prefix' => 'forum'], function()
 {

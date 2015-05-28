@@ -28,7 +28,7 @@ class Kernel extends HttpKernel {
 		'guest' => 'App\Http\Middleware\RedirectIfAuthenticated',
 		'authentification' => 'App\Http\Middleware\authentification',
 		'language' => 'App\Http\Middleware\Language',
-		'ws' => 'App\Http\Middleware\ws',
+		'ws' => 'App\Http\Middleware\Ws',
 	];
 
 }
