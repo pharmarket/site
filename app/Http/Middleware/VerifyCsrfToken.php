@@ -14,7 +14,11 @@ class VerifyCsrfToken extends BaseVerifier {
 	 */
 	public function handle($request, Closure $next)
 	{
-		return parent::handle($request, $next);
+		if (!\Request::is('ws/*')){
+			return parent::handle($request, $next);
+		}
+
+		return $this->addCookieToResponse($request, $next($request));
 	}
 
 }
