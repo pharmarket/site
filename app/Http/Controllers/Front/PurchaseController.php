@@ -97,6 +97,7 @@ class PurchaseController extends Controller {
 				//Recuperation d'exemplaire
 				$exemplaire  = \DB::table('produit_exemplaire AS pe')	->leftJoin('commande_exemplaire AS ce', 'pe.id', '=', 'ce.exemplaire_id')
 											->where('produit_id', $row->id)
+											->whereNull('ce.exemplaire_id')
 											->limit($row->qty)
 											->select('ce.*','pe.*')
 											->lists('ce.id');

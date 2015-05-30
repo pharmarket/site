@@ -40,7 +40,7 @@ class BasketController extends Controller {
 	public function index()
 	{
 		\Cart::add([
-			['id' => '43', 'name' => 'Product 1', 'qty' => 1, 'price' => 10.00, 'options' => array('logo' => 'img/produit1.jpg')],
+			['id' => '108', 'name' => 'Product 1', 'qty' => 1, 'price' => 10.00, 'options' => array('logo' => 'img/produit1.jpg')],
 			// ['id' => '42', 'name' => 'Product 2', 'qty' => 1, 'price' => 10.00, 'options' => array('logo' => 'img/produit2.jpg')]
 		]);
 		return view('front.purchase.commande');
