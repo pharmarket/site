@@ -10,6 +10,7 @@ return [
   'catalog'     => 'Catalog',
   'top'         => 'Top Article',
   'category'    => 'By Category',
+    'produit' => 'Products',
   'forum'       => 'The Forum',
   'contact'     => 'Contact',
 	'langactiv'   => 'English',

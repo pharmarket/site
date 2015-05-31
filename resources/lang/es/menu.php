@@ -10,6 +10,7 @@ return [
   'catalog'     => 'Le Catalogue',
   'top'         => 'Les Top Article',
   'category'    => 'par Category',
+    'produit' => 'Productos',
   'forum'       => 'Le Forum',
   'langactiv'     => 'España',
 	'french'     => 'Français',

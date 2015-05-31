@@ -8,6 +8,7 @@ return [
   'password'    => 'Password',
   'new'         => 'Les Nouveautées',
   'catalog'     => 'Le Catalogue',
+    'produit' => 'Produkte',
   'top'         => 'Les Top Article',
   'category'    => 'par Category',
   'forum'       => 'Le Forum',
