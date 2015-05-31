@@ -169,6 +169,7 @@ return [
 		 'Riari\Forum\ForumServiceProvider',
 		 'Maatwebsite\Excel\ExcelServiceProvider',
 
+
 	],
 
 	/*
@@ -222,6 +223,8 @@ return [
 		'HTML'=> 'Illuminate\Html\HtmlFacade',
 		'Cart'            => 'Gloudemans\Shoppingcart\Facades\Cart',
 		'Excel' => 'Maatwebsite\Excel\Facades\Excel',
+
+        'Excel' => 'Maatwebsite\Excel\Facades\Excel',
 
 	],
 
