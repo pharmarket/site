@@ -56,6 +56,21 @@ class RouteServiceProvider extends ServiceProvider {
             \App::abord(404);
         });
 
+
+
+        $router->model('produit', 'App\Produit', function() {
+            \App::abort(404);
+        });
+        $router->model('categorie', 'App\Produit_categorie', function() {
+            \App::abort(404);
+        });
+        $router->model('sous_categorie', 'App\Sous_categorie', function() {
+            \App::abort(404);
+        });
+        $router->model('commentaire', 'App\Commentaire', function() {
+            \App::abort(404);
+        });
+
 	}
 
 	/**

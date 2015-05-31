@@ -48,6 +48,7 @@ Route::group(['middleware' => 'language'], function(){
 	Route::get('commande', function(){
 	    	return View::make('front.commande.adresse');
 	});
+
 	Route::match(['get', 'post'],'contact',['as' => 'contact', 'uses' => 'Front\ContactController@index']);
 
 	//Route pour le panier
@@ -83,7 +84,6 @@ Route::group(['middleware' => 'language'], function(){
 
 
   Route::get('/', ['as' => 'home', 'uses' => 'Front\HomeController@index']);
-
 });
 Route::controllers([
 	'auth' => 'Auth\AuthController',

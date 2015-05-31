@@ -12,11 +12,35 @@ use App\Commande_exemplaire as Commande_exemplaire;
 class Produit extends Model {
 
 	protected $table = 'produit';
-	protected $fillable = ['categorie_id', 'marque_id', 'reference', 'nom', 'description'];
+	protected $fillable = ['categorie_id', 'sous_categorie_id', 'marque_id', 'reference', 'nom', 'description','montant'];
 
 	public function pays(){
 		return $this->belongsToMany('Pays');
 	}
+    public function getCreatedAtAttribute($value){
+        return date('d/m/Y H\Hi', date_timestamp_get(date_create($value)));
+    }
+    public function categorie(){
+        return $this->belongsTo('\App\Produit_categorie','categorie_id');
+    }
+    public function sous_categorie(){
+        return $this->belongsTo('\App\Sous_categorie','sous_categorie_id');
+    }
+    public function marque(){
+        return $this->belongsTo('\App\Produit_marque', 'marque_id');
+    }
+    public function info(){
+        return $this->hasMany('\App\Produit_info','produit_id');
+    }
+    public function media(){
+        return $this->hasMany('\App\Media', 'produit_id');
+    }
+    public function fournisseurs(){
+        return $this->belongsToMany('\App\Fournisseur', 'produit_fournisseur');
+    }
+    public function langues(){
+        return $this->belongsToMany('\App\Langue', 'produit_info')->withPivot(['nom','description']);
+    }
 
 	/**
 	 * List the LAST Product  to the home page.

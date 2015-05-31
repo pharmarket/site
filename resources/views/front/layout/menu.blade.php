@@ -39,70 +39,78 @@
 
       <!-- Navigation
   ================================================== -->
-      	<div class="navbar navbar-default navbar-static-top" role="navigation">
-            		<div class="container">
-                  		<div class="row">
-                        			<div class="navbar-header">
-				                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-					                  <span class="sr-only">Toggle navigation</span>
-					                  <span class="icon-bar"></span>
-					                  <span class="icon-bar"></span>
-					                  <span class="icon-bar"></span>
-				                  </button>
-                        			</div>
-                        			<div class="navbar-collapse collapse">
-				                  <ul class="nav navbar-nav">
-					                  <li class="active">
-					                  	<a href="{{route('home')}}">{{ Lang::get('menu.home') }}</a>
-					                  </li>
-					                  <li><a href="#">{{ Lang::get('menu.catalog') }}</a>
-						                  <ul class="dropdown-menu">
-							                  <li><a href="category">{{ Lang::get('menu.category') }}</a></li>
-							                  <li><a href="category/new">{{ Lang::get('menu.new') }}</a></li>
-							                  <li><a href="category/top">{{ Lang::get('menu.top') }}</a></li>
-						                  </ul>
-					                  </li>
-					                  <li>
-					                        	<a href="{{URL::to('forum')}}">{{ Lang::get('menu.forum') }}</a>
-					                  </li>
-					                  <li>
-					                  	<a href="<?= route('contact'); ?>">{{ Lang::get('site.contact') }}</a>
-					                  </li>
-				                  </ul>
-                              				<div class="dropdown" id="dropdown_panier" style="float:right;">
-				                                    <button class="btn btn-default dropdown-toggle" style="height:43px;" type="button" id="select_panier" data-toggle="dropdown" aria-expanded="true">
-					                                    {{ Lang::get('menu.basket') }} ({{ Cart::count() }} {{Lang::choice('menu.product', Cart::count())}} )
-					                                    @if(Cart::count() > 0) <span class="caret"></span> @endif
-				                                    </button>
-				                                    @if(Cart::count() > 0)
-					                                    <ul class="dropdown-menu" role="menu" aria-labelledby="select_panier" style="padding:20px;width:200px;">
-						                                    @foreach(Cart::content() as $row)
-							                                    <li role="presentation">
-							                                    	<strong>{{$row->qty }} * {{$row->name }}: {{$row->subtotal }}{{ Lang::get('menu.devise') }}
-							                                    	<a href="{{ route('basket.destroy', $row->rowid) }}" style="border:none;display:inline;background: none;"><i class="fa fa-times"></i></a>
-							                                    </li>
-						                                    @endforeach
-						                                    <li role="presentation">{{ Lang::get('menu.total')  }}: {{ Cart::total() }}{{ Lang::get('menu.devise') }}</li>
-						                                    <li>
-						                                    	<a href="{{ route('basket.index') }}"><button style="width:100%;">{{ Lang::get('menu.purchase')  }}</button></a>
-						                                    </li>
-					                                    </ul>
-				                                    @endif
-                              				</div>
-				                  <div class="dropdown" style="float:right;">
-					                  <button class="btn btn-default dropdown-toggle" style="height:43px;" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-					                  	{{ Lang::get('menu.langactiv') }}
-					                  	<span class="caret"></span>
-					                  </button>
-					                  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-						@foreach(Config::get('app.locales') as $key => $langue)
-							<li role=><a role="menuitem" tabindex="-1" href="{{route('user.language', $key)}}">{{ $langue }}</a></li>
-						@endforeach
-					                  </ul>
-				                  </div>
-                        			</div>
-                  		</div><!--/.row -->
-            		</div><!--/.container -->
-      	</div>
+      <div class="navbar navbar-default navbar-static-top" role="navigation">
+            <div class="container">
+                  <div class="row">
+                        <div class="navbar-header">
+                              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                              </button>
+                        </div>
+                        <div class="navbar-collapse collapse">
+                              <ul class="nav navbar-nav">
+                                    <li class="active">
+                                          <a href="{{route('home')}}">{{ Lang::get('menu.home') }}</a>
+                                    </li>
+
+                                    <li><a href="#">{{ Lang::get('menu.catalog') }}</a>
+                                          <ul class="dropdown-menu">
+                                                <li><a href="category">{{ Lang::get('menu.category') }}</a></li>
+                                                <li><a href="category/new">{{ Lang::get('menu.new') }}</a></li>
+                                                <li><a href="category/top">{{ Lang::get('menu.top') }}</a></li>
+                                          </ul>
+                                    </li>
+
+
+
+                                  <li>
+                                      <a href="{{route('produit.index')}}">{{ Lang::get('menu.produit') }}</a>
+                                  </li>
+
+
+
+                                    <li>
+                                          <a href="{{URL::to('forum')}}">{{ Lang::get('menu.forum') }}</a>
+                                    </li>
+                                    <li><a href="<?= route('contact'); ?>">{{ Lang::get('site.contact') }}</a></li>
+                              </ul>
+                              <div class="dropdown" id="dropdown_panier" style="float:right;">
+                                    <button class="btn btn-default dropdown-toggle" style="height:43px;" type="button" id="select_panier" data-toggle="dropdown" aria-expanded="true">
+                                          {{ Lang::get('menu.basket') }} ({{ Cart::count() }} {{Lang::choice('menu.product', Cart::count())}} )
+                                          @if(Cart::count() > 0) <span class="caret"></span> @endif
+                                    </button>
+                                    @if(Cart::count() > 0)
+                                          <ul class="dropdown-menu" role="menu" aria-labelledby="select_panier" style="padding:20px;width:200px;">
+                                                @foreach(Cart::content() as $row)
+                                                      <li role="presentation">
+                                                            <strong>{{$row->qty }} * {{$row->name }}: {{$row->subtotal }}{{ Lang::get('menu.devise') }}
+                                                            <a href="{{ route('basket.destroy', $row->rowid) }}" style="border:none;display:inline;background: none;"><i class="fa fa-times"></i></a>
+                                                      </li>
+                                                @endforeach
+                                                <li role="presentation">{{ Lang::get('menu.total')  }}: {{ Cart::total() }}{{ Lang::get('menu.devise') }}</li>
+                                                <li>
+                                                      <a href="{{ route('basket.index') }}"><button style="width:100%;">{{ Lang::get('menu.purchase')  }}</button></a>
+                                                </li>
+                                          </ul>
+                                    @endif
+                              </div>
+                              <div class="dropdown" style="float:right;">
+                                    <button class="btn btn-default dropdown-toggle" style="height:43px;" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                                          {{ Lang::get('menu.langactiv') }}
+                                          <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                    @foreach(Config::get('app.locales') as $key => $langue)
+                                          <li role=><a role="menuitem" tabindex="-1" href="{{route('user.language', $key)}}">{{ $langue }}</a></li>
+                                    @endforeach
+                                    </ul>
+                              </div>
+                        </div>
+                  </div><!--/.row -->
+            </div><!--/.container -->
+      </div>
 </header>
 <!--End Header-->

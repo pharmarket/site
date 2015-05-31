@@ -49,12 +49,14 @@
 
 
 
+
+
         <div class="col-md-9">
             <div class="row">
                 <!-- Plans -->
                 <section id="plans">
-                    @foreach($product as $row)
 
+                    @foreach($produit as $row)
                         @foreach ($row->info as $value)
                             @if($value->langue->label == Lang::get('menu.langactiv'))
 
@@ -64,6 +66,7 @@
                                         <div class="panel-heading">
                                             <i class=""><a class="" href="{{ route('produit.show', $row->id) }}">{!! HTML::image($row->media[0]->chemin . $row->media[0]->nom, '', array('height'=>'200', 'width' => '200')) !!}</a></i>
                                             <h3>
+
                                                 {{$value->nom}}
                                             </h3>
                                         </div>
