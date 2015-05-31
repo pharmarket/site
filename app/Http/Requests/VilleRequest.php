@@ -23,7 +23,7 @@ class VilleRequest extends Request {
 	{
 		return [
             'pays_id' => 'required|numeric',
-            'nom' => 'required|alpha',
+            'nom' => 'required|alpha|unique:ville',
             'cp' => 'required|numeric',
             'adresse' => 'required'
 		];
