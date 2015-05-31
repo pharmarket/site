@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class NewsletterController extends Controller {
-
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -15,8 +14,8 @@ class NewsletterController extends Controller {
 	 */
 	public function index()
 	{
-		$newsletter = \App\Newsletter::with('langue')->where('send_at', '=', NULL)->get();
-		
+		$newsletter = \App\Newsletter::with('langue')->whereRaw('DATE(send_at) > DATE(NOW()) OR send_at IS NULL')->get();
+
 		return view('admin.newsletter.newsletter', compact('newsletter'));
 	}
 
@@ -76,9 +75,11 @@ class NewsletterController extends Controller {
 	 * @return Response
 	 */
 	public function update($newsletter, NewsletterRequest $request)
-	{	
-		$newsletter->langue_id  = $request->langue_id;
+	{
+		$newsletter->langue_id 	= $request->langue_id;
 		$newsletter->content 	= $request->content;
+		$newsletter->title 	= $request->title;
+		$newsletter->send_at 	= $request->send_at;
 
 		$newsletter->save();
 
@@ -106,7 +107,7 @@ class NewsletterController extends Controller {
 	{
 		//$newsletter = \App\Newsletter::with('langue')->where('send_at', '<', new \DateTime('today'))->get();
 		$newsletter = \App\Newsletter::with('langue')->where('send_at', '!=', 'NULL')->get();
-		
+
 		return view('admin.newsletter.history', compact('newsletter'));
 	}
 }

@@ -23,7 +23,9 @@ class NewsletterRequest extends Request {
 	{
 		return [
 			'langue_id' => 'required|numeric',
-			'content' 	=> 'required'
+			'title' 	=> 'required',
+			'content' 	=> 'required',
+			'send_at' 	=> 'required|after:now',
 		];
 	}
 

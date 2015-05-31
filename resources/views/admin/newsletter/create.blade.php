@@ -9,7 +9,7 @@
 
 <div class="row">
 	<div>
-		@include('admin.newsletter.errors')	
+		@include('admin.newsletter.errors')
 	</div>
 </div>
 
@@ -31,8 +31,16 @@
 					{!! Form::select('langue_id', $langues, '', ['class'=>'form-control']) !!}
 				</div>
 				<div class="form-group">
+					{!! Form::label('title', 'Titre') !!}
+					{!! Form::text('title', '', array('class'=>'form-control', 'name'=>'title', 'placeholder' => 'Titre')) !!}
+				</div>
+				<div class="form-group">
 					{!! Form::label('content', 'Contenu') !!}
 					{!! Form::textarea('content', '', array('class'=>'form-control', 'name'=>'content', 'placeholder' => 'Contenu')) !!}
+				</div>
+				<div class="form-group">
+					{!! Form::label('send_at', 'Envoi') !!}
+					{!! Form::input('date', 'send_at', null, ['class'=>'form-control', 'name'=>'send_at']) !!}
 				</div>
 			</div><!-- /.box-body -->
 		</div><!-- /.box -->

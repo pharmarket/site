@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="row">
-	@include('admin.newsletter.succes')	
+	@include('admin.newsletter.succes')
 </div>
 
 <div class="row navBlock">
@@ -17,8 +17,10 @@
 			        	<tr>
 				            <th>ID</th>
 				            <th>Langue</th>
-				            <th>Content </th>
-				            <th>Added</th>
+				            <th>Titre </th>
+				            <th>Contenu </th>
+				            <th>Envoie </th>
+				            <th>Ajout</th>
 				            <th></th>
 			          	</tr>
 			        </thead>
@@ -26,8 +28,10 @@
 			        	<tr>
 				            <th>ID</th>
 				            <th>Langue</th>
-				            <th>Content </th>
-				            <th>Added</th>
+				            <th>Titre </th>
+				            <th>Contenu </th>
+				            <th>Envoie </th>
+				            <th>Ajout</th>
 			          	</tr>
 			        </tfoot>
 			        <tbody>
@@ -35,7 +39,9 @@
 				        	<tr>
 					            <td><a href="{{ route('admin.newsletter.show', $row->id) }}">{{ $row->id }}</a></td>
 					            <td>{{ $row->langue->code}}</td>
+					            <td style="width: 125px">{{ $row->title }}</td>
 					            <td>{!! mb_strimwidth($row->content, 0, 50, "...") !!}</td>
+					            <td style="width: 125px">{{ $row->send_at }}</td>
 					            <td style="width: 125px">{{ $row->created_at }}</td>
 					            <td style="text-align: right; width: 100px">
 					            	<a class="btn btn-primary glyphicon glyphicon-edit" href="{{route('admin.newsletter.edit', $row->id)}}"></a>

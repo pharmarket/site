@@ -24,6 +24,26 @@ class Kernel extends ConsoleKernel {
 	{
 		$schedule->command('inspire')
 				 ->hourly();
+
+		$schedule->call(function(){
+
+			//Recuperation des newsletter du jour
+			$news = \App\Newsletter::whereRaw('DATE(send_at) = DATE(NOW())')->get();
+
+			foreach ($news as $row) {
+				//On cherche tous les mails pour le pays concerné
+				$mail = \App\Newsletter_mail::where('langue_id', $row->langue_id)->get();
+
+				foreach ($mail as $value) {
+					//envoie du mail
+					\Mail::raw($row->content, function($message) use ($value){
+					    $message->from('pharmarket.f2i@gmail.com', 'Pharmarket');
+					    $message->to($value->mail);
+					});
+				}
+
+			}
+		})->dailyAt('16:40');
 	}
 
 }

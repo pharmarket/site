@@ -23,15 +23,23 @@
 			<!-- form start -->
 			<div class="box-body">
 				<div class="form-group">
-                </div>
-                <div class="form-group">
-                	{!! Form::label('langue', 'Langue :') !!}
-                    {!! Form::select('langue_id', $langues, $newsletter->langue_id, ['class'=>'form-control']) !!}
-                </div>
-                <div>
-                	{!! Form::label('content', 'Contenu :') !!}
-                    {!! Form::textarea('content', $newsletter->content, ['class' => 'form-control', 'name'=>'content', 'placeholder' => 'Contenu'])!!}
-                </div>
+		            </div>
+		            <div class="form-group">
+		            	{!! Form::label('langue', 'Langue :') !!}
+		                	{!! Form::select('langue_id', $langues, $newsletter->langue_id, ['class'=>'form-control']) !!}
+		            </div>
+		            <div class="form-group">
+				{!! Form::label('title', 'Titre :') !!}
+				{!! Form::text('title', $newsletter->title, ['class' => 'form-control', 'name'=>'title', 'placeholder' => 'Titre']) !!}
+		            </div>
+		            <div class="form-group">
+				{!! Form::label('content', 'Contenu :') !!}
+				{!! Form::textarea('content', $newsletter->content, ['class' => 'form-control', 'name'=>'content', 'placeholder' => 'Contenu'])!!}
+		            </div>
+			<div class="form-group">
+				{!! Form::label('send_at', 'Envoi') !!}
+				{!! Form::input('date', 'send_at', !empty($newsletter->send_at)?date('Y-d-m' , strtotime($newsletter->send_at)):null, ['class'=>'form-control', 'name'=>'send_at']) !!}
+			</div>
 			</div><!-- /.box-body -->
 		</div><!-- /.box -->
 	</div><!-- /.col -->
