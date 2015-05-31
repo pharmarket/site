@@ -22,9 +22,10 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		$lastProducts = Produit::all();
+		$lastProducts = Produit::lastProducts();
+		$bestProducts = Produit::bestProducts();
 
-		return view('front.home.home', compact('lastProducts'));
+		return view('front.home.home', compact('lastProducts','bestProducts'));
 	}
 
 }

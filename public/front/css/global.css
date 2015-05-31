@@ -2455,11 +2455,11 @@ a.read:after {
 .serviceBox_3:hover .service_3_detail{border-bottom-color:#78AB4E}
 .serviceBox_3:hover img
 {
-    transform:scale(1.4);
-    -webkit-transform:scale(1.4) ;
-    -moz-transform:scale(1.4) ;
-    -ms-transform:scale(1.4) ;
-    -o-transform:scale(1.4) ;
+    transform:scale(0.8);
+    -webkit-transform:scale(0.8) ;
+    -moz-transform:scale(0.8) ;
+    -ms-transform:scale(0.8) ;
+    -o-transform:scale(0.8) ;
 }
 
 /* ===================================================== */
