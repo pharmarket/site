@@ -46,4 +46,28 @@ class BasketController extends Controller {
 		return view('front.purchase.commande');
 	}
 
+
+
+
+    /**
+     * Ajout des produits dans le panier
+     *
+     * @return Response
+     */
+    public function store($produit)
+    {
+        //On verifie la quantité
+        \Input::get('quantite');
+        $taux = \App\Devise::where('symbole', \Lang::get('menu.devise'))->get()[0]->taux;
+        $montant = $taux * $produit->montant;
+        $langue = \App\Langue::where('code', \Lang::getLocale())->get()[0];
+        dd($produit);
+        \Cart::add([
+            ['id' => $produit->id, 'name' => 'Product 1', 'qty' => \Input::get('quantite'), 'price' => $montant, 'options' => array('logo' => 'img/produit1.jpg')],
+            // ['id' => '42', 'name' => 'Product 2', 'qty' => 1, 'price' => 10.00, 'options' => array('logo' => 'img/produit2.jpg')]
+        ]);
+        // return view('front.purchase.commande');
+    }
+
+
 }
