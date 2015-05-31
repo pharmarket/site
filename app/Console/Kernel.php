@@ -35,15 +35,15 @@ class Kernel extends ConsoleKernel {
 				$mail = \App\Newsletter_mail::where('langue_id', $row->langue_id)->get();
 
 				foreach ($mail as $value) {
-					//envoie du mail
-					\Mail::raw($row->content, function($message) use ($value){
-					    $message->from('pharmarket.f2i@gmail.com', 'Pharmarket');
-					    $message->to($value->mail);
+					// envoie du mail
+					\Mail::send('mail.newsletter', ['content' => $row->content], function($message) use ($value){
+					    	$message->to($value->mail)->subject('Newsletter');
+					   	$message->from('pharmarket.f2i@gmail.com', 'Pharmarket');
 					});
 				}
 
 			}
-		})->dailyAt('16:40');
+		})->dailyAt('20:04');
 	}
 
 }
