@@ -19,16 +19,17 @@ Route::group(['prefix' => 'admin'], function(){
             Route::resource('contact', 'Admin\ContactController', ['only' => ['destroy', 'index']]);
             Route::get('contact/done/{contact}', ['as' => 'admin.contact.done', 'uses' => 'Admin\ContactController@done']);
             Route::post('contact/mail/{contact}', ['as' => 'admin.contact.mail', 'uses' => 'Admin\ContactController@mail']);
-        	Route::resource('newsletter_mail', 'Admin\NewsletterMailController');
+        	  Route::resource('newsletter_mail', 'Admin\NewsletterMailController');
             Route::get('newsletter/history', ['as' => 'admin.newsletter.history', 'uses' => 'Admin\NewsletterController@history']);
             Route::resource('newsletter', 'Admin\NewsletterController');
             Route::resource('cgu', 'Admin\CguController');
             Route::resource('cgv', 'Admin\CgvController');
             Route::resource('faq', 'Admin\FaqController');
 
+
             Route::post('produit/upload', ['as' => 'admin.produit.upload', 'uses' => 'Admin\ProduitController@upload']);
-            Route::post('produit/delete', ['as' => 'admin.produit.delete', 'uses' => 'Admin\ProduitController@delete']);     
-            
+            Route::post('produit/delete', ['as' => 'admin.produit.delete', 'uses' => 'Admin\ProduitController@delete']);
+
             Route::get('produit/importCSV', ['as' => 'admin.produit.importCSV', 'uses' => 'Admin\ProduitController@importCSV']);
             Route::post('produit/importCsvProduits', ['as' => 'admin.produit.importCsvProduits', 'uses' => 'Admin\ProduitController@importCsvProduits']);
             Route::post('produit/importCsvExemplaires', ['as' => 'admin.produit.importCsvExemplaires', 'uses' => 'Admin\ProduitController@importCsvExemplaires']);
@@ -39,13 +40,27 @@ Route::group(['prefix' => 'admin'], function(){
             Route::post('produit/exportCsvProduitsInfos', ['as' => 'admin.produit.exportCsvProduitsInfos', 'uses' => 'Admin\ProduitController@exportCsvProduitsInfos']);
             Route::post('produit/exportCsvExemplairesInfos', ['as' => 'admin.produit.exportCsvExemplairesInfos', 'uses' => 'Admin\ProduitController@exportCsvExemplairesInfos']);
             Route::resource('produit', 'Admin\ProduitController');
-            
+
             Route::post('exemplaire/importCSV', ['as' => 'admin.exemplaire.importCSV', 'uses' => 'Admin\ExemplaireController@importCSV']);
             Route::get('exemplaire/listing_exemplaires/{idProduit}', ['as' => 'admin.exemplaire.listingExemplaires', 'uses' => 'Admin\ExemplaireController@listingExemplaires']);
             Route::resource('exemplaire', 'Admin\ExemplaireController');
 
             Route::resource('posologie', 'Admin\PosologieController');
             Route::resource('posologie_sex', 'Admin\PosologieSexController');
+
+
+            Route::get('vente/exemplaireVente', ['as' => 'vente.getExemplaireVente', 'uses' => 'Admin\VenteController@getExemplaireVente']);
+            Route::post('vente/exemplaireVente', ['as' => 'vente.exemplaireVente', 'uses' => 'Admin\VenteController@exemplaireVente']);
+
+            Route::get('vente/exportcsv', ['as' => 'vente.getExportCSV', 'uses' => 'Admin\VenteController@getExportCSV']);
+            Route::post('vente/exportCSV', ['as' => 'vente.exportCSV', 'uses' => 'Admin\VenteController@exportCSV']);
+
+            Route::get('vente/importcsv', ['as' => 'vente.getImportCSV', 'uses' => 'Admin\VenteController@getImportCSV']);
+            Route::post('vente/importCSV', ['as' => 'vente.importCSV', 'uses' => 'Admin\VenteController@importCSV']);
+            Route::post('vente/importCSV', ['as' => 'vente.importCSVEV', 'uses' => 'Admin\VenteController@importCSVEV']);
+
+            Route::resource('vente', 'Admin\VenteController');
+
 	});
 });
 

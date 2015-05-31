@@ -80,6 +80,10 @@ class RouteServiceProvider extends ServiceProvider {
             \App::abort(404);
         });
 
+
+        $router->model('vente', 'App\Vente', function() {
+            \App::abort(404);
+        });
 	}
 
 	/**

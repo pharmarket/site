@@ -131,6 +131,20 @@
       </ul>
   </li>
 
+
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-money"></i> <span>Vente</span> <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+            <li class="active"><a href="{{ route('admin.vente.index') }}"><i class="fa fa-list"></i>Liste</a></li>
+            <li><a href="{{ route('admin.vente.create') }}"><i class="fa fa-plus-circle"></i>Ajouter</a></li>
+            <li><a href="{{ route('vente.getExemplaireVente') }}"><i class="fa fa-plus-circle"></i>Ajouter d'un exemplaire</a></li>
+            <li><a href="{{ route('vente.getImportCSV') }}"><i class="fa fa-plus-circle"></i>Import CSV</a></li>
+            <li><a href="{{ route('vente.getExportCSV') }}"><i class="fa fa-download"></i>Export CSV</a></li>
+        </ul>
+    </li>
+
 </ul>
 </section>
 <!-- /.sidebar -->
