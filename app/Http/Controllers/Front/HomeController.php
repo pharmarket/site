@@ -23,6 +23,7 @@ class HomeController extends Controller {
 	public function index()
 	{
 		$lastProducts = Produit::all();
+
 		return view('front.home.home', compact('lastProducts'));
 	}
 

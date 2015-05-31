@@ -96,10 +96,10 @@
 															<div class="recent-item">
 																	<figure>
 																			<div class="touching medium">
-																					<img src="{{ $row->id }}" alt="" />
+																					<img src="{{ $row->img }}" alt="" />
 																			</div>
 																			<div class="option">
-																					<a href="{{ $row->id }}" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
+																					<a href="produit/{{ $row->id }}" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
 
 																			</div>
 																			<figcaption class="item-description">
