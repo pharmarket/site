@@ -29,6 +29,12 @@ class RouteServiceProvider extends ServiceProvider {
 		$router->model('user', 'App\User', function() {
 			\App::abort(404);
 		});
+
+        $router->model('role', 'App\Role', function() {
+            \App::abort(404);
+        });
+
+        
 		$router->model('contact', 'App\Contact', function() {
 			\App::abort(404);
 		});
