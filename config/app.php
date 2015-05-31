@@ -225,8 +225,6 @@ return [
 		'Cart'            => 'Gloudemans\Shoppingcart\Facades\Cart',
 		'Excel' => 'Maatwebsite\Excel\Facades\Excel',
 
-        'Excel' => 'Maatwebsite\Excel\Facades\Excel',
-
 	],
 
 ];
