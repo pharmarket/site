@@ -166,6 +166,7 @@ return [
 
 		//Ajout du provider pour le panier
 		 'Gloudemans\Shoppingcart\ShoppingcartServiceProvider',
+
 		 'Riari\Forum\ForumServiceProvider',
 		 'Maatwebsite\Excel\ExcelServiceProvider',
 

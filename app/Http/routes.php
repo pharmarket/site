@@ -48,6 +48,24 @@ Route::group(['prefix' => 'admin'], function(){
             Route::resource('posologie_sex', 'Admin\PosologieSexController');
 
 
+            Route::get('commande/getCreateExemplaire', [ 'as' => 'commande.getCreateExemplaire', 'uses' => 'Admin\CommandeController@getCreateExemplaire']);
+            Route::post('commande/getCreateExemplaire', [ 'as' => 'commande.postCreateExemplaire', 'uses' => 'Admin\CommandeController@postCreateExemplaire']);
+
+            Route::get('commande/exportcsv', ['as' => 'commande.getExportCSV', 'uses' => 'Admin\CommandeController@getExportCSV']);
+            Route::post('commande/exportCSV', ['as' => 'commande.exportCSV', 'uses' => 'Admin\CommandeController@exportCSV']);
+
+
+            Route::get('commande/importcsv', ['as' => 'commande.getImportCSV', 'uses' => 'Admin\CommandeController@getImportCSV']);
+            Route::post('commande/importCSVCommande', ['as' => 'commande.importCSVCommande', 'uses' => 'Admin\CommandeController@importCSVCommande']);
+            Route::post('commande/importCSVCommandeExemplaire', ['as' => 'commande.importCSVCommandeExemplaire', 'uses' => 'Admin\CommandeController@importCSVCommandeExemplaire']);
+            Route::post('commande/importCSVCommandePaiement', ['as' => 'commande.importCSVCommandePaiement', 'uses' => 'Admin\CommandeController@importCSVCommandePaiement']);
+            Route::post('commande/importCSVCommandeLivraison', ['as' => 'commande.importCSVCommandeLivraison', 'uses' => 'Admin\CommandeController@importCSVCommandeLivraison']);
+            Route::post('commande/importCSVLivreur', ['as' => 'commande.importCSVLivreur', 'uses' => 'Admin\CommandeController@importCSVLivreur']);
+
+
+            Route::resource('commande', 'Admin\CommandeController');
+
+
             Route::get('vente/exemplaireVente', ['as' => 'vente.getExemplaireVente', 'uses' => 'Admin\VenteController@getExemplaireVente']);
             Route::post('vente/exemplaireVente', ['as' => 'vente.exemplaireVente', 'uses' => 'Admin\VenteController@exemplaireVente']);
 

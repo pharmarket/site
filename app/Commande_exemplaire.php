@@ -5,13 +5,8 @@ use Illuminate\Database\Eloquent\Model;
 class Commande_exemplaire extends Model {
 
     protected $table = 'commande_exemplaire';
-    protected $fillable = ['exemplaire_id','devise_id' , 'commande_id', 'quantite', 'montant'];
 
-	public function Produit_exemplaire(){
-
-			return $this->belongsTo('\App\Produit_exemplaire','exemplaire_id');
-			
-	}
+    protected $fillable = ['exemplaire_id', 'commande_id', 'montant', 'devise_id'];
 
 
     public function exemplaire(){
