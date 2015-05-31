@@ -8,7 +8,7 @@
                       <!-- Logo / Mobile Menu -->
                         <div class="col-xs-12">
                                     <form id="logo">
-                                                      <h1><a href="{{route('home')}}"><img src="{{ asset('front/images/Logo-pharmarket.jpg') }}" alt="Logo pharmarket" style="height:50px;"/></a></h1>
+                                                      <h1><a href="{{route('home')}}"><img src="{{ asset('front/images/logo.png') }}" alt="Logo pharmarket" style="height:50px;"/></a></h1>
                                     </form>
                                     @if(Auth::check())
                                                       <div class="navbar-form navbar-right">

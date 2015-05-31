@@ -8,6 +8,8 @@
 	<title>Pharmarket - {{App::getLocale()}}</title>
 	<meta name="description" content="">
 
+  <link rel="icon" type="image/png" href="{{ asset('front/images/logoapply.png') }}" />
+  <!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="{{ asset('front/images/logoapply.png') }}" /><![endif]-->
     <!-- CSS FILES -->
     <link rel="stylesheet" href="{{ asset('front/css/bootstrap.min.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('front/css/global.css') }}" media="screen" data-name="skins">
