@@ -26,6 +26,21 @@ Route::group(['prefix' => 'admin'], function(){
             Route::resource('cgv', 'Admin\CgvController');
             Route::resource('faq', 'Admin\FaqController');
 
+
+            Route::get('fournisseur/produitFournisseur', ['as' => 'fournisseur.getProduitFournisseur', 'uses' => 'Admin\FournisseurController@getProduitFournisseur']);
+            Route::post('fournisseur/produitFournisseur', ['as' => 'fournisseur.produitFournisseur', 'uses' => 'Admin\FournisseurController@produitFournisseur']);
+
+            Route::get('fournisseur/venteFournisseur', ['as' => 'fournisseur.getVenteFournisseur', 'uses' => 'Admin\FournisseurController@getVenteFournisseur']);
+            Route::post('fournisseur/venteFournisseur', ['as' => 'fournisseur.venteFournisseur', 'uses' => 'Admin\FournisseurController@venteFournisseur']);
+
+            Route::get('fournisseur/exportcsv', ['as' => 'fournisseur.getExportCSV', 'uses' => 'Admin\FournisseurController@getExportCSV']);
+            Route::post('fournisseur/exportCSV', ['as' => 'fournisseur.exportCSV', 'uses' => 'Admin\FournisseurController@exportCSV']);
+
+            Route::get('fournisseur/importcsv', ['as' => 'fournisseur.getImportCSV', 'uses' => 'Admin\FournisseurController@getImportCSV']);
+            Route::post('fournisseur/importCSV', ['as' => 'fournisseur.importCSV', 'uses' => 'Admin\FournisseurController@importCSV']);
+
+            Route::resource('fournisseur', 'Admin\FournisseurController');
+
             Route::get('user/exportcsv', ['as' => 'user.getExportCSV', 'uses' => 'Admin\UserController@getExportCSV']);
             Route::post('user/exportCSV', ['as' => 'user.exportCSV', 'uses' => 'Admin\UserController@exportCSV']);
 

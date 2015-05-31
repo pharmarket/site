@@ -114,6 +114,11 @@ class RouteServiceProvider extends ServiceProvider {
 
 
 
+
+        $router->model('fournisseur', 'App\Fournisseur', function() {
+            \App::abort(404);
+        });
+
 	}
 
 	/**
