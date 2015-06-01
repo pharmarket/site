@@ -52,40 +52,44 @@
                                 </span>
 
                                 <section class="image-gallery">
-                                    <h3 style="margin-left: 150px;">{{Lang::get('show.image')}}</h3>
+                                    <h3 style="margin-left: 150px;">{{Lang::get('show.image')}}
+                                        <p style="font-size: 0.5em; margin-left: -30px; font-style: italic;">
+                                            {{ $countImage }}, {{ Lang::get('show.infoImage') }}
+                                        </p>
+                                    </h3>
                                     @foreach($res as $row)
-                                        @if($row->default === NULL)
-                                            <p>{{Lang::get('show.pindisponible')}}</p>
-                                        @else
-                                            @if($row->type == 'image' AND $row->default == 0)
-                                                @if($row->langue->label == Lang::get('menu.langactiv'))
-                                                    <figure style="margin-left:50px;" tabindex="{{$row->id}}" contenteditable="true">
-                                                        {!! HTML::image($row->chemin . $row->nom, '', array('height'=>'80', 'width'=>'80', 'contenteditable'=>'false')) !!}
-                                                        <figcaption contenteditable="false"><span class="glyphicon glyphicon-picture"><br />{{$row->description}}</span></figcaption>
-                                                    </figure>
-                                                @endif
+
+                                        @if($row->type == 'image' AND $row->default == 0)
+                                            @if($row->langue->label == Lang::get('menu.langactiv'))
+                                                <figure style="margin-left:50px;" tabindex="{{$row->id}}" contenteditable="true">
+                                                    {!! HTML::image($row->chemin . $row->nom, '', array('height'=>'80', 'width'=>'80', 'contenteditable'=>'false')) !!}
+                                                    <figcaption contenteditable="false"><span class="glyphicon glyphicon-picture"><br />{{$row->description}}</span></figcaption>
+                                                </figure>
                                             @endif
                                         @endif
+
                                     @endforeach
                                 </section>
 
                             </div> <!-- end image-block -->
 
                             <section class="image-gallery">
-                                <h3 style="margin-left: 150px;">{{Lang::get('show.video')}}</h3>
+                                <h3 style="margin-left: 150px;">{{Lang::get('show.video')}}
+                                    <p style="font-size: 0.5em; margin-left: -30px; font-style: italic;">
+                                        {{ $countVideo }}, {{ Lang::get('show.infoVideo') }}
+                                    </p>
+                                </h3>
                                 @foreach($res as $row)
-                                    @if($row->default === NULL)
-                                        <p>{{Lang::get('show.vindisponible')}}</p>
-                                    @else
-                                        @if($row->type == 'video' AND $row->default == 0)
-                                            @if($row->langue->label == Lang::get('menu.langactiv'))
-                                                <figure style="height: 200px; width: 250px; margin-left:140px;" tabindex="{{$row->id}}" contenteditable="true">
-                                                    <iframe width="200" height="150" src="{{$row->chemin}}" contenteditable="false" frameborder="0" allowfullscreen></iframe>
-                                                    <figcaption contenteditable="false"><span class="glyphicon glyphicon-facetime-video">{{$row->nom}}<br />{{$row->description}}</span></figcaption>
-                                                </figure>
-                                            @endif
+
+                                    @if($row->type == 'video' AND $row->default == 0)
+                                        @if($row->langue->label == Lang::get('menu.langactiv'))
+                                            <figure style="height: 200px; width: 250px; margin-left:140px;" tabindex="{{$row->id}}" contenteditable="true">
+                                                <iframe width="200" height="150" src="{{$row->chemin}}" contenteditable="false" frameborder="0" allowfullscreen></iframe>
+                                                <figcaption contenteditable="false"><span class="glyphicon glyphicon-facetime-video">{{$row->nom}}<br />{{$row->description}}</span></figcaption>
+                                            </figure>
                                         @endif
                                     @endif
+
                                 @endforeach
                             </section>
 

@@ -17,47 +17,6 @@ class ProduitController extends Controller {
         $sous_categorie = \App\Sous_categorie::with('langue')->get();
         $produit_info = \App\Produit_info::with('langue')->get();
 
-        /*
-        $produit_nondispo  = \DB::table('produit_exemplaire AS pe')
-            ->Join('commande_exemplaire AS ce', 'pe.id', '=', 'ce.exemplaire_id')
-            ->Join('produit', 'pe.produit_id', '=', 'produit.id')
-            ->get();
-
-        //dd($produit);
-        $tabProduitsClean = [];
-        foreach($produit as $p){
-            foreach($produit_nondispo as $indispo){
-                if($indispo->id == $p->id){
-                    continue;
-                }else{
-                    $tabProduitsClean[] = $p;
-                }
-            }
-            //var_dump($p->id);
-        }
-        dd($tabProduitsClean);
-
-        \DB::table('produit_exemplaire')
-            ->join('produit', 'produit_exemplaire.produit_id', '=', 'produit.id')
-            ->select('produit_exemplaire.produit_id', 'produit.reference', \DB::raw('count(produit_exemplaire.id) as total'), 'produit.montant')
-            ->where('produit_exemplaire.produit_id', '=', $produit->id)
-            ->whereNotIn('produit_exemplaire.id',function($q){
-                $q->select('exemplaire_id')->from('commande_exemplaire');
-            })
-            ->get();
-
-        $produit_nondispo = \DB::table('produit_exemplaire')
-            ->Join('produit', 'produit_exemplaire.produit_id', '=', 'produit.id')
-            ->Join('commande_exemplaire', 'produit_exemplaire.id', '=', 'commande_exemplaire.exemplaire_id')
-            ->select('produit_exemplaire.produit_id', \DB::raw('count(produit_exemplaire.id) as total'))
-            ->whereNotIn('produit_exemplaire.id',function($q){
-                $q->select('exemplaire_id')->from('commande_exemplaire');
-            })
-            ->get();*/
-
-        //dd($produit_nondispo);
-
-
         // Pagination
         $product = \App\Produit::paginate(9);
         $product->setPath('/site/public/produit');
@@ -131,12 +90,14 @@ class ProduitController extends Controller {
 
         // RESS
         $res = \App\Media::where('produit_id', '=', $produit->id)->get();
+        $countImage = \App\Media::where('produit_id', '=', $produit->id)->where('type', '=', 'image')->count();
+        $countVideo = \App\Media::where('produit_id', '=', $produit->id)->where('type', '=', 'video')->count();
 
         // Livreur
         $livreur_info = \App\Livreur_info::with('langue', 'livreur')->where('langue_id', $langue->id)->get();
 
 
-        return View('front.produit.show', compact('produit', 'commentaire', 'produit_categorie', 'sous_categorie', 'produit_info', 'exemplaire', 'montant', 'res', 'livreur_info'));
+        return View('front.produit.show', compact('produit', 'commentaire', 'produit_categorie', 'sous_categorie', 'produit_info', 'exemplaire', 'montant', 'res', 'livreur_info', 'countImage', 'countVideo'));
 	}
     /**
      * Show the form for editing the specified resource.

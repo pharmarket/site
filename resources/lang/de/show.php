@@ -26,4 +26,6 @@ return [
     'video' => 'Filme',
     'vindisponible' => 'Keine Videos zu diesem Artikel',
     'pindisponible'=> 'Keine Fotos von diesem Artikel',
+    'infoImage' => 'Bilder für dieses Produkt verfügbar',
+    'infoVideo' => 'Videos für dieses Produkt verfügbar'
 ];
