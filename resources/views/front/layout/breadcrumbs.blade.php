@@ -2,11 +2,12 @@
 	@if ($breadcrumbs)
 		<nav id="breadcrumbs">
 			<ul>
+				<li>You are here:</li>
 				@foreach ($breadcrumbs as $breadcrumb)
 	          @if (!$breadcrumb->last)
 	              <li><a href="{{{ $breadcrumb->url }}}">{{{ $breadcrumb->title }}}</a></li>
 	          @else
-	              <li class="active">{{{ $breadcrumb->title }}}</li>
+	              <li>{{{ $breadcrumb->title }}}</li>
 	          @endif
 	      @endforeach
 			</ul>
