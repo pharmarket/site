@@ -32,11 +32,9 @@
 
 
   @include('front.layout.menu')
-
-
+  @include('front.layout.breadcrum')
 
   @yield('content')
-
 
   @include('front.layout.footer')
 
