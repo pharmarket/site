@@ -6,6 +6,7 @@
                   <div class="widget_title">
                       <h4><span>{{ Lang::get('footer.navigation') }}</span></h4>
                   </div>
+
                   <div class="widget_content">
                       <ul class="contact-details-alt">
                           <li><p><a style="padding-left: 35%" href="{{ route('home') }}">{{ Lang::get('footer.home') }}</a><p></li>

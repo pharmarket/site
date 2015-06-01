@@ -91,6 +91,7 @@ Route::group(['middleware' => 'language'], function(){
 		Route::get('user/home', ['as' => 'user.home', 'uses' => 'UserController@home']);
 	});
 
+
     // Route pour la recherche
     Route::get('resultat', [ 'as' => 'front.recherche.resultat', 'uses' => 'Front\RechercheController@resultat']);
     // Route::get('resultat', [ 'as' => 'front.recherche.resultat', 'uses' => 'Front\RechercheController@index']);
@@ -98,6 +99,7 @@ Route::group(['middleware' => 'language'], function(){
     //Route pour les CGU et CGV
     Route::get('cgu', ['as' => 'cgu.index', 'uses' => 'Front\CguController@index']);
     Route::get('cgv', ['as' => 'cgv.index', 'uses' => 'Front\CgvController@index']);
+
 	Route::get('whoPharmarket', ['as' => 'whoPharmarket.index', 'uses' => 'Front\WhoPharmarketController@index']);
     Route::get('charterQuality', ['as' => 'charterQuality.index', 'uses' => 'Front\CharterQualityController@index']);
 

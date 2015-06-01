@@ -10,7 +10,9 @@
 @section('content')
 	<div class="container">
 		<div class="row">
+
 			<h1>{{ Lang::get('footer.charterQuality') }}</h1>
+
 			<div>
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sodales consectetur sapien, vel convallis odio venenatis vitae. Mauris tellus nunc, tristique eu tellus quis, blandit commodo ipsum. Pellentesque fringilla odio id augue auctor, ac mattis arcu interdum. Maecenas velit ipsum, suscipit a semper ac, hendrerit quis leo. Suspendisse at consequat augue. In venenatis ornare est vel bibendum. Integer imperdiet diam maximus augue condimentum, eu imperdiet urna feugiat. Morbi accumsan malesuada pretium. Morbi condimentum maximus nisl efficitur semper. In hac habitasse platea dictumst. Praesent eleifend ipsum rhoncus ornare luctus. Praesent quis egestas diam. Nunc euismod eu purus vitae efficitur. Mauris consequat, arcu et maximus porta, nunc ex condimentum leo, vitae blandit velit dui pellentesque dui.
 
@@ -21,10 +23,9 @@
 				Phasellus non turpis quis est vehicula consequat. In hac habitasse platea dictumst. Nullam posuere, nisl id volutpat bibendum, nunc quam rhoncus nisi, quis pharetra turpis libero sed nunc. Cras lacinia eros vel erat rhoncus pellentesque. Integer tempor eget mi quis faucibus. Nunc pulvinar mauris ac justo tempus, nec ullamcorper enim rhoncus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam sollicitudin rutrum turpis ac tempor. Nullam efficitur tellus vitae nunc aliquet, eget iaculis dolor facilisis. Ut bibendum, purus et scelerisque luctus, urna ipsum euismod lorem, sed ornare elit massa id mauris. Nam dignissim libero diam, volutpat pretium urna interdum in. Nam lacus magna, iaculis id nisi ac, tempus suscipit nulla.
 
 				Sed sed elit at eros aliquet rhoncus. Praesent id enim venenatis, tempor ipsum id, sodales sapien. Nullam elementum viverra justo, eu tincidunt ex auctor quis. Cras eu lacus in felis lacinia egestas sed in dui. Nunc id mi turpis. Morbi pretium consectetur risus. Mauris ut faucibus nibh, eget euismod erat. Proin in urna dolor. Fusce scelerisque lectus et tortor ultrices, vel lacinia eros elementum. Vivamus quis mi vel metus venenatis sagittis at sed dolor. Nam vestibulum lacinia nisi vitae bibendum. Proin volutpat turpis in dui congue, eu sollicitudin risus tincidunt. Morbi nec tortor et arcu iaculis dapibus pulvinar non tortor. Aliquam suscipit augue et dui scelerisque, vel suscipit urna viverra. Ut vitae pulvinar ipsum.
-			</div>
+
+			</div>	
 		</div>
 	</div>
 @stop
 
-@section('footer')
-@stop
