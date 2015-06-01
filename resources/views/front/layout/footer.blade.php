@@ -4,71 +4,48 @@
           <div class="row">
               <div class="col-sm-6 col-md-3 col-lg-3">
                   <div class="widget_title">
-                      <h4><span>About Us</span></h4>
+                      <h4><span>{{ Lang::get('footer.navigation') }}</span></h4>
+                  </div>
+                  <div class="widget_content">                 
+                      <ul class="contact-details-alt">                      
+                          <li><p><a style="padding-left: 35%" href="{{ route('home') }}">{{ Lang::get('footer.home') }}</a><p></li>
+                          <li><p><a style="padding-left: 35%" href="{{ route('user.login') }}">{{ Lang::get('footer.connexion') }}</a><p></li>
+                          <li><p><a style="padding-left: 35%" href="{{ route('user.suscribe') }}">{{ Lang::get('footer.inscription') }}</a><p></li>
+                          <li><p><a style="padding-left: 35%" href="{{ route('user.forum') }}">{{ Lang::get('footer.forum') }}</a><p></li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-sm-6 col-md-3 col-lg-3">
+                  <div class="widget_title">
+                      <h4><span>{{ Lang::get('footer.about') }}</span></h4>
                   </div>
                   <div class="widget_content">
-                      <p>Donec earum rerum hic tenetur ans sapiente delectus, ut aut reiciendise voluptat maiores alias consequaturs aut perferendis doloribus asperiores.</p>
                       <ul class="contact-details-alt">
-                          <li><i class="fa fa-map-marker"></i> <p><strong>Address</strong>: #2021 Lorem Ipsum</p></li>
-                          <li><i class="fa fa-user"></i> <p><strong>Phone</strong>:(+91) 9000-12345</p></li>
-                          <li><i class="fa fa-envelope"></i> <p><strong>Email</strong>: <a href="#">mail@example.com</a></p></li>
+                          <li><p><a style="padding-left: 35%" href="{{ route('whoPharmarket.index') }}">{{ Lang::get('footer.whoPharmarket') }}</a><p></li>
+                          <li><p><a style="padding-left: 35%" href="{{ route('charterQuality.index') }}">{{ Lang::get('footer.charterQuality') }}</a><p></li>
+                          <li><p><a style="padding-left: 35%" href="{{ route('contact') }}">{{ Lang::get('footer.contact') }}</a><p></li>
                       </ul>
                   </div>
               </div>
               <div class="col-sm-6 col-md-3 col-lg-3">
                   <div class="widget_title">
-                      <h4><span>Recent Posts</span></h4>
+                      <h4><span>{{ Lang::get('footer.legalInfo') }}</span></h4>
                   </div>
                   <div class="widget_content">
-                      <ul class="links">
-                          <li><i class="fa fa-caret-right"></i> <a href="#">Aenean commodo ligula eget dolor<span>November 07, 2014</span></a></li>
-                          <li><i class="fa fa-caret-right"></i> <a href="#">Temporibus autem quibusdam <span>November 05, 2014</span></a></li>
-                          <li><i class="fa fa-caret-right"></i> <a href="#">Debitis aut rerum saepe <span>November 03, 2014</span></a></li>
-                          <li><i class="fa fa-caret-right"></i> <a href="#">Et voluptates repudiandae <span>November 02, 2014</span></a></li>
+                      <ul class="contact-details-alt">
+                          <li><p><a style="padding-left: 15%" href="{{ route('cgv.index') }}">{{ Lang::get('footer.saleCondition') }}</a><p></li>
+                          <li><p><a style="padding-left: 15%" href="{{ route('cgu.index') }}">{{ Lang::get('footer.useTerms') }}</a><p></li>
+                          <li><p><a style="padding-left: 15%" href="{{ route('faq.index') }}">{{ Lang::get('footer.faq') }}</a></p></li>
                       </ul>
                   </div>
               </div>
               <div class="col-sm-6 col-md-3 col-lg-3">
                   <div class="widget_title">
-                      <h4><span>Twitter</span></h4>
+                      <h4><span>{{ Lang::get('footer.payment') }}</span></h4>
                   </div>
-                  <div class="widget_content">
-                      <ul class="tweet_list">
-                          <li class="tweet_content item">
-                              <i class="fa fa-twitter"></i>
-                              <p class="tweet_link"><a href="#">@jquery_rain </a> Lorem ipsum dolor et, consectetur adipiscing eli</p>
-                              <span class="time">29 September 2014</span>
-                          </li>
-                          <li class="tweet_content item">
-                              <i class="fa fa-twitter"></i>
-                              <p class="tweet_link"><a href="#">@jquery_rain </a> Lorem ipsum dolor et, consectetur adipiscing eli</p>
-                              <span class="time">29 September 2014</span>
-                          </li>
-                          <li class="tweet_content item">
-                              <i class="fa fa-twitter"></i>
-                              <p class="tweet_link"><a href="#">@jquery_rain </a> Lorem ipsum dolor et, consectetur adipiscing eli</p>
-                              <span class="time">29 September 2014</span>
-                          </li>
-                      </ul>
-                  </div>
-                  <div class="widget_content">
-                      <div class="tweet_go"></div>
-                  </div>
-              </div>
-              <div class="col-sm-6 col-md-3 col-lg-3">
-                  <div class="widget_title">
-                      <h4><span>Conditions Générales</span></h4>
-
-                  </div>
-                  <li><i class=""></i> <a href="{{ route('cgv.index') }}"><span>Conditions Générales de Vente</span></a></li>
-                  <li><i class=""></i> <a href="{{ route('cgu.index') }}"><span>Conditions Générales d'Utilisation</span></a></li>
-
-                  <li><i class=""></i> <a href="{{ route('faq.index') }}"><span>FAQ</span></a></li>
-
                   <div class="widget_content">
                       <div class="flickr">
-                          <ul id="flickrFeed" class="flickr-feed"></ul>
-
+                          {!! HTML::image('img/paiement.png', '', array('width'=>'250')) !!}
                       </div>
                   </div>
               </div>
@@ -87,11 +64,9 @@
       <div class="col-lg-6 ">
         <div class="footer_social">
           <ul class="footbot_social">
-            <li><a class="fb" href="#." data-placement="top" data-toggle="tooltip" title="Facbook"><i class="fa fa-facebook"></i></a></li>
-            <li><a class="twtr" href="#." data-placement="top" data-toggle="tooltip" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-            <li><a class="dribbble" href="#." data-placement="top" data-toggle="tooltip" title="Dribbble"><i class="fa fa-dribbble"></i></a></li>
-            <li><a class="skype" href="#." data-placement="top" data-toggle="tooltip" title="Skype"><i class="fa fa-skype"></i></a></li>
-            <li><a class="rss" href="#." data-placement="top" data-toggle="tooltip" title="RSS"><i class="fa fa-rss"></i></a></li>
+            <li><a class="fb" href="https://www.facebook.com/pages/Pharmarket/1583244831927925?ref=hl" data-placement="top" data-toggle="tooltip" title="Facbook"><i class="fa fa-facebook"></i></a></li>
+            <li><a class="twtr" href="https://twitter.com/pharmarket75" data-placement="top" data-toggle="tooltip" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+            <li><a class="rss" href="#." data-placement="top" data-toggle="tooltip" title="Google +"><i class="fa fa-google-plus"></i></a></li>
           </ul>
         </div>
       </div>
