@@ -163,7 +163,8 @@ return [
 		 'App\Providers\UserServiceProvider',
 
 		//Ajout du provider pour le panier
-		 'Gloudemans\Shoppingcart\ShoppingcartServiceProvider'
+		 'Gloudemans\Shoppingcart\ShoppingcartServiceProvider',
+		 'Riari\Forum\ForumServiceProvider',
 
 	],
 

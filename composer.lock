@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e6b3357840451d88932f232ce42cd0c6",
+    "hash": "5e54ee0d0014ff5c9729f85f4ef7e4e7",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1025,6 +1025,53 @@
                 "shell"
             ],
             "time": "2015-03-26 18:43:54"
+        },
+        {
+            "name": "riari/laravel-forum",
+            "version": "2.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Riari/laravel-forum.git",
+                "reference": "88b02e749c164140edc2f0f8dc680cced52c0c49"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Riari/laravel-forum/zipball/88b02e749c164140edc2f0f8dc680cced52c0c49",
+                "reference": "88b02e749c164140edc2f0f8dc680cced52c0c49",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/migrations"
+                ],
+                "psr-0": {
+                    "Riari\\Forum\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Riari",
+                    "email": "hello@ricko.me"
+                }
+            ],
+            "description": "A complete forum package designed for easy integration into any Laravel 4/5 application",
+            "keywords": [
+                "discuss",
+                "forum",
+                "laravel",
+                "laravel-4",
+                "laravel-5"
+            ],
+            "time": "2015-05-31 15:44:31"
         },
         {
             "name": "swiftmailer/swiftmailer",

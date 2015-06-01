@@ -34,29 +34,6 @@ Route::group(['prefix' => 'ws', 'middleware' => 'ws'], function(){
 });
 
 
-Route::group(['prefix' => 'forum'], function()
-{
-	Route::get('/', function()
-	{
-	    return 'le forum';
-	});
-
-	Route::get('sujet', function()
-	{
-	    return 'les sujets';
-	});
-
-	Route::get('message', function()
-	{
-	     return 'les messages';
-	});
-	Route::get('profil', function()
-	{
-	     return 'le profil';
-	});
-});
-
-
 
 Route::group(['middleware' => 'language'], function(){
 	Route::get('categorie', function(){
