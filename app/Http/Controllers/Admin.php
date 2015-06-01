@@ -8,7 +8,22 @@ use Illuminate\Http\Request;
 class Admin extends Controller {
 	public function index()
 	{
-		return view('admin.index');
+		$new_sales = \App\Commande::whereRaw('MONTH(created_at) = MONTH(DATE(NOW()))')->count();
+		$new_users = \App\User::whereRaw('MONTH(created_at) = MONTH(DATE(NOW()))')->count();
+
+		$sales = \DB::table('commande')->select(\DB::raw("SUM(montant) as total, DATE_FORMAT(commande.created_at,'%Y-%m') as y"))
+						->join('commande_exemplaire', 'commande_exemplaire.commande_id', '=', 'commande.id')
+						->groupBy(\DB::raw("DATE_FORMAT(commande.created_at,'%Y-%m')"))
+						->get();
+		$json_sales = json_encode($sales);
+
+		$purchase = \DB::table('vente')->select(\DB::raw("SUM(vente_exemplaire.montant) as total, DATE_FORMAT(vente.created_at,'%Y-%m') as y"))
+						->join('vente_exemplaire', 'vente_exemplaire.vente_id', '=', 'vente.id')
+						->groupBy(\DB::raw("DATE_FORMAT(vente.created_at,'%Y-%m')"))
+						->get();
+		$json_purchase = json_encode($purchase);
+
+		return view('admin.index', compact('new_sales', 'new_users', 'json_sales','json_purchase'));
 	}
 
 }

@@ -14,50 +14,46 @@
 
 /*** Partie admin mettre un commentaire sur chaque route pour connaitre l'avancement ***/
 Route::group(['prefix' => 'admin'], function(){
-        Route::group(['middleware' => 'auth', 'roles' => ['admin']], function(){
-            Route::get('/', [ 'as' => 'accueil', 'uses' => 'Admin@index']);
-            Route::resource('contact', 'Admin\ContactController', ['only' => ['destroy', 'index']]);
-            Route::get('contact/done/{contact}', ['as' => 'admin.contact.done', 'uses' => 'Admin\ContactController@done']);
-            Route::post('contact/mail/{contact}', ['as' => 'admin.contact.mail', 'uses' => 'Admin\ContactController@mail']);
-        	Route::resource('newsletter_mail', 'Admin\NewsletterMailController');
-            Route::get('newsletter/history', ['as' => 'admin.newsletter.history', 'uses' => 'Admin\NewsletterController@history']);
-            Route::resource('newsletter', 'Admin\NewsletterController');
-            Route::resource('cgu', 'Admin\CguController');
-            Route::resource('cgv', 'Admin\CgvController');
-            Route::resource('faq', 'Admin\FaqController');
+        	Route::group(['middleware' => 'auth', 'roles' => ['admin']], function(){
+	            Route::get('/', [ 'as' => 'accueil', 'uses' => 'Admin@index']);
+	            Route::resource('contact', 'Admin\ContactController', ['only' => ['destroy', 'index']]);
+	            Route::get('contact/done/{contact}', ['as' => 'admin.contact.done', 'uses' => 'Admin\ContactController@done']);
+	            Route::post('contact/mail/{contact}', ['as' => 'admin.contact.mail', 'uses' => 'Admin\ContactController@mail']);
+	        	Route::resource('newsletter_mail', 'Admin\NewsletterMailController');
+	            Route::get('newsletter/history', ['as' => 'admin.newsletter.history', 'uses' => 'Admin\NewsletterController@history']);
+	            Route::resource('newsletter', 'Admin\NewsletterController');
+	            Route::resource('cgu', 'Admin\CguController');
+	            Route::resource('cgv', 'Admin\CgvController');
+	            Route::resource('faq', 'Admin\FaqController');
 	});
 });
 
 Route::group(['prefix' => 'ws', 'middleware' => 'ws'], function(){
             Route::resource('contact', 'Ws\ContactController', ['only' => ['store']]);;
             Route::resource('user', 'Ws\UserController');
-
-    Route::get('/', ['as' => 'home', function(){
-            return 'lol';
-    }]);
 });
 
 
 Route::group(['prefix' => 'forum'], function()
 {
-    Route::get('/', function()
-    {
-        return 'le forum';
-    });
+	Route::get('/', function()
+	{
+	    return 'le forum';
+	});
 
-    Route::get('sujet', function()
-    {
-        return 'les sujets';
-    });
+	Route::get('sujet', function()
+	{
+	    return 'les sujets';
+	});
 
-    Route::get('message', function()
-    {
-         return 'les messages';
-    });
-    Route::get('profil', function()
-    {
-         return 'le profil';
-    });
+	Route::get('message', function()
+	{
+	     return 'les messages';
+	});
+	Route::get('profil', function()
+	{
+	     return 'le profil';
+	});
 });
 
 
