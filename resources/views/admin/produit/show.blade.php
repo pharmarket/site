@@ -6,6 +6,9 @@
 @stop
 
 @section('content')
+<div class="row">
+	@include('admin.produit.succes')	
+</div>
 
 <div class="row navBlock">
 	<div class="">
@@ -179,21 +182,30 @@
 
                 	<!-- Tab panes Posologie Age -->
                     <div class="tab-pane fade in active" id="posologieAge">
-				    	<table class="table table-striped">
-				    		<thead>
-				    			<tr>
-				    				<th>Id</th>
+					    <table class="datatable table table-bordered table-striped" id="select_table">
+					        <thead>
+					        	<tr>
+						            <th>Id</th>
 				    				<th>Age Minimum</th>
 				    				<th>Age Maximum</th>
 				    				<th>Coefficient</th>
 				    			</tr>
 				    		</thead>
 
-				    		<tbody>
-				    			@foreach ($produit->posologie as $value)
-                    				@if($value->type_id==5)
+					        <tfoot>
+					        	<tr>
+						            <th>Id</th>
+				    				<th>Age Minimum</th>
+				    				<th>Age Maximum</th>
+				    				<th>Coefficient</th>
+					          	</tr>
+					        </tfoot>
+					     	
+					        <tbody>
+						        @foreach ($produit->posologie as $value)
+                    				@if($value->type_id==10)
 					    			<tr>
-					    				<th>{{ $value->id }}</th>
+					    				<th><a href="{{ route('admin.posologie.edit', $value->id) }}">{{ $value->id }}</a></th>
 					    				<td>{{ $value->min }}</td>
 					    				<td>{{ $value->max }}</td>
 					    				<td>{{ $value->coeff }}</td>
@@ -205,8 +217,8 @@
                     </div>
 
                     <!-- Tab panes Posologie Poids -->
-                    <div class="tab-pane fade" id="posologiePoids">
-				    	<table class="table table-striped">
+                    <div class="tab-pane fade" id="posologiePoids">                					    	
+				    	<table class="datatable table table-bordered table-striped" id="select_table2">
 				    		<thead>
 				    			<tr>
 				    				<th>Id</th>
@@ -216,11 +228,20 @@
 				    			</tr>
 				    		</thead>
 
+				    		<tfoot>
+					        	<tr>
+						            <th>Id</th>
+				    				<th>Age Minimum</th>
+				    				<th>Age Maximum</th>
+				    				<th>Coefficient</th>
+					          	</tr>
+					        </tfoot>
+
 				    		<tbody>
 				    			@foreach ($produit->posologie as $value)
-                    				@if($value->type_id==6)
+                    				@if($value->type_id==11)
 					    			<tr>
-					    				<th>{{ $value->id }}</th>
+					    				<th><a href="{{ route('admin.posologie.edit', $value->id) }}">{{ $value->id }}</th>
 					    				<td>{{ $value->min }}</td>
 					    				<td>{{ $value->max }}</td>
 					    				<td>{{ $value->coeff }}</td>
@@ -232,8 +253,8 @@
                     </div>
 
                     <!-- Tab panes Posologie Taille -->
-                    <div class="tab-pane fade" id="posologieTaille">
-				    	<table class="table table-striped">
+                    <div class="tab-pane fade" id="posologieTaille">                	
+				    	<table class="datatable table table-bordered table-striped" id="select_table3">
 				    		<thead>
 				    			<tr>
 				    				<th>Id</th>
@@ -243,11 +264,20 @@
 				    			</tr>
 				    		</thead>
 
+				    		<tfoot>
+					        	<tr>
+						            <th>Id</th>
+				    				<th>Age Minimum</th>
+				    				<th>Age Maximum</th>
+				    				<th>Coefficient</th>
+					          	</tr>
+					        </tfoot>
+
 				    		<tbody>
 				    			@foreach ($produit->posologie as $value)
-                    				@if($value->type_id==7)
+                    				@if($value->type_id==12)
 					    			<tr>
-					    				<th>{{ $value->id }}</th>
+					    				<th><a href="{{ route('admin.posologie.edit', $value->id) }}">{{ $value->id }}</th>
 					    				<td>{{ $value->min }}</td>
 					    				<td>{{ $value->max }}</td>
 					    				<td>{{ $value->coeff }}</td>
@@ -260,8 +290,8 @@
 
 
                     <!-- Tab panes Posologie Sexe -->
-                    <div class="tab-pane fade" id="posologieSex">
-				    	<table class="table table-striped">
+                    <div class="tab-pane fade" id="posologieSex">                	
+				    	<table class="datatable table table-bordered table-striped" id="select_table4">
 				    		<thead>
 				    			<tr>
 				    				<th>Id</th>
@@ -270,10 +300,18 @@
 				    			</tr>
 				    		</thead>
 
+				    		<tfoot>
+				    			<tr>
+				    				<th>Id</th>
+				    				<th>Sexe</th>
+				    				<th>Coefficient</th>
+				    			</tr>
+				    		</tfoot>
+
 				    		<tbody>
 				    			@foreach ($produit->posologieSex as $value)
 				    			<tr>
-				    				<th>{{ $value->id }}</th>
+				    				<th><a href="{{ route('admin.posologie_sex.edit', $value->id) }}">{{ $value->id }}</th>
 				    				<td>{{ $value->sexe }}</td>
 				    				<td>{{ $value->coeff }}</td>
 				    			</tr>

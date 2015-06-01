@@ -14,4 +14,5 @@ class Produit_categorie extends Model {
     public function langue(){
         return $this->belongsTo('\App\Langue', 'langue_id');
     }
+
 }

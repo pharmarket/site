@@ -32,6 +32,14 @@ class RouteServiceProvider extends ServiceProvider {
 		$router->model('contact', 'App\Contact', function() {
 			\App::abort(404);
 		});
+
+		$router->model('posologie', 'App\Posologie', function() {
+			\App::abord(404);
+		});
+
+		$router->model('posologie_sexe', 'App\Posologie_sexe', function() {
+			\App::abord(404);
+		});
 		
 		$router->model('newsletter_mail', 'App\Newsletter_mail', function() {
 			\App::abort(404);
@@ -57,7 +65,6 @@ class RouteServiceProvider extends ServiceProvider {
         $router->model('faq', 'App\Faq', function() {
             \App::abort(404);
         });
-
 
 
         $router->model('produit', 'App\Produit', function() {

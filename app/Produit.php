@@ -101,5 +101,6 @@ class Produit extends Model {
 
 		return $produit;
 	}
+
 }
 

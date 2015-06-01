@@ -44,7 +44,8 @@ Route::group(['prefix' => 'admin'], function(){
             Route::get('exemplaire/listing_exemplaires/{idProduit}', ['as' => 'admin.exemplaire.listingExemplaires', 'uses' => 'Admin\ExemplaireController@listingExemplaires']);
             Route::resource('exemplaire', 'Admin\ExemplaireController');
 
-
+            Route::resource('posologie', 'Admin\PosologieController');
+            Route::resource('posologie_sex', 'Admin\PosologieSexController');
 	});
 });
 
@@ -112,12 +113,11 @@ Route::group(['middleware' => 'language'], function(){
     Route::post('produit', ['as' => 'produit.store', 'uses' => 'Front\ProduitController@store']);
     Route::get('commentaire/{commentaire}', ['as' => 'produit.destroy', 'uses' => 'Front\ProduitController@destroy']);
 
-	Route::get('logout', ['as' => 'user.logout', 'uses' => 'UserController@logout']);
-	//Route de gestion de  la connexion
-	Route::match(['get', 'post'], 'login', ['as' => 'user.login', 'uses' => 'UserController@login']);
-	Route::match(['get', 'post'], 'suscribe', ['as' => 'user.suscribe', 'uses' => 'UserController@suscribe']);
-	Route::get('language/{langue}', ['as' => 'user.language', 'uses' => 'UserController@language']);
-
+    Route::get('logout', ['as' => 'user.logout', 'uses' => 'UserController@logout']);
+    //Route de gestion de  la connexion
+    Route::match(['get', 'post'], 'login', ['as' => 'user.login', 'uses' => 'UserController@login']);
+    Route::match(['get', 'post'], 'suscribe', ['as' => 'user.suscribe', 'uses' => 'UserController@suscribe']);
+    Route::get('language/{langue}', ['as' => 'user.language', 'uses' => 'UserController@language']);
 
   Route::get('/', ['as' => 'home', 'uses' => 'Front\HomeController@index']);
 });
