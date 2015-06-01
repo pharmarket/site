@@ -20,6 +20,10 @@ class Produit extends Model {
     public function getCreatedAtAttribute($value){
         return date('d/m/Y H\Hi', date_timestamp_get(date_create($value)));
     }
+
+	public function getUpdatedAtAttribute($value){
+		return date('d/m/Y H\Hi', date_timestamp_get(date_create($value)));
+	}
     public function categorie(){
         return $this->belongsTo('\App\Produit_categorie','categorie_id');
     }
@@ -35,6 +39,15 @@ class Produit extends Model {
     public function media(){
         return $this->hasMany('\App\Media', 'produit_id');
     }
+
+	public function posologie(){
+		return $this->hasMany('\App\Posologie', 'produit_id');
+	}
+
+	public function posologieSex(){
+		return $this->hasMany('\App\Posologie_sexe', 'produit_id');
+	}
+
     public function fournisseurs(){
         return $this->belongsToMany('\App\Fournisseur', 'produit_fournisseur');
     }
@@ -89,3 +102,4 @@ class Produit extends Model {
 		return $produit;
 	}
 }
+

@@ -34,14 +34,16 @@ class RouteServiceProvider extends ServiceProvider {
 		});
 		
 		$router->model('newsletter_mail', 'App\Newsletter_mail', function() {
-			\App::abord(404);
+			\App::abort(404);
 		});
 
 		$router->model('newsletter', 'App\Newsletter', function() {
-			\App::abord(404);
+			\App::abort(404);
 		});
 
-
+		$router->model('produit', 'App\Produit', function() {
+			\App::abort(404);
+		});
 
         $router->model('cgu', 'App\Cgu', function() {
             \App::abort(404);
@@ -53,7 +55,7 @@ class RouteServiceProvider extends ServiceProvider {
 
 
         $router->model('faq', 'App\Faq', function() {
-            \App::abord(404);
+            \App::abort(404);
         });
 
 

@@ -14,17 +14,37 @@
 
 /*** Partie admin mettre un commentaire sur chaque route pour connaitre l'avancement ***/
 Route::group(['prefix' => 'admin'], function(){
-        	Route::group(['middleware' => 'auth', 'roles' => ['admin']], function(){
-	            Route::get('/', [ 'as' => 'accueil', 'uses' => 'Admin@index']);
-	            Route::resource('contact', 'Admin\ContactController', ['only' => ['destroy', 'index']]);
-	            Route::get('contact/done/{contact}', ['as' => 'admin.contact.done', 'uses' => 'Admin\ContactController@done']);
-	            Route::post('contact/mail/{contact}', ['as' => 'admin.contact.mail', 'uses' => 'Admin\ContactController@mail']);
-	        	Route::resource('newsletter_mail', 'Admin\NewsletterMailController');
-	            Route::get('newsletter/history', ['as' => 'admin.newsletter.history', 'uses' => 'Admin\NewsletterController@history']);
-	            Route::resource('newsletter', 'Admin\NewsletterController');
-	            Route::resource('cgu', 'Admin\CguController');
-	            Route::resource('cgv', 'Admin\CgvController');
-	            Route::resource('faq', 'Admin\FaqController');
+        Route::group(['middleware' => 'auth', 'roles' => ['admin']], function(){
+            Route::get('/', [ 'as' => 'accueil', 'uses' => 'Admin@index']);
+            Route::resource('contact', 'Admin\ContactController', ['only' => ['destroy', 'index']]);
+            Route::get('contact/done/{contact}', ['as' => 'admin.contact.done', 'uses' => 'Admin\ContactController@done']);
+            Route::post('contact/mail/{contact}', ['as' => 'admin.contact.mail', 'uses' => 'Admin\ContactController@mail']);
+        	Route::resource('newsletter_mail', 'Admin\NewsletterMailController');
+            Route::get('newsletter/history', ['as' => 'admin.newsletter.history', 'uses' => 'Admin\NewsletterController@history']);
+            Route::resource('newsletter', 'Admin\NewsletterController');
+            Route::resource('cgu', 'Admin\CguController');
+            Route::resource('cgv', 'Admin\CgvController');
+            Route::resource('faq', 'Admin\FaqController');
+
+            Route::post('produit/upload', ['as' => 'admin.produit.upload', 'uses' => 'Admin\ProduitController@upload']);
+            Route::post('produit/delete', ['as' => 'admin.produit.delete', 'uses' => 'Admin\ProduitController@delete']);     
+            
+            Route::get('produit/importCSV', ['as' => 'admin.produit.importCSV', 'uses' => 'Admin\ProduitController@importCSV']);
+            Route::post('produit/importCsvProduits', ['as' => 'admin.produit.importCsvProduits', 'uses' => 'Admin\ProduitController@importCsvProduits']);
+            Route::post('produit/importCsvExemplaires', ['as' => 'admin.produit.importCsvExemplaires', 'uses' => 'Admin\ProduitController@importCsvExemplaires']);
+            Route::post('produit/importCsvMarques', ['as' => 'admin.produit.importCsvMarques', 'uses' => 'Admin\ProduitController@importCsvMarques']);
+            Route::post('produit/importCsvFournisseurs', ['as' => 'admin.produit.importCsvFournisseurs', 'uses' => 'Admin\ProduitController@importCsvFournisseurs']);
+            Route::post('produit/importCsvProduitsInfos', ['as' => 'admin.produit.importCsvProduitsInfos', 'uses' => 'Admin\ProduitController@importCsvProduitsInfos']);
+            Route::get('produit/exportCSV', ['as' => 'admin.produit.exportCSV', 'uses' => 'Admin\ProduitController@exportCSV']);
+            Route::post('produit/exportCsvProduitsInfos', ['as' => 'admin.produit.exportCsvProduitsInfos', 'uses' => 'Admin\ProduitController@exportCsvProduitsInfos']);
+            Route::post('produit/exportCsvExemplairesInfos', ['as' => 'admin.produit.exportCsvExemplairesInfos', 'uses' => 'Admin\ProduitController@exportCsvExemplairesInfos']);
+            Route::resource('produit', 'Admin\ProduitController');
+            
+            Route::post('exemplaire/importCSV', ['as' => 'admin.exemplaire.importCSV', 'uses' => 'Admin\ExemplaireController@importCSV']);
+            Route::get('exemplaire/listing_exemplaires/{idProduit}', ['as' => 'admin.exemplaire.listingExemplaires', 'uses' => 'Admin\ExemplaireController@listingExemplaires']);
+            Route::resource('exemplaire', 'Admin\ExemplaireController');
+
+
 	});
 });
 
@@ -39,6 +59,10 @@ Route::group(['middleware' => 'language'], function(){
 	Route::get('produit', function(){
 	     	return View::make('front.produit.produit');
 	});
+    Route::get('mon-compte', function()
+    {
+        return View::make('front.compte.compte');
+    });
 	Route::get('faq', function(){
 	    	return View::make('front.faq.faq');
 	});
@@ -46,7 +70,7 @@ Route::group(['middleware' => 'language'], function(){
 	    	return View::make('front.commande.adresse');
 	});
 
-	Route::match(['get', 'post'],'contact',['as' => 'contact', 'uses' => 'Front\ContactController@index']);
+    Route::match(['get', 'post'],'contact',['as' => 'contact', 'uses' => 'Front\ContactController@index']);
 
 	//Route pour le panier
 	Route::get('basket/{basket}', ['as' => 'basket.destroy', 'uses' => 'Front\BasketController@destroy']);
@@ -96,6 +120,6 @@ Route::group(['middleware' => 'language'], function(){
   Route::get('/', ['as' => 'home', 'uses' => 'Front\HomeController@index']);
 });
 Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
 ]);

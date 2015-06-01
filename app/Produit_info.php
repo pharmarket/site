@@ -1,9 +1,12 @@
 <?php namespace App;
+
 use Illuminate\Database\Eloquent\Model;
+
 class Produit_info extends Model {
-    public $timestamps    = false;
-    protected $table    = 'produit_info';
-    protected $fillable   = ['produit_id', 'langue_id', 'nom', 'description', 'notice'];
+
+	public $timestamps 	  = false;
+	protected $table 	  = 'produit_info';
+	protected $fillable   = ['produit_id', 'langue_id', 'nom', 'description', 'notice'];
 
 
     public function produit(){
