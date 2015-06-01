@@ -8,7 +8,7 @@
 @stop
 
 @section('content')
-
+{!! Breadcrumbs::render('cgu') !!}
 
     @foreach($cgu as $row)
 
@@ -38,7 +38,7 @@
 
     @endforeach
 
-    
+
 @stop
 
 

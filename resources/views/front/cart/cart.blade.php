@@ -1,3 +1,4 @@
+{!! Breadcrumbs::render('faq') !!}
 <div id="layer_cart">
   <div class="clearfix">
     <div class="layer_cart_product col-xs-12 col-md-6">

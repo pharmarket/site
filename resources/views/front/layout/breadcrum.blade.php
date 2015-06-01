@@ -14,17 +14,11 @@
     									</form>
     								</div><!-- end site search -->
     							</div>
-    						<nav id="breadcrumbs">
-    							<ul>
-    								<li>You are here:</li>
-    								<li><a href="/">Home</a></li>
-    								<li><a href="/">Shortcodes</a></li>
 
-    							</ul>
-    						</nav>
+									@yield('breadcrumbs')
   </div>
   <div class="col-sm-3 col-md-3 col-lg-3">
-  
+
   </div>
 </div>
 

@@ -7,6 +7,7 @@
 
 @stop
 
+{!! Breadcrumbs::render('faq') !!}
 
     <section class="content faq">
         <div class="container">

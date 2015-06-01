@@ -127,6 +127,8 @@ return [
 		/*
 		 * Laravel Framework Service Providers...
 		 */
+
+    'DaveJamesMiller\Breadcrumbs\ServiceProvider',
 		'Illuminate\Foundation\Providers\ArtisanServiceProvider',
 		'Illuminate\Auth\AuthServiceProvider',
 		'Illuminate\Bus\BusServiceProvider',
@@ -181,6 +183,7 @@ return [
 
 	'aliases' => [
 
+		'Breadcrumbs' => 'DaveJamesMiller\Breadcrumbs\Facade',
 		'App'       => 'Illuminate\Support\Facades\App',
 		'Artisan'   => 'Illuminate\Support\Facades\Artisan',
 		'Auth'      => 'Illuminate\Support\Facades\Auth',

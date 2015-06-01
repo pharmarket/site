@@ -9,7 +9,7 @@
 
 @section('content')
 
-
+{!! Breadcrumbs::render('cgv') !!}
     @foreach($cgv as $row)
 
         @if($row->langue->label == Lang::get('menu.langactiv'))
