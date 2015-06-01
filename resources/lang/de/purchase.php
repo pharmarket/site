@@ -25,5 +25,17 @@ return [
 	'delivrey_pay' => 'Die Versandkosten',
 	'basket_total_produit' => 'Gesamte Produkt',
 	'invoice_slogan' => 'Pharmaket.com , Bester Sanitäter Vorbereitung Händler europe',
-	'mail_recap' => 'Verschließen Sie Ihre Rechnung'
+	'mail_recap' => 'Verschließen Sie Ihre Rechnung',
+	'account' => 'Mein Konto',
+	'account_present' => 'Willkommen auf Ihrer Homepage. Sie können Ihre persönlichen Daten und Ihre Bestellungen zu verwalten.',
+	'historic_command' => 'Geschichte und Details meines Bestellungen',
+	'personal_info' => 'Meine persönlichen Daten',
+	'historic_command_present' => 'Hier finden Sie Bestellungen seit der Erstellung Ihres Kontos finden',
+	'etat' => 'Zustand',
+	'date' => 'Datum',
+	'reference' => 'Hinweis',
+	'invoice' => 'Rechnung',
+	'prepared' => 'Vorbereitung im Gange',
+	'delivry' => 'Out für die Lieferung',
+	'deliver' => 'Geliefert',
 ];

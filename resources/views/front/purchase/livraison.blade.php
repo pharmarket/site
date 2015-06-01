@@ -49,7 +49,7 @@
 					@if(!empty($errors))
 						<span style="color:red; font-weight:bold">{{Lang::get('site.forgetTransport')}}</span>
 					@endif
-					<form id="form" action="{{route('purchase.livraison.post')}}" method="post" name="carrier_area">
+					{!! Form::open(array('url' => route('purchase.livraison.post'), 'method' => 'post', 'name'=>'carrier_area')) !!}
 						<div class="order_carrier_content box">
 							<div class="delivery_options_address">
 								<div class="delivery_options">
@@ -113,7 +113,7 @@
 								</span>
 							</button>
 						</p>
-					</form>
+					{!! Form::close() !!}
 				</div> <!-- end carrier_area -->
 			</div><!-- #center_column -->
 		</div><!-- .row -->

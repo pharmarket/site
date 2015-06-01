@@ -43,11 +43,6 @@ class PurchaseController extends Controller {
 
 		//Si il n'y a pas de livreur, on redirige vers la page de choix du livreur
 		if(empty($livreur)){ return \Redirect::route('purchase.livraison'); }
-		// \Cart::destroy();
-		// \Cart::add([
-		// 	['id' => '43', 'name' => 'Product 1', 'qty' => 1, 'price' => 10.00, 'options' => array('logo' => 'img/produit1.jpg')],
-		// 	['id' => '53', 'name' => 'Product 2', 'qty' => 1, 'price' => 10.00, 'options' => array('logo' => 'img/produit2.jpg')]
-		// ]);
 
 		$livreurPrix = \App\Livreur::find(\Session::get('livreur'))->frais($user);
 
@@ -59,6 +54,17 @@ class PurchaseController extends Controller {
 
 	public function confirm(){
 		\App\Library\Paypal::launchPayment();
+	}
+
+	public function suivi(){
+		$commande = \App\Commande::select(\DB::raw('SUM(commande_exemplaire.montant) as total, reference, commande.created_at, invoice, statut.label AS statut'))
+			->where('user_id',  \Auth::user()->id)
+			->join('commande_exemplaire', 'commande_exemplaire.commande_id', '=', 'commande.id')
+			->join('statut', 'statut.id', '=', 'commande.statut_id')
+			->groupBy('commande.id')
+			->get();
+
+		return view('front.purchase.suivi', compact('commande'));
 	}
 
 	public function cancel(){
@@ -90,7 +96,7 @@ class PurchaseController extends Controller {
 				'livreur_id' => \Session::get('livreur'),
 				'commande_at' => \DB::raw('NOW()'),
 				'livraison_at' => \DB::raw('DATE( DATE_ADD( NOW() , INTERVAL '.$livreur->duration.' DAY ) )'),
-				'statut' => 'commandé',
+				'statut_id' => \Config::get('constant.command_prepared'),
 			]);
 
 			foreach (\Cart::content() as $row) {
@@ -117,8 +123,6 @@ class PurchaseController extends Controller {
 			if(!\App\Library\Paypal::finishPayment()){throw new \Exception('Le paiement n\'a pas pu aboutir');}
 
 			\DB::commit();
-			//Vider le panier
-			\Cart::destroy();
 
 
 			//cREATION DE LA FACTURE
@@ -183,6 +187,14 @@ class PurchaseController extends Controller {
 			    	$message->to($user->mail, '')->subject(\Lang::get('purchase.mail_recap'));
 					$message->attach($file);
 			});
+
+			//Enregistrement du pdf
+			$commande = \App\Commande::find($commande);
+			$commande->invoice ='/pdf/invoice-'.date('Y-m-d').'-'.$commande->id.'.pdf';
+			$commande->reference = '#'.$commande->id;
+			$commande->save();
+			//Vider le panier
+			\Cart::destroy();
 
 			return view('front.purchase.return');
 		}catch (Exception $e) {

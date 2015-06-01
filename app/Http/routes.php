@@ -59,66 +59,56 @@ Route::group(['prefix' => 'forum'], function()
 
 
 Route::group(['middleware' => 'language'], function(){
-    Route::get('categorie', function()
-    {
-        return 'la categorie';
-    });
-    Route::get('produit', function()
-    {
-         return View::make('front.produit.produit');
-    });
-    Route::get('mon-compte', function()
-    {
-        return View::make('front.compte.compte');
-    });
-    Route::get('faq', function()
-    {
-        return View::make('front.faq.faq');
-    });
-    Route::get('commande', function()
-    {
-        return View::make('front.commande.adresse');
-    });
+	Route::get('categorie', function(){
+	    	return 'la categorie';
+	});
+	Route::get('produit', function(){
+	     	return View::make('front.produit.produit');
+	});
+	Route::get('faq', function(){
+	    	return View::make('front.faq.faq');
+	});
+	Route::get('commande', function(){
+	    	return View::make('front.commande.adresse');
+	});
+	Route::match(['get', 'post'],'contact',['as' => 'contact', 'uses' => 'Front\ContactController@index']);
 
-    Route::match(['get', 'post'],'contact',['as' => 'contact', 'uses' => 'Front\ContactController@index']);
+	//Route pour le panier
+	Route::get('basket/{basket}', ['as' => 'basket.destroy', 'uses' => 'Front\BasketController@destroy']);
+	Route::get('basket', ['as' => 'basket.index', 'uses' => 'Front\BasketController@index']);
+	Route::post('basket', ['as' => 'basket.post', 'uses' => 'Front\BasketController@post']);
+	Route::group(['middleware' => 'auth', 'roles' => ['customer']], function(){
+		//Route pour la commande
+		Route::get('purchase/address', ['as' => 'purchase.address', 'uses' => 'Front\PurchaseController@address']);
+		Route::get('purchase/livraison', ['as' => 'purchase.livraison', 'uses' => 'Front\PurchaseController@livraison']);
+		Route::post('purchase/livraison', ['as' => 'purchase.livraison.post', 'uses' => 'Front\PurchaseController@livraisonPost']);
+		Route::get('purchase/payment', ['as' => 'purchase.payment', 'uses' => 'Front\PurchaseController@payment']);
+		Route::post('purchase/confirm', ['as' => 'purchase.confirm', 'uses' => 'Front\PurchaseController@confirm']);
+		Route::get('purchase/suivi', ['as' => 'purchase.suivi', 'uses' => 'Front\PurchaseController@suivi']);
+		Route::get('purchase/cancel', ['as' => 'purchase.cancel', 'uses' => 'Front\PurchaseController@cancel']);
+		Route::get('purchase/return', ['as' => 'purchase.return', 'uses' => 'Front\PurchaseController@retour']);
+		Route::match(['get', 'post'], 'account', ['as' => 'user.account', 'uses' => 'UserController@suscribe']);
+		Route::get('user/home', ['as' => 'user.home', 'uses' => 'UserController@home']);
+	});
 
-    //Route pour le panier
-    Route::get('basket/{basket}', ['as' => 'basket.destroy', 'uses' => 'Front\BasketController@destroy']);
-    Route::get('basket', ['as' => 'basket.index', 'uses' => 'Front\BasketController@index']);
-    Route::post('basket', ['as' => 'basket.post', 'uses' => 'Front\BasketController@post']);
-    Route::group(['middleware' => 'auth', 'roles' => ['customer']], function(){
-        //Route pour la commande
-        Route::get('purchase/address', ['as' => 'purchase.address', 'uses' => 'Front\PurchaseController@address']);
-        Route::get('purchase/livraison', ['as' => 'purchase.livraison', 'uses' => 'Front\PurchaseController@livraison']);
-        Route::post('purchase/livraison', ['as' => 'purchase.livraison.post', 'uses' => 'Front\PurchaseController@livraisonPost']);
-        Route::get('purchase/payment', ['as' => 'purchase.payment', 'uses' => 'Front\PurchaseController@payment']);
-        Route::post('purchase/confirm', ['as' => 'purchase.confirm', 'uses' => 'Front\PurchaseController@confirm']);
-        Route::get('purchase/cancel', ['as' => 'purchase.cancel', 'uses' => 'Front\PurchaseController@cancel']);
-        Route::get('purchase/return', ['as' => 'purchase.return', 'uses' => 'Front\PurchaseController@retour']);
-        Route::match(['get', 'post'], 'account', ['as' => 'user.account', 'uses' => 'UserController@suscribe']);
-    });
+	//Route pour les CGU et CGV
+	Route::get('cgu', ['as' => 'cgu.index', 'uses' => 'Front\CguController@index']);
+	Route::get('cgv', ['as' => 'cgv.index', 'uses' => 'Front\CgvController@index']);
 
+	//Route pour le FAQ
+	Route::get('faq', ['as' => 'faq.index', 'uses' => 'Front\FaqController@index']);
 
-    //Route pour les CGU et CGV
-    Route::get('cgu', ['as' => 'cgu.index', 'uses' => 'Front\CguController@index']);
-    Route::get('cgv', ['as' => 'cgv.index', 'uses' => 'Front\CgvController@index']);
+	Route::get('logout', ['as' => 'user.logout', 'uses' => 'UserController@logout']);
+	//Route de gestion de  la connexion
+	Route::match(['get', 'post'], 'login', ['as' => 'user.login', 'uses' => 'UserController@login']);
+	Route::match(['get', 'post'], 'suscribe', ['as' => 'user.suscribe', 'uses' => 'UserController@suscribe']);
+	Route::get('language/{langue}', ['as' => 'user.language', 'uses' => 'UserController@language']);
 
-    //Route pour le FAQ
-    Route::get('faq', ['as' => 'faq.index', 'uses' => 'Front\FaqController@index']);
-
-
-
-    Route::get('logout', ['as' => 'user.logout', 'uses' => 'UserController@logout']);
-    //Route de gestion de  la connexion
-    Route::match(['get', 'post'], 'login', ['as' => 'user.login', 'uses' => 'UserController@login']);
-    Route::match(['get', 'post'], 'suscribe', ['as' => 'user.suscribe', 'uses' => 'UserController@suscribe']);
-    Route::get('language/{langue}', ['as' => 'user.language', 'uses' => 'UserController@language']);
-
-    Route::get('/', ['as' => 'home', function(){
-            return View::make('front.home.home');
-    }]);
+	Route::get('/', ['as' => 'home', function(){
+		return View::make('front.home.home');
+	}]);
 });
 Route::controllers([
-    'auth' => 'Auth\AuthController',
-    'password' => 'Auth\PasswordController',
+	'auth' => 'Auth\AuthController',
+	'password' => 'Auth\PasswordController',
 ]);

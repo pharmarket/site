@@ -23,6 +23,5 @@ return [
   'purchase' => 'Orden',
   'suscribe' => 'Inscripción',
   'logout' => 'Cerrar sesión',
-
-
+  'commande' => 'Orden',
 ];

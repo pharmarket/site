@@ -154,4 +154,8 @@ class UserController extends Controller {
 
 		return view('auth.register', compact('pays', 'message'));
 	}
+
+	public function home(){
+		return view('front.user.home');
+	}
 }

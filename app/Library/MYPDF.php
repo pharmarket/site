@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 class MYPDF extends \TCPDF{
 	public function Header() {
 		$this->setJPEGQuality(90);
-		$this->Image(asset('front/images/Logo-pharmarket.jpg'), 120, 10, 75, 0, 'JPG');
+		$this->Image(asset('front/images/logo.png'), 120, 10, 75, 0, 'PNG');
 
 	}
 	public function Footer() {

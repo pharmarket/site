@@ -25,5 +25,17 @@ return [
 	'delivrey_pay' => 'Shipping cost',
 	'basket_total_produit' => 'Total product',
 	'invoice_slogan' => 'Pharmaket.com, Best Paramedic preparing dealer europe',
-	'mail_recap' => 'Recap your bill'
+	'mail_recap' => 'Recap your bill',
+	'account' => 'My account',
+	'account_present' => 'Welcome to your homepage. You can manage your personal information and your orders.',
+	'historic_command' => 'History and details of my orders',
+	'personal_info' => 'My personal information',
+	'historic_command_present' => 'Here you will find orders since the creation of your account',
+	'etat' => 'State',
+	'date' => 'Date',
+	'reference' => 'Reference',
+	'invoice' => 'Invoice',
+	'prepared' => 'Preparation in progress',
+	'delivry' => 'Out for delivery',
+	'deliver' => 'Supplied',
 ];

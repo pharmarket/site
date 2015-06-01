@@ -23,6 +23,7 @@ return [
   'purchase' => 'Bestellen',
   'suscribe' => 'Aufschrift',
   'logout' => 'Logout',
+  'commande' => 'Bestellen',
 
 
 ];

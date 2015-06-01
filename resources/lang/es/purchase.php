@@ -25,5 +25,17 @@ return [
 	'delivrey_pay' => 'Costo de envío',
 	'basket_total_produit' => 'Total de producto',
 	'invoice_slogan' => 'Pharmaket.com , mejor paramédico preparando distribuidor europa',
-	'mail_recap' => 'Vuelva a tapar su factura'
+	'mail_recap' => 'Vuelva a tapar su factura',
+	'account' => 'Mi cuenta',
+	'account_present' => 'Bienvenido a tu página principal. Usted puede manejar su información personal y sus pedidos.',
+	'historic_command' => 'Historia y detalles de mis pedidos',
+	'personal_info' => 'Mi información personal',
+	'historic_command_present' => 'Aquí encontrarás las órdenes desde la creación de su cuenta',
+	'etat' => 'Condición',
+	'date' => 'Fecha',
+	'reference' => 'Referencia',
+	'invoice' => 'Proyecto de ley',
+	'prepared' => 'Preparación en progreso',
+	'delivry' => 'Salida para la entrega',
+	'deliver' => 'Suministrado',
 ];
