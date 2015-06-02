@@ -79,6 +79,10 @@ Route::group(['prefix' => 'admin'], function(){
             Route::get('commande/exportcsv', ['as' => 'commande.getExportCSV', 'uses' => 'Admin\CommandeController@getExportCSV']);
             Route::post('commande/exportCSV', ['as' => 'commande.exportCSV', 'uses' => 'Admin\CommandeController@exportCSV']);
 
+            /*******Debut Admin forum*******/
+            Route::resource('forum', 'Admin\ForumController');
+            /********Fin Admin forum*********/
+
 
             Route::get('commande/importcsv', ['as' => 'commande.getImportCSV', 'uses' => 'Admin\CommandeController@getImportCSV']);
             Route::post('commande/importCSVCommande', ['as' => 'commande.importCSVCommande', 'uses' => 'Admin\CommandeController@importCSVCommande']);

@@ -36,6 +36,7 @@
       <li class="active"><a href="{{ URL::to('admin/produit') }}"><i class="fa fa-list"></i>Liste produits</a></li>
       <li><a href="{{ URL::to('admin/produit/create') }}"><i class="fa fa-plus-circle"></i>Ajouter produit</a></li>
       <li><a href="{{ URL::to('admin/exemplaire') }}"><i class="fa fa-dashcube"></i>Exemplaires</a></li>
+      <li><a href="{{ URL::to('admin/exemplaire/create') }}"><i class="fa fa-plus-circle"></i>Ajouter exemplaire</a></li>
       <li><a href="{{ URL::to('admin/produit/importCSV') }}"><i class="fa fa-plus-circle"></i>Import CSV</a></li>
       <li><a href="{{ URL::to('admin/produit/exportCSV') }}"><i class="fa fa-download"></i>Export CSV</a></li>
     </ul>
@@ -125,6 +126,15 @@
       <ul class="treeview-menu">
           <li class="active"><a href="{{ route('admin.faq.index') }}"><i class="fa fa-list"></i>Liste</a></li>
           <li><a href="{{ route('admin.faq.create') }}"><i class="fa fa-plus-circle"></i>Ajouter</a></li>
+      </ul>
+  </li>
+
+  <li class="treeview">
+      <a href="#">
+        <i class="fa fa-newspaper-o"></i> <span>Forum</span> <i class="fa fa-angle-left pull-right"></i>
+      </a>
+      <ul class="treeview-menu">
+        <li class="active"><a href="{{ route('admin.forum.index') }}"><i class="fa fa-list"></i>Liste Category</a></li>
       </ul>
   </li>
 
