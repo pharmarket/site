@@ -67,7 +67,7 @@
           <ul class="footbot_social">
             <li><a class="fb" href="https://www.facebook.com/pages/Pharmarket/1583244831927925?ref=hl" data-placement="top" data-toggle="tooltip" title="Facbook"><i class="fa fa-facebook"></i></a></li>
             <li><a class="twtr" href="https://twitter.com/pharmarket75" data-placement="top" data-toggle="tooltip" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-            <li><a class="rss" href="#." data-placement="top" data-toggle="tooltip" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+            <li><a class="rss" href="https://plus.google.com/117424311704712575119/posts" data-placement="top" data-toggle="tooltip" title="Google +"><i class="fa fa-google-plus"></i></a></li>
           </ul>
         </div>
       </div>
