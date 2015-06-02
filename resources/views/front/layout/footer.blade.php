@@ -59,7 +59,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-6 ">
-                  <p class="copyright">&copy; Copyright 2014 Eve | Powered by  <a href="http://www.jqueryrain.com/">jQuery Rain</a></p>
+                  <p class="copyright">&copy; Copyright 2015 PHARMARKET | Powered by  <a href="http://www.laravel.com/">Laravel</a> | Build by <a href="http://www.dragon.ie/">Dragon Agency</a></p>
       </div>
 
       <div class="col-lg-6 ">
@@ -92,20 +92,6 @@
   <script type="text/javascript" src="{{ asset('front/js/jquery-scrolltofixed-min.js') }}"></script>
 
 
-<!-- End Style Switcher -->
-  <script>
-      $(window).load(function(){
-          $('.slider').fractionSlider({
-              'fullWidth': 			true,
-              'controls': 			true,
-              'responsive': 			true,
-              'dimensions': 			"1920,450",
-              'increase': 			true,
-              'pauseOnHover': 		true,
-              'slideEndAnimation': 	true,
-              'autoChange':           true
-          });
-      });
-  </script>
+
 
 <script src="{{ asset('front/js/main.js') }}"></script>
