@@ -8,7 +8,7 @@
 
 <div class="row">
 	<div>
-		@include('admin.produit.errors')	
+		@include('admin.produit.errors')
 	</div>
 </div>
 
@@ -28,7 +28,6 @@
                     <ul class="nav nav-tabs">
                         <li  class="active"><a href="#infosGenerales" data-toggle="tab">Informations</a></li>
 					    <li><a href="#descriptionMultilangues" data-toggle="tab">Descriptions multi-langues</a></li>
-					    <li><a href="#notice" data-toggle="tab">Notice</a></li>
                     </ul>
             </div>
 
@@ -38,7 +37,7 @@
                     <div class="tab-pane fade in active" id="infosGenerales">
                     	<div class="form-group navInformations">
 		                	{!! Form::label('reference', 'Référence :') !!}
-		                    {!!Form::input('texte', 'reference', null, ['class' => 'form-control', 'name'=>'reference', 'placeholder' => 'Référence'])!!}      
+		                    {!!Form::input('texte', 'reference', null, ['class' => 'form-control', 'name'=>'reference', 'placeholder' => 'Référence'])!!}
 		                </div>
 		                <div class="form-group navInformations">
 		                    {!! Form::label('marque', 'Marque :') !!}
@@ -46,11 +45,15 @@
 		                </div>
 		                <div class="form-group navInformations">
 	                		{!! Form::label('categorie', 'Catégorie :') !!}
-	                    	{!! Form::select('categorie', $categories, '', ['class'=>'form-control']) !!} 
+	                    	{!! Form::select('categorie', $categories, '', ['class'=>'form-control']) !!}
 		                </div>
 		                <div class="form-group navInformations">
                 			{!! Form::label('sousCategorie', 'Sous catégorie :') !!}
                     		{!! Form::select('sousCategorie', $sousCategories, '', ['class'=>'form-control']) !!}
+		                </div>
+		                <div class="form-group navInformations">
+		                    {!! Form::label('notice', 'Notice:') !!}
+		                    {!! Form::file('notice', ['class'=>'form-control']) !!}
 		                </div>
 		                <div class="form-group navInformations">
 		                    {!! Form::label('fournisseur', 'Fournisseur :') !!}
@@ -71,30 +74,15 @@
 					        </div>
                     		<div class="form-group">
 			                	{!! Form::label('nom_'.$row->id, 'Nom :') !!}
-			                    {!! Form::input('nom_'.$row->id, 'nom_'.$row->id, null, ['class' => 'form-control', 'placeholder' => $row->label]) !!}      
+			                    {!! Form::input('nom_'.$row->id, 'nom_'.$row->id, null, ['class' => 'form-control', 'placeholder' => $row->label]) !!}
 			                </div>
 			                <div class="form-group">
 			                	{!! Form::label('description_'.$row->id, 'Description :') !!}
-			                    {!! Form::textarea('description_'.$row->id, null, ['class' => 'form-control', 'placeholder' => $row->label]) !!}     
+			                    {!! Form::textarea('description_'.$row->id, null, ['class' => 'form-control', 'placeholder' => $row->label]) !!}
 			                </div>
                     	</div>
                     	@endforeach
                     </div>
-
-                    <!-- Tab panes Notices -->
-                    <div class="tab-pane fade" id="notice">
-                    	@foreach ($langues as $row)
-                    	<div class="col-md-6">
-                    		<div class="row">
-					            <div class="col-md-12"><h4 class="navTitle">{{ $row->label }}</h4></div>
-					        </div>
-			                <div class="form-group">
-			                	{!! Form::label('notice_'.$row->id, 'Notice :') !!}
-			                    {!! Form::textarea('notice_'.$row->id, null, ['class' => 'form-control', 'placeholder' => $row->label]) !!}     
-			                </div>
-			            </div>
-                    	@endforeach
-                    </div>              
                 </div>
             </div>
         </div>

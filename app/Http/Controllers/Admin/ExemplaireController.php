@@ -15,18 +15,17 @@ class ExemplaireController extends Controller {
 	 * @return Response
 	 */
 	public function index()
-	{  
-        $exemplaire = \DB::table('produit_exemplaire')
-        			  ->join('produit', 'produit_exemplaire.produit_id', '=', 'produit.id')	
-                	  ->select('produit_exemplaire.produit_id', 'produit.reference', \DB::raw('count(produit_exemplaire.id) as total'), 'produit.montant')
-                 	  ->whereNotIn('produit_exemplaire.id',function($q){
-						    $q->select('exemplaire_id')->from('commande_exemplaire');
-						})
-                 	  ->groupBy('produit_id')
-                 	  ->get();
+	{
+        $exemplaire = \DB::table('produit_exemplaire')	->join('produit', 'produit_exemplaire.produit_id', '=', 'produit.id')
+							->select('produit_exemplaire.produit_id', 'produit.reference', \DB::raw('count(produit_exemplaire.id) as total'), 'produit.montant')
+							->whereNotIn('produit_exemplaire.id',function($q){
+								$q->select('exemplaire_id')->from('commande_exemplaire');
+							})
+							->groupBy('produit_id')
+							->get();
 
         $exemplaireImportant = \DB::table('produit_exemplaire')
-        			  		   ->join('produit', 'produit_exemplaire.produit_id', '=', 'produit.id')	
+        			  		   ->join('produit', 'produit_exemplaire.produit_id', '=', 'produit.id')
                 	  		   ->select('produit_exemplaire.produit_id', 'produit.reference', \DB::raw('count(produit_exemplaire.id) as total'), 'produit.montant')
                  	  		   ->whereNotIn('produit_exemplaire.id',function($q){
 						    		$q->select('exemplaire_id')->from('commande_exemplaire');
@@ -36,7 +35,7 @@ class ExemplaireController extends Controller {
                  	  		   ->get();
 
         $exemplaireFaible = \DB::table('produit_exemplaire')
-	        			    ->join('produit', 'produit_exemplaire.produit_id', '=', 'produit.id')	
+	        			    ->join('produit', 'produit_exemplaire.produit_id', '=', 'produit.id')
 	                	    ->select('produit_exemplaire.produit_id', 'produit.reference', \DB::raw('count(produit_exemplaire.id) as total'), 'produit.montant')
 	                 	    ->whereNotIn('produit_exemplaire.id',function($q){
 							  	$q->select('exemplaire_id')->from('commande_exemplaire');
@@ -46,7 +45,7 @@ class ExemplaireController extends Controller {
 	                 	    ->get();
 
 		return View('admin.exemplaire.exemplaire', compact('exemplaire', 'exemplaireImportant', 'exemplaireFaible'));
-		
+
 	}
 
 	/**
@@ -68,7 +67,7 @@ class ExemplaireController extends Controller {
 	 */
 	public function store(ExemplaireRequest $request)
 	{
-		// Enregistrement dans la table Produit_exemplaire 
+		// Enregistrement dans la table Produit_exemplaire
 		$exemplaire = new \App\Produit_exemplaire;
 		$exemplaire->produit_id 	= $request->idProduit;
 		$exemplaire->reference 		= $request->reference;
@@ -111,20 +110,20 @@ class ExemplaireController extends Controller {
 	 */
 	public function update(ExemplaireRequest $request, $idExemplaire)
 	{
-		// Enregistrement dans la table Produit_exemplaire 
+		// Enregistrement dans la table Produit_exemplaire
 		$exemplaire = \App\Produit_exemplaire::find($idExemplaire);
 		$exemplaire->id 			= $idExemplaire;
 		$exemplaire->produit_id 	= $request->produit;
 
 		// Vérification existence de la reférence en base de donnée
 		$countRef = \App\Produit_exemplaire::where('reference', '=', $request->reference)->count();
-		
+
 		if($countRef > 0){
 			$exemplaire->reference = $exemplaire->reference;
 		}else{
 			$exemplaire->reference = $request->reference;
 		}
-		
+
 		$exemplaire->peremption_at 	= $request->datePeremption;
 		$exemplaire->save();
 
@@ -147,7 +146,7 @@ class ExemplaireController extends Controller {
 			// Recupere le numéro du produit
 			$exemplaire =  \App\Produit_exemplaire::with('produit')->where('id', '=', $idExemplaire)->get();
 			$idProduit = $exemplaire[0]->produit_id;
-			
+
 			// Recupere le nombre d'exemplaire du produit
 			$nbExemplaire = \App\Produit_exemplaire::where('produit_id', '=', $idProduit)->count();
 
@@ -175,7 +174,7 @@ class ExemplaireController extends Controller {
 	public function listingExemplaires($idProduit){
 
 		$exemplaires = \App\Produit_exemplaire::where('produit_id', '=', $idProduit)->get();
-		
+
 		return View('admin.exemplaire.listingExemplaires', compact('exemplaires'));
 	}
 

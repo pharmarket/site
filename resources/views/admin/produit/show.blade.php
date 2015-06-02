@@ -21,7 +21,6 @@
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#infosGenerales" data-toggle="tab">Informations</a></li>
                         <li><a href="#descriptionMultilangues" data-toggle="tab">Descriptions multi-langues</a></li>
-                        <li><a href="#notice" data-toggle="tab">Notice</a></li>
 					    <li><a href="#images" data-toggle="tab">Images</a></li>
 					    <li><a href="#videos" data-toggle="tab">Vidéos</a></li>
                     </ul>
@@ -45,7 +44,7 @@
 				      			@foreach ($produit->info as $value)
 					            	@if($value->langue_id==1)
 					            		{{$value->nom}}
-				            		@endif	
+				            		@endif
 					            @endforeach
 				      		</div>
 				      	</div>
@@ -60,6 +59,10 @@
 				      	<div class="row">
 				      		<div class="col-md-6 navTabsAlignRight">Sous-catégorie :</div>
 				      		<div class="col-md-6 navTabsAlignLeft">{{ $produit->sous_categorie->nom }}</div>
+				      	</div>
+				      	<div class="row">
+				      		<div class="col-md-6 navTabsAlignRight">Notice :</div>
+				      		<div class="col-md-6 navTabsAlignLeft"><a href="{{asset($produit->notice)}}">PDF</a></div>
 				      	</div>
 				      	<div class="row">
 				      		<div class="col-md-6 navTabsAlignRight">Fournisseur :</div>
@@ -93,7 +96,7 @@
 
                     <!-- Tab panes Description Multilangues -->
                     <div class="tab-pane fade" id="descriptionMultilangues">
-                    	@foreach ($produit->langues as $value)                
+                    	@foreach ($produit->langues as $value)
 					    <div class="col-md-6 navBlock">
 				            <div class="panel panel-success">
 				                <div class="panel-heading">
@@ -114,24 +117,6 @@
 				    	@endforeach
                     </div>
 
-                    <!-- Tab panes Description Notice -->
-                    <div class="tab-pane fade" id="notice">
-                    	@foreach ($produit_info as $value)                
-					    <div class="col-md-12 navBlock">
-				            <div class="panel panel-success">
-				                <div class="panel-heading">
-				                    <h4 class="text-center">{{ $value->langue->label}}</h4>
-				                </div>
-				                <div class="panel-body">
-							        <div class="row">
-							            <div class="col-md-12" style="text-align: justify">{{ $value->notice }}</div>
-							        </div>
-				                </div>
-				            </div>
-				        </div>
-				    	@endforeach
-                    </div>
-
                     <!-- Tab panes Images -->
                     <div class="tab-pane fade" id="images">
                     	<div class="row navImages">
@@ -139,7 +124,7 @@
 								@if($row->type === 'image')
 									<div class="col-md-3" style="text-align: center">
 										<div class="navVignette">
-											{!! HTML::image($row->chemin . $row->nom, '', array('height'=>'100')) !!}
+											{!! HTML::image($row->chemin, '', array('height'=>'100')) !!}
 										</div>
 										@if($row->default == 1)
 											{{ '(Image par défault)'}}
@@ -215,12 +200,12 @@
 					    			</tr>
 					    			@endif
 					    		@endforeach
-				    		</tbody>	
+				    		</tbody>
 				    	</table>
                     </div>
 
                     <!-- Tab panes Posologie Poids -->
-                    <div class="tab-pane fade" id="posologiePoids">                					    	
+                    <div class="tab-pane fade" id="posologiePoids">
 				    	<table class="table table-striped">
 				    		<thead>
 				    			<tr>
@@ -242,12 +227,12 @@
 					    			</tr>
 					    			@endif
 					    		@endforeach
-				    		</tbody>	
+				    		</tbody>
 				    	</table>
                     </div>
 
                     <!-- Tab panes Posologie Taille -->
-                    <div class="tab-pane fade" id="posologieTaille">                	
+                    <div class="tab-pane fade" id="posologieTaille">
 				    	<table class="table table-striped">
 				    		<thead>
 				    			<tr>
@@ -269,13 +254,13 @@
 					    			</tr>
 					    			@endif
 					    		@endforeach
-				    		</tbody>	
+				    		</tbody>
 				    	</table>
                     </div>
 
 
                     <!-- Tab panes Posologie Sexe -->
-                    <div class="tab-pane fade" id="posologieSex">                	
+                    <div class="tab-pane fade" id="posologieSex">
 				    	<table class="table table-striped">
 				    		<thead>
 				    			<tr>
@@ -293,7 +278,7 @@
 				    				<td>{{ $value->coeff }}</td>
 				    			</tr>
 					    		@endforeach
-				    		</tbody>	
+				    		</tbody>
 				    	</table>
                     </div>
                 </div>

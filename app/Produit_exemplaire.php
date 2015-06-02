@@ -7,9 +7,9 @@ class Produit_exemplaire extends Model {
     protected $table = 'produit_exemplaire';
     protected $fillable = ['produit_id', 'reference', 'peremption_at'];
 
-    public function produit(){
-        return $this->belongsTo('\App\Produit', 'produit_id');
-    }
+	public function produit(){
+		return $this->belongsTo('\App\Produit', 'produit_id');
+	}
 
 
 	public function getPeremptionAtAttribute($value){
@@ -23,9 +23,5 @@ class Produit_exemplaire extends Model {
 
 	public function getUpdatedAtAttribute($value){
 		return date('d/m/Y H\Hi', date_timestamp_get(date_create($value)));
-	}
-
-	public function produit(){
-		return $this->belongsTo('\App\Produit', 'produit_id');
 	}
 }

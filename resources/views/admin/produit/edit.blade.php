@@ -1,7 +1,7 @@
 @extends('admin.layout.admin')
 
 @section('header')
-	
+
 @stop
 
 @section('content')
@@ -10,7 +10,7 @@
 
 <div class="row">
 	<div>
-		@include('admin.produit.errors')	
+		@include('admin.produit.errors')
 	</div>
 </div><!-- /.row -->
 
@@ -28,7 +28,6 @@
                     <ul class="nav nav-tabs">
                         <li  class="active"><a href="#infosGenerales" data-toggle="tab">Informations</a></li>
 					    <li><a href="#descriptionMultilangues" data-toggle="tab">Descriptions multi-langues</a></li>
-					    <li><a href="#notice" data-toggle="tab">Notices</a></li>
 					    <li><a href="#images" data-toggle="tab">Images</a></li>
 					    <li><a href="#videos" data-toggle="tab">Videos</a></li>
                     </ul>
@@ -40,7 +39,7 @@
                     <div class="tab-pane fade in active" id="infosGenerales">
                     	<div class="form-group navInformations">
 		                	{!! Form::label('reference', 'Référence :') !!}
-		                    {!! Form::input('texte', 'reference', $produit->reference, ['class' => 'form-control', 'name'=>'reference', 'placeholder' => 'Référence']) !!}      
+		                    {!! Form::input('texte', 'reference', $produit->reference, ['class' => 'form-control', 'name'=>'reference', 'placeholder' => 'Référence']) !!}
 		                </div>
 		                <div class="form-group navInformations">
 		                    {!! Form::label('marque', 'Marque :') !!}
@@ -53,6 +52,10 @@
 		                <div class="form-group navInformations">
 		                    {!! Form::label('sousCategorie', 'Sous-catégorie :') !!}
 		                    {!! Form::select('sousCategorie', $sousCategories, $produit->sous_categorie_id, ['class'=>'form-control']) !!}
+		                </div>
+		                <div class="form-group navInformations">
+		                    {!! Form::label('notice', 'Notice:') !!}
+		                    {!! Form::file('notice', ['class'=>'form-control']) !!}
 		                </div>
 		                <div class="form-group navInformations">
 		                    {!! Form::label('fournisseur', 'Fournisseur :') !!}
@@ -77,22 +80,7 @@
 		                	</div>
 			                <div class="form-group">
 			                	{!! Form::label('description_'.$row->id, 'Description :') !!}
-			                    {!! Form::textarea('description_'.$row->id, $produit->info[$row->id-1]->description, ['class' => 'form-control', 'placeholder' => $row->label]) !!}     
-			                </div>
-			            </div>
-                    	@endforeach
-                    </div>
-
-                    <!-- Tab panes Notices -->
-                    <div class="tab-pane fade" id="notice">
-                    	@foreach ($langues as $row)
-                    	<div class="col-md-6">
-                    		<div class="row">
-					            <div class="col-md-12"><h4 class="navTitle">{{ $row->label }}</h4></div>
-					        </div>
-			                <div class="form-group">
-			                	{!! Form::label('notice_'.$row->id, 'Notice :') !!}
-			                    {!! Form::textarea('notice_'.$row->id, $produit->info[$row->id-1]->notice, ['class' => 'form-control', 'placeholder' => $row->label]) !!}     
+			                    {!! Form::textarea('description_'.$row->id, $produit->info[$row->id-1]->description, ['class' => 'form-control', 'placeholder' => $row->label]) !!}
 			                </div>
 			            </div>
                     	@endforeach
@@ -106,17 +94,21 @@
 									@if($row->type === 'image')
 										{!! Form::hidden('image', $row->id) !!}
 										<div class="col-md-3" style="text-align: center">
-											<div class="navVignette">{!! HTML::image($row->chemin . $row->nom, '', array('height'=>'100')) !!}</div>
+											<div class="navVignette">{!! HTML::image($row->chemin, '', array('style' =>"max-width:300px", 'height'=>'100')) !!}</div>
 											<div id="removeDefault">
 												{!! Form::label('parDefault', 'Par défault') !!}
 												{!! Form::radio('parDefault', $row->id, $row->default, array('id'=>'parDefault'.$row->id));!!}
+											</div>
+											<div id="langueImage">
+												{!! Form::label('langues_'.$row->id, 'Langues') !!}
+	   											{!! Form::select('langues_'.$row->id, $langues_list, $row->langue_id) !!}
 											</div>
 											<div id="removeImage">
 												{!! Form::label('supprimer_'.$row->id, 'Supprimer') !!}
 	   											{!! Form::checkbox('supprimer_'.$row->id, $row->id,  false) !!}
 	   										</div>
 										</div>
-									@endif	
+									@endif
 								@endforeach
 							</div>
 						</div>
@@ -138,7 +130,7 @@
 										</div>
 										<div>
 											<iframe width="215" height="160" src="{{$row->chemin}}" frameborder="0" allowfullscreen></iframe>
-											
+
 										</div>
 										<div>
 											{{$row->description}}
@@ -171,7 +163,7 @@
 	                		<div class="form-group navInformations">
 	                    		{!! Form::label('video_chemin', ' Chemin :') !!}
 	                    		{!! Form::input('texte', 'video_chemin', null, ['class' => 'form-control', 'name' => 'video_chemin', 'placeholder' => 'Chemin']) !!}
-	                		</div>						
+	                		</div>
 						</div>
                     </div>
                 </div>
@@ -210,7 +202,7 @@
 			    data : id,
 			    formData: {"idproduit":id},
 			    fileName: "myfile",
-			    allowedTypes:"jpg,png,gif,doc,pdf,zip",	
+			    allowedTypes:"jpg,png,gif,doc,pdf,zip",
 			    returnType:"json",
 				onSuccess:function(files,data,xhr)
 			    {
@@ -224,10 +216,10 @@
 			        $.post("{{ URL::to('admin/produit/delete') }}",{op:"delete", idProduit:{{ $produit->id }}, name:data[i]},
 			        function(resp, textStatus, jqXHR)
 			        {
-			            //Show Message  
-			            $("#status").append("<div>File Deleted</div>");      
+			            //Show Message
+			            $("#status").append("<div>File Deleted</div>");
 			        });
-			     }      
+			     }
 			    pd.statusbar.hide(); //You choice to hide/not.
 			}
 		}

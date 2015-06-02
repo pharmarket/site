@@ -26,7 +26,7 @@ class ProduitRequest extends Request {
 			'categorie' 	=> 'required|numeric',
 			'sousCategorie' => 'required|numeric',
 			'marque' 		=> 'required|numeric',
-			
+			'notice'	=>'mimes:pdf',
 			'fournisseur'	=> 'required',
 			'montant' 		=> 'required|numeric',
 			'nom_1' 		=> 'required',

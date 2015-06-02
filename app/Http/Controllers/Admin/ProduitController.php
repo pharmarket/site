@@ -15,7 +15,7 @@ class ProduitController extends Controller {
 	 * @return Response
 	 */
 	public function index()
-	{	
+	{
 		$produit = \App\Produit::with('categorie', 'marque', 'media', 'info')->get();
 
 		return View('admin.produit.produit', compact('produit'));
@@ -30,18 +30,12 @@ class ProduitController extends Controller {
 	{
 		// Récuperer Marques & Catégories
 		$marques 	 	  = \App\Produit_marque::lists('nom', 'id');
-		$categories  	  = \App\Produit_categorie::where('langue_id', '=', 1)->lists('nom', 'id');
-		$categoriesEn  	  = \App\Produit_categorie::where('langue_id', '=', 2)->lists('nom', 'id');
-		$categoriesEs  	  = \App\Produit_categorie::where('langue_id', '=', 3)->lists('nom', 'id');
-		$categoriesDe  	  = \App\Produit_categorie::where('langue_id', '=', 4)->lists('nom', 'id');
-		$sousCategories   = \App\Sous_categorie::where('langue_id', '=', 1)->lists('nom', 'id');
-		$sousCategoriesEn = \App\Sous_categorie::where('langue_id', '=', 2)->lists('nom', 'id');
-		$sousCategoriesEs = \App\Sous_categorie::where('langue_id', '=', 3)->lists('nom', 'id');
-		$sousCategoriesDe = \App\Sous_categorie::where('langue_id', '=', 4)->lists('nom', 'id');
+		$categories  	  = \App\Produit_categorie::lists('nom', 'id');
+		$sousCategories   = \App\Sous_categorie::lists('nom', 'id');
 		$fournisseurs 	  = \App\Fournisseur::lists('nom', 'id');
 		$langues		  = \App\Langue::get();
-	
-		return View('admin.produit.create',compact('marques', 'categories', 'categoriesEn', 'categoriesEs', 'categoriesDe', 'sousCategories', 'sousCategoriesEn', 'sousCategoriesEs', 'sousCategoriesDe', 'fournisseurs', 'langues'));
+
+		return View('admin.produit.create',compact('marques', 'categories', 'sousCategories', 'fournisseurs', 'langues'));
 	}
 
 	/**
@@ -50,14 +44,24 @@ class ProduitController extends Controller {
 	 * @return Response
 	 */
 	public function store(ProduitRequest $request)
-	{	
+	{
+		$notice = \Input::file('notice');
+
 		// Enregistrement dans la table produit
 		$produit = new \App\Produit;
 		$produit->reference 		= $request->reference;
 		$produit->marque_id 		= $request->marque;
 		$produit->sous_categorie_id = $request->sousCategorie;
 		$produit->categorie_id 		= $request->categorie;
-		$produit->montant			= $request->montant;	
+		$produit->montant			= $request->montant;
+		$produit->save();
+
+		if(!empty($notice)){
+				$destinationPath = public_path() . '/pdf/notice/';
+				$fileName = 'notice_' . $produit->id .'.'.$notice->getClientOriginalExtension();
+				$notice->move($destinationPath, $fileName);
+				$produit->notice ='/pdf/notice/'.$fileName;
+		}
 		$produit->save();
 
 		// Enregistrement dans la table produit_fournisseur
@@ -67,9 +71,8 @@ class ProduitController extends Controller {
 		foreach ($request->all() as $key => $description) {
 			if(strpos($key, 'description') === 0){
 				list(,$id) = explode("_", $key);
-				$produit->langues()->attach($id, ['nom' => \Request::input('nom_'.$id), 
-												  'description' => $description,
-												  'notice' => \Request::input('notice_'.$id)]);	
+				$produit->langues()->attach($id, ['nom' => \Request::input('nom_'.$id),
+												  'description' => $description,]);
 			}
 		}
 
@@ -79,10 +82,10 @@ class ProduitController extends Controller {
 		$media->type		=	'image';
 		$media->langue_id 	= 1;
 		$media->nom 		= 'nondisponible.jpeg';
-		$media->chemin 		= 'img/produits/';
+		$media->chemin 		= 'img/produits/nondisponible.jpeg';
 		$media->default 	= 1;
 		$media->save();
-		
+
 		return redirect('/admin/produit')->withFlashMessage("Création du produit effectuée avec succès");
 	}
 
@@ -96,7 +99,7 @@ class ProduitController extends Controller {
 	{
 		// Recupere le nombre de produit
 		$exemplaire = \DB::table('produit_exemplaire')
-        			  ->join('produit', 'produit_exemplaire.produit_id', '=', 'produit.id')	
+        			  ->join('produit', 'produit_exemplaire.produit_id', '=', 'produit.id')
                 	  ->select('produit_exemplaire.produit_id', 'produit.reference', \DB::raw('count(produit_exemplaire.id) as total'), 'produit.montant')
                  	  ->where('produit_exemplaire.produit_id', '=', $produit->id)
                  	  ->whereNotIn('produit_exemplaire.id',function($q){
@@ -104,8 +107,8 @@ class ProduitController extends Controller {
 						})
                  	  ->get();
 
-        // Recupere la notice
-        $produit_info = \App\Produit_info::where('produit_id', $produit->id)->get();         	  
+		// Recupere la notice
+		$produit_info = \App\Produit_info::where('produit_id', $produit->id)->get();
 
 		return View('admin.produit.show', compact('produit', 'exemplaire', 'produit_info'));
 	}
@@ -120,13 +123,14 @@ class ProduitController extends Controller {
 	{
 		// Récuperer Marques & Catégories
 		$marques 		= \App\Produit_marque::lists('nom', 'id');
-		$categories 	= \App\Produit_categorie::where('langue_id', '=', 1)->lists('nom', 'id');
-		$sousCategories = \App\Sous_categorie::where('langue_id', '=', 1)->lists('nom', 'id');
+		$categories 	= \App\Produit_categorie::lists('nom', 'id');
+		$sousCategories = \App\Sous_categorie::lists('nom', 'id');
 		$fournisseurs 	= \App\Fournisseur::lists('nom', 'id');
 		$langues		= \App\Langue::get();
+		$langues_list		= \App\Langue::lists('label', "id");
 		$langueVideos	= \App\Langue::lists('label', 'id');
 
-		return View('admin.produit.edit', compact('produit', 'marques', 'categories', 'sousCategories', 'fournisseurs', 'langues', 'langueVideos'));
+		return View('admin.produit.edit', compact('produit', 'marques', 'categories', 'sousCategories', 'fournisseurs', 'langues', 'langues_list', 'langueVideos'));
 	}
 
 	/**
@@ -136,8 +140,8 @@ class ProduitController extends Controller {
 	 * @return Response
 	 */
 	public function update($produit, ProduitRequest $request)
-	{		
-		//dd($request->all());
+	{
+		$notice = \Input::file('notice');
 
 		// Mise à jour de la table Produit
 		$produit->reference 		= $request->reference;
@@ -145,6 +149,13 @@ class ProduitController extends Controller {
 		$produit->categorie_id 		= $request->categorie;
 		$produit->sous_categorie_id = $request->sousCategorie;
 		$produit->montant			= $request->montant;
+
+		if(!empty($notice)){
+				$destinationPath = public_path() . '/pdf/notice/';
+				$fileName = 'notice_' . $produit->id .'.'.$notice->getClientOriginalExtension();
+				$notice->move($destinationPath, $fileName);
+				$produit->notice ='/pdf/notice/'.$fileName;
+		}
 		$produit->save();
 
 		// Mise à jour de la table produit_fournisseur
@@ -154,17 +165,7 @@ class ProduitController extends Controller {
 		foreach ($request->all() as $key => $description) {
 			if(strpos($key, 'description') === 0){
 				list(,$id) = explode("_", $key);
-				$tab[$id] = ['nom' => \Request::input('nom_'.$id), 'description' => $description];	
-			}
-		}
-
-		$produit->langues()->sync($tab);
-
-		// Mise à jour dans la table produit_info de la notice
-		foreach ($request->all() as $key => $notice) {
-			if(strpos($key, 'notice') === 0){
-				list(,$id) = explode("_", $key);
-				$tab[$id] = ['notice' => \Request::input('notice_'.$id), 'notice' => $notice];	
+				$tab[$id] = ['nom' => \Request::input('nom_'.$id), 'description' => $description];
 			}
 		}
 
@@ -186,15 +187,19 @@ class ProduitController extends Controller {
 
 		// Mise à jour du statut par default dans la table Media
 		// Mise à la valeur 0 du champs default de l'image par default
-		$media = \App\Media::with('produit')->where('produit_id','=', $produit->id)
-											->where('default','=',1)
-											->get();
-		$idMedia = $media[0]->id;
+		$media = \App\Media::with('produit')->where('produit_id',$produit->id)->lists('id');
 
-		$media = new \App\Media();
-		$media = \App\Media::find($idMedia);
-		$media->default = '0';
-		$media->save();
+		// On remet tous les champs a zero pour etre sure
+		foreach ($media as $id) {
+			$media = \App\Media::find($id);
+			$media->default = '0';
+			$langue = $request->get('langues_'.$media->id);
+			if(!empty($langue)){
+				$media->langue_id = $langue;
+			}
+			$media->save();
+		}
+
 		// Mise à la valeur 1 du champs default de l'image selectionnée par default
 		$media = new \App\Media();
 		$media = \App\Media::find($request->parDefault);
@@ -233,7 +238,7 @@ class ProduitController extends Controller {
 	 */
 	public function destroy($produit)
 	{
-		//Suppression de des données dans la table produit 
+		//Suppression de des données dans la table produit
 		$produit->delete();
         return redirect()->back()->withFlashMessage("Suppression du produit effectuée avec succès");
 	}
@@ -255,7 +260,7 @@ class ProduitController extends Controller {
 
 			$error =$_FILES["myfile"]["error"];
 			//You need to handle  both cases
-			//If Any browser does not support serializing of multiple files using FormData() 
+			//If Any browser does not support serializing of multiple files using FormData()
 			if(!is_array($_FILES["myfile"]["name"])) //single file
 			{
 		 	 	$fileName = strtotime('now') . '_'. $_FILES["myfile"]["name"];
@@ -266,10 +271,10 @@ class ProduitController extends Controller {
 				$media 	= new \App\Media;
 				//$media->produit_id  = $_POST['idproduit'];
 				$media->produit_id  = \Input::get('idproduit');
-				$media->langue_id	= 2;
+				$media->langue_id	= 1;
 				$media->type 		= "image";
-				$media->chemin 		= "img/produits/";
-				$media->nom 		= $fileName; 
+				$media->chemin 		= "img/produits/". $fileName;
+				$media->nom 		= $fileName;
 				$media->save();
 			}
 			else  //Multiple files, file[]
@@ -286,10 +291,10 @@ class ProduitController extends Controller {
 				$media->produit_id  = \Input::get('idproduit');;
 				$media->type 		= "Image";
 				$media->chemin 		= "img/produits/";
-				$media->nom 		= $fileName; 
+				$media->nom 		= $fileName;
 				$media->save();
 			  }
-			
+
 			}
 		    echo json_encode($ret);
 		}
@@ -305,7 +310,7 @@ class ProduitController extends Controller {
 		{
 			$fileName =$_POST['name'];
 			$filePath = $output_dir. $fileName;
-			if (file_exists($filePath)) 
+			if (file_exists($filePath))
 			{
 		        unlink($filePath);
 		    }
@@ -322,12 +327,12 @@ class ProduitController extends Controller {
 	 * Import CSV.
 	 */
 	public function importCSV(){
-		
+
         return View('admin.produit.importCSV');
     }
 
     public function importCsvProduits(ImportCsvRequest $request){
-		
+
         if (\Input::hasFile('file')) {
 
             $file = \Input::file('file');
@@ -350,7 +355,7 @@ class ProduitController extends Controller {
     }
 
     public function importCsvExemplaires(ImportCsvRequest $request){
-		
+
         if (\Input::hasFile('file')) {
 
             $file = \Input::file('file');
@@ -369,70 +374,6 @@ class ProduitController extends Controller {
         return redirect('/admin/produit/importCSV')->withFlashMessage("Ajout des exemplaires effectué avec succès");
     }
 
-    public function importCsvMarques(ImportCsvRequest $request){
-		
-        if (\Input::hasFile('file')) {
-
-            $file = \Input::file('file');
-            \Excel::load($file, function($reader) {
-                $reader->setDateFormat('j/n/Y H:i:s');
-                $results = $reader->get();
-                foreach ($results as $result) {
-                    $produit_marque = new \App\Produit_marque;
-                    $produit_marque->nom = $result['nom'];
-                    $produit_marque->save();
-                }
-            });
-        }
-        return redirect('/admin/produit/importCSV')->withFlashMessage("Ajout des marques effectué avec succès");
-    }
-
-    public function importCsvFournisseurs(ImportCsvRequest $request){
-		
-        if (\Input::hasFile('file')) {
-
-            $file = \Input::file('file');
-            \Excel::load($file, function($reader) {
-                $reader->setDateFormat('j/n/Y H:i:s');
-                $results = $reader->get();
-                foreach ($results as $result) {
-                    $fournisseur = new \App\Fournisseur;
-                    $fournisseur->siret 		= $result['siret'];
-                    $fournisseur->nom  			= $result['nom'];
-                    $fournisseur->adresse 		= $result['adresse'];
-                    $fournisseur->cp 			= $result['cp'];
-                    $fournisseur->ville  		= $result['ville'];
-                    $fournisseur->phone 		= $result['phone'];
-                    $fournisseur->contact 		= $result['contact'];
-                    $fournisseur->commentaire  	= $result['commentaire'];
-                    $fournisseur->save();
-                }
-            });
-        }
-        return redirect('/admin/produit/importCSV')->withFlashMessage("Ajout des fournisseurs effectué avec succès");
-    }
-
-    public function importCsvProduitsInfos(ImportCsvRequest $request){
-
-        if (\Input::hasFile('file')) {
-
-            $file = \Input::file('file');
-            \Excel::load($file, function($reader) {
-                $reader->setDateFormat('j/n/Y H:i:s');
-                $results = $reader->get();
-                foreach ($results as $result) {
-                    $produit_info = new \App\Produit_info;
-                    $produit_info->produit_id 	= $result['produit_id'];
-                    $produit_info->langue_id  	= $result['langue_id'];
-                    $produit_info->nom 			= $result['nom'];
-                    $produit_info->description 	= $result['description'];
-                    $produit_info->save();
-                }
-            });
-        }
-        return redirect('/admin/produit/importCSV')->withFlashMessage("Ajout des infos produits effectué avec succès");
-    }
-
     public function exportCSV(){
 
     	return View('admin.produit.exportCSV');
@@ -446,7 +387,7 @@ class ProduitController extends Controller {
 					->join('produit_categorie', 'produit.categorie_id', '=', 'produit_categorie.id')
 					->join('sous_categorie', 'produit.sous_categorie_id', '=', 'sous_categorie.id')
 					->join('produit_info', 'produit.id', '=', 'produit_info.produit_id')
-					->select('produit.reference as referenceProduit', 'produit_info.nom as nomProduit', 'produit_info.description as descriptionProduit', 'produit_info.notice as noticeProduit', 'montant as montantProduit', 'produit_marque.nom as marqueProduit', 'produit_categorie.nom as categorieProduit', 'sous_categorie.nom as sousCategorieProduit')
+					->select('produit.reference as referenceProduit', 'produit_info.nom as nomProduit', 'produit_info.description as descriptionProduit', 'montant as montantProduit', 'produit_marque.nom as marqueProduit', 'produit_categorie.nom as categorieProduit', 'sous_categorie.nom as sousCategorieProduit')
 					->get();
 
         $table = array();
@@ -455,19 +396,18 @@ class ProduitController extends Controller {
             //$produitInfos = \App\Produit_info::where('produit_id', '=', $row->id)->get();
             //foreach ($produitInfos as $prodInfos) {
 	            $table[] = array
-	            (  	
+	            (
 	            	$row->referenceProduit,
 	            	$row->nomProduit,
 	            	$row->descriptionProduit,
-	            	$row->noticeProduit,
 					// $prodInfos->nomProduit,
 					// $prodInfos->descriptionProduit,
 					// $prodInfos->noticeProduit,
-					$row->montantProduit, 
+					$row->montantProduit,
 					$row->marqueProduit,
 					$row->categorieProduit,
 					$row->sousCategorieProduit
-				);   
+				);
         	//}
         }
 
@@ -475,10 +415,9 @@ class ProduitController extends Controller {
             $excel->sheet('Produits', function ($sheet) use($table) {
                 $sheet->fromArray($table);
                 $sheet->row(1, 	array(
-                					'ref_produit', 
-                					'nom_produit', 
-                					'description_produit', 
-                					'notice_produit',
+                					'ref_produit',
+                					'nom_produit',
+                					'description_produit',
                 					'montant_produit',
                 					'marque_produit',
                 					'categorie_produit',
@@ -499,22 +438,22 @@ class ProduitController extends Controller {
 
         foreach($exemplaires as $row){
             $table[] = array
-            (  	
+            (
             	$row->referenceProduit,
             	$row->referenceExemplaire,
             	$row->peremptionExemplaire
-			);   
+			);
         }
-        
+
         \Excel::create('Exemplaires', function($excel) use($table) {
             $excel->sheet('Exemplaires', function ($sheet) use($table) {
                 $sheet->fromArray($table);
                 $sheet->row(1, 	array(
-                					'ref_produit', 
-                					'ref_exemplaire', 
+                					'ref_produit',
+                					'ref_exemplaire',
                 					'peremption_exemplaire'
                     			));
             });
-        })->export('csv');    	
-    }	
+        })->export('csv');
+    }
 }

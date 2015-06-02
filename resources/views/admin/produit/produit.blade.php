@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row">
-	@include('admin.produit.succes')	
+	@include('admin.produit.succes')
 </div>
 
 <div class="row">
@@ -47,26 +47,21 @@
 		        <tbody>
 		        @foreach($produit as $row)
 		          	<tr>
-		          		<!-- <td><a href="{{ route('admin.produit.show', $row->id) }}">{{ $row->id }}</a></td> -->
 			            <td><a href="{{ route('admin.produit.show', $row->id) }}">{{ $row->reference }}</a></td>
 			            <td>
 			            	@foreach ($row->info as $value)
 				            	@if($value->langue_id==1)
 				            		{{$value->nom}}
-			            		@endif	
+			            		@endif
 			            	@endforeach
 			            </td>
-			            <!-- <td>{!! HTML::image($row->media[0]->chemin . $row->media[0]->nom, '', array('height'=>'35', 'width'=>'35')) !!}</td> -->
 			            <td>{{ $row->marque->nom }}</td>
 			            <td>{{ $row->categorie->nom }} / {{ $row->sous_categorie->nom}}</td>
 			            <td>{{ $row->montant }}</td>
-			            <!-- <td>{{ $row->created_at }}</td> -->
-			            <!-- <td>{{ $row->updated_at }}</td> -->
 			            <td>
                             <a class="btn btn-primary glyphicon glyphicon-edit" href="{{route('admin.produit.edit', $row->id)}}"></a>
                             <button type="submit" class="btn btn-danger glyphicon glyphicon-trash " data-toggle="modal" data-target="#{{ $row->id  }}"></button>
                         </td>
-			            
 		          	</tr>
 
 		          	<!-- Modal Confirmation de suppression -->

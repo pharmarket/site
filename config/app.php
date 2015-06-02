@@ -167,6 +167,7 @@ return [
 		//Ajout du provider pour le panier
 		 'Gloudemans\Shoppingcart\ShoppingcartServiceProvider',
 		 'Riari\Forum\ForumServiceProvider',
+		 'Maatwebsite\Excel\ExcelServiceProvider',
 
 	],
 
@@ -220,6 +221,7 @@ return [
 		'Form'=> 'Illuminate\Html\FormFacade',
 		'HTML'=> 'Illuminate\Html\HtmlFacade',
 		'Cart'            => 'Gloudemans\Shoppingcart\Facades\Cart',
+		'Excel' => 'Maatwebsite\Excel\Facades\Excel',
 
 	],
 
