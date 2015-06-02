@@ -6,12 +6,12 @@
   <div class="col-sm-9 col-md-9 col-lg-9">
     <div class="widget widget_search">
     								<div class="site-search-area">
-    									<form method="get" id="site-searchform" action="#">
-    										<div>
-    											<input class="input-text" name="s" id="s" placeholder="Enter Search keywords..." type="text">
-    											<input id="searchsubmit" value="Search" type="submit">
-    										</div>
-    									</form>
+    									{!! Form::open(array('route'=>'front.recherche.resultat', 'class' => 'dropzone', 'id' =>'site-searchform', 'method' => 'get')) !!}
+                                    <div>
+                                       {!! Form::input('texte', 's', null, ['class' => 'input-text', 'id'=>'s', 'placeholder' => 'Saisir une recherche sur : reference, marque, catégorie, sous-catégorie, montant, nom et description du produit.'])!!}
+                                       <input id="searchsubmit" value="Search" type="submit">
+                                    </div>
+                                {!! Form::close() !!}
     								</div><!-- end site search -->
     							</div>
 

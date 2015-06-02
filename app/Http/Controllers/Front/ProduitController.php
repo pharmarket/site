@@ -26,7 +26,6 @@ class ProduitController extends Controller {
 
 		// Pagination
 		$produit = \App\Produit::paginate(9);
-		// $produit->setPath('/site/public/produit');
 
 		return View('front.produit.categories', compact('produit', 'produit_categorie', 'sous_categorie', 'product'));
 	}

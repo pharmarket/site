@@ -8,23 +8,19 @@
 
 @section('content')
     <div class="row">
-    @if(isset($countProduits))
-        <div class="col-md-10 col-md-offset-1 title">
-            <h2>{{$countProduits}}{{ Lang::get('recherche.result') }}</h2>
-        </div>
-
         <div class="col-md-10 col-md-offset-1 bloc">
             <div class="row">
                 <!-- Plans -->
                 <section id="plans">
                     @foreach($produits as $row)
-                        @if($row->label == Lang::get('menu.langactiv')) 
+                        @if($row->label == Lang::get('menu.langactiv'))
                             <div class="col-md-3 text-center">
                                 <div class="panel panel-warning panel-pricing">
+                                        <a class="" href="{{route('produit.show', $row->idProduit)}}">
                                     <div class="panel-heading">
-                                        <i class=""><a class="" href=""></i>
                                         <h3>
-                                            {{$row->nom}}
+                                            <i class="">{!! HTML::image($row->chemin , '', array('height'=>'200', 'width' => '200')) !!}</i>
+                                            <h3>{{$row->nom}}</h3>
                                         </h3>
                                     </div>
                                     <div class="panel-body text-center">
@@ -36,7 +32,7 @@
                                         <li class="list-group-item"><i class=""></i>{{ $row->categorieProduit }} / {{ $row->sousCategorieProduit }} </li>
                                         <li class="list-group-item"><i class=""></i>
                                             <div class="minHeight">
-                                                <div class="minHeight">   
+                                                <div class="minHeight">
                                                     @if($row->label == Lang::get('menu.langactiv'))
                                                         {!!mb_strimwidth($row->description, 0, 150, "...")!!}
                                                     @endif
@@ -44,19 +40,17 @@
                                             </div>
                                         </li>
                                     </ul>
-                                    <div class="panel-footer">
-                                        <a class="btn btn-lg btn-block btn-warning fa fa-shopping-cart" href=""></a>
-                                    </div>
+                                    </a>
                                 </div>
                             </div>
                         @endif
                     @endforeach
                 </section>
-            </div> 
+            </div>
+        <div class="row">
+                {!!$produits->render()!!}
         </div>
-    @else
-        <h2 class="title">{{ Lang::get('recherche.noSearch') }}</h2>
-    @endif
+        </div>
     </div>
 @stop
 

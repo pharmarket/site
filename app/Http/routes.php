@@ -68,8 +68,8 @@ Route::group(['middleware' => 'language'], function(){
 	});
 
     // Route pour la recherche
-    Route::post('resultat', [ 'as' => 'front.recherche.resultat', 'uses' => 'Front\RechercheController@resultat']);
-    Route::get('resultat', [ 'as' => 'front.recherche.resultat', 'uses' => 'Front\RechercheController@index']);
+    Route::get('resultat', [ 'as' => 'front.recherche.resultat', 'uses' => 'Front\RechercheController@resultat']);
+    // Route::get('resultat', [ 'as' => 'front.recherche.resultat', 'uses' => 'Front\RechercheController@index']);
 
     //Route pour les CGU et CGV
     Route::get('cgu', ['as' => 'cgu.index', 'uses' => 'Front\CguController@index']);
