@@ -8,7 +8,7 @@
 
 		<!-- Breadcrumb -->
 		<div class="breadcrumb clearfix">
-			<a class="home" href="http://localhost:8888/prestashop/" title="retour à Accueil"><i class="icon-home"></i></a>
+			<a class="home" href="{{route('home')}}" title="retour à Accueil"><i class="icon-home"></i></a>
 			<span class="navigation-pipe">&gt;</span>
 			{{Lang::get('purchase.breadscrumbs_paiement')}}
 		</div>
@@ -73,10 +73,10 @@
 								@foreach(Cart::content() as $row)
 									<tr id="product_3_13_0_5" class="cart_item address_5 odd">
 										<td class="cart_product">
-											<a href="http://localhost:8888/prestashop/robes-decontractees/3-robe-imprimee.html#/taille-s/couleur-orange"><img src="{{asset($row->options->logo)}}" alt="Robe imprimée" height="98" width="98"></a>
+											<a href="{{route('produit.show', $row->id) }}"><img src="{{asset($row->options->logo)}}" alt="Robe imprimée" height="98" width="98"></a>
 										</td>
 										<td class="cart_description">
-											<p class="product-name"><a href="http://localhost:8888/prestashop/robes-decontractees/3-robe-imprimee.html#/taille-s/couleur-orange">{{$row->name}}</a></p>
+											<p class="product-name"><a href="{{route('produit.show', $row->id) }}">{{$row->name}}</a></p>
 										</td>
 										<td class="cart_unit" data-title="Prix unitaire">
 											<ul class="price text-right" id="product_price_3_13_5">

@@ -8,6 +8,7 @@
  <title>Eve Responsive Multipurpose Template</title>
  <meta name="description" content="">
 
+  <link rel="icon" type="image/png" href="{{ asset('front/images/logoapply.png') }}" />
    <!-- CSS FILES -->
    <link rel="stylesheet" href="{{ asset('front/css/bootstrap.min.css') }}"/>
    <link rel="stylesheet" type="text/css" href="{{ asset('front/css/global.css') }}" media="screen" data-name="skins">

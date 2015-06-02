@@ -18,7 +18,7 @@ class PurchaseController extends Controller {
 		            ->join('livreur_info', 'livreur_info.livreur_id', '=','livreur.id')
 		            ->join('Langue', 'Langue.id', '=','livreur_info.langue_id')
 		            ->where('livreur_pays.pays_id', '=', $user->ville->pays->id)
-		            ->where('Langue.code', '=', 'EN')
+		            ->where('Langue.code', \Lang::getLocale())
 		            ->get();
 
 		$taux = \App\Devise::where('symbole', '=', \Lang::get('menu.devise'))->get()[0]->taux;

@@ -27,5 +27,6 @@ return [
     'vindisponible' => 'No videos for this item',
     'pindisponible'=> 'No photos for this Article',
     'infoImage' => 'images available for this product',
-    'infoVideo' => 'videos available for this product'
+    'infoVideo' => 'videos available for this product',
+    'product_insufisant' => 'Not enough product',
 ];

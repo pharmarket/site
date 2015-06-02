@@ -25,6 +25,18 @@ class BasketController extends Controller {
 			//Si c'est un produit on met a jour lz panier
 			if(strpos($key, 'produit') === 0){
 				list(,$id) = explode("#", $key);
+
+				// Récupération des stock sur le produit
+				$exemplaire  = \DB::table('produit_exemplaire AS pe')
+					->leftJoin('commande_exemplaire AS ce', 'pe.id', '=', 'ce.exemplaire_id')
+					->where('produit_id',  \Cart::get($id)->id)
+					->whereNull('ce.exemplaire_id')
+					->count();
+
+				//Si on a pas assez d'exemplaire, on lance une erreur
+				if($exemplaire <  $qty){return back()->withErrors(['error' => \Lang::get('show.product_insufisant')]);}
+
+
 				\Cart::update($id, ['qty' => $qty]);
 			}
 		}
@@ -39,10 +51,6 @@ class BasketController extends Controller {
 	 */
 	public function index()
 	{
-		\Cart::add([
-			['id' => '108', 'name' => 'Product 1', 'qty' => 1, 'price' => 10.00, 'options' => array('logo' => 'img/produit1.jpg')],
-			// ['id' => '42', 'name' => 'Product 2', 'qty' => 1, 'price' => 10.00, 'options' => array('logo' => 'img/produit2.jpg')]
-		]);
 		return view('front.purchase.commande');
 	}
 
@@ -57,16 +65,31 @@ class BasketController extends Controller {
     public function store($produit)
     {
         //On verifie la quantité
-        \Input::get('quantite');
-        $taux = \App\Devise::where('symbole', \Lang::get('menu.devise'))->get()[0]->taux;
-        $montant = $taux * $produit->montant;
+
+	$langue = \App\Langue::where('code', \Lang::getLocale())->get()[0];
         $langue = \App\Langue::where('code', \Lang::getLocale())->get()[0];
-        dd($produit);
+        $media = \App\Media::where('produit_id', $produit->id)->where('default', 1)->first()->chemin;
+        $nom = \App\Produit_info::where('produit_id', $produit->id)->where('langue_id', $langue->id)->first()->nom;
+
+	// Récupération des stock sur le produit
+	$exemplaire  = \DB::table('produit_exemplaire AS pe')
+		->leftJoin('commande_exemplaire AS ce', 'pe.id', '=', 'ce.exemplaire_id')
+		->where('produit_id', $produit->id)
+		->whereNull('ce.exemplaire_id')
+		->count();
+
+	//On recupere le nombre de produit deja dans le panier
+	$cart_row = \Cart::search(array('id' => $produit->id));
+	$qty=0;
+	if(!empty($cart_row)){$qty = \Cart::get($cart_row[0])->qty;}
+
+	//Si on a pas assez d'exemplaire, on lance une erreur
+	if($exemplaire <  \Input::get('quantite')+$qty){return back()->withErrors(['error' => \Lang::get('show.product_insufisant')]);}
+
         \Cart::add([
-            ['id' => $produit->id, 'name' => 'Product 1', 'qty' => \Input::get('quantite'), 'price' => $montant, 'options' => array('logo' => 'img/produit1.jpg')],
-            // ['id' => '42', 'name' => 'Product 2', 'qty' => 1, 'price' => 10.00, 'options' => array('logo' => 'img/produit2.jpg')]
+            ['id' => $produit->id, 'name' => $nom, 'qty' => \Input::get('quantite'), 'price' => $produit->montant, 'options' => array('logo' => $media)],
         ]);
-        // return view('front.purchase.commande');
+        return back();
     }
 
 

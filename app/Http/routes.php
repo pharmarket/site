@@ -36,9 +36,6 @@ Route::group(['prefix' => 'ws', 'middleware' => 'ws'], function(){
 
 
 Route::group(['middleware' => 'language'], function(){
-	Route::get('categorie', function(){
-	    	return 'la categorie';
-	});
 	Route::get('produit', function(){
 	     	return View::make('front.produit.produit');
 	});
@@ -55,6 +52,7 @@ Route::group(['middleware' => 'language'], function(){
 	Route::get('basket/{basket}', ['as' => 'basket.destroy', 'uses' => 'Front\BasketController@destroy']);
 	Route::get('basket', ['as' => 'basket.index', 'uses' => 'Front\BasketController@index']);
 	Route::post('basket', ['as' => 'basket.post', 'uses' => 'Front\BasketController@post']);
+	Route::post('basket/store/{produit}', ['as' => 'basket.store', 'uses' => 'Front\BasketController@store']);
     Route::group(['middleware' => 'auth', 'roles' => ['customer']], function(){
         //Route pour la commande
         Route::get('purchase/address', ['as' => 'purchase.address', 'uses' => 'Front\PurchaseController@address']);
@@ -78,9 +76,7 @@ Route::group(['middleware' => 'language'], function(){
     Route::get('faq', ['as' => 'faq.index', 'uses' => 'Front\FaqController@index']);
 
     //Route pour le produit
-    Route::get('produit', ['as' => 'produit.index', 'uses' => 'Front\ProduitController@index']);
-    Route::get('categorie/{sous_categorie}', ['as' => 'produit.callCategorie', 'uses' => 'Front\ProduitController@callCategorie']);
-    Route::get('produit/{produit}', ['as' => 'produit.show', 'uses' => 'Front\ProduitController@show']);
+    Route::get('categorie/{sous_categorie?}', ['as' => 'produit.callCategorie', 'uses' => 'Front\ProduitController@callCategorie']);
     Route::get('produit/{produit}', ['as' => 'produit.show', 'uses' => 'Front\ProduitController@show']);
     Route::post('produit', ['as' => 'produit.store', 'uses' => 'Front\ProduitController@store']);
     Route::get('commentaire/{commentaire}', ['as' => 'produit.destroy', 'uses' => 'Front\ProduitController@destroy']);

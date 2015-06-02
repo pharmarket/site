@@ -54,7 +54,7 @@
 			</a>
 			</div>
 			<div class="col-sm-4 col-md-4 col-lg-4">
-				<a href="{{route('home')}}">
+				<a href="{{route('produit.callCategorie')}}">
 				<div class="serviceBox_2">
 					<i class="fa fa-plus-square"></i>
 					<h3>{{ Lang::get('home.catalogue') }}</h3>
@@ -95,12 +95,14 @@
 										<img src="{{ asset($row->chemin) }}" alt="" />
 									</div>
 									<div class="option">
-										<a href="produit/{{ $row->id }}" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
+										<a href="{{route('produit.show', $row->id)}}" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
 
 									</div>
-									<figcaption class="item-description">
-										<h5>{{ $row->nom }}</h5>
-									</figcaption>
+									<a href="{{route('produit.show', $row->id)}}" class="hover-zoom mfp-image" >
+										<figcaption class="item-description">
+											<h5>{{ $row->nom }}</h5>
+										</figcaption>
+									</a>
 								</figure>
 							</div>
 						</li>
@@ -137,12 +139,14 @@
 										<img src="{{ asset($row->chemin) }}" alt="" />
 									</div>
 									<div class="option">
-										<a href="produit/{{ $row->id }}" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
+										<a href="{{route('produit.show', $row->id)}}" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
 
 									</div>
-									<figcaption class="item-description">
-										<h5>{{ $row->nom }}</h5>
-									</figcaption>
+									<a href="{{route('produit.show', $row->id)}}" class="hover-zoom mfp-image" >
+										<figcaption class="item-description">
+											<h5>{{ $row->nom }}</h5>
+										</figcaption>
+									</a>
 								</figure>
 							</div>
 						</li>

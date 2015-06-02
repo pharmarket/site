@@ -77,7 +77,11 @@ class UserController extends Controller {
 	}
 
 	public function language($langue){
-		\Session::put('locale', $langue);
+		//On empeche de changer la langue lorsqu'il y a un panier, par ce que sa change la devise
+		$count = \Cart::count();
+		if(empty($count)){
+			\Session::put('locale', $langue);
+		}
 		return \Redirect::back();
 	}
 
