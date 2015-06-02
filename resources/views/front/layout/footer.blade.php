@@ -6,12 +6,12 @@
                   <div class="widget_title">
                       <h4><span>{{ Lang::get('footer.navigation') }}</span></h4>
                   </div>
-                  <div class="widget_content">                 
-                      <ul class="contact-details-alt">                      
+                  <div class="widget_content">
+                      <ul class="contact-details-alt">
                           <li><p><a style="padding-left: 35%" href="{{ route('home') }}">{{ Lang::get('footer.home') }}</a><p></li>
                           <li><p><a style="padding-left: 35%" href="{{ route('user.login') }}">{{ Lang::get('footer.connexion') }}</a><p></li>
                           <li><p><a style="padding-left: 35%" href="{{ route('user.suscribe') }}">{{ Lang::get('footer.inscription') }}</a><p></li>
-                          <li><p><a style="padding-left: 35%" href="{{ route('user.forum') }}">{{ Lang::get('footer.forum') }}</a><p></li>
+                          <li><p><a style="padding-left: 35%" href="{{ URL::to('forum') }}">{{ Lang::get('footer.forum') }}</a><p></li>
                       </ul>
                   </div>
               </div>
