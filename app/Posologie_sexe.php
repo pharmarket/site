@@ -8,7 +8,7 @@ class Posologie_sexe extends Model {
 	protected $fillable = ['produit_id', 'sexe', 'coeff'];
 
 	public function produit(){
-		return $this->belongsTo('\App\produit','produit_id');
+		return $this->belongsTo('\App\Produit','produit_id');
 	}
 
 }

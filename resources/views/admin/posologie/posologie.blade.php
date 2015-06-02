@@ -10,7 +10,7 @@
 	<div class="col-xs-12">
 
 	 	<div>
-		@include('admin.posologie.succes')	
+		@include('admin.posologie.succes')
 		</div>
 
 	    <div class="box-header">
@@ -27,8 +27,6 @@
 			            <th>Minimum</th>
 			            <th>Maximum</th>
 			            <th>Coefficient</th>
-			            <th>Added</th>
-			            <th>Updated</th>
 			            <th></th>
 		          	</tr>
 		        </thead>
@@ -41,8 +39,6 @@
 			            <td>{{ $row->min }}</td>
 			            <td>{{ $row->max }}</td>
 			            <td>{{ $row->coeff }}</td>
-			            <td>{{ $row->created_at }}</td>
-			            <td>{{ $row->updated_at }}</td>
 			            <td>
                             <a class="btn btn-primary glyphicon glyphicon-edit" href="{{route('admin.posologie.edit', $row->id)}}"></a>
 						    <button type="submit" class="btn btn-danger glyphicon glyphicon-trash " data-toggle="modal" data-target="#suppression{{$row->produit->reference}}{{$row->type}}{{$row->max}}{{$row->min}}"></button>

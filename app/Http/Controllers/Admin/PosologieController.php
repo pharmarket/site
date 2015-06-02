@@ -41,7 +41,7 @@ class PosologieController extends Controller {
 	 * @return Response
 	 */
 	public function store(PosologieRequest $request)
-	{	
+	{
 		// Enregistrement dans la table Posologie
 		$posologie = new \App\Posologie;
 		$posologie->produit_id 	= $request->produit;
@@ -106,10 +106,10 @@ class PosologieController extends Controller {
 	 * @return Response
 	 */
 	public function destroy($posologie)
-	{	
-		//Suppression de des données dans la table posologie 
+	{
+		//Suppression de des données dans la table posologie
 		$posologie->delete();
-		
+
         return redirect()->back()->withFlashMessage("Suppression de la posologie effectuée avec succès");
 	}
 

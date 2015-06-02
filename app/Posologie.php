@@ -8,7 +8,7 @@ class Posologie extends Model {
 	protected $fillable = ['produit_id', 'type_id', 'min', 'max','coeff'];
 
 	public function produit(){
-		return $this->belongsTo('\App\produit','produit_id');
+		return $this->belongsTo('\App\Produit','produit_id');
 	}
 
 	public function posologie_type(){

@@ -11,7 +11,7 @@
 	<div class="col-xs-12">
 
 	 	<div>
-		@include('admin.posologie_sex.succes')	
+		@include('admin.posologie_sex.succes')
 		</div>
 
 	    <div class="box-header">
@@ -26,8 +26,6 @@
 			            <th>Produit</th>
 			            <th>Sexe</th>
 			            <th>Coefficient</th>
-			            <th>Added</th>
-			            <th>Updated</th>
 			            <th></th>
 		          	</tr>
 		        </thead>
