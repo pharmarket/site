@@ -87,7 +87,13 @@ li:hover {
                   <li><input type="checkbox" id="c{{$row->id}}" />
                     <i class="fa fa-angle-double-right"></i>
                     <i class="fa fa-angle-double-down"></i>
+                    {!! Form::open(array('route' => array('admin.forum.edit', $row->id), 'method' => 'edit', 'style' => 'display:inline;')) !!}
                     <label for="c{{$row->id}}">{{$souscategor->title}}</label></li>
+                    {{ Form::select('parent_category') }}
+                    {{ Form::text('title', $row->title) }}
+                    {{ Form::text('subtitle' , $row->subtitle) }}
+                    {{ Form::text('weight' , $row->weight) }}
+                    {!!  Form::close() !!}
                     @endif
                 </ul>
 

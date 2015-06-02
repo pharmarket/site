@@ -4,6 +4,7 @@ use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
 
+use 	\App as App;
 
 class RouteServiceProvider extends ServiceProvider {
 
@@ -27,7 +28,7 @@ class RouteServiceProvider extends ServiceProvider {
 		parent::boot($router);
 
 		$router->model('user', 'App\User', function() {
-			\App::abort(404);
+			App::abort(404);
 		});
 
         $router->model('role', 'App\Role', function() {
@@ -36,55 +37,58 @@ class RouteServiceProvider extends ServiceProvider {
 
         
 		$router->model('contact', 'App\Contact', function() {
-			\App::abort(404);
+			App::abort(404);
 		});
 
 		$router->model('posologie', 'App\Posologie', function() {
-			\App::abord(404);
+			App::abord(404);
 		});
 
 		$router->model('posologie_sexe', 'App\Posologie_sexe', function() {
-			\App::abord(404);
+			App::abord(404);
 		});
-		
+
 		$router->model('newsletter_mail', 'App\Newsletter_mail', function() {
-			\App::abort(404);
+			App::abort(404);
 		});
 
 		$router->model('newsletter', 'App\Newsletter', function() {
-			\App::abort(404);
+			App::abort(404);
 		});
 
 		$router->model('produit', 'App\Produit', function() {
-			\App::abort(404);
+			App::abort(404);
 		});
 
         $router->model('cgu', 'App\Cgu', function() {
-            \App::abort(404);
+            App::abort(404);
         });
 
         $router->model('cgv', 'App\Cgv', function() {
-            \App::abort(404);
+            App::abort(404);
         });
 
 
         $router->model('faq', 'App\Faq', function() {
-            \App::abort(404);
+            App::abort(404);
         });
 
 
         $router->model('produit', 'App\Produit', function() {
-            \App::abort(404);
+            App::abort(404);
         });
         $router->model('categorie', 'App\Produit_categorie', function() {
-            \App::abort(404);
+            App::abort(404);
         });
         $router->model('sous_categorie', 'App\Sous_categorie', function() {
-            \App::abort(404);
+            App::abort(404);
         });
-        $router->model('commentaire', 'App\Commentaire', function() {
-            \App::abort(404);
+				$router->model('commentaire', 'App\Commentaire', function() {
+            App::abort(404);
         });
+				$router->model('forum_category', 'App\forum_category', function() {
+						App::abort(404);
+				});
 
 
         $router->model('vente', 'App\Vente', function() {
