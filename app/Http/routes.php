@@ -104,7 +104,6 @@ Route::group(['prefix' => 'admin'], function(){
             Route::resource('vente', 'Admin\VenteController');
 
             Route::resource('categorie', 'Admin\CategorieController');
-
 	});
 });
 
