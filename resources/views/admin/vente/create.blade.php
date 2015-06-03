@@ -45,18 +45,13 @@
                     </div>
 
                     <div class="form-group">
-                        {!! Form::label('commande_at', 'commande_at :') !!}
-                        {!!Form::input('date', 'commande_at', null, ['class' => 'form-control', 'name'=>'commande_at', 'placeholder' => 'Date'])!!}
-                    </div>
-
-                    <div class="form-group">
                         {!! Form::label('livraison_at', 'livraison_at :') !!}
                         {!!Form::input('date', 'livraison_at', null, ['class' => 'form-control', 'name'=>'livraison_at', 'placeholder' => 'Date'])!!}
                     </div>
 
                     <div class="form-group">
                         {!! Form::label('statut', 'statut :') !!}
-                        {!! Form::text('statut', '', array('class'=>'form-control', 'name'=>'statut', 'placeholder' => 'statut :')) !!}
+                        {!! Form::select('statut', $statut, null, array('class'=>'form-control', 'name'=>'statut', 'placeholder' => 'statut :')) !!}
                     </div>
 
                     <div class="form-group">

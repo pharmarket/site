@@ -25,7 +25,6 @@ class EditVenteRequest extends Request {
             'devise_id' => 'required|numeric',
             'entrepot_id' => 'required|numeric',
             'fournisseur_id' => 'required|numeric',
-            'commande_at' => 'required|date',
             'livraison_at' => 'required|date',
             'statut' => 'required|max:45',
             'montant' => 'required|numeric',

@@ -23,13 +23,12 @@ class VenteRequest extends Request {
 	{
 		return [
 			'devise_id' => 'required|numeric',
-            'entrepot_id' => 'required|numeric',
-            'fournisseur_id' => 'required|numeric',
-            'reference' => 'required|max:45|unique:vente|regex:/^[a-zA-Z0-9]/',
-            'commande_at' => 'required|date',
-            'livraison_at' => 'required|date',
-            'statut' => 'required|max:45',
-            'montant' => 'required|numeric'
+		            'entrepot_id' => 'required|numeric',
+		            'fournisseur_id' => 'required|numeric',
+		            'reference' => 'required|max:45|unique:achat|regex:/^[a-zA-Z0-9]/',
+		            'livraison_at' => 'required|date|after:now',
+		            'statut' => 'required|max:45',
+		            'montant' => 'required|numeric'
 		];
 	}
 

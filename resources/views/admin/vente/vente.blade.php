@@ -15,43 +15,37 @@
                 <table class="datatable table table-bordered table-striped" >
                     <thead>
                     <tr>
-                        <th>devise</th>
-                        <th>entrepot</th>
-                        <th>statut</th>
-                        <th>montant</th>
-
-                        <th></th>
-                        <th></th>
+                        <th>Reference</th>
+                        <th>Fournisseur</th>
+                        <th>Entrepot</th>
+                        <th>Statut</th>
+                        <th>Montant</th>
+                        <th>Livraison</th>
                         <th></th>
                     </tr>
                     </thead>
                     <tfoot>
                     <tr>
-                        <th>devise</th>
-                        <th>entrepot</th>
-                        <th>statut</th>
-                        <th>montant</th>
+                        <th>Reference</th>
+                        <th>Entrepot</th>
+                        <th>Statut</th>
+                        <th>Livraison</th>
                     </tr>
                     </tfoot>
                     <tbody>
                     @foreach($vente as $row)
                         <tr>
-                            <td>{{ $row->devise->nom }}</td>
-                            <td>{{ $row->entrepot->nom }}</td>
-                            <td>{{ $row->statut }}</td>
-                            <td>{{ $row->montant }}</td>
-
-                            <td>
-                                <p><a class="btn btn-primary glyphicon glyphicon-edit" href="{{route('admin.vente.edit', $row->id)}}"></a></p>
-                            </td>
-
-                            <td>
-                                <p><a class="btn btn-info glyphicon glyphicon-zoom-in " href="{{route('admin.vente.show', $row->id)}}"></a></p>
-                            </td>
-
-                            <td>
-                                <button type="submit" class="btn btn-danger glyphicon glyphicon-trash " data-toggle="modal" data-target="#{{ $row->id }}"></button>
-                            </td>
+			<td>{{ $row->reference }}</td>
+			<td>{{ $row->fournisseur->nom }}</td>
+			<td>{{ $row->entrepot->nom }}</td>
+			<td>{{ $row->statut->label }}</td>
+			<td>{{ $row->montant }} {{ $row->devise->symbole}}</td>
+			<td>{{ $row->livraison_at }} </td>
+			<td>
+			   	<a class="btn btn-primary glyphicon glyphicon-edit" href="{{route('admin.vente.edit', $row->id)}}"></a>
+			    	<a class="btn btn-info glyphicon glyphicon-zoom-in " href="{{route('admin.vente.show', $row->id)}}"></a>
+				<button style="border:none;display:inline;"  type="submit" class="btn btn-danger glyphicon glyphicon-trash " data-toggle="modal" data-target="#{{ $row->id }}"></button>
+			</td>
                         </tr>
 
 

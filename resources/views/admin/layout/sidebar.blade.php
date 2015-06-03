@@ -34,7 +34,6 @@
       <li class="active"><a href="{{ URL::to('admin/produit') }}"><i class="fa fa-list"></i>Liste produits</a></li>
       <li><a href="{{ URL::to('admin/produit/create') }}"><i class="fa fa-plus-circle"></i>Ajouter produit</a></li>
       <li><a href="{{ URL::to('admin/exemplaire') }}"><i class="fa fa-dashcube"></i>Exemplaires</a></li>
-      <li><a href="{{ URL::to('admin/exemplaire/create') }}"><i class="fa fa-plus-circle"></i>Ajouter exemplaire</a></li>
       <li><a href="{{ URL::to('admin/produit/importCSV') }}"><i class="fa fa-plus-circle"></i>Import CSV</a></li>
       <li><a href="{{ URL::to('admin/produit/exportCSV') }}"><i class="fa fa-download"></i>Export CSV</a></li>
     </ul>
@@ -65,20 +64,6 @@
     </a>
     <ul class="treeview-menu">
       <li><a href="{{ route('admin.contact.index') }}"><i class="fa fa-list"></i>Liste</a></li>
-    </ul>
-  </li>
-
-  <li class="treeview">
-    <a href="#">
-      <i class="fa fa-cubes"></i> <span>Produit</span> <i class="fa fa-angle-left pull-right"></i>
-    </a>
-    <ul class="treeview-menu">
-      <li class="active"><a href="{{ URL::to('admin/produit') }}"><i class="fa fa-list"></i>Liste produits</a></li>
-      <li><a href="{{ URL::to('admin/produit/create') }}"><i class="fa fa-plus-circle"></i>Ajouter produit</a></li>
-      <li><a href="{{ URL::to('admin/exemplaire') }}"><i class="fa fa-dashcube"></i>Exemplaires</a></li>
-      <li><a href="{{ URL::to('admin/exemplaire/create') }}"><i class="fa fa-plus-circle"></i>Ajouter exemplaire</a></li>
-      <li><a href="{{ URL::to('admin/produit/importCSV') }}"><i class="fa fa-plus-circle"></i>Import CSV</a></li>
-      <li><a href="{{ URL::to('admin/produit/exportCSV') }}"><i class="fa fa-download"></i>Export CSV</a></li>
     </ul>
   </li>
 
@@ -139,7 +124,7 @@
         <ul class="treeview-menu">
             <li class="active"><a href="{{ route('admin.vente.index') }}"><i class="fa fa-list"></i>Liste</a></li>
             <li><a href="{{ route('admin.vente.create') }}"><i class="fa fa-plus-circle"></i>Ajouter</a></li>
-            <li><a href="{{ route('vente.getExemplaireVente') }}"><i class="fa fa-plus-circle"></i>Ajouter d'un exemplaire</a></li>
+            <li><a href="{{ URL::to('admin/exemplaire/create') }}"><i class="fa fa-plus-circle"></i>Ajouter exemplaire</a></li>
             <li><a href="{{ route('vente.getImportCSV') }}"><i class="fa fa-plus-circle"></i>Import CSV</a></li>
             <li><a href="{{ route('vente.getExportCSV') }}"><i class="fa fa-download"></i>Export CSV</a></li>
         </ul>

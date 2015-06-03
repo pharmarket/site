@@ -38,7 +38,7 @@
 		            </div>
 			<div class="form-group">
 				{!! Form::label('send_at', 'Envoi') !!}
-				{!! Form::input('date', 'send_at', !empty($newsletter->send_at)?date('Y-d-m' , strtotime($newsletter->send_at)):null, ['class'=>'form-control', 'name'=>'send_at']) !!}
+				{!! Form::input('date', 'send_at', !empty($newsletter->send_at)?date_format(date_create_from_format('d/m/Y', $newsletter->send_at), 'Y-m-d'):null, ['class'=>'form-control', 'name'=>'send_at']) !!}
 			</div>
 			</div><!-- /.box-body -->
 		</div><!-- /.box -->

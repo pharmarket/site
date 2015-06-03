@@ -1,4 +1,9 @@
 @extends('admin.layout.admin')
+
+@section('header')
+
+@stop
+
 @section('content')
 
     <div class="row">
@@ -9,7 +14,7 @@
 
     <div class="row">
         <div class="col-md-6 col-md-offset-3 col-xs-12">
-            <h3 style="text-align: center">VENTE</h3>
+            <h3 style="text-align: center">Ajout d'un exemplaire</h3>
         </div><!-- /.col -->
     </div>
 
@@ -20,24 +25,21 @@
             <!-- general form elements -->
             <div class="box box-success">
                 <div class="box-header">
-                    <h3 class="box-title">Ajout d'une exemplaire de vente</h3>
+                    <h3 class="box-title">Informations générales</h3>
                 </div>
                 <!-- form start -->
                 <div class="box-body">
-
                     <div class="form-group">
-                        {!! Form::label('vente_id', 'vente :') !!}
-                        {!! Form::select('vente_id', $vente, '', ['class'=>'form-control']) !!}
+                        {!! Form::label('devise_id', 'devise :') !!}
+                        {!! Form::select('devise_id', $devise, '', ['class'=>'form-control']) !!}
                     </div>
-
                     <div class="form-group">
-                        {!! Form::label('exemplaire_id', 'exemplaire produit :') !!}
-                        {!! Form::select('exemplaire_id', $produitExemplaire, '', ['class'=>'form-control']) !!}
+                        {!! Form::label('exemplaire_id', 'exemplaire :') !!}
+                        {!! Form::select('exemplaire_id', $exemplaireProduit, '', ['class'=>'form-control']) !!}
                     </div>
-
                     <div class="form-group">
-                        {!! Form::label('quantite', 'quantite :') !!}
-                        {!! Form::text('quantite', '', array('class'=>'form-control', 'name'=>'quantite', 'placeholder' => 'quantite :')) !!}
+                        {!! Form::label('commande_id', 'commande :') !!}
+                        {!! Form::select('commande_id', $commande, '', ['class'=>'form-control']) !!}
                     </div>
 
                     <div class="form-group">
@@ -51,7 +53,6 @@
 
 
 
-
     <div class="row">
         <div class="col-md-6 col-md-offset-3 col-xs-12">
             <div style="text-align: center" >
@@ -62,5 +63,6 @@
     {!!  Form::close() !!}
 
 @stop
+@section('footer')
 
-
+@stop

@@ -56,8 +56,9 @@ class ExemplaireController extends Controller {
 	public function create()
 	{
 		$produit = \App\Produit::lists('reference', 'id');
+        		$vente = \App\Vente::lists('reference', 'id');
 
-		return View('admin.exemplaire.create', compact('produit'));
+		return View('admin.exemplaire.create', compact('produit', 'vente'));
 	}
 
 	/**
@@ -73,6 +74,12 @@ class ExemplaireController extends Controller {
 		$exemplaire->reference 		= $request->reference;
 		$exemplaire->peremption_at 	= $request->datePeremption;
 		$exemplaire->save();
+
+		$vente = new \App\Vente_exemplaire;
+		$vente->exemplaire_id = $exemplaire->id;
+		$vente->montant = $request->montant;
+		$vente->achat_id = $request->vente_id;
+		$vente->save();
 
 		return redirect('/admin/exemplaire')->withFlashMessage("Ajout de l'exemplaire effectué avec succès");
 	}

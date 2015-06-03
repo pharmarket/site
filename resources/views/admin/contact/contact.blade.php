@@ -45,14 +45,14 @@
 	            <td>
 			<a href="" data-toggle="modal" data-target="#myModal"><i class="fa fa-envelope"></i></a>
 
-	            	{!! Form::open(array('route' => array('admin.contact.destroy', $row->id), 'method' => 'delete', 'style' => 'display:inline;')) !!}
+			{!! Form::open(array('route' => array('admin.contact.destroy', $row->id), 'method' => 'delete', 'style' => 'display:inline;')) !!}
 				<button style="border:none;display:inline;background: none;" type="submit" ><i class="fa fa-trash-o"></i></button>
 			{!!  Form::close() !!}
 	            	@if(empty($row->done))
 				<a href="{{ route('admin.contact.done', $row->id) }}"><i class="fa fa-check-circle-o"></i></a>
 			@endif
 	          </tr>
-	          @endforeach
+		@endforeach
 
 	        </tbody>
 	      </table>

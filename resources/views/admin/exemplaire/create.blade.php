@@ -3,7 +3,7 @@
 
 <div class="row">
 	<div>
-		@include('admin.produit.errors')	
+		@include('admin.produit.errors')
 	</div>
 </div>
 
@@ -20,6 +20,10 @@
 		<!-- general form elements -->
 		<div class="box box-success">
 			<div class="box-body">
+		                    <div class="form-group navInformations">
+		                        {!! Form::label('vente_id', 'vente :') !!}
+		                        {!! Form::select('vente_id', $vente, '', ['class'=>'form-control']) !!}
+		                    </div>
 				<div class="form-group navInformations">
 					{!! Form::label('idProduit', 'Id du produit') !!}
 					{!! Form::select('idProduit', $produit, null, ['class' => 'form-control', 'name'=>'idProduit', 'placeholder' => 'Id']) !!}
@@ -31,7 +35,12 @@
 				<div class="form-group navInformations">
 	      			{!! Form::label('datePeremption', 'Date de peremption :') !!}
 	      			{!!Form::input('date', 'datePeremption', null, ['class' => 'form-control', 'name'=>'datePeremption', 'placeholder' => 'Date de peremption'])!!}
-	      		</div>
+	      			</div>
+
+		                    <div class="form-group navInformations">
+		                        {!! Form::label('montant', 'montant :') !!}
+		                        {!! Form::text('montant', '', array('class'=>'form-control', 'name'=>'montant', 'placeholder' => 'montant :')) !!}
+		                    </div>
 			</div><!-- /.box-body -->
 		</div><!-- /.box -->
 	</div><!-- /.col -->

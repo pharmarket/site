@@ -4,6 +4,11 @@
 
     <link href="{{ asset('front/css/onglet.css') }}" rel="stylesheet" type="text/css" />
 
+<div class="row">
+    <div>
+        @include('admin.newsletter.errors')
+    </div>
+</div><!-- /.row -->
     <div class="row navBlock">
         <div class="">
             <h3 style="text-align: center">Modification d'une vente</h3>
@@ -52,18 +57,13 @@
                                             </div>
 
                                             <div class="form-group">
-                                                {!! Form::label('commande_at', 'commande_at :') !!}
-                                                {!!Form::input('', 'commande_at', $vente->commande_at, ['class' => 'form-control', 'name'=>'commande_at'])!!}
-                                            </div>
-
-                                            <div class="form-group">
-                                                {!! Form::label('livraison_at', 'livraison_at :') !!}
-                                                {!!Form::input('', 'livraison_at', $vente->livraison_at, ['class' => 'form-control', 'name'=>'livraison_at'])!!}
+                                                {!! Form::label('livraison_at', 'Livraison :') !!}
+                                                {!!Form::input('date', 'livraison_at', date('Y-m-d' , strtotime($vente->livraison_at)), ['class' => 'form-control', 'name'=>'livraison_at'])!!}
                                             </div>
 
                                             <div class="form-group">
                                                 {!! Form::label('statut', 'statut :') !!}
-                                                {!! Form::text('statut', $vente->statut, array('class'=>'form-control', 'name'=>'statut', 'placeholder' => 'statut :')) !!}
+                                                {!! Form::select('statut', $statut, $vente->statut_id, array('class'=>'form-control', 'name'=>'statut', 'placeholder' => 'statut :')) !!}
                                             </div>
 
                                             <div class="form-group">

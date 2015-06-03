@@ -23,6 +23,7 @@ class ExemplaireRequest extends Request {
 	{
 		return [
 			'reference'  	 => 'required',
+			'montant'  	 => 'required',
 			'datePeremption' => 'required|date|after:now'
 		];
 	}

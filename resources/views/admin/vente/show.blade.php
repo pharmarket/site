@@ -54,12 +54,12 @@
                                                 <div class="col-md-9">{{ $vente->commande_at  }}</div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-3" style="text-align: right">Livraison at :</div>
+                                                <div class="col-md-3" style="text-align: right">Livraison :</div>
                                                 <div class="col-md-9">{{ $vente->livraison_at  }}</div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-3" style="text-align: right">statut :</div>
-                                                <div class="col-md-9">{{ $vente->statut  }}</div>
+                                                <div class="col-md-9">{{ $vente->statut->label  }}</div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-3" style="text-align: right">montant :</div>
@@ -86,10 +86,6 @@
                                                 <div class="row">
                                                     <div class="col-md-3" style="text-align: right">id :</div>
                                                     <div class="col-md-9">{{ $value->id}}</div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-3" style="text-align: right">Vente | statut :</div>
-                                                    <div class="col-md-9">{{ $value->vente->id}} | {{$value->vente->statut}}</div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-3" style="text-align: right">produit :</div>

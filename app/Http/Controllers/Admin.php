@@ -17,9 +17,9 @@ class Admin extends Controller {
 						->get();
 		$json_sales = json_encode($sales);
 
-		$purchase = \DB::table('vente')->select(\DB::raw("SUM(vente_exemplaire.montant) as total, DATE_FORMAT(vente.created_at,'%Y-%m') as y"))
-						->join('vente_exemplaire', 'vente_exemplaire.vente_id', '=', 'vente.id')
-						->groupBy(\DB::raw("DATE_FORMAT(vente.created_at,'%Y-%m')"))
+		$purchase = \DB::table('achat')->select(\DB::raw("SUM(achat_exemplaire.montant) as total, DATE_FORMAT(achat.created_at,'%Y-%m') as y"))
+						->join('achat_exemplaire', 'achat_exemplaire.achat_id', '=', 'achat.id')
+						->groupBy(\DB::raw("DATE_FORMAT(achat.created_at,'%Y-%m')"))
 						->get();
 		$json_purchase = json_encode($purchase);
 

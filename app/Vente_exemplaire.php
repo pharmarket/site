@@ -4,12 +4,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Vente_exemplaire extends Model {
 
-    protected $table = 'vente_exemplaire';
-    protected $fillable = ['vente_id', 'exemplaire_id', 'quantite', 'montant'];
+    protected $table = 'achat_exemplaire';
+    protected $fillable = ['achat_id', 'exemplaire_id', 'quantite', 'montant'];
 
 
     public function vente(){
-        return $this->belongsTo('\App\Vente', 'vente_id');
+        return $this->belongsTo('\App\Vente', 'achat_id');
     }
 
     public function produit_exemplaire(){
