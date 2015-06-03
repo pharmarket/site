@@ -19,13 +19,12 @@ Route::group(['prefix' => 'admin'], function(){
             Route::resource('contact', 'Admin\ContactController', ['only' => ['destroy', 'index']]);
             Route::get('contact/done/{contact}', ['as' => 'admin.contact.done', 'uses' => 'Admin\ContactController@done']);
             Route::post('contact/mail/{contact}', ['as' => 'admin.contact.mail', 'uses' => 'Admin\ContactController@mail']);
-        	  Route::resource('newsletter_mail', 'Admin\NewsletterMailController');
+        	Route::resource('newsletter_mail', 'Admin\NewsletterMailController');
             Route::get('newsletter/history', ['as' => 'admin.newsletter.history', 'uses' => 'Admin\NewsletterController@history']);
             Route::resource('newsletter', 'Admin\NewsletterController');
             Route::resource('cgu', 'Admin\CguController');
             Route::resource('cgv', 'Admin\CgvController');
             Route::resource('faq', 'Admin\FaqController');
-
 
             Route::post('produit/upload', ['as' => 'admin.produit.upload', 'uses' => 'Admin\ProduitController@upload']);
             Route::post('produit/delete', ['as' => 'admin.produit.delete', 'uses' => 'Admin\ProduitController@delete']);
@@ -60,6 +59,8 @@ Route::group(['prefix' => 'admin'], function(){
             Route::post('vente/importCSV', ['as' => 'vente.importCSVEV', 'uses' => 'Admin\VenteController@importCSVEV']);
 
             Route::resource('vente', 'Admin\VenteController');
+
+            Route::resource('categorie', 'Admin\CategorieController');
 
 	});
 });

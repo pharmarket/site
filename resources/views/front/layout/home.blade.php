@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{{ asset('front/css/style-fraction.css') }}"/>
 
     <link rel="stylesheet" type="text/css" href="{{ asset('front/css/switcher.css') }}" media="screen" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('front/css/menu.css') }}" media="screen" />
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

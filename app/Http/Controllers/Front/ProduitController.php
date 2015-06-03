@@ -14,7 +14,7 @@ class ProduitController extends Controller {
 		* Affichage des produits selon la categorie
 		*/
 		if(!empty($sous_categorie)){
-			$produit = \App\Produit::info()->where('sous_categorie_id', '=', $sous_categorie->id);
+			$produit = \App\Produit::where('sous_categorie_id', '=', $sous_categorie->id);
 		}else{
 			$produit = \App\Produit::with('categorie', 'sous_categorie', 'marque', 'media', 'info', 'langues', 'fournisseurs');
 		}
