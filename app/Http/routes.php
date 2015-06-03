@@ -46,6 +46,9 @@ Route::group(['prefix' => 'admin'], function(){
 
             Route::resource('posologie', 'Admin\PosologieController');
             Route::resource('posologie_sex', 'Admin\PosologieSexController');
+
+            Route::resource('categorie', 'Admin\CategorieController');
+
 	});
 });
 
