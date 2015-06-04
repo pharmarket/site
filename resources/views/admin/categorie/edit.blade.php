@@ -41,7 +41,7 @@
 
 <div class="row">
 	<div class="col-md-6 col-md-offset-3 col-xs-12">
-		<div style="text-align: center" >
+		<div class="navButton" >
 			<button type="submit" class="btn btn-primary">Submit</button>
 			<a class="btn btn-danger" title="Previous" alt="Previous" href="{{URL::previous()}}">Cancel</a>
 		</div>
