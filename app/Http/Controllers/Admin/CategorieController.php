@@ -2,6 +2,7 @@
 
 use App\Http\Requests;
 use App\Http\Requests\CategorieRequest;
+use App\Http\Requests\Categorie2Request;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
@@ -26,7 +27,7 @@ class CategorieController extends Controller {
 	 */
 	public function create()
 	{
-		$langues = \App\Langue::lists('label', 'id');
+		$langues = \App\Langue::get();
 		return View('admin.categorie.create', compact('langues'));
 	}
 
@@ -35,11 +36,21 @@ class CategorieController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(CategorieRequest $request)
+	public function store(Categorie2Request $request)
 	{
+		// Vérification des données
+
 		// Enregistrement dans la table Produit_catégorie
-		$categorie = new \App\Produit_categorie;
-		$categorie->create($request->all());
+		
+
+		for ($i=1; $i<5 ; $i++) {
+			$categorie = new \App\Produit_categorie;
+			$categorie->langue_id 	= $i;
+			$categorie->nom 		= $request->{'nom_'.$i};
+			$categorie->description = $request->{'description_'.$i};
+			$categorie->save();
+		}
+
 		return redirect('/admin/categorie')->withFlashMessage("Création de la catégorie effectuée avec succès");
 	}
 

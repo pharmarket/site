@@ -6,7 +6,6 @@
 @stop
 
 @section('content')
-
 <div class="row">
 	<div>
 		@include('admin.categorie.errors')
@@ -20,32 +19,32 @@
 </div>
 
 {!! Form::open(array('route'=>'admin.categorie.store')) !!}
-
-<div class="row navTabs">
-	<div class="col-md-6 col-md-offset-3 col-xs-12">
+<div class="row navTabs" style="padding-left: 14%">
+@foreach($langues as $row)
+	<div class="col-md-5 col-xs-12">
 		<!-- general form elements -->
 		<div class="box box-success">
 			<div class="box-body">
-				<div class="form-group">
-					{!! Form::label('langue', 'Langue') !!}
-					{!! Form::select('langue_id', $langues, '', ['class'=>'form-control']) !!}
+				<div class="row">
+					<div class="col-md-12"><h4 class="navTitle">{{ $row->label }}</h4></div>
 				</div>
 				<div class="form-group">
-					{!! Form::label('nom', 'Nom') !!}
-					{!! Form::text('nom', '', array('class'=>'form-control', 'name'=>'nom', 'placeholder' => 'Nom')) !!}
-				</div>
-				<div class="form-group">
-					{!! Form::label('description', 'Description') !!}
-					{!! Form::textarea('description', '', array('class'=>'form-control', 'name'=>'description', 'placeholder' => 'Description')) !!}
-				</div>
+                	{!! Form::label('nom_'.$row->id, 'Nom :') !!}
+                    {!! Form::input('nom_'.$row->id, 'nom_'.$row->id, null, ['class' => 'form-control', 'placeholder' => $row->label]) !!}
+                </div>
+                <div class="form-group">
+                	{!! Form::label('description_'.$row->id, 'Description :') !!}
+                    {!! Form::textarea('description_'.$row->id, null, ['class' => 'form-control', 'placeholder' => $row->label]) !!}
+                </div>
 			</div><!-- /.box-body -->
 		</div><!-- /.box -->
 	</div><!-- /.col -->
+@endforeach
 </div><!-- /.row -->
 
 <div class="row">
 	<div class="col-md-6 col-md-offset-3 col-xs-12">
-		<div style="text-align: center" >
+		<div class="navButton" >
 			<button type="submit" class="btn btn-primary">Submit</button>
 			<a class="btn btn-danger" title="Previous" alt="Previous" href="{{URL::previous()}}">Cancel</a>
 		</div>

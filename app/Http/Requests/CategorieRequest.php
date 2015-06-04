@@ -22,7 +22,9 @@ class CategorieRequest extends Request {
 	public function rules()
 	{
 		return [
-			
+			'langue_id' 	=> 'required|numeric',
+            'nom' 			=> 'required|max:255',
+            'description' 	=> 'required'
 		];
 	}
 
