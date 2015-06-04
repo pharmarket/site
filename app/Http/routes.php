@@ -109,6 +109,7 @@ Route::group(['prefix' => 'admin'], function(){
             Route::resource('vente', 'Admin\VenteController');
 
             Route::resource('categorie', 'Admin\CategorieController');
+            Route::resource('sous_categorie', 'Admin\SousCategorieController');
 
             Route::resource('marque', 'Admin\MarqueController');
 
