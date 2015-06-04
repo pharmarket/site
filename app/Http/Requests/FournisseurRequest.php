@@ -22,7 +22,7 @@ class FournisseurRequest extends Request {
 	public function rules()
 	{
 		return [
-			'siret' => 'required|max:14|unique:fournisseur|regex:/^[a-zA-Z0-9]/',
+			'siret' => 'required|min:14|max:14|unique:fournisseur|regex:/^[0-9]/',
             'nom' => 'required|max:45',
             'adresse' => 'required|max:100',
             'cp' => 'required|numeric',

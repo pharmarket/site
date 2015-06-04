@@ -34,37 +34,6 @@ class FournisseurController extends Controller {
 	}
 
 
-
-    /**
-     * @return \Illuminate\View\View
-     */
-    public function getProduitFournisseur(){
-        // PRODUIT FOURNISSEUR
-        $produit = \App\Produit::lists('reference', 'id');
-        $fournisseure = \App\Fournisseur::lists('siret', 'id');
-
-        return View('admin.fournisseur.getCreateProduitFournisseur',compact('fournisseure', 'produit'));
-    }
-
-
-
-
-    /**
-     * @return \Illuminate\View\View
-     */
-    public function getVenteFournisseur(){
-        // VENTE
-        $fournisseur = \App\Fournisseur::lists('siret', 'id');
-        $devise = \App\Devise::lists('nom', 'id');
-        $entrepot = \App\Ville::lists('nom', 'id');
-
-        return View('admin.fournisseur.getCreateVenteFournisseur',compact('devise', 'entrepot', 'fournisseur'));
-    }
-
-
-
-
-
 	/**
 	 * Store a newly created resource in storage.
 	 *
@@ -86,49 +55,6 @@ class FournisseurController extends Controller {
 
         return redirect('/admin/fournisseur')->withFlashMessage("Création du fournisseur effectuée avec succès");
 	}
-
-
-    /**
-     * @param FournisseurRequest $request
-     * @return mixed
-     */
-    public function produitFournisseur(ProduitFournisseurRequest $request){
-        // Enregistrement dans la table Produit fournisseur
-        $produitFournisseur = new \App\Produit_fournisseur;
-        $produitFournisseur->produit_id      = $request->produit_id;
-        $produitFournisseur->fournisseur_id      = $request->fournisseur_id;
-
-        $produitFournisseur->save();
-
-        return redirect('/admin/fournisseur')->withFlashMessage("Création du produit du fournisseur effectuée avec succès");
-    }
-
-
-    /**
-     * @param FournisseurRequest $request
-     * @return mixed
-     */
-    public function venteFournisseur(VenteFournisseurRequest $request){
-        // Enregistrement dans la table vente
-        $vente = new \App\Vente;
-        $vente->devise_id      = $request->devise_id;
-        $vente->entrepot_id      = $request->entrepot_id;
-        $vente->fournisseur_id  = $request->fournisseur_id;
-        $vente->reference      = $request->reference;
-        $vente->commande_at      = $request->commande_at;
-        $vente->livraison_at      = $request->livraison_at;
-        $vente->statut      = $request->statut;
-        $vente->montant      = $request->montant;
-
-        $vente->save();
-
-        return redirect('/admin/fournisseur')->withFlashMessage("Création de la vente du fournisseur effectuée avec succès");
-    }
-
-
-
-
-
 
 
 	/**
@@ -219,54 +145,8 @@ class FournisseurController extends Controller {
         return redirect('/admin/fournisseur')->withFlashMessage("Mise à jour effectuée avec succès");
 	}
 
-
-
-
-
-
-    public function getImportCSV(){
-        return View('admin.fournisseur.getImportCSV');
-    }
-
     public function getExportCSV(){
         return View('admin.fournisseur.getExportCSV');
-    }
-
-
-    /**
-     * @param ImportCsvRequest $request
-     * @return mixed
-     */
-    public function importCSV(){
-        if (\Input::hasFile('file')) {
-            $file = \Input::file('file');
-            \Excel::load($file, function ($reader) {
-                $reader->setDateFormat('j/n/Y H:i:s');
-                $results = $reader->get();
-                foreach ($results as $result) {
-                    $fournisseur = new \App\Fournisseur;
-                    $fournisseur->siret = $result['siret'];
-                    $fournisseur->nom = $result['nom'];
-                    $fournisseur->adresse = $result['adresse'];
-                    $fournisseur->cp = $result['cp'];
-                    $fournisseur->ville = $result['ville'];
-                    $fournisseur->phone = $result['phone'];
-                    $fournisseur->contact = $result['contact'];
-                    $fournisseur->commentaire = $result['commentaire'];
-                    $fournisseur->save();
-                }
-            });
-
-            return redirect('/fournisseur/fournisseur')->withFlashMessage("Import effectuè avec succès");
-        }else{
-            $rules = array('file'=>'required|mimes:csv');
-            $validator = \Validator::make(\Input::all(), $rules);
-
-            if ($validator->fails())
-            {
-                return View('admin.fournisseur.getImportCSV')->withErrors($validator);
-            }
-        }
     }
 
 

@@ -21,8 +21,6 @@
                         <th>commentaire</th>
 
                         <th></th>
-                        <th></th>
-                        <th></th>
                     </tr>
                     </thead>
                     <tfoot>
@@ -42,23 +40,11 @@
                             <td>{{ $row->commentaire }}</td>
 
                             <td>
-                                <p><a class="btn btn-primary glyphicon glyphicon-edit" href="{{route('admin.fournisseur.edit', $row->id)}}"></a></p>
-                            </td>
-
-                            <td>
-                                <p><a class="btn btn-info glyphicon glyphicon-zoom-in " href="{{route('admin.fournisseur.show', $row->id)}}"></a></p>
-                            </td>
-
-                            <td>
+                                <a class="btn btn-primary glyphicon glyphicon-edit" href="{{route('admin.fournisseur.edit', $row->id)}}"></a>
+                                <a class="btn btn-info glyphicon glyphicon-zoom-in " href="{{route('admin.fournisseur.show', $row->id)}}"></a>
                                 <button type="submit" class="btn btn-danger glyphicon glyphicon-trash " data-toggle="modal" data-target="#{{ $row->id  }}"></button>
                             </td>
                         </tr>
-
-
-
-
-
-
 
                         <!-- Modal Confirmation de suppression -->
                         <div class="modal fade" id="{{ $row->id  }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

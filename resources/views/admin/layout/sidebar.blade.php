@@ -140,9 +140,6 @@
         <ul class="treeview-menu">
             <li class="active"><a href="{{ route('admin.fournisseur.index') }}"><i class="fa fa-list"></i>Liste fournisseur</a></li>
             <li><a href="{{ route('admin.fournisseur.create') }}"><i class="fa fa-plus-circle"></i>Ajouter fournisseur</a></li>
-            <li><a href="{{ route('fournisseur.getProduitFournisseur') }}"><i class="fa fa-plus-circle"></i>Ajouter produit</a></li>
-            <li><a href="{{ route('fournisseur.getVenteFournisseur') }}"><i class="fa fa-plus-circle"></i>Ajouter vente</a></li>
-            <li><a href="{{ route('fournisseur.getImportCSV') }}"><i class="fa fa-plus-circle"></i>Import CSV</a></li>
             <li><a href="{{ route('fournisseur.getExportCSV') }}"><i class="fa fa-download"></i>Export CSV</a></li>
 
         </ul>
