@@ -42,6 +42,11 @@ class Commande extends Model {
     }
 
 
+    public function statut(){
+        return $this->belongsTo('\App\Statut', 'statut_id');
+    }
+
+
 
 
 

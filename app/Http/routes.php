@@ -47,10 +47,6 @@ Route::group(['prefix' => 'admin'], function(){
             Route::resource('posologie', 'Admin\PosologieController');
             Route::resource('posologie_sex', 'Admin\PosologieSexController');
 
-
-            Route::get('commande/getCreateExemplaire', [ 'as' => 'commande.getCreateExemplaire', 'uses' => 'Admin\CommandeController@getCreateExemplaire']);
-            Route::post('commande/getCreateExemplaire', [ 'as' => 'commande.postCreateExemplaire', 'uses' => 'Admin\CommandeController@postCreateExemplaire']);
-
             Route::get('commande/exportcsv', ['as' => 'commande.getExportCSV', 'uses' => 'Admin\CommandeController@getExportCSV']);
             Route::post('commande/exportCSV', ['as' => 'commande.exportCSV', 'uses' => 'Admin\CommandeController@exportCSV']);
 

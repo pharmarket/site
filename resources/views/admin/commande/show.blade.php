@@ -68,7 +68,6 @@
                             <th>Logo</th>
                             <th>Ref #</th>
                             <th>Statut</th>
-                            <th>Total</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -85,10 +84,13 @@
                             <td>{{$commande->livraison->adresse}}</td>
                             <td>{{$commande->livreur->nom}}</td>
                             <td>{{$commande->livreur->duration}}</td>
-                            <td>{!! HTML::image($commande->livreur->logo, '', array('height'=>'35', 'width'=>'55')) !!}</td>
+                            <td>
+                            @if(!empty($commande->livreur->logo))
+                                {!! HTML::image($commande->livreur->logo, '', array('height'=>'35', 'width'=>'55')) !!}
+                                @endif
+                            </td>
                             <td>#{{$commande->reference}}</td>
-                            <td>{{$commande->statut}}</td>
-                            <td>{{$commande->paiement->montant}}€</td>
+                            <td>{{$commande->statut->label}}</td>
                         </tr>
                         @endforeach
                         </tbody>

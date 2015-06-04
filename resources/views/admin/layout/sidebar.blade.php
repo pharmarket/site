@@ -137,9 +137,6 @@
         </a>
         <ul class="treeview-menu">
             <li class="active"><a href="{{ route('admin.commande.index') }}"><i class="fa fa-list"></i>Liste</a></li>
-            <li><a href="{{ route('admin.commande.create') }}"><i class="fa fa-plus-circle"></i>Ajouter</a></li>
-            <li><a href="{{ route('commande.getCreateExemplaire') }}"><i class="fa fa-plus-circle"></i>Ajouter exemplaire</a></li>
-            <li><a href="{{ route('commande.getImportCSV') }}"><i class="fa fa-plus-circle"></i>Import CSV</a></li>
             <li><a href="{{ route('commande.getExportCSV') }}"><i class="fa fa-download"></i>Export CSV</a></li>
         </ul>
     </li>

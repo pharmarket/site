@@ -16,14 +16,12 @@
                 <table class="datatable table table-bordered table-striped" >
                     <thead>
                     <tr>
-                        <th>devise</th>
-                        <th>reference</th>
-                        <th>statut</th>
-                        <th>livreur</th>
+                        <th>Devise</th>
+                        <th>Reference</th>
+                        <th>Statut</th>
+                        <th>Lvreur</th>
 
 
-                        <th></th>
-                        <th></th>
                         <th></th>
                     </tr>
                     </thead>
@@ -40,17 +38,12 @@
                         <tr>
                             <td>{{ $row->devise->nom }}</td>
                             <td>{{ $row->reference }}</td>
-                            <td>{{ $row->statut }}</td>
+                            <td>{{ $row->statut->label }}</td>
                             <td>{{ $row->livreur->nom }}</td>
 
                             <td>
-                                <p><a class="btn btn-primary glyphicon glyphicon-edit" href="{{route('admin.commande.edit', $row->id)}}"></a></p>
-                            </td>
-                            <td>
-                                <p><a class="btn btn-info glyphicon glyphicon-zoom-in" href="{{route('admin.commande.show', $row->id)}}"></a></p>
-                            </td>
-                            <td>
-                                <button type="submit" class="btn btn-danger glyphicon glyphicon-trash " data-toggle="modal" data-target="#{{ $row->id  }}"></button>
+                                <a class="btn btn-info glyphicon glyphicon-zoom-in" href="{{route('admin.commande.show', $row->id)}}"></a>
+                                <button style="border:none;display:inline;" type="submit" class="btn btn-danger glyphicon glyphicon-trash " data-toggle="modal" data-target="#{{ $row->id  }}"></button>
                             </td>
                         </tr>
 
