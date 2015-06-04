@@ -27,8 +27,9 @@ class SousCategorieController extends Controller {
 	 */
 	public function create()
 	{
-		$langues = \App\Langue::get();
-		return View('admin.sous_categorie.create', compact('langues'));
+		$categories = \App\Produit_categorie::lists('nom', 'id');
+		$langues 	= \App\Langue::get();
+		return View('admin.sous_categorie.create', compact('langues', 'categorie'));
 	}
 
 	/**
@@ -101,8 +102,22 @@ class SousCategorieController extends Controller {
 	 */
 	public function destroy($sous_categorie)
 	{
-		$sous_categorie->delete();
-		return redirect()->back()->withFlashMessage("Suppression de la sous-categorie effectuée avec succès");
-	}
+		// Verification produits étant rattachés à la sous-catégorie
+		$nbProduits	= \App\Produit::where('sous_categorie_id', '=', $sous_categorie->id)->count();
 
+		if($nbProduits>0)
+		{
+			$message = "Suppression impossible ! Sous-categorie rattachée aux produits ayant pour référence :";
+			$produits 	= \App\Produit::where('sous_categorie_id', '=', $sous_categorie->id)->get();
+			foreach ($produits as $row) {
+			 	$message .= '<li>' . $row->reference . '</li>';
+			 }
+			return redirect()->back()->withFlashMessage($message);
+		}
+		else
+		{
+			$sous_categorie->delete();
+			return redirect()->back()->withFlashMessage("Suppression de la sous-categorie effectuée avec succès");
+		}
+	}
 }

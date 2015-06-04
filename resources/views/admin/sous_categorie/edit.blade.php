@@ -22,6 +22,10 @@
 			<div class="box-header"></div>
 			<!-- form start -->
 			<div class="box-body">
+				<div class="form-group navInformations">
+	                {!! Form::label('categorie', 'Catégorie :') !!}
+	                {!! Form::select('categorie', $categories, '', ['class'=>'form-control']) !!}
+		        </div>
 	            <div class="form-group">
 	            	{!! Form::label('langue', 'Langue :') !!}
 	                {!! Form::select('langue_id', $langues, $sous_categorie->langue_id, ['class'=>'form-control']) !!}
