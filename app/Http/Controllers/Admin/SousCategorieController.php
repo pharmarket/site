@@ -27,8 +27,8 @@ class SousCategorieController extends Controller {
 	 */
 	public function create()
 	{
-		$langues = \App\Langue::lists('label', 'id');
-		return View('admin.categorie.create', compact('langues'));
+		$langues = \App\Langue::get();
+		return View('admin.sous_categorie.create', compact('langues'));
 	}
 
 	/**
@@ -40,14 +40,14 @@ class SousCategorieController extends Controller {
 	{
 		// Enregistrement dans la table sous_categorie
 		for ($i=1; $i<5 ; $i++) {
-			$categorie = new \App\Produit_categorie;
-			$categorie->langue_id 	= $i;
-			$categorie->nom 		= $request->{'nom_'.$i};
-			$categorie->description = $request->{'description_'.$i};
-			$categorie->save();
+			$sous_categorie = new \App\Sous_categorie;
+			$sous_categorie->langue_id 	 = $i;
+			$sous_categorie->nom 		 = $request->{'nom_'.$i};
+			$sous_categorie->description = $request->{'description_'.$i};
+			$sous_categorie->save();
 		}
 
-		return redirect('/admin/categorie')->withFlashMessage("Création de la catégorie effectuée avec succès");
+		return redirect('/admin/sous_categorie')->withFlashMessage("Création de la sous catégorie effectuée avec succès");
 	}
 
 	/**
