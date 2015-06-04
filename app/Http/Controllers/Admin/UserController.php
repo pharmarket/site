@@ -17,10 +17,9 @@ class UserController extends Controller {
 	 */
 	public function index()
 	{
-		//
-        $user = \App\User::with('ville', 'role', 'pays')->get();
+		$user = \App\User::with('ville', 'role', 'pays')->get();
 
-        return View('admin.user.user', compact('user'));
+		return View('admin.user.user', compact('user'));
 	}
 
 	/**
@@ -30,23 +29,12 @@ class UserController extends Controller {
 	 */
 	public function create()
 	{
-        // Récuperer list select
-        $role = \App\Role::lists('label', 'id');
-        $ville = \App\Ville::lists('adresse', 'id');
+		// Récuperer list select
+		$role = \App\Role::lists('label', 'id');
+		$pays = \App\Pays::lists('nom', 'id');
 
-        return View('admin.user.create',compact('role', 'ville'));
+		return View('admin.user.create',compact('role', 'pays'));
 	}
-
-
-    /**
-     * @return \Illuminate\View\View
-     */
-    public function getVille(){
-        // table ville
-        $pays = \App\Pays::lists('nom', 'id');
-
-        return View('admin.user.getVille',compact('pays'));
-    }
 
 
 	/**
@@ -56,56 +44,32 @@ class UserController extends Controller {
 	 */
 	public function store(UserRequest $request)
 	{
-        // Enregistrement dans la table User
-        $user = new \App\User;
+	            // Enregistrement dans la table ville
+	            $city = new \App\Ville();
+	            $city->pays_id      = $request->pays_id;
+	            $city->nom      = $request->ville;
+	            $city->cp      = $request->cp;
+	            $city->adresse      = $request->adresse;
 
-        if($request->password != $request->password2){
-            return redirect('/admin/user/create')->withFlashMessage("Les deux mot de passe doivent être identique");
-        }
-        else {
-            $user->role_id = $request->role_id;
-            $user->ville_id = $request->ville_id;
-            $user->nom = $request->nom;
-            $user->prenom = $request->prenom;
-            $user->mail = $request->mail;
-            $user->password = \Hash::make($request->password. \Config::get('constant.salt'));
-            $user->pseudo = $request->pseudo;
-            $user->avatar = $request->avatar;
-            $user->birth = $request->birth;
-            $user->phone = $request->phone;
-            $user->mobile = $request->mobile;
+	            $city->save();
+		// Enregistrement dans la table User
+		$user = new \App\User;
+	            $user->role_id = $request->role_id;
+	            $user->ville_id = $city->id;
+	            $user->nom = $request->nom;
+	            $user->prenom = $request->prenom;
+	            $user->mail = $request->mail;
+	            $user->password = \Hash::make($request->password. \Config::get('constant.salt'));
+	            $user->pseudo = $request->pseudo;
+	            $user->avatar = $request->avatar;
+	            $user->birth = $request->birth;
+	            $user->phone = $request->phone;
+            	$user->mobile = $request->mobile;
 
+            	$user->save();
 
-            // envoie du mail
-            \Mail::send('mail.suscribe-'.\Lang::getLocale(), compact('user'), function($message) use ($user){
-                $message->to($user['mail'], '')->subject(\Lang::get('user.suscribe_mail_title'));
-            });
-
-
-            $user->save();
-
-        }
-
-        return redirect('/admin/user')->withFlashMessage("Création de l'utilisateur effectuée avec succès");
+       	 	return redirect('/admin/user')->withFlashMessage("Création de l'utilisateur effectuée avec succès");
 	}
-
-
-    /**
-     * @param VilleRequest $request
-     * @return mixed
-     */
-    public function postVille(VilleRequest $request){
-        // Enregistrement dans la table ville
-        $ville = new \App\Ville;
-        $ville->pays_id      = $request->pays_id;
-        $ville->nom      = $request->nom;
-        $ville->cp      = $request->cp;
-        $ville->adresse      = $request->adresse;
-        $ville->save();
-
-        return redirect('/admin/user')->withFlashMessage("Création de la ville effectuée avec succès");
-    }
-
 
 
 	/**
@@ -146,14 +110,8 @@ class UserController extends Controller {
 	 */
 	public function update($user, EditUserRequest $request)
 	{
-        if($request->password != $request->password2){
-            return redirect('/admin/user/create')->withFlashMessage("Les deux mot de passe doivent être identique");
-        }
-        else {
-
             // Enregistrement dans la table user
             $user->role_id = $request->role_id;
-            $user->ville_id = $request->ville_id;
             $user->nom = $request->nom;
             $user->prenom = $request->prenom;
 
@@ -172,8 +130,6 @@ class UserController extends Controller {
             $user->mobile = $request->mobile;
 
             $user->save();
-
-        }
 
 
 
@@ -300,51 +256,6 @@ class UserController extends Controller {
         }
     }
 
-
-
-
-
-
-    /**
-     * @param ImportCsvRequest $request
-     * @return mixed
-     */
-    public function importCSVVille(){
-        if (\Input::hasFile('file')) {
-            $file = \Input::file('file');
-            \Excel::load($file, function ($reader) {
-                $reader->setDateFormat('j/n/Y H:i:s');
-                $results = $reader->get();
-                foreach ($results as $result) {
-                    $ville = new \App\Ville;
-                    $ville->pays_id = $result['pays_id'];
-                    $ville->nom = $result['nom'];
-                    $ville->cp = $result['cp'];
-                    $ville->adresse = $result['adresse'];
-
-                    $ville->save();
-                }
-            });
-
-            return redirect('/admin/user')->withFlashMessage("Import effectuè avec succès");
-        }else{
-            $rules = array('file'=>'required|mimes:csv');
-
-            $validator = \Validator::make(\Input::all(), $rules);
-
-            if ($validator->fails())
-            {
-                return View('admin.user.getImportCSV')->withErrors($validator);
-            }
-        }
-    }
-
-
-
-
-
-
-
 	/**
 	 * Remove the specified resource from storage.
 	 *
@@ -353,9 +264,9 @@ class UserController extends Controller {
 	 */
 	public function destroy($user)
 	{
-        //Suppression de des données dans la table user
-        $user->delete();
-        return redirect()->back()->withFlashMessage("Suppression de l'utilisateur effectuée avec succès");
+            //Suppression de des données dans la table user
+            $user->delete();
+            return redirect()->back()->withFlashMessage("Suppression de l'utilisateur effectuée avec succès");
 	}
 
 }

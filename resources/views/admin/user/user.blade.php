@@ -21,8 +21,6 @@
                         <th>avatar</th>
 
                         <th></th>
-                        <th></th>
-                        <th></th>
                     </tr>
                     </thead>
                     <tfoot>
@@ -42,14 +40,8 @@
                             <td>{!! HTML::image($row->avatar, 'avatar', array('class' => 'thumb', 'height'=>'35', 'width'=>'35')) !!}</td>
 
                             <td>
-                                <p><a class="btn btn-primary glyphicon glyphicon-edit" href="{{route('admin.user.edit', $row->id)}}"></a></p>
-                            </td>
-
-                            <td>
-                                <p><a class="btn btn-info glyphicon glyphicon-zoom-in" href="{{route('admin.user.show', $row->id)}}"></a></p>
-                            </td>
-
-                            <td>
+                                    <a class="btn btn-primary glyphicon glyphicon-edit" href="{{route('admin.user.edit', $row->id)}}"></a>
+                                    <a class="btn btn-info glyphicon glyphicon-zoom-in" href="{{route('admin.user.show', $row->id)}}"></a>
                                 <button type="submit" class="btn btn-danger glyphicon glyphicon-trash " data-toggle="modal" data-target="#{{ $row->id  }}"></button>
                             </td>
                         </tr>

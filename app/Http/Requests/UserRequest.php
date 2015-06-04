@@ -23,7 +23,6 @@ class UserRequest extends Request {
 	{
 		return [
             'role_id' => 'required|numeric',
-            'ville_id' => 'required|numeric',
             'nom' => 'required|alpha',
             'prenom' => 'required|alpha',
             'mail' => 'required|email|unique:user',

@@ -23,12 +23,9 @@ class EditUserRequest extends Request {
 	{
 		return [
             'role_id' => 'required|numeric',
-            'ville_id' => 'required|numeric',
             'nom' => 'required|alpha',
             'prenom' => 'required|alpha',
             'mail' => 'required|email',
-            'password' => 'required|min:6|alpha_dash',
-            'password2' => 'required|min:6|alpha_dash',
             'pseudo' => 'alpha_dash',
             'avatar' => '',
             'birth' => 'required|date|after:1900-01-01|before:now',

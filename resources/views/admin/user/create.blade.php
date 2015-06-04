@@ -29,9 +29,24 @@
                         {!! Form::label('role_id', 'role :') !!}
                         {!! Form::select('role_id', $role, '', ['class'=>'form-control']) !!}
                     </div>
+
+                                            <div class="form-group">
+                                                {!! Form::label('ville', 'Ville :') !!}
+                                                {!! Form::text('ville', null, array('class'=>'form-control', 'name'=>'nom', 'placeholder' => 'nom :')) !!}
+                                            </div>
+
+                                            <div class="form-group">
+                                                {!! Form::label('cp', 'cp :') !!}
+                                                {!! Form::text('cp', null, array('class'=>'form-control', 'name'=>'cp', 'placeholder' => 'cp :')) !!}
+                                            </div>
+
+                                            <div class="form-group">
+                                                {!! Form::label('adresse', 'adresse :') !!}
+                                                {!! Form::textarea('adresse', null, array('class'=>'form-control', 'name'=>'adresse', 'placeholder' => 'adresse :')) !!}
+                                            </div>
                     <div class="form-group">
-                        {!! Form::label('ville_id', 'ville :') !!}
-                        {!! Form::select('ville_id', $ville, '', ['class'=>'form-control']) !!}
+                        {!! Form::label('pays_id', 'Pays :') !!}
+                        {!! Form::select('pays_id', $pays, '', ['class'=>'form-control']) !!}
                     </div>
 
 

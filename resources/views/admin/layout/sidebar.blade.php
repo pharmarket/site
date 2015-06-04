@@ -23,10 +23,8 @@
     <ul class="treeview-menu">
         <li class="active"><a href="{{ route('admin.user.index') }}"><i class="fa fa-list"></i>Liste</a></li>
         <li><a href="{{ route('admin.user.create') }}"><i class="fa fa-plus-circle"></i>Ajouter</a></li>
-        <li><a href="{{ route('user.getVille') }}"><i class="fa fa-plus-circle"></i>Ajouter ville</a></li>
         <li><a href="{{ route('user.getImportCSV') }}"><i class="fa fa-plus-circle"></i>Import CSV</a></li>
         <li><a href="{{ route('user.getExportCSV') }}"><i class="fa fa-download"></i>Export CSV</a></li>
-        <li class="active"><a href="{{ route('admin.role.index') }}"><i class="fa fa-list"></i>Gestion ROLE</a></li>
     </ul>
   </li>
 

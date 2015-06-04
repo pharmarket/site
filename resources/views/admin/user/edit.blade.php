@@ -47,10 +47,6 @@
                                                 {!! Form::label('role_id', 'role :') !!}
                                                 {!! Form::select('role_id', $role, $user->role_id, ['class'=>'form-control']) !!}
                                             </div>
-                                            <div class="form-group">
-                                                {!! Form::label('ville_id', 'ville :') !!}
-                                                {!! Form::select('ville_id', $ville, $user->ville_id, ['class'=>'form-control']) !!}
-                                            </div>
 
 
                                             <div class="form-group">
@@ -66,16 +62,6 @@
                                             <div class="form-group">
                                                 {!! Form::label('mail', 'mail :') !!}
                                                 {!! Form::text('mail', $user->mail, array('class'=>'form-control', 'name'=>'mail', 'placeholder' => 'mail :')) !!}
-                                            </div>
-
-                                            <div class="form-group">
-                                                {!! Form::label('password', 'Password :') !!}
-                                                {!! Form::password('password', array('class'=>'form-control', 'name'=>'password', 'placeholder' => 'password :')) !!}
-                                            </div>
-
-                                            <div class="form-group">
-                                                {!! Form::label('password', 'Password :') !!}
-                                                {!! Form::password('password2', array('class'=>'form-control', 'name'=>'password2', 'placeholder' => 'password :')) !!}
                                             </div>
 
                                             <div class="form-group">
