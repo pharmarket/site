@@ -103,8 +103,42 @@ class CategorieController extends Controller {
 	 */
 	public function destroy($categorie)
 	{
-		$categorie->delete();
-		return redirect()->back()->withFlashMessage("Suppression de la categorie effectuée avec succès");
+		// Vérification que la catégorie n'est pas rattachée à une ou plusieurs sous catégorie
+		$nbSousCategorie = \App\Sous_categorie::where('produit_categorie_id', '=', $categorie->id)->count();
+		var_dump($nbSousCategorie);
+
+		// Vérification que la catégorie n'est pas rattachée à un produit
+		$nbProduit = \App\Produit::where('categorie_id', '=', $categorie->id)->count();
+		var_dump($nbProduit);
+
+		// Message indiquant les références des sous catégories rattachées à la catégorie à supprimer
+		if($nbSousCategorie>0){
+			$message = "Suppression impossible ! Categorie rattachée aux sous-catégorie ayant pour identifiant :";
+			$sousCategorie = \App\Sous_categorie::where('produit_categorie_id', '=', $categorie->id)->get();
+			foreach ($sousCategorie as $row) {
+				$message .= '<li>' . $row->id . '</li>';
+			}
+		}
+
+		// Message indiquant les références des produits rattachés à la catégorie à supprimer
+		if($nbProduit>0){
+			$message .= "Suppression impossible ! Categorie rattachée aux produits ayant pour Référence :";
+			$produit = \App\Produit::where('categorie_id', '=', $categorie->id)->get();
+			foreach ($produit as $row) {
+				$message.= '<li>' . $row->reference . '</li>';
+			}
+		}
+
+		// Suppression de la catégorie si messages vides
+		if(!isset($message))
+		{
+			$categorie->delete();
+			return redirect()->back()->withFlashMessage("Suppression de la categorie effectuée avec succès");
+		}
+		else
+		{
+			return redirect()->back()->withFlashMessage($message);
+		}
 	}
 
 }

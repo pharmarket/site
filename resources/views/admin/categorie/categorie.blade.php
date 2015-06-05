@@ -6,7 +6,7 @@
 </div>
 
 <div class="row navBlock">
-	<h3 style="text-align: center">Listing des newsletters</h3>
+	<h3 style="text-align: center">Listing des catégories</h3>
 </div>
 
 <div class="row navTabs">
