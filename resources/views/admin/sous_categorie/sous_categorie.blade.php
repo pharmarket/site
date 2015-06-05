@@ -16,10 +16,9 @@
 			        <thead>
 			        	<tr>
 				            <th>ID</th>
-				            <th>Langue</th>
+				            <th>Langue / Catégorie</th>
 				            <th>Nom </th>
 				            <th>Description</th>
-				            <th>Categorie</th>
 				            <th>Added </th>
 				            <th></th>
 			          	</tr>
@@ -27,10 +26,9 @@
 			        <tfoot>
 			        	<tr>
 				            <th>ID</th>
-				            <th>Langue</th>
+				            <th>Langue / Catégorie</th>
 				            <th>Nom </th>
 				            <th>Description</th>
-				            <th>Categorie</th>
 				            <th>Added </th>
 			          	</tr>
 			        </tfoot>
@@ -38,10 +36,9 @@
 				        @foreach($sous_categorie as $row)
 				        	<tr>
 					            <td><a href="{{ route('admin.sous_categorie.show', $row->id) }}">{{ $row->id }}</a></td>
-					            <td>{{ $row->langue->code}}</td>
+					            <td>{{ $row->langue->code}} / {{ $row->categorie->nom }}</td>
 					            <td style="width: 125px">{{ $row->nom }}</td>
 					            <td>{!! mb_strimwidth($row->description, 0, 50, "...") !!}</td>
-					            <td>{{ $row->categorie->nom }}</td>
 					            <td style="width: 125px">{{ $row->created_at }}</td>
 					            <td style="text-align: right; width: 100px">
 					            	<a class="btn btn-primary glyphicon glyphicon-edit" href="{{route('admin.sous_categorie.edit', $row->id)}}"></a>
