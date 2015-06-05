@@ -19,28 +19,39 @@
 </div>
 
 {!! Form::open(array('route'=>'admin.sous_categorie.store')) !!}
-<div class="row navTabs" style="padding-left: 14%">
-@foreach($langues as $row)
-	<div class="col-md-5 col-xs-12">
-		<!-- general form elements -->
-		<div class="box box-success">
-			<div class="box-body">
-				<div class="row">
-					<div class="col-md-12"><h4 class="navTitle">{{ $row->label }}</h4></div>
-				</div>
-				<div class="form-group">
-                	{!! Form::label('nom_'.$row->id, 'Nom :') !!}
-                    {!! Form::input('nom_'.$row->id, 'nom_'.$row->id, null, ['class' => 'form-control', 'placeholder' => $row->label]) !!}
-                </div>
-                <div class="form-group">
-                	{!! Form::label('description_'.$row->id, 'Description :') !!}
-                    {!! Form::textarea('description_'.$row->id, null, ['class' => 'form-control', 'placeholder' => $row->label]) !!}
-                </div>
-			</div><!-- /.box-body -->
-		</div><!-- /.box -->
-	</div><!-- /.col -->
-@endforeach
-</div><!-- /.row -->
+<div class="row">
+	<div class="col-md-10 col-md-offset-1 col-xs-12">
+		<div class="form-group navInformations">
+	        {!! Form::label('categorie', 'Catégorie :') !!}
+	        {!! Form::select('categorie', $categorie, '', ['class'=>'form-control']) !!}
+	    </div>
+	</div>
+</div>
+
+<div class="row navTabs">
+	<div class="col-md-10 col-md-offset-1 col-xs-12">
+		@foreach($langues as $row)
+			<div class="col-md-6 col-xs-12">
+				<!-- general form elements -->
+				<div class="box box-success">
+					<div class="box-body">
+						<div class="row">
+							<div class="col-md-12"><h4 class="navTitle">{{ $row->label }}</h4></div>
+						</div>
+						<div class="form-group">
+		                	{!! Form::label('nom_'.$row->id, 'Nom :') !!}
+		                    {!! Form::input('nom_'.$row->id, 'nom_'.$row->id, null, ['class' => 'form-control', 'placeholder' => $row->label]) !!}
+		                </div>
+		                <div class="form-group">
+		                	{!! Form::label('description_'.$row->id, 'Description :') !!}
+		                    {!! Form::textarea('description_'.$row->id, null, ['class' => 'form-control', 'placeholder' => $row->label]) !!}
+		                </div>
+					</div><!-- /.box-body -->
+				</div><!-- /.box -->
+			</div><!-- /.col -->
+		@endforeach
+	</div><!-- /.row -->
+</div>
 
 <div class="row">
 	<div class="col-md-6 col-md-offset-3 col-xs-12">

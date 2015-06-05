@@ -16,7 +16,7 @@ class SousCategorieController extends Controller {
 	 */
 	public function index()
 	{
-		$sous_categorie = \App\Sous_categorie::with('langue')->get();
+		$sous_categorie = \App\Sous_categorie::with('langue', 'categorie')->get();
 		return view('admin.sous_categorie.sous_categorie', compact('sous_categorie'));	
 	}
 
@@ -27,7 +27,7 @@ class SousCategorieController extends Controller {
 	 */
 	public function create()
 	{
-		$categories = \App\Produit_categorie::lists('nom', 'id');
+		$categorie = \App\Produit_categorie::lists('nom', 'id');
 		$langues 	= \App\Langue::get();
 		return View('admin.sous_categorie.create', compact('langues', 'categorie'));
 	}
@@ -42,9 +42,10 @@ class SousCategorieController extends Controller {
 		// Enregistrement dans la table sous_categorie
 		for ($i=1; $i<5 ; $i++) {
 			$sous_categorie = new \App\Sous_categorie;
-			$sous_categorie->langue_id 	 = $i;
-			$sous_categorie->nom 		 = $request->{'nom_'.$i};
-			$sous_categorie->description = $request->{'description_'.$i};
+			$sous_categorie->produit_categorie_id 	= $request->categorie;
+			$sous_categorie->langue_id 	 			= $i;
+			$sous_categorie->nom 		 			= $request->{'nom_'.$i};
+			$sous_categorie->description 			= $request->{'description_'.$i};
 			$sous_categorie->save();
 		}
 
@@ -70,10 +71,11 @@ class SousCategorieController extends Controller {
 	 */
 	public function edit($sous_categorie)
 	{
-		// Récuperer Langues
+		// Récuperer Langues & de la catégorie
+		$categorie = \App\Produit_categorie::lists('nom', 'id');
 		$langues = \App\Langue::lists('code', 'id');
 
-		return View('admin.sous_categorie.edit', compact('sous_categorie', 'langues'));
+		return View('admin.sous_categorie.edit', compact('sous_categorie', 'langues', 'categorie'));
 	}
 
 	/**

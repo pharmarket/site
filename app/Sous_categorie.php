@@ -11,4 +11,8 @@ class Sous_categorie extends Model {
         return $this->belongsTo('\App\Langue', 'langue_id');
     }
 
+    public function categorie(){
+    	return $this->belongsTo('\App\Produit_categorie', 'produit_categorie_id');
+    }
+
 }

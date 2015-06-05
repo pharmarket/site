@@ -22,9 +22,9 @@
 			<div class="box-header"></div>
 			<!-- form start -->
 			<div class="box-body">
-				<div class="form-group navInformations">
+				<div class="form-group">
 	                {!! Form::label('categorie', 'Catégorie :') !!}
-	                {!! Form::select('categorie', $categories, '', ['class'=>'form-control']) !!}
+	                {!! Form::select('categorie', $categorie, $sous_categorie->produit_categorie_id, ['class'=>'form-control']) !!}
 		        </div>
 	            <div class="form-group">
 	            	{!! Form::label('langue', 'Langue :') !!}
