@@ -1,16 +1,16 @@
 @extends('admin.layout.admin')
 @section('content')
 
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <h1>
+    <div class="row">
+        <div class="col-md-12 xs-12" style="text-align: center">
+            <h2>
                 Detail de la commande {{$commande->reference}}
-                <small>ID : {{$commande->id}}</small>
-            </h1>
-        </section>
+                <small>(ID : {{$commande->id}})</small>
+            </h2>
+        </div>    
+    </div>
 
+    <div class="row">   
         <!-- Main content -->
         <section class="invoice">
             <!-- title row -->
@@ -43,7 +43,7 @@
                     </address>
                 </div><!-- /.col -->
                 <div class="col-sm-4 invoice-col">
-                    <b>information</b>
+                    Information
                     <br/>
                     <b>Livreur :</b> {{$commande->livreur->nom}}<br/>
                     <b>Payment :</b> {{$commande->paiement->montant}}€<br/>
@@ -57,13 +57,13 @@
                     <table class="table table-striped">
                         <thead>
                         <tr>
-                            <th>Qty</th>
-                            <th>reference exemplaire produit</th>
-                            <th>peremption_at</th>
+                            <th>Qté</th>
+                            <th>Référence exemplaire</th>
+                            <th>Date de peremption</th>
                             <th>Montant de l'exemplaire</th>
                             <th>Ville de livraison</th>
                             <th>Adresse de livraison</th>
-                            <th>Compagny de livraison</th>
+                            <th>Société de livraison</th>
                             <th>Durée de livraison</th>
                             <th>Logo</th>
                             <th>Ref #</th>
@@ -97,8 +97,6 @@
                     </table>
                 </div><!-- /.col -->
             </div><!-- /.row -->
-
-
             <!-- this row will not appear when printing -->
             <div class="row no-print">
                 <div class="col-xs-12">
@@ -107,5 +105,6 @@
             </div>
         </section><!-- /.content -->
         <div class="clearfix"></div>
-    </div><!-- /.content-wrapper -->
+    </div>
+
 @stop
