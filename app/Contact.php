@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 class Contact extends Model {
 
 	protected $table = 'contact';
+    protected $fillable = ['langue_id', 'mail', 'message', 'sujet', 'nom', 'done'];
 
 	public function langue(){
        	 	return $this->belongsTo('App\Langue');
