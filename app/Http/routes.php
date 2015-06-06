@@ -115,6 +115,8 @@ Route::group(['prefix' => 'ws', 'middleware' =>['ws', 'language']], function(){
             Route::resource('contact', 'Ws\ContactController', ['only' => ['store']]);;
             Route::resource('user', 'Ws\UserController');
 
+            Route::resource('cgu', 'Ws\CguController');
+
             Route::resource('cgv', 'Ws\CgvController');
 
 
