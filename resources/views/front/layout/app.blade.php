@@ -6,11 +6,13 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
  <title>Eve Responsive Multipurpose Template</title>
- <meta name="description" content="">
+
+  <link rel="icon" type="image/png" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css" />
 
   <link rel="icon" type="image/png" href="{{ asset('front/images/logoapply.png') }}" />
    <!-- CSS FILES -->
    <link rel="stylesheet" href="{{ asset('front/css/bootstrap.min.css') }}"/>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css"/>
    <link rel="stylesheet" type="text/css" href="{{ asset('front/css/global.css') }}" media="screen" data-name="skins">
    <link rel="stylesheet" href="{{ asset('front/css/layout/wide.css') }}" data-name="layout">
 

@@ -116,6 +116,16 @@ Route::group(['prefix' => 'ws', 'middleware' => 'ws'], function(){
             Route::resource('user', 'Ws\UserController');
 });
 
+Route::group(['prefix' => 'forum', 'middleware' => 'auth', 'roles' => ['admin']], function(){
+            Route::delete('cat/{catForum}', ['as' => 'forum.cat.destroy', 'uses' => 'ForumController@catDelete']);
+            Route::get('cat/{catForum}', ['as' => 'forum.cat.edit', 'uses' => 'ForumController@edit']);
+            Route::put('cat/{catForum}', ['as' => 'forum.cat.update', 'uses' => 'ForumController@update']);
+            Route::get('cat', ['as' => 'forum.cat.store', 'uses' => 'ForumController@store']);
+            Route::post('cat', ['as' => 'forum.cat.post', 'uses' => 'ForumController@post']);
+
+            Route::delete('thread/{thread}', ['as' => 'forum.thread.destroy', 'uses' => 'ForumController@threadDelete']);
+});
+
 
 
 Route::group(['middleware' => 'language'], function(){

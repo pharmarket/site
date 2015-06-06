@@ -31,11 +31,19 @@ class RouteServiceProvider extends ServiceProvider {
 			App::abort(404);
 		});
 
-        $router->model('role', 'App\Role', function() {
-            \App::abort(404);
-        });
+		$router->model('catForum', 'App\Forum_categories', function() {
+			App::abort(404);
+		});
 
-        
+		$router->model('thread', 'App\Forum_thread', function() {
+			App::abort(404);
+		});
+
+		$router->model('role', 'App\Role', function() {
+			\App::abort(404);
+		});
+
+
 		$router->model('contact', 'App\Contact', function() {
 			App::abort(404);
 		});
@@ -60,9 +68,9 @@ class RouteServiceProvider extends ServiceProvider {
 			App::abort(404);
 		});
 
-        $router->model('cgu', 'App\Cgu', function() {
-            App::abort(404);
-        });
+		$router->model('cgu', 'App\Cgu', function() {
+		    	App::abort(404);
+		});
 
         $router->model('cgv', 'App\Cgv', function() {
             App::abort(404);

@@ -129,15 +129,6 @@
       </ul>
   </li>
 
-  <li class="treeview">
-      <a href="#">
-        <i class="fa fa-newspaper-o"></i> <span>Forum</span> <i class="fa fa-angle-left pull-right"></i>
-      </a>
-      <ul class="treeview-menu">
-        <li class="active"><a href="{{ route('admin.forum.index') }}"><i class="fa fa-list"></i>Liste Category</a></li>
-      </ul>
-  </li>
-
 
     <li class="treeview">
         <a href="#">

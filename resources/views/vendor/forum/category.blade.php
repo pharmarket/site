@@ -3,7 +3,11 @@
 @section('content')
 @include('forum::partials.breadcrumbs')
 
-<h2>{{ $category->title }}</h2>
+<h2 style="display:inline">{{ $category->title }}</h2>
+
+@if(Auth::user() && Auth::user()->isAdmin())
+	<a href="{{route('forum.cat.store', ['cat' => $category->id])}}"><i class="glyphicon glyphicon-plus"></i></a>
+@endif
 
 @if (!$category->subcategories->isEmpty())
 <table class="table table-category panel panel-default" >
@@ -19,11 +23,13 @@
 		<tr>
 			<td>
 
-  	<a href="{{ $subcategory->Route }}">{{ $subcategory->title }}</a>
-
-    Panel content
-
-
+  				<a href="{{ $subcategory->Route }}">{{ $subcategory->title }}</a>
+				@if(Auth::user() && Auth::user()->isAdmin())
+					<a href="{{route('forum.cat.edit', $subcategory->id)}}"><i class="glyphicon glyphicon-pencil"></i></a>
+					{!! Form::open(['route' => ['forum.cat.destroy', $subcategory->id], 'method' => 'delete', 'style' => "display:inline"]) !!}
+					 	<button style="border:none;background: none;;" type="submit"><i class="glyphicon glyphicon-trash"></i></button>
+					{!!Form::close() !!}
+				@endif
 				<br>
 				{{ $subcategory->subtitle }}
 				@if ($subcategory->newestThread)
@@ -85,9 +91,12 @@
 								<span class="label label-primary">{{ trans($thread->userReadStatus) }}</span>
 							@endif
 						</span>
-						<p class="lead">
+						<p class="lead" style="display:inline">
 							<a href="{{ $thread->route }}">{{ $thread->title }}</a>
 						</p>
+						{!! Form::open(['route' => ['forum.thread.destroy', $thread->id], 'method' => 'delete', 'style' => "display:inline"]) !!}
+						 	<button style="border:none;background: none;;" type="submit"><i class="glyphicon glyphicon-trash"></i></button>
+						{!!Form::close() !!}
 						<p>{{ $thread->author->pseudo }} <span class="text-muted">({{ $thread->posted }})</span></p>
 					</td>
 					<td>

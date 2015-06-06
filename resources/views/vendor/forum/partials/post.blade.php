@@ -9,10 +9,12 @@
 <tr>
 	<td>
 		@if ($post->canEdit)
-			<a href="{{ $post->editRoute }}">{{ trans('forum::base.edit')}}</a>
+			<a href="{{ $post->editRoute }}"><i class="glyphicon glyphicon-pencil"></i></a>
 		@endif
-		@if ($post->canDelete)
-			<a href="{{ $post->deleteRoute }}" data-confirm data-method="delete">{{ trans('forum::base.delete') }}</a>
+		@if ($post->canDelete || (Auth::user() && Auth::user()->isAdmin()))
+			{!! Form::open(['url' =>  $post->deleteRoute, 'method' => 'delete', 'style' => "display:inline"]) !!}
+			 	<button style="border:none;background: none;;" type="submit"><i class="glyphicon glyphicon-trash"></i></button>
+			{!!Form::close() !!}
 		@endif
 	</td>
 	<td class="text-muted">

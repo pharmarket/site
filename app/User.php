@@ -32,4 +32,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 		return date('d/m/Y H\Hi', date_timestamp_get(date_create($this->created_at)));
 	}
 
+	public function isAdmin(){
+		return $this->role->label == 'admin';
+	}
+
 }

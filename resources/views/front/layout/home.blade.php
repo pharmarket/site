@@ -12,6 +12,7 @@
   <!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="{{ asset('front/images/logoapply.png') }}" /><![endif]-->
     <!-- CSS FILES -->
     <link rel="stylesheet" href="{{ asset('front/css/bootstrap.min.css') }}"/>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('front/css/global.css') }}" media="screen" data-name="skins">
     <link rel="stylesheet" href="{{ asset('front/css/layout/wide.css') }}" data-name="layout">
 

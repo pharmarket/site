@@ -5,5 +5,45 @@
 /* Feel free to override methods here to fit your requirements */
 class ForumController extends \Riari\Forum\Controllers\BaseController
 {
+	function catDelete($catForum){
+		$catForum->delete();
+		return back();
+	}
 
+	function threadDelete($thread){
+		$thread->delete();
+		return back();
+	}
+
+	function edit($catForum){
+		$cat = \App\Forum_categories::where('id', '!=', $catForum->id)->lists('title', 'id');
+		return view('forum.cat.edit', compact('catForum',   'cat'));
+	}
+
+	function update($catForum){
+		$catForum->parent_category = \Input::get('parent_category')?:null;
+		$catForum->title = \Input::get('title');
+		$catForum->subtitle = \Input::get('subtitle');
+		$catForum->weight = \Input::get('weight');
+		$catForum->save();
+
+		return \Redirect::to('/forum');;
+	}
+
+	function store(){
+		$cat = \App\Forum_categories::lists('title', 'id');
+		$catForum = \Input::get('cat');
+		return view('forum.cat.store', compact('cat', 'catForum'));
+	}
+
+	function post(){
+		$catForum = new \App\Forum_categories();
+		$catForum->parent_category = \Input::get('parent_category')?:null;
+		$catForum->title = \Input::get('title');
+		$catForum->subtitle = \Input::get('subtitle');
+		$catForum->weight = \Input::get('weight');
+		$catForum->save();
+
+		return \Redirect::to('/forum');;
+	}
 }
