@@ -2,5 +2,5 @@
 return [
     'indisponible'    => 'Nicht verfügbar',
     'disponible'      => 'Verfügbar',
-    'alertDispo'      => 'Alerta disponibilidad'
+    'alertDispo'      => 'Verfügbarkeit'
 ];
