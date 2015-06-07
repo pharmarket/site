@@ -204,6 +204,8 @@ Route::group(['middleware' => 'language'], function(){
     Route::post('produit', ['as' => 'produit.store', 'uses' => 'Front\ProduitController@store']);
     Route::get('commentaire/{commentaire}', ['as' => 'produit.destroy', 'uses' => 'Front\ProduitController@destroy']);
 
+    Route::get('categorie/alertDispo/{idProduit}', ['as' => 'produit.alertDispo', 'uses' => 'Front\ProduitController@alertDispo']);
+
     Route::get('logout', ['as' => 'user.logout', 'uses' => 'UserController@logout']);
     //Route de gestion de  la connexion
     Route::match(['get', 'post'], 'login', ['as' => 'user.login', 'uses' => 'UserController@login']);

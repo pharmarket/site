@@ -39,12 +39,9 @@
     min-height: 100px;
 }
 
-
-
-
-
-
-
+.dispo{
+    min-height: 25px;
+}
 
 .header {
     color: #36A0FF;
@@ -56,17 +53,6 @@
     font-size: 35px;
     color: #36A0FF;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 @import url(//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
@@ -120,20 +106,6 @@ body {padding-top:50px;}
     color: #fff;
     transition: all 0.5s ease 0s;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /*Comment List styles*/
@@ -214,23 +186,6 @@ body {padding-top:50px;}
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 figure
 {
     width: 120px;
@@ -254,18 +209,6 @@ figcaption
     font-size: 12px;
     font-style: italic;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 figure:hover
 {

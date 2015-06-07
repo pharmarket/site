@@ -112,7 +112,6 @@
 	</div>
 </div>
 
->>>>>>> Admin Email Stock
 @stop
 @section('footer')
 @stop

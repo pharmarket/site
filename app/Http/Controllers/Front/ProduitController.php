@@ -14,10 +14,24 @@ class ProduitController extends Controller {
 		* Affichage des produits selon la categorie
 		*/
 		if(!empty($sous_categorie)){
-			$produit = \App\Produit::where('sous_categorie_id', '=', $sous_categorie->id);
+			$produit = \App\Produit::where('sous_categorie_id', '=', $sous_categorie->id)->get();
 		}else{
-			$produit = \App\Produit::with('categorie', 'sous_categorie', 'marque', 'media', 'info', 'langues', 'fournisseurs');
+			$produit = \App\Produit::with('categorie', 'sous_categorie', 'marque', 'media', 'info', 'langues', 'fournisseurs')->get();
 		}
+
+		// Recupère le nombre d'exemplaires par produit
+		$tabNbExemplairesProduit = array();
+		foreach($produit as $row){
+			$nbExemplairesProduit 	= \DB::table('produit_exemplaire')
+				        			->join('produit', 'produit_exemplaire.produit_id', '=', 'produit.id')
+				                	->select('produit_exemplaire.produit_id', 'produit.reference', \DB::raw('count(produit_exemplaire.id) as total'), 'produit.montant')
+				                 	->where('produit_exemplaire.produit_id', $row->id)
+				                 	->whereNotIn('produit_exemplaire.id',function($q){
+										$q->select('exemplaire_id')->from('commande_exemplaire');
+									})
+				                 	->get();
+			$tabNbExemplairesProduit[] = $nbExemplairesProduit;
+    	}
 
 		$langue_id = \App\Langue::where('code', \Lang::getLocale())->get()[0]->id;
 
@@ -30,7 +44,7 @@ class ProduitController extends Controller {
 	//	$produit->setPath('/site/public/produit');
 
 
-		return View('front.produit.categories', compact('produit', 'produit_categorie', 'sous_categorie', 'product'));
+		return View('front.produit.categories', compact('produit', 'produit_categorie', 'sous_categorie', 'product', 'tabNbExemplairesProduit'));
 	}
     /**
      * Show the form for creating a new resource.
@@ -115,5 +129,16 @@ class ProduitController extends Controller {
         $commentaire->delete();
 
         return redirect()->back()->withFlashMessage("Suppression du commentaire effectué avec succès");
+    }
+
+    public function alertDispo($idProduit)
+    {	
+    	// Ajout de l'identifiant du client et du produit en base de données
+    	$return_stock = new \App\Return_stock;
+    	$return_stock->user_mail  = Auth::user()->mail;
+    	$return_stock->produit_id = $idProduit;
+    	$return_stock->save();
+
+    	return redirect()->back()->withFlashMessage("Vous recevrez un mail dès que notre produit sera en stock.");
     }
 }

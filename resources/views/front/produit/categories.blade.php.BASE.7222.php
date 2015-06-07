@@ -8,6 +8,7 @@
 @stop
 
 @section('content')
+
 <div class="row">
 	<div class="col-md-3">
 		<div class="panel-group" id="accordion">
@@ -40,10 +41,6 @@
 	</div>
 	<div class="col-md-9">
 		<div class="row">
-			@include('admin.categorie.succes')
-		</div>
-
-		<div class="row">
 			<!-- Plans -->
 			<section id="plans">
 				@foreach($produit as $row)
@@ -74,25 +71,6 @@
 													</div>
 												</div>
 											</li>
-											<li class="list-group-item"><i class="">
-												<div class="dispo">
-												@foreach($tabNbExemplairesProduit as $tab)
-													@if($row->reference == $tab[0]->reference)
-														<!-- stock : {{$tab[0]->total}} -->
-														@if($tab[0]->total < 1)
-															<span style="color: red">{{ Lang::get('retour_stock.indisponible') }}</span>
-															@if(Auth::check())
-																<a class="btn btn-danger btn-xs" style="margin-left: 5px" href="{{route('produit.alertDispo', $row->id)}}">{{ Lang::get('retour_stock.alertDispo') }}</a>
-															@endif
-														@else
-															<span style="color:green">
-																{{ Lang::get('retour_stock.disponible') }}
-															</span>
-														@endif
-													@endif
-												@endforeach
-												</div>	
-											</i>
 										</ul>
 									</div>
 								</a>
@@ -103,16 +81,14 @@
 				@endforeach
 			</section>
 		</div>
+		<div class="row">
+		    	{!!$produit->render()!!}
+		</div>
 	</div>
 </div>
 
-<div class="row">
-	<div class="col-md-12 xs-12" style="text-align: center">
-		{!!$produit->render()!!}
-	</div>
-</div>
 
->>>>>>> Admin Email Stock
 @stop
+
 @section('footer')
 @stop
