@@ -26,7 +26,7 @@ class CharteController extends Controller {
 	{
 		$where = \Input::get('where');
 		if(!empty($where)) { return \App\CharteQ::whereRaw($where)->get(); }
-		else{ return \App\CharteQ::get(); }
+		else{ return \App\CharteQ::with('langue')->get(); }
 	}
 
 	/**
