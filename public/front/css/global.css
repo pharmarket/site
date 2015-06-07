@@ -78,8 +78,10 @@ h6 {
     line-height: 24px;
 }
 
-a {text-decoration: none ;}
+a {text-decoration: none ;
+color:#78AB4E; }
 a:hover{
+  color: #78AB4E;
     text-decoration: none;
 	-webkit-transition: all 0.3s ease-in-out;
 	   -moz-transition: all 0.3s ease-in-out;
