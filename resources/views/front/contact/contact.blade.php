@@ -85,7 +85,7 @@
 					</div>
 					<ul class="widget_info_contact">
 						<li><i class="fa fa-map-marker"></i> <p><strong>{{Lang::get('user.adresse')}}</strong>: 27, rue St Antoine 75004 Paris</p></li>
-						<li><i class="fa fa-user"></i> <p><strong>{{Lang::get('user.phone')}}</strong>:0799054751</p></li>
+						<li><i class="fa fa-user"></i> <p><strong>{{Lang::get('user.phone')}}</strong>: 0799054751</p></li>
 						<li><i class="fa fa-envelope"></i> <p><strong>{{Lang::get('user.mail')}}</strong>: <a href="#">paharmarket.f2i@gmail.com</a></p></li>
 						<li><i class="fa fa-globe"></i> <p><strong>Web</strong>: <a href="#" data-placement="bottom" data-toggle="tooltip" title="" data-original-title="www.example.com">www.pharmarket.com</a></p></li>
 					</ul>
