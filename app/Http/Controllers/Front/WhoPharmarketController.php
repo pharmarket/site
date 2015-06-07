@@ -14,6 +14,8 @@ class WhoPharmarketController extends Controller {
 	 */
 	public function index()
 	{
-        return view('front.whoPharmarket.whoPharmarket');
+        $who = \App\WhoPharmarket::with('langue')->get();
+
+        return view('front.whoPharmarket.whoPharmarket', compact('who'));
 	}
 }

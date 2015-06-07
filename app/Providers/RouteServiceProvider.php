@@ -131,6 +131,12 @@ class RouteServiceProvider extends ServiceProvider {
             \App::abort(404);
         });
 
+
+
+        $router->model('who', 'App\WhoPharmarket', function() {
+            \App::abort(404);
+        });
+
 	}
 
 	/**
