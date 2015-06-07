@@ -26,7 +26,7 @@ class WhoPharmarketController extends Controller {
 	{
 		$where = \Input::get('where');
 		if(!empty($where)) { return \App\WhoPharmarket::whereRaw($where)->get(); }
-		else{ return \App\WhoPharmarket::get(); }
+		else{ return \App\WhoPharmarket::with('langue')->get(); }
 	}
 
 	/**
