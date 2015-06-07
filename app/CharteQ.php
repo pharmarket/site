@@ -5,6 +5,10 @@ use Illuminate\Database\Eloquent\Model;
 class CharteQ extends Model {
 
     protected $table = 'charteQ';
-    protected $fillable = ['title', 'description'];
+    protected $fillable = ['langue_id', 'title', 'description'];
+
+    public function langue(){
+        return $this->belongsTo('\App\Langue','langue_id');
+    }
 
 }
