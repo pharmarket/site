@@ -25,8 +25,8 @@ class FaqController extends Controller {
 	public function index()
 	{
 		$where = \Input::get('where');
-		if(!empty($where)) { return \App\User::whereRaw($where)->get(); }
-		else{ return \App\User::get(); }
+		if(!empty($where)) { return \App\Faq::whereRaw($where)->get(); }
+		else{ return \App\Faq::with('langue')->orderBy('order', 'asc')->get(); }
 	}
 
 	/**
