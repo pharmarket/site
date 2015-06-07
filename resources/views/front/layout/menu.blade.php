@@ -16,7 +16,9 @@
                 <img src="{{asset(Auth::user()->avatar)}}" width="30px;" height="30px;" />
                 {{\Auth::user()->pseudo}}
               </a>
-              <a href="{{route('user.logout')}}" class="btn btn-success">{{ Lang::get('menu.logout') }}</a>
+              <div class="form-group">
+                <a href="{{route('user.logout')}}" class="btn btn-default form-control btn-lg">{{ Lang::get('menu.logout') }}</a>
+            </div>
             </div>
           @else
             {!! Form::open(array('url' => route('user.login'), 'class'=> 'navbar-form navbar-right', 'role'=>'form', 'method'=>'POST')) !!}

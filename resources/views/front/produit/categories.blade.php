@@ -8,7 +8,7 @@
 @stop
 
 @section('content')
-
+<div class="container">
 <div class="row">
 	<div class="col-md-3">
 		<div class="panel-group" id="accordion">
@@ -87,7 +87,7 @@
 	</div>
 </div>
 
-
+</div>
 @stop
 
 @section('footer')

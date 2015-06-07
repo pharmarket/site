@@ -2,7 +2,7 @@
 
 @section('content')
 @include('forum::partials.breadcrumbs')
-
+<div class="container">
 <h2 style="display:inline">
 	{{ trans('forum::base.index') }}
 </h2>
@@ -80,4 +80,5 @@
 		</tbody>
 	</table>
 @endforeach
+</div>
 @overwrite
