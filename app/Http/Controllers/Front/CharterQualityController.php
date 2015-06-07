@@ -14,6 +14,8 @@ class CharterQualityController extends Controller {
 	 */
 	public function index()
 	{
-        return view('front.charterQuality.charterQuality');
+        $charte = \App\CharteQ::with('langue')->get();
+
+        return view('front.charterQuality.charterQuality', compact('charte'));
 	}
 }
