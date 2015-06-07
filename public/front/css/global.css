@@ -734,7 +734,7 @@ ul.sm li *,ul.sm li *:before,ul.sm li *:after{-moz-box-sizing:content-box;-webki
          -o-transition:all 0.4s ease-in-out;
 }
 #site-searchform #searchsubmit:hover{
-    background: #383634 url(../images/search-icon.png) no-repeat center 14px;
+    background: #008000 url(../images/search-icon.png) no-repeat center 14px;
 }
 .gray_border {
     width: 100%;
@@ -2505,7 +2505,7 @@ ul.client_items {
     -o-transition:all 0.3s ease-in-out;
 }
 .btn-default:hover{
-    background:#D23928;
+    background:#008000;
     color:#fff;
 }
 

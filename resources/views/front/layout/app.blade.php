@@ -5,7 +5,7 @@
  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
- <title>Eve Responsive Multipurpose Template</title>
+ <title>Pharmarket - {{App::getLocale()}}</title>
 
   <link rel="icon" type="image/png" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css" />
 

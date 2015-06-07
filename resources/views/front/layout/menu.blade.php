@@ -26,8 +26,12 @@
               <div class="form-group">
                 {!! Form::password('password', ["class"=>"form-control",  "value"=>old('password'), 'placeholder'=>Lang::get('menu.password')]); !!}
               </div>
-              <button type="submit" class="btn btn-success">{{ Lang::get('user.login') }}</button>
-              <a href="{{route('user.suscribe')}}" class="btn btn-success">{{ Lang::get('menu.suscribe') }}</a >
+              <div class="form-group">
+                <button type="submit" class="btn btn-default form-control btn-lg">{{ Lang::get('user.login') }}</button>
+              </div>
+              <div class="form-group">
+                <a href="{{route('user.suscribe')}}" class="btn btn-default form-control btn-lg">{{ Lang::get('menu.suscribe') }}</a >
+              </div>
             {!! Form::close() !!}
           @endif
         </div>
@@ -60,10 +64,10 @@
               <a href="{{route('produit.callCategorie')}}">{{ Lang::get('menu.catalog') }}</a>
             </li>
 
-            
+
             <li class="dropdown">
               <a id="dLabel" role="button" data-toggle="dropdown" class="btn" data-target="#" href="#">
-                {{ Lang::get('menu.products') }} 
+                {{ Lang::get('menu.products') }}
               </a>
               <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
                 @foreach(\App\Produit_categorie::menu() as $categorie)
@@ -73,7 +77,7 @@
                       <ul class="dropdown-menu">
                         @foreach($categorie->sous_categorie as $souscategorie)
                           @if($souscategorie->langue->label == Lang::get('menu.langactiv'))
-                              <li><a tabindex="-1" href="{{route('produit.callCategorie', $souscategorie->id)}}">{{ $souscategorie->nom }}</a></li>                                                
+                              <li><a tabindex="-1" href="{{route('produit.callCategorie', $souscategorie->id)}}">{{ $souscategorie->nom }}</a></li>
                           @endif
                         @endforeach
                       </ul>
