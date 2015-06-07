@@ -76,6 +76,8 @@ Route::group(['prefix' => 'admin'], function(){
             Route::resource('posologie', 'Admin\PosologieController');
             Route::resource('posologie_sex', 'Admin\PosologieSexController');
 
+            Route::resource('who', 'Admin\WhoController');
+
             Route::get('commande/exportcsv', ['as' => 'commande.getExportCSV', 'uses' => 'Admin\CommandeController@getExportCSV']);
             Route::post('commande/exportCSV', ['as' => 'commande.exportCSV', 'uses' => 'Admin\CommandeController@exportCSV']);
 

@@ -167,6 +167,20 @@
         </ul>
     </li>
 
+
+
+
+
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-tags"></i> <span>Who Pharmarket</span> <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+            <li class="active"><a href="{{ route('admin.who.index') }}"><i class="fa fa-list"></i>Liste</a></li>
+        </ul>
+    </li>
+
+
 </ul>
 </section>
 <!-- /.sidebar -->
