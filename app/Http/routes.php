@@ -119,6 +119,7 @@ Route::group(['prefix' => 'ws', 'middleware' =>['ws', 'language']], function(){
             Route::resource('cgu', 'Ws\CguController');
 
             Route::resource('cgv', 'Ws\CgvController');
+            Route::resource('charte', 'Ws\CharteController');
 
 
             Route::get('lastProducts', ['as' => 'homeApp.lastProducts', 'uses' => 'Ws\HomeAppController@lastProducts']);

@@ -131,6 +131,10 @@ class RouteServiceProvider extends ServiceProvider {
             \App::abort(404);
         });
 
+        $router->model('charte', 'App\CharteQ', function() {
+            \App::abort(404);
+        });
+
 	}
 
 	/**
