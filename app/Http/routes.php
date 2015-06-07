@@ -113,7 +113,7 @@ Route::group(['prefix' => 'admin'], function(){
 });
 
 Route::group(['prefix' => 'ws', 'middleware' =>['ws', 'language']], function(){
-            Route::resource('contact', 'Ws\ContactController', ['only' => ['store']]);;
+            Route::resource('contact', 'Ws\ContactController', ['only' => ['store']]);
             Route::resource('user', 'Ws\UserController');
 
             Route::resource('cgu', 'Ws\CguController');
@@ -122,6 +122,8 @@ Route::group(['prefix' => 'ws', 'middleware' =>['ws', 'language']], function(){
             Route::resource('charte', 'Ws\CharteController');
 
             Route::resource('faq', 'Ws\FaqController');
+
+            Route::resource('whoPharmarket', 'Ws\WhoPharmarketController');
 
 
             Route::get('lastProducts', ['as' => 'homeApp.lastProducts', 'uses' => 'Ws\HomeAppController@lastProducts']);
