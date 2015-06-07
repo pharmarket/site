@@ -20,7 +20,7 @@
                     <div class="col-md-12 col-md-12 col-md-12 col-lg-12">
                         <div class="box">
                             <div class="box-icon">
-                                <span class="fa fa-4x fa-archive"></span>
+                                <span class="fa fa-4x fa-file-text"></span>
                             </div>
                             <div class="info">
                                 <h4 class="text-center">{!!$row->title!!}</h4>
