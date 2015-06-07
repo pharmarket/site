@@ -121,6 +121,8 @@ Route::group(['prefix' => 'ws', 'middleware' =>['ws', 'language']], function(){
             Route::resource('cgv', 'Ws\CgvController');
             Route::resource('charte', 'Ws\CharteController');
 
+            Route::resource('faq', 'Ws\FaqController');
+
 
             Route::get('lastProducts', ['as' => 'homeApp.lastProducts', 'uses' => 'Ws\HomeAppController@lastProducts']);
             Route::get('bestProducts', ['as' => 'homeApp.bestProducts', 'uses' => 'Ws\HomeAppController@bestProducts']);
