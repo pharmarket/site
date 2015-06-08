@@ -14,4 +14,8 @@ class Pays extends Model {
 	public function livreurs(){
        	 	return $this->belongsToMany('App\Livreur', 'livreur_pays');
     	}
+
+    public function langue(){
+		return $this->belongsTo('\App\Langue','langue_id');
+	}
 }

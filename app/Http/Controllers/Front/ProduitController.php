@@ -135,7 +135,7 @@ class ProduitController extends Controller {
     {	
     	// Ajout de l'identifiant du client et du produit en base de données
     	$return_stock = new \App\Return_stock;
-    	$return_stock->user_mail  = Auth::user()->mail;
+    	$return_stock->user_id  = Auth::user()->id;
     	$return_stock->produit_id = $idProduit;
     	$return_stock->save();
 

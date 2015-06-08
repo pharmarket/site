@@ -41,9 +41,38 @@ class Kernel extends ConsoleKernel {
 					   	$message->from('pharmarket.f2i@gmail.com', 'Pharmarket');
 					});
 				}
-
 			}
 		})->dailyAt('05:00');
-	}
 
+		$schedule->call(function(){
+
+			// Recupère l'ensemble des produits en alerte 
+			$retour_stock = \App\Retour_stock::whereNull('sended_at')->get();
+
+			foreach ($retour_stock as $row) {
+				
+				// Verification de la disponibilité du produit
+				$nbExemplairesProduit 	= \DB::table('produit_exemplaire')
+					        			->join('produit', 'produit_exemplaire.produit_id', '=', 'produit.id')
+					                	->select('produit_exemplaire.produit_id', 'produit.reference', \DB::raw('count(produit_exemplaire.id) as total'), 'produit.montant')
+					                 	->where('produit_exemplaire.produit_id', $row->produit_id)
+					                 	->whereNotIn('produit_exemplaire.id',function($q){
+											$q->select('exemplaire_id')->from('commande_exemplaire');
+										})
+					                 	->get();
+
+				if(!empty($nbExemplairesProduit)){
+					// Recpuère les informations du produit désiré
+					$produit = \App\Produit::find($row->produit_id);
+
+					// Envoi du mail
+					\Mail::send('mail.alertDispo-'. strtolower($row->user->ville->pays->langue->code), compact('produit'), function($message) use ($row){
+					    	$message->to($row->user->mail)->subject({{ Lang::get('retour_stock.indisponible') }});
+					   		$message->from('pharmarket.f2i@gmail.com', 'Pharmarket');
+					});
+				}
+			}
+
+		})->dailyAt('04:00');
+	}
 }

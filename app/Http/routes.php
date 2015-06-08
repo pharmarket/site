@@ -131,6 +131,7 @@ Route::group(['prefix' => 'ws', 'middleware' =>['ws', 'language']], function(){
             Route::get('lastProducts', ['as' => 'homeApp.lastProducts', 'uses' => 'Ws\HomeAppController@lastProducts']);
             Route::get('bestProducts', ['as' => 'homeApp.bestProducts', 'uses' => 'Ws\HomeAppController@bestProducts']);
             Route::resource('homeApp', 'Ws\HomeAppController');
+            Route::resource('menu', 'Ws\MenuController');
 });
 
 Route::group(['prefix' => 'forum', 'middleware' => 'auth', 'roles' => ['admin']], function(){
