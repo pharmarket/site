@@ -37,7 +37,7 @@ class Kernel extends ConsoleKernel {
 				foreach ($mail as $value) {
 					// envoie du mail
 					\Mail::send('mail.newsletter', ['content' => $row->content], function($message) use ($value){
-					    	$message->to($value->mail)->subject('Newsletter');
+					    $message->to($value->mail)->subject('Newsletter');
 					   	$message->from('pharmarket.f2i@gmail.com', 'Pharmarket');
 					});
 				}
@@ -47,7 +47,7 @@ class Kernel extends ConsoleKernel {
 		$schedule->call(function(){
 
 			// Recupère l'ensemble des produits en alerte 
-			$retour_stock = \App\Retour_stock::whereNull('sended_at')->get();
+			$retour_stock = \App\Return_stock::whereNull('sended_at')->get();
 
 			foreach ($retour_stock as $row) {
 				
@@ -61,18 +61,24 @@ class Kernel extends ConsoleKernel {
 										})
 					                 	->get();
 
+				var_dump($nbExemplairesProduit);
+
 				if(!empty($nbExemplairesProduit)){
 					// Recpuère les informations du produit désiré
 					$produit = \App\Produit::find($row->produit_id);
 
 					// Envoi du mail
 					\Mail::send('mail.alertDispo-'. strtolower($row->user->ville->pays->langue->code), compact('produit'), function($message) use ($row){
-					    	$message->to($row->user->mail)->subject({{ Lang::get('retour_stock.indisponible') }});
+					    	$message->to($row->user->mail)->subject(\Lang::get('retour_stock.indisponible'));
 					   		$message->from('pharmarket.f2i@gmail.com', 'Pharmarket');
 					});
+
+					// Mise à jour de la date Sended_at
+					$row->sended_at = \DB::raw('NOW()');
+					//$row->save();
 				}
 			}
 
-		})->dailyAt('04:00');
+		})->dailyAt('20:07');
 	}
 }
