@@ -125,6 +125,8 @@ Route::group(['prefix' => 'ws', 'middleware' =>['ws', 'language']], function(){
 
             Route::resource('whoPharmarket', 'Ws\WhoPharmarketController');
 
+            Route::resource('produit', 'Ws\ProduitController');
+
 
             Route::get('lastProducts', ['as' => 'homeApp.lastProducts', 'uses' => 'Ws\HomeAppController@lastProducts']);
             Route::get('bestProducts', ['as' => 'homeApp.bestProducts', 'uses' => 'Ws\HomeAppController@bestProducts']);
