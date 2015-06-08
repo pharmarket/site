@@ -2,7 +2,7 @@
 
 @section('content')
 @include('forum::partials.breadcrumbs')
-
+<div class="container">
 <h2 style="display:inline">{{ $category->title }}</h2>
 
 @if(Auth::user() && Auth::user()->isAdmin())
@@ -133,5 +133,6 @@
 	<div class="col-xs-8 text-right">
 		{!! $category->pageLinks !!}
 	</div>
+</div>
 </div>
 @overwrite

@@ -2,7 +2,7 @@
 
 @section('content')
 @include('forum::partials.breadcrumbs')
-
+<div class="container">
 <h2>
     @if ($thread->locked)
         [{{ trans('forum::base.locked') }}]
@@ -92,4 +92,5 @@
         )
     </div>
 @endif
+</div>
 @overwrite

@@ -3052,8 +3052,8 @@ ul.recent_tab_list li
     border-color: #78AB4E;
 }
 .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{
-    background:#ec7063;
-    border-color: #ec7063;
+    background:#78AB4E;
+    border-color: #78AB4E;
 }
 /* ==================================================
    24. TITLE

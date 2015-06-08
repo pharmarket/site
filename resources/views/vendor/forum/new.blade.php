@@ -2,7 +2,7 @@
 
 @section('content')
 @include('forum::partials.breadcrumbs', ['other' => trans('forum::base.new_threads')])
-
+<div class="container">
 <h2>{{ trans('forum::base.new_threads') }}</h2>
 
 @if (!$threads->isEmpty())
@@ -60,4 +60,5 @@
 		{{ trans('forum::base.no_threads') }}
 	</p>
 @endif
+</div>
 @overwrite
