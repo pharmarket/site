@@ -11,7 +11,7 @@
 							<td width="8%" style="background-color:white"></td>
 							<td width="600" style="font-size:14px;line-height:20px;padding-bottom:0.5em;background-color:white;font-family:Helvetica,Arial,Verdana,sans-serif;text-align:left;color:#3e414a!important">
 					    		<p style="margin:0 0 1em 0">Bonjour,</p>
-					      		<p style="margin:0 0 1em 0">Nous avons le plaisir de vous informer que le produit est à nouveau disponible {{$produit->nom}}</p>
+					      		<p style="margin:0 0 1em 0">Nous avons le plaisir de vous informer que le produit est à nouveau disponible</p>
 							</td>
 						</tr>
     				</tbody>
