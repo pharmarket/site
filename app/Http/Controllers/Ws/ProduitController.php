@@ -30,12 +30,37 @@ class ProduitController extends Controller {
 		else{ return \App\Produit::with('categorie', 'sous_categorie', 'marque', 'media', 'info', 'langues', 'fournisseurs')->get(); }
 	}
 	/**
-	 * GHet Produit by ID
+	 * GHet Produit - Commentaire by ID
 	 *
 	 * @return Response
 	 */
 	public function store()
 	{
+        $data = \Input::get('data');
+        //dd($data);
+
+        $validator = \Validator::make(
+            $data,
+            array(
+                'user_id' => 'required|numeric',
+                'produit_id' => 'required|numeric',
+                'nom' => 'required|max:45',
+                'description' => 'required',
+                'note' => 'required|numeric',
+                'done' => 'required|numeric'
+            )
+        );
+
+        if($validator->fails()){
+            return $validator->errors();
+        }
+        else {
+            if ($commentaire = \App\Commentaire::create($data)) {
+                return response()->json(['commentaire' => $commentaire], 200);
+            } else {
+                return response()->json('', 400);
+            }
+        }
 	}
 	/**
 	 * GHet Produit by ID
