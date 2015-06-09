@@ -154,6 +154,8 @@ Route::group(['middleware' => 'language'], function(){
 
     Route::match(['get', 'post'],'contact',['as' => 'contact', 'uses' => 'Front\ContactController@index']);
 
+    Route::post('newsletter',['as' => 'newsletter.post', 'uses' => 'Front\NewsletterController@post']);
+
     //Route pour le panier
     Route::get('basket/{basket}', ['as' => 'basket.destroy', 'uses' => 'Front\BasketController@destroy']);
     Route::get('basket', ['as' => 'basket.index', 'uses' => 'Front\BasketController@index']);
