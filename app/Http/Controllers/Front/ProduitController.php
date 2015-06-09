@@ -25,7 +25,10 @@ class ProduitController extends Controller {
 		$sous_categorie = \App\Sous_categorie::where('langue_id', $langue_id)->get();
 
 		// Pagination
-		$produit = $produit->paginate(9);
+
+		$produit = $produit->paginate(3);
+	//	$produit->setPath('/site/public/produit');
+
 
 		return View('front.produit.categories', compact('produit', 'produit_categorie', 'sous_categorie', 'product'));
 	}
