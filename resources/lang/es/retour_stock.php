@@ -1,4 +1,7 @@
 <?php
 return [
-    'sujet' => 'Tema'
+    'disponible' 	=> 'Disponible',
+	'indisponible' 	=> 'Indisponible',
+	'alertDispo'	=> 'Alerta disponibilidad',
+    'sujet' 		=> 'Tema'
 ];

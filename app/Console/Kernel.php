@@ -61,7 +61,7 @@ class Kernel extends ConsoleKernel {
 										})
 					                 	->get();
 
-				var_dump($nbExemplairesProduit);
+				//var_dump($nbExemplairesProduit);
 
 				if(!empty($nbExemplairesProduit)){
 					// Recpuère les informations du produit désiré
@@ -79,6 +79,6 @@ class Kernel extends ConsoleKernel {
 				}
 			}
 
-		})->dailyAt('20:07');
+		})->dailyAt('04:00');
 	}
 }
