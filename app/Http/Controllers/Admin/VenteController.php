@@ -154,9 +154,6 @@ class VenteController extends Controller {
 		$exVente = \App\Vente_exemplaire::with('vente', 'produit_exemplaire')->where('achat_id', '=', $vente->id)->get();
 		foreach($exVente as $item){
 			$exemplaireVente = \App\Vente_exemplaire::find($item->id);
-			$exemplaireVente->achat_id      = \Input::get('vente_id'.$item->id);
-			$exemplaireVente->exemplaire_id      = \Input::get('exemplaire_id'.$item->id);
-			$exemplaireVente->quantite      = \Input::get('quantite'.$item->id);
 			$exemplaireVente->montant      = \Input::get('montant'.$item->id);
 
 			$exemplaireVente->save();

@@ -91,19 +91,9 @@
                                         <!-- form start -->
                                         @foreach($vente->ventee as $value)
                                             <div class="box-body">
-                                                <div class="form-group">
-                                                    {!! Form::label('vente_id', 'Achat :') !!}
-                                                    {!! Form::select('vente_id'.$value->id, $ventee, $value->vente_id, ['class'=>'form-control']) !!}
-                                                </div>
 
                                                 <div class="form-group">
-                                                    {!! Form::label('exemplaire_id', 'exemplaire produit :') !!}
-                                                    {!! Form::select('exemplaire_id'.$value->id, $produitExemplaire, $value->exemplaire_id, ['class'=>'form-control']) !!}
-                                                </div>
-
-                                                <div class="form-group">
-                                                    {!! Form::label('quantite', 'quantite :') !!}
-                                                    {!! Form::text('quantite', $value->quantite, array('class'=>'form-control', 'name'=>'quantite'.$value->id, 'placeholder' => 'quantite :', 'required'=>'required', 'pattern'=>'[0-9]*')) !!}
+                                                Exemplaire: {{$value->id}}
                                                 </div>
 
                                                 <div class="form-group">
