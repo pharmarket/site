@@ -86,6 +86,7 @@ Route::group(['prefix' => 'admin'], function(){
 
             Route::get('commande/importcsv', ['as' => 'commande.getImportCSV', 'uses' => 'Admin\CommandeController@getImportCSV']);
             Route::post('commande/importCSVCommande', ['as' => 'commande.importCSVCommande', 'uses' => 'Admin\CommandeController@importCSVCommande']);
+            Route::post('staut/edit', ['as' => 'commande.statut.edit', 'uses' => 'Admin\CommandeController@statutEdit']);
             Route::post('commande/importCSVCommandeExemplaire', ['as' => 'commande.importCSVCommandeExemplaire', 'uses' => 'Admin\CommandeController@importCSVCommandeExemplaire']);
             Route::post('commande/importCSVCommandePaiement', ['as' => 'commande.importCSVCommandePaiement', 'uses' => 'Admin\CommandeController@importCSVCommandePaiement']);
             Route::post('commande/importCSVCommandeLivraison', ['as' => 'commande.importCSVCommandeLivraison', 'uses' => 'Admin\CommandeController@importCSVCommandeLivraison']);

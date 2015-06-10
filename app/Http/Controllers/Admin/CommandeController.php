@@ -20,10 +20,11 @@ class CommandeController extends Controller {
 	{
 		//
         $commande = \App\Commande::with('user', 'devise', 'livraison', 'paiement', 'livreur', 'commandeExemplaire', 'statut')->get();
+        $statut = \App\Statut::lists('label', 'id');
 
         //$commandeExemplaire = \App\Commande_exemplaire::with('exemplaire', 'devise', 'commande')->get();
 
-        return View('admin.commande.commande', compact('commande'));
+        return View('admin.commande.commande', compact('commande', 'statut'));
 	}
 
 	/**
@@ -138,5 +139,20 @@ class CommandeController extends Controller {
         $commande->delete();
         return redirect()->back()->withFlashMessage("Suppression de la commande effectuée avec succès");
 	}
+
+    /**
+     * Premet de changer le statut d'une commande
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function statutEdit()
+    {
+        $commande = \App\Commande::find(\Input::get('commande'));
+        $commande->statut_id = \Input::get('statut');
+        $commande->save();
+    }
+
+
 
 }

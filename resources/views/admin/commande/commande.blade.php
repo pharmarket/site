@@ -38,7 +38,13 @@
                         <tr>
                             <td>{{ $row->devise->nom }}</td>
                             <td>{{ $row->reference }}</td>
-                            <td>{{ $row->statut->label }}</td>
+                            <td>
+                                <select data-commande="{{$row->id}}" class="select_statut" class="form-control" name="statut">
+                                        @foreach($statut as $id => $label)
+                                            <option value="{{$id}}" {{ ($row->statut_id == $id) ? 'selected' : ''}}>{{$label}}</option>
+                                        @endforeach
+                                </select>
+                            </td>
                             <td>{{ $row->livreur->nom }}</td>
 
                             <td>
@@ -75,3 +81,16 @@
     </div><!-- /.row -->
 @stop
 
+@section('footer')
+<script type="text/javascript">
+	$(".select_statut").change(function () {
+		$statut = $( this ).find(":selected").val();
+		$commande = $(this).data('commande');
+		$.post( "{{route('commande.statut.edit')}}",  { statut: $statut, commande: $commande } )
+			.done(function( data ) {
+				alert( "Mise à jour réussie");
+			}
+		);
+	});
+</script>
+@stop
