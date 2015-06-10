@@ -62,14 +62,16 @@ class Kernel extends ConsoleKernel {
 					                 	->get();
 
 				//var_dump($nbExemplairesProduit);
+				
+				
 
 				if(!empty($nbExemplairesProduit)){
 					// Recpuère les informations du produit désiré
 					$produit = \App\Produit::find($row->produit_id);
 
 					// Envoi du mail
-					\Mail::send('mail.alertDispo-'. strtolower($row->user->ville->pays->langue->code), compact('produit'), function($message) use ($row){
-					    	$message->to($row->user->mail)->subject(\Lang::get('retour_stock.indisponible'));
+					\Mail::send('mail.alertDispo-'. strtolower($row->user->ville->pays->langue->code), compact('produit'), function($message) use ($row, $produit){
+					    	$message->to($row->user->mail)->subject($produit->reference);
 					   		$message->from('pharmarket.f2i@gmail.com', 'Pharmarket');
 					});
 

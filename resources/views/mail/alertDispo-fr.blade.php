@@ -11,7 +11,14 @@
 							<td width="8%" style="background-color:white"></td>
 							<td width="600" style="font-size:14px;line-height:20px;padding-bottom:0.5em;background-color:white;font-family:Helvetica,Arial,Verdana,sans-serif;text-align:left;color:#3e414a!important">
 					    		<p style="margin:0 0 1em 0">Bonjour,</p>
-					      		<p style="margin:0 0 1em 0">Nous avons le plaisir de vous informer que le produit est à nouveau disponible</p>
+					      	  <p style="margin:0 0 1em 0">Nous avons le plaisir de vous informer que le produit dont la référence est {{$produit->reference}} est à nouveau disponible.</p>
+                    <p style="margin:0 0 1em 0"><strong>Informations sur le produit :</strong><br>
+                    Marque : {{$produit->marque->nom}}<br>
+                    Categorie : {{$produit->categorie->nom}}<br>
+                    Sous-catégorie : {{$produit->sous_categorie->nom}}<br>
+                    </p>
+                    <p>Cordialement,</p>
+                    <p>Pharmarket</p>
 							</td>
 						</tr>
     				</tbody>
