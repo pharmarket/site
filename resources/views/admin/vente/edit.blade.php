@@ -11,7 +11,7 @@
 </div><!-- /.row -->
     <div class="row navBlock">
         <div class="">
-            <h3 style="text-align: center">Modification d'une vente</h3>
+            <h3 style="text-align: center">Modification d'un achat</h3>
         </div><!-- /.col -->
     </div>
 
@@ -23,8 +23,8 @@
                 <!-- Nav tabs -->
                 <div class="panel-heading">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a href="#vente" data-toggle="tab">Vente</a></li>
-                        <li><a href="#exemplaireVente" data-toggle="tab">Exemplaire Vente</a></li>
+                        <li class="active"><a href="#vente" data-toggle="tab">Achat</a></li>
+                        <li><a href="#exemplaireVente" data-toggle="tab">Exemplaire</a></li>
                     </ul>
                 </div>
 
@@ -38,7 +38,7 @@
                                     <!-- general form elements -->
                                     <div class="box box-success">
                                         <div class="box-header">
-                                            <h3 class="box-title">Vente</h3>
+                                            <h3 class="box-title">Achat</h3>
                                         </div>
                                         <!-- form start -->
                                         <div class="box-body">
@@ -86,13 +86,13 @@
                                     <!-- general form elements -->
                                     <div class="box box-success">
                                         <div class="box-header">
-                                            <h3 class="box-title">Exemplaire Vente</h3>
+                                            <h3 class="box-title">Exemplaire</h3>
                                         </div>
                                         <!-- form start -->
                                         @foreach($vente->ventee as $value)
                                             <div class="box-body">
                                                 <div class="form-group">
-                                                    {!! Form::label('vente_id', 'vente :') !!}
+                                                    {!! Form::label('vente_id', 'Achat :') !!}
                                                     {!! Form::select('vente_id'.$value->id, $ventee, $value->vente_id, ['class'=>'form-control']) !!}
                                                 </div>
 

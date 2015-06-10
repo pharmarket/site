@@ -19,7 +19,7 @@
                     <!-- general form elements -->
                     <div class="box box-success">
                         <div class="box-header">
-                            <h3 class="box-title">IMPORT exemplaire vente</h3>
+                            <h3 class="box-title">IMPORT exemplaire </h3>
                         </div>
                         <!-- form start -->
                         <div class="box-body">

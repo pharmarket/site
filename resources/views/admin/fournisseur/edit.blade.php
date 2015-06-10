@@ -27,7 +27,7 @@
                 <div class="panel-heading">
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#fournisseur" data-toggle="tab">Fournisseur</a></li>
-                        <li><a href="#vente" data-toggle="tab">Vente</a></li>
+                        <li><a href="#vente" data-toggle="tab">Achat</a></li>
                         <li><a href="#produitFournisseur" data-toggle="tab">Produit Fournisseur</a></li>
                     </ul>
                 </div>
@@ -97,7 +97,7 @@
                                     <!-- general form elements -->
                                     <div class="box box-success">
                                         <div class="box-header">
-                                            <h3 class="box-title">Modification d'une vente</h3>
+                                            <h3 class="box-title">Modification d'un achat</h3>
                                         </div>
                                         <!-- form start -->
 
@@ -131,7 +131,7 @@
 
                                                 <div class="form-group">
                                                     {!! Form::label('statut', 'statut :') !!}
-                                                    {!! Form::text('statut', $value->statut, array('class'=>'form-control', 'name'=>'statut'.$value->id, 'placeholder' => 'statut :', 'required'=>'required', 'pattern'=>'[a-zA-Z0-9]+[a-zA-Z0-9 ]+')) !!}
+                                                    {!! Form::select('statut', $statut, $value->statut->id, array('class'=>'form-control', 'name'=>'statut'.$value->id, 'placeholder' => 'statut :', 'required'=>'required', 'pattern'=>'[a-zA-Z0-9]+[a-zA-Z0-9 ]+')) !!}
                                                 </div>
 
                                                 <div class="form-group">

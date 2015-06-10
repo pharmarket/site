@@ -19,7 +19,7 @@
                     <div class="panel-heading">
                         <ul class="nav nav-tabs">
                             <li class="active"><a href="#fournisseur" data-toggle="tab">Fournisseur</a></li>
-                            <li><a href="#vente" data-toggle="tab">Vente</a></li>
+                            <li><a href="#vente" data-toggle="tab">Achat</a></li>
                             <li><a href="#produitFournisseur" data-toggle="tab">Produit Fournisseur</a></li>
                         </ul>
                     </div>

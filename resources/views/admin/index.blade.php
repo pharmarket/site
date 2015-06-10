@@ -38,7 +38,7 @@
 		<div class="nav-tabs-custom">
 			<!-- Tabs within a box -->
 			<ul class="nav nav-tabs pull-right">
-				<li class="pull-left header"><i class="fa fa-inbox"></i> Ventes</li>
+				<li class="pull-left header"><i class="fa fa-inbox"></i> Achats</li>
 			</ul>
 			<div class="tab-content no-padding">
 			<!-- Morris chart - Sales -->
@@ -83,7 +83,7 @@ var area = new Morris.Area({
 	data:{!!$json_sales!!},
 	xkey: 'y',
 	ykeys: ['total'],
-	labels: ['Ventes'],
+	labels: ['Achat'],
 	lineColors: ['#a0d0e0'],
 	hideHover: 'auto'
 });

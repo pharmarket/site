@@ -55,10 +55,10 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title">Vente n° {{$row->id}}</h4>
+                                        <h4 class="modal-title">Achat n° {{$row->id}}</h4>
                                     </div>
                                     <div class="modal-body">
-                                        <p>Vous êtes sur le point de supprimer définitivement la vente n° {{$row->reference}} </p>
+                                        <p>Vous êtes sur le point de supprimer définitivement l'achat n° {{$row->reference}} </p>
                                     </div>
                                     <div class="modal-footer">
                                         {!! Form::open(array('route' => array('admin.vente.destroy', $row->id), 'method' => 'delete')) !!}

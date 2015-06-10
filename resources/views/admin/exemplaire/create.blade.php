@@ -21,7 +21,7 @@
 		<div class="box box-success">
 			<div class="box-body">
 		                    <div class="form-group navInformations">
-		                        {!! Form::label('vente_id', 'vente :') !!}
+		                        {!! Form::label('vente_id', 'Achat :') !!}
 		                        {!! Form::select('vente_id', $vente, '', ['class'=>'form-control']) !!}
 		                    </div>
 				<div class="form-group navInformations">

@@ -9,7 +9,7 @@
 
     <div class="row">
         <div class="col-md-6 col-md-offset-3 col-xs-12">
-            <h3 style="text-align: center">VENTE</h3>
+            <h3 style="text-align: center">Achat</h3>
         </div><!-- /.col -->
     </div>
 

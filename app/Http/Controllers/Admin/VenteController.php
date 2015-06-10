@@ -268,7 +268,7 @@ class VenteController extends Controller {
                     $ev = new \App\Vente_exemplaire;
                     $ev->achat_id = $result['vente_id'];
                     $ev->exemplaire_id = $result['exemplaire_id'];
-                    $ev->quantite = $result['quantite'];
+                    $ev->reference = $result['reference'];
                     $ev->montant = $result['montant'];
                     $ev->save();
                 }

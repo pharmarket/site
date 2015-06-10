@@ -6,7 +6,7 @@
 
     <div class="row navBlock">
         <div class="">
-            <h3 style="text-align: center">Vente N°{{$vente->id}}</h3>
+            <h3 style="text-align: center">Achat N°{{$vente->id}}</h3>
         </div><!-- /.col -->
     </div>
 
@@ -16,8 +16,8 @@
                 <!-- Nav tabs -->
                 <div class="panel-heading">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a href="#vente" data-toggle="tab">Vente</a></li>
-                        <li><a href="#exemplaireVente" data-toggle="tab">Exemplaire Vente</a></li>
+                        <li class="active"><a href="#vente" data-toggle="tab">Achat</a></li>
+                        <li><a href="#exemplaireVente" data-toggle="tab">Exemplaire</a></li>
                     </ul>
                 </div>
 
@@ -79,21 +79,17 @@
                                 <div class="col-md-10 col-md-offset-1 col-xs-12">
                                     <div class="box box-success">
                                         <div class="box-header">
-                                            <h3 class="box-title">Vente Exemplaire</h3>
+                                            <h3 class="box-title">Achat</h3>
                                         </div>
                                         <div class="box-body">
                                             @foreach ($vente->ventee as $value)
                                                 <div class="row">
-                                                    <div class="col-md-3" style="text-align: right">id :</div>
-                                                    <div class="col-md-9">{{ $value->id}}</div>
+                                                    <div class="col-md-3" style="text-align: right">id Produit:</div>
+                                                    <div class="col-md-9">{{ $value->produit_exemplaire->produit_id}}</div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-md-3" style="text-align: right">produit :</div>
+                                                    <div class="col-md-3" style="text-align: right">Reference :</div>
                                                     <div class="col-md-9">{{ $value->produit_exemplaire->reference}}</div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-3" style="text-align: right">quantite :</div>
-                                                    <div class="col-md-9">{{ $value->quantite}}</div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-3" style="text-align: right">montant :</div>

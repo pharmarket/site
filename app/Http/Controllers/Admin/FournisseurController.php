@@ -82,12 +82,13 @@ class FournisseurController extends Controller {
         $fournisseurr = \App\Fournisseur::lists('siret', 'id');
         $devise = \App\Devise::lists('nom', 'id');
         $entrepot = \App\Ville::lists('nom', 'id');
+        $statut = \App\Vente_statut::lists('label', 'id');
 
         // PRODUIT FOURNISSEUR
         $produit = \App\Produit::lists('reference', 'id');
         $fournisseure = \App\Fournisseur::lists('siret', 'id');
 
-        return View('admin.fournisseur.edit', compact('fournisseur', 'devise','entrepot', 'produit', 'fournisseure', 'fournisseurr'));
+        return View('admin.fournisseur.edit', compact('fournisseur', 'devise','entrepot', 'produit', 'fournisseure', 'fournisseurr', 'statut'));
 	}
 
 	/**
@@ -122,7 +123,7 @@ class FournisseurController extends Controller {
             $vente->fournisseur_id  = \Input::get('fournisseur_id'.$item->id);
             $vente->commande_at      = \Input::get('commande_at'.$item->id);
             $vente->livraison_at      = \Input::get('livraison_at'.$item->id);
-            $vente->statut      = \Input::get('statut'.$item->id);
+            $vente->statut_id      = \Input::get('statut'.$item->id);
             $vente->montant      = \Input::get('montant'.$item->id);
 
             $vente->save();

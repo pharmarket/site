@@ -24,7 +24,7 @@
                           <li>
                           	{!! Form::open(['route' => ['newsletter.post'], 'method' => 'POST']) !!}
                           		{!! Form::text('mail', null, ['placeholder' => 'Mail']) !!}
-                          		{!!Form::submit(Lang::get('show.submit'), ['style' => 'background-color:#78AB4E; margin:0px;'])!!}
+                          		{!!Form::submit(Lang::get('show.submit'), ['class' => 'submit-newsletter'])!!}
 			{!!  Form::close() !!}
                           </li>
                       </ul>
