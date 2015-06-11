@@ -80,7 +80,7 @@ class ProduitController extends Controller {
 			->whereNull('ce.exemplaire_id')
 			->count();
 
-		// RESS
+		// RES
 		$res = \App\Media::where('produit_id', '=', $produit->id)->get();
 		$countImage = \App\Media::where('produit_id', '=', $produit->id)->where('type', '=', 'image')->where('langue_id', $langue->id)->count();
 		$countVideo = \App\Media::where('produit_id', '=', $produit->id)->where('type', '=', 'video')->where('langue_id', $langue->id)->count();
