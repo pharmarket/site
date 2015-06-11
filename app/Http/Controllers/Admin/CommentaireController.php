@@ -8,6 +8,7 @@ use App\Http\Requests\EditCommandeRequest;
 use App\Http\Requests\ExemplaireRequest;
 use App\Http\Requests\ImportCsvRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 class CommentaireController extends Controller {
 
@@ -18,7 +19,9 @@ class CommentaireController extends Controller {
 	 */
 	public function index()
 	{
+        $commentaire = \App\Commentaire::with('user', 'produit')->get();
 
+        return View('admin.commentaire.commentaire', compact('commentaire'));
 	}
 
 
@@ -44,9 +47,9 @@ class CommentaireController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($commande)
+	public function show($commentaire)
 	{
-
+        return View('admin.commentaire.show', compact('commentaire'));
 	}
 
 
@@ -58,9 +61,11 @@ class CommentaireController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($commande)
+	public function destroy($commentaire)
 	{
+        $commentaire->delete();
 
+        return redirect()->back()->withFlashMessage("Suppression du commentaire effectuée avec succès");
 	}
 
 

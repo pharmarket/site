@@ -63,7 +63,7 @@ class ProduitController extends Controller {
 	public function show($produit)
 	{
 		// List des commentaire de l'ut
-		$commentaire = \App\Commentaire::with('user', 'produit')->orderBy('id', 'desc')->where('produit_id', '=', $produit->id)->get();
+		$commentaire = \App\Commentaire::with('user', 'produit')->orderBy('id', 'desc')->where('produit_id', '=', $produit->id)->where('done', '=', 1)->get();
 		$langue = \App\Langue::where('code', \Lang::getLocale())->first();
 
 		// Récupération info langue

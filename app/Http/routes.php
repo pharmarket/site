@@ -110,7 +110,10 @@ Route::group(['prefix' => 'admin'], function(){
 
             Route::resource('categorie', 'Admin\CategorieController');
 
+
+            Route::get('commentaire/done/{commentaire}', ['as' => 'admin.commentaire.done', 'uses' => 'Admin\CommentaireController@done']);
             Route::resource('commentaire', 'Admin\CommentaireController');
+
 	});
 });
 

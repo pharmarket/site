@@ -133,6 +133,18 @@
           </ul>
       </li>
 
+
+
+
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-comments-o"></i> <span>Commentaire</span> <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+            <li class="active"><a href="{{ route('admin.commentaire.index') }}"><i class="fa fa-list"></i>Liste</a></li>
+        </ul>
+    </li>
+
     <li>
         <a href="#">
             <i class="fa fa-question-circle"></i> <span>FAQ</span> <i class="fa fa-angle-left pull-right"></i>
