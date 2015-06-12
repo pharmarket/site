@@ -127,6 +127,8 @@ Route::group(['prefix' => 'ws', 'middleware' =>['ws', 'language']], function(){
 
             Route::resource('produit', 'Ws\ProduitController');
 
+            Route::resource('commentaire', 'Ws\CommentaireController');
+
             Route::resource('recherche', 'Ws\RechercheController');
 
             Route::resource('categorie', 'Ws\CategorieController');
