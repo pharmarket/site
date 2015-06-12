@@ -2,6 +2,20 @@
 
 @section('content')
 <!-- Small boxes (Stat box) -->
+<!-- Content Header (Page header) -->
+<section class="content-header">
+	<h1>
+		Dashboard
+		<small>Control panel</small>
+	</h1>
+	<ol class="breadcrumb">
+		<li><a href="{{ ucfirst(route('accueil')) }}"><i class="fa fa-dashboard"></i> Home</a></li>
+		<li class="active">Dashboard</li>
+	</ol>
+</section>
+
+			<!-- Main content -->
+<section class="content">
 <div class="row">
 	<div class="col-lg-3 col-xs-6">
      	<!-- small box -->
@@ -67,7 +81,7 @@
 
 	</section><!-- right col -->
 </div><!-- /.row (main row) -->
-
+</section>
 @stop
 @section('footer')
   <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
