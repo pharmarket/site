@@ -90,6 +90,16 @@
           <li><a href="{{ URL::to('admin/categorie/create') }}"><i class="fa fa-plus-circle"></i>Ajouter</a></li>
         </ul>
       </li>
+
+  <li class="treeview">
+    <a href="#">
+      <i class="fa fa-newspaper-o"></i> <span>Marque</span> <i class="fa fa-angle-left pull-right"></i>
+    </a>
+    <ul class="treeview-menu">
+      <li class="active"><a href="{{ URL::to('admin/marque') }}"><i class="fa fa-list"></i>Liste</a></li>
+      <li><a href="{{ URL::to('admin/marque/create') }}"><i class="fa fa-plus-circle"></i>Ajouter</a></li>
+    </ul>
+  </li>
       <li>
         <a href="#">
           <i class="fa fa-newspaper-o"></i> <span>Posologie</span> <i class="fa fa-angle-left pull-right"></i>
