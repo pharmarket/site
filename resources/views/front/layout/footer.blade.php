@@ -58,7 +58,7 @@
                       <ul class="contact-details-alt">
                           <li>
                             {!! Form::open(['route' => ['newsletter.post'], 'method' => 'POST']) !!}
-                              {!! Form::text('mail', null, ['placeholder' => 'Mail' ,"class"=>"input-text"]) !!}
+                              {!! Form::text('mail', null, ['placeholder' => 'Mail' ,"class"=>"input-text", 'required'=> 'required']) !!}
                               {!!Form::submit(Lang::get('show.submit'), ['class' => 'submit-newsletter'])!!}
       {!!  Form::close() !!}
                           </li>
