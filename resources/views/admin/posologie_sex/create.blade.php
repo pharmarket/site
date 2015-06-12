@@ -6,10 +6,24 @@
 @stop
 
 @section('content')
+<section class="content-header">
+	<h1>
+		Produit
+		<small>Posologie Sexe - Creation</small>
+	</h1>
+	<ol class="breadcrumb">
+		<li><a href="{{ ucfirst(route('accueil')) }}"><i class="fa fa-dashboard"></i> Home</a></li>
+		<li class="active">Produit</li>
+	</ol>
+</section>
+
+			<!-- Main content -->
+<section class="content">
+
 
 <div class="row">
 	<div>
-		@include('admin.posologie_sex.errors')	
+		@include('admin.posologie_sex.errors')
 	</div>
 </div>
 
@@ -26,7 +40,7 @@
 		<!-- general form elements -->
 		<div class="box box-success">
 			<div class="box-header"></div>
-			<!-- form start -->			
+			<!-- form start -->
 			<div class="box-body">
                 <div class="form-group navInformations">
                     {!! Form::label('produit', 'Produit :') !!}
@@ -38,7 +52,7 @@
 		        </div>
                 <div class="form-group navInformations">
                     {!! Form::label('coeff', 'Coefficient :') !!}
-                    {!!Form::input('coeff', 'coeff', null, ['class' => 'form-control', 'name'=>'coeff', 'placeholder' => 'Coefficient'])!!}   
+                    {!!Form::input('coeff', 'coeff', null, ['class' => 'form-control', 'name'=>'coeff', 'placeholder' => 'Coefficient'])!!}
                 </div>
 			</div><!-- /.box-body -->
 		</div><!-- /.box -->
@@ -54,7 +68,7 @@
 	</div><!-- /.col -->
 </div><!-- /.row -->
 {!!  Form::close() !!}
-
+</section>
 @stop
 @section('footer')
 	<!-- DATA TABES SCRIPT -->

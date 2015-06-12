@@ -6,7 +6,19 @@
 @stop
 
 @section('content')
+<section class="content-header">
+	<h1>
+		Newsletter
+		<small>Creation</small>
+	</h1>
+	<ol class="breadcrumb">
+		<li><a href="{{ ucfirst(route('accueil')) }}"><i class="fa fa-dashboard"></i> Home</a></li>
+		<li class="active">Newsletter</li>
+	</ol>
+</section>
 
+			<!-- Main content -->
+<section class="content">
 <div class="row">
 	<div>
 		@include('admin.newsletter.errors')
@@ -56,7 +68,7 @@
 	</div><!-- /.col -->
 </div><!-- /.row -->
 {!!  Form::close() !!}
-
+</section>
 @stop
 @section('footer')
 	<!-- TinyMCE-->
@@ -74,4 +86,3 @@
         });
     </script>
 @stop
-

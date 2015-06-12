@@ -6,8 +6,23 @@
 @stop
 
 @section('content')
+<section class="content-header">
+	<h1>
+		Produit
+		<small>Affichage</small>
+	</h1>
+	<ol class="breadcrumb">
+		<li><a href="{{ ucfirst(route('accueil')) }}"><i class="fa fa-dashboard"></i> Home</a></li>
+		<li class="active">Produit</li>
+	</ol>
+</section>
+
+			<!-- Main content -->
+<section class="content">
+
+
 <div class="row">
-	@include('admin.produit.succes')	
+	@include('admin.produit.succes')
 </div>
 
 <div class="row navBlock">
@@ -200,7 +215,7 @@
 				    				<th>Coefficient</th>
 					          	</tr>
 					        </tfoot>
-					     	
+
 					        <tbody>
 						        @foreach ($produit->posologie as $value)
                     				@if($value->type_id==10)
@@ -217,7 +232,7 @@
                     </div>
 
                     <!-- Tab panes Posologie Poids -->
-                    <div class="tab-pane fade" id="posologiePoids">                					    	
+                    <div class="tab-pane fade" id="posologiePoids">
 				    	<table class="datatable table table-bordered table-striped" id="select_table2">
 				    		<thead>
 				    			<tr>
@@ -253,7 +268,7 @@
                     </div>
 
                     <!-- Tab panes Posologie Taille -->
-                    <div class="tab-pane fade" id="posologieTaille">                	
+                    <div class="tab-pane fade" id="posologieTaille">
 				    	<table class="datatable table table-bordered table-striped" id="select_table3">
 				    		<thead>
 				    			<tr>
@@ -290,7 +305,7 @@
 
 
                     <!-- Tab panes Posologie Sexe -->
-                    <div class="tab-pane fade" id="posologieSex">                	
+                    <div class="tab-pane fade" id="posologieSex">
 				    	<table class="datatable table table-bordered table-striped" id="select_table4">
 				    		<thead>
 				    			<tr>
@@ -330,7 +345,7 @@
 		<a class="btn btn-primary" title="Previous" alt="Previous" href="{{URL::previous()}}">Previous</a>
 	</div>
 </div>
-
+</section>
 @stop
 @section('footer')
 	<!-- DATA TABES SCRIPT -->
@@ -341,4 +356,3 @@
 	<!-- FastClick -->
 	<script src="{{ asset('plugins/fastclick/fastclick.min.js') }}"></script>
 @stop
-

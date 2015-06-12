@@ -6,8 +6,21 @@
 @stop
 
 @section('content')
+<section class="content-header">
+	<h1>
+		Produit
+		<small>Exemplaire Listes</small>
+	</h1>
+	<ol class="breadcrumb">
+		<li><a href="{{ ucfirst(route('accueil')) }}"><i class="fa fa-dashboard"></i> Home</a></li>
+		<li class="active">Produit</li>
+	</ol>
+</section>
+
+			<!-- Main content -->
+<section class="content">
 <div class="row">
-	@include('admin.produit.succes')	
+	@include('admin.produit.succes')
 </div>
 
 <div class="row">
@@ -44,7 +57,7 @@
 			            	<a class="btn btn-primary glyphicon glyphicon-edit" href="{{route('admin.exemplaire.edit', $row->id)}}"></a>
                             <button type="submit" class="btn btn-danger glyphicon glyphicon-trash " data-toggle="modal" data-target="#{{ $row->id  }}"></button>
                         </td>
-			            
+
 		          	</tr>
 
 		          	<!-- Modal Confirmation de suppression -->
@@ -78,7 +91,7 @@
 		<a class="btn btn-primary" title="Previous" alt="Previous" href="{{URL::to('admin/exemplaire')}}">Previous</a>
 	</div>
 </div>
-
+</section>
 @stop
 @section('footer')
 	<!-- DATA TABES SCRIPT -->
@@ -89,4 +102,3 @@
 	<!-- FastClick -->
 	<script src="{{ asset('plugins/fastclick/fastclick.min.js') }}"></script>
 @stop
-

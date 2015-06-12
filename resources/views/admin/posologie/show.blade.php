@@ -6,6 +6,21 @@
 @stop
 
 @section('content')
+<section class="content-header">
+	<h1>
+		Produit
+		<small>Posologie - affichage</small>
+	</h1>
+	<ol class="breadcrumb">
+		<li><a href="{{ ucfirst(route('accueil')) }}"><i class="fa fa-dashboard"></i> Home</a></li>
+		<li class="active">Produit</li>
+	</ol>
+</section>
+
+			<!-- Main content -->
+<section class="content">
+
+
 <div class="row">
 	<div class="col-md-6 col-md-offset-3 col-xs-12">
 		<h3 style="text-align: center">Détails de la posologie n°{{ $posologie->id  }}</h3>
@@ -55,13 +70,14 @@
 		      		<div class="col-md-3" style="text-align: right">Id :</div>
 		      		<div class="col-md-9">{{ $posologie->id  }}</div>
 		      	</div>
-		      	
+
 		    </div><!-- /.box-body -->
 		</div><!-- /.box -->
 	</div>
 </div>
-	
+
 </div><!-- /.row -->
+</section>
 @stop
 @section('footer')
 	<!-- DATA TABES SCRIPT -->
@@ -72,4 +88,3 @@
 	<!-- FastClick -->
 	<script src="{{ asset('plugins/fastclick/fastclick.min.js') }}"></script>
 @stop
-

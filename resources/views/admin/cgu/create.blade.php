@@ -5,7 +5,19 @@
 @stop
 
 @section('content')
+<section class="content-header">
+	<h1>
+		Pages
+		<small>CGU - Create</small>
+	</h1>
+	<ol class="breadcrumb">
+		<li><a href="{{ ucfirst(route('accueil')) }}"><i class="fa fa-dashboard"></i> Home</a></li>
+		<li class="active">Pages</li>
+	</ol>
+</section>
 
+			<!-- Main content -->
+<section class="content">
     <div class="row">
         <div>
             @include('admin.cgu.errors')

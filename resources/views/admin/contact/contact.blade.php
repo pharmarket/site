@@ -1,6 +1,19 @@
 @extends('admin.layout.admin')
 
 @section('content')
+<section class="content-header">
+	<h1>
+		Contact
+		<small>Liste</small>
+	</h1>
+	<ol class="breadcrumb">
+		<li><a href="{{ ucfirst(route('accueil')) }}"><i class="fa fa-dashboard"></i> Home</a></li>
+		<li class="active">Contact</li>
+	</ol>
+</section>
+
+			<!-- Main content -->
+<section class="content">
 <div class="row">
 	<div class="col-xs-12">
 	    <div class="box-body">
@@ -82,6 +95,7 @@
               	</div><!-- /.modal-dialog -->
 		{!!  Form::close() !!}
             </div><!-- /.modal -->
+					</section>
 @stop
 
 @section('footer')

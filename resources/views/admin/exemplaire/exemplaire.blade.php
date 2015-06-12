@@ -6,13 +6,25 @@
 @stop
 
 @section('content')
+<section class="content-header">
+	<h1>
+		Produit
+		<small>Exemplaire</small>
+	</h1>
+	<ol class="breadcrumb">
+		<li><a href="{{ ucfirst(route('accueil')) }}"><i class="fa fa-dashboard"></i> Home</a></li>
+		<li class="active">Produit</li>
+	</ol>
+</section>
 
+			<!-- Main content -->
+<section class="content">
 <div class="row">
-	@include('admin.exemplaire.succes')	
+	@include('admin.exemplaire.succes')
 </div>
 
 <div class="row">
-	@include('admin.exemplaire.errors')	
+	@include('admin.exemplaire.errors')
 </div>
 
 <div class="row navBlock">
@@ -55,7 +67,7 @@
 				    			</tr>
 				    		</thead>
 
-				    		<tbody>	
+				    		<tbody>
 				    			@foreach($exemplaire as $row)
 				    			<tr>
 				    				<th><a href="{{ route('admin.exemplaire.listingExemplaires', $row->produit_id) }}">{{ $row->produit_id }}</a></th>
@@ -73,13 +85,13 @@
 									        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 									        	<h4 class="modal-title" id="myModalLabel">Gestion stock produit n°{{$row->produit_id}} ({{ $row->reference }})</h4>
 									      	</div>
-									      	
+
 								    		<div class="modal-body">
 								    			{!! Form::open(array('route'=>'admin.exemplaire.store', 'method' => 'post')) !!}
 								    			{!! Form::hidden('produitId', $row->produit_id) !!}
 									      		<div class="form-group navModalInformations">
 								                	{!! Form::label('stockActuel', 'Stock actuel :') !!}
-								                    {!!Form::input('texte', 'stockActuel', $row->total, ['class' => 'form-control', 'name'=>'reference', 'placeholder' => 'Référence', 'disabled'])!!}      
+								                    {!!Form::input('texte', 'stockActuel', $row->total, ['class' => 'form-control', 'name'=>'reference', 'placeholder' => 'Référence', 'disabled'])!!}
 								                </div>
 									      		<div class="form-group navModalInformations">
 									      			{!! Form::label('reference', 'Référence :') !!}
@@ -97,13 +109,13 @@
 								      		</div>
 
 									      	<div class="modal-footer">
-									        	
+
 									      	</div>
 								    	</div>
 								  	</div>
 								</div>
 				    			@endforeach
-				    		</tbody>	
+				    		</tbody>
 				    	</table>
                     </div>
 
@@ -120,7 +132,7 @@
 				    			</tr>
 				    		</thead>
 
-				    		<tbody>	
+				    		<tbody>
 				    			@foreach($exemplaireImportant as $row)
 				    			<tr>
 				    				<th><a href="{{ route('admin.exemplaire.listingExemplaires', $row->produit_id) }}">{{ $row->produit_id }}</a></th>
@@ -143,7 +155,7 @@
 								    			{!! Form::hidden('produitId', $row->produit_id) !!}
 									      		<div class="form-group navModalInformations">
 								                	{!! Form::label('stockActuel', 'Stock actuel :') !!}
-								                    {!!Form::input('texte', 'stockActuel', $row->total, ['class' => 'form-control', 'name'=>'reference', 'placeholder' => 'Référence', 'disabled'])!!}      
+								                    {!!Form::input('texte', 'stockActuel', $row->total, ['class' => 'form-control', 'name'=>'reference', 'placeholder' => 'Référence', 'disabled'])!!}
 								                </div>
 									      		<div class="form-group navModalInformations">
 									      			{!! Form::label('reference', 'Référence :') !!}
@@ -152,7 +164,7 @@
 									      		<div class="form-group navModalInformations">
 									      			{!! Form::label('datePeremption', 'Date de peremption :') !!}
 									      			{!!Form::input('date', 'datePeremption', null, ['class' => 'form-control', 'name'=>'datePeremption', 'placeholder' => 'Date de peremption'])!!}
-									      		</div>								 
+									      		</div>
 								      		</div>
 									      	<div class="modal-footer">
 									        	<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
@@ -163,12 +175,12 @@
 								  	</div>
 								</div>
 				    			@endforeach
-				    		</tbody>	
+				    		</tbody>
 				    	</table>
                     </div>
 
                     <!-- Tab panes Stock Faible (Inf.20) -->
-                    <div class="tab-pane fade" id="stockFaible">                					    	
+                    <div class="tab-pane fade" id="stockFaible">
 				    	<table class="datatable table table-bordered table-striped">
 				    		<thead>
 				    			<tr>
@@ -182,7 +194,7 @@
 
 				    		<tbody>
 				    			@foreach($exemplaireFaible as $row)
-				    			<tr>	
+				    			<tr>
 				    				<th><a href="{{ route('admin.exemplaire.listingExemplaires', $row->produit_id) }}">{{ $row->produit_id }}</a></th>
 				    				<td>{{ $row->reference }}</td>
 				    				<td><a href="#" data-toggle="modal" data-target="#exemplaireFaible{{$row->produit_id}}">{{ $row->total }}</a></td>
@@ -203,7 +215,7 @@
 								    			{!! Form::hidden('produitId', $row->produit_id) !!}
 									      		<div class="form-group navModalInformations">
 								                	{!! Form::label('stockActuel', 'Stock actuel :') !!}
-								                    {!!Form::input('texte', 'stockActuel', $row->total, ['class' => 'form-control', 'name'=>'reference', 'placeholder' => 'Référence', 'disabled'])!!}      
+								                    {!!Form::input('texte', 'stockActuel', $row->total, ['class' => 'form-control', 'name'=>'reference', 'placeholder' => 'Référence', 'disabled'])!!}
 								                </div>
 									      		<div class="form-group navModalInformations">
 									      			{!! Form::label('reference', 'Référence :') !!}
@@ -212,7 +224,7 @@
 									      		<div class="form-group navModalInformations">
 									      			{!! Form::label('datePeremption', 'Date de peremption :') !!}
 									      			{!!Form::input('date', 'datePeremption', null, ['class' => 'form-control', 'name'=>'datePeremption', 'placeholder' => 'Date de peremption'])!!}
-									      		</div>								 
+									      		</div>
 								      		</div>
 									      	<div class="modal-footer">
 									        	<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
@@ -223,7 +235,7 @@
 								  	</div>
 								</div>
 				    			@endforeach
-				    		</tbody>	
+				    		</tbody>
 				    	</table>
                     </div>
                 </div>
@@ -254,7 +266,7 @@
 	    </div>
   	</div>
 </div>
-
+</section>
 @stop
 @section('footer')
 	<!-- DATA TABES SCRIPT -->

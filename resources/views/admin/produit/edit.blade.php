@@ -5,6 +5,20 @@
 @stop
 
 @section('content')
+<section class="content-header">
+	<h1>
+		Produit
+		<small>Edition</small>
+	</h1>
+	<ol class="breadcrumb">
+		<li><a href="{{ ucfirst(route('accueil')) }}"><i class="fa fa-dashboard"></i> Home</a></li>
+		<li class="active">Produit</li>
+	</ol>
+</section>
+
+			<!-- Main content -->
+<section class="content">
+
 
 {!! Form::open(array('method' => 'put', 'url' => route('admin.produit.update', $produit->id), 'enctype' => 'multipart/form-data', 'files' => true, 'class' => 'dropzone')) !!}
 
@@ -181,7 +195,7 @@
 	</div><!-- /.col -->
 </div><!-- /.row -->
 {!!  Form::close() !!}
-
+</section>
 @stop
 @section('footer')
 

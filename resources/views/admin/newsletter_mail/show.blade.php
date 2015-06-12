@@ -6,6 +6,19 @@
 @stop
 
 @section('content')
+<section class="content-header">
+	<h1>
+		Newsletter
+		<small>Affichage</small>
+	</h1>
+	<ol class="breadcrumb">
+		<li><a href="{{ ucfirst(route('accueil')) }}"><i class="fa fa-dashboard"></i> Home</a></li>
+		<li class="active">Newsletter</li>
+	</ol>
+</section>
+
+			<!-- Main content -->
+<section class="content">
 <div class="row">
 	<div class="col-xs-12">
 
@@ -15,6 +28,7 @@
 
 	</div><!-- /.col -->
 </div><!-- /.row -->
+</section>
 @stop
 @section('footer')
 	<!-- DATA TABES SCRIPT -->
@@ -25,4 +39,3 @@
 	<!-- FastClick -->
 	<script src="{{ asset('plugins/fastclick/fastclick.min.js') }}"></script>
 @stop
-

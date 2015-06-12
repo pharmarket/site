@@ -99,7 +99,7 @@
           <li><a href="{{ route('admin.posologie.create') }}"><i class="fa fa-plus-circle"></i>Ajouter</a></li>
           <li >
             <a href="#">
-              <i class="fa fa-newspaper-o"></i> <span>Posologie Sex</span> <i class="fa fa-angle-left pull-right"></i>
+              <i class="fa fa-newspaper-o"></i> <span>Posologie Sexe</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
             <ul class="treeview-menu">
               <li class="active"><a href="{{ route('admin.posologie_sex.index') }}"><i class="fa fa-list"></i>Liste</a></li>

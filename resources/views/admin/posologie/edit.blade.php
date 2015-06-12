@@ -6,10 +6,24 @@
 @stop
 
 @section('content')
+<section class="content-header">
+	<h1>
+		Produit
+		<small>Posologie - Edition</small>
+	</h1>
+	<ol class="breadcrumb">
+		<li><a href="{{ ucfirst(route('accueil')) }}"><i class="fa fa-dashboard"></i> Home</a></li>
+		<li class="active">Produit</li>
+	</ol>
+</section>
+
+			<!-- Main content -->
+<section class="content">
+
 
 <div class="row">
 	<div>
-		@include('admin.posologie.errors')	
+		@include('admin.posologie.errors')
 	</div>
 </div>
 
@@ -28,7 +42,7 @@
 			<div class="box-header">
 		      	<h3 class="box-title">Informations générales</h3>
 		    </div>
-			<!-- form start -->			
+			<!-- form start -->
 			<div class="box-body">
                 <div class="form-group">
                     {!! Form::label('produit', 'Produit :') !!}
@@ -40,15 +54,15 @@
                 </div>
                 <div class="form-group">
                     {!! Form::label('min', 'Minimum :') !!}
-                    {!!Form::input('min', 'min', $posologie->min, ['class' => 'form-control', 'name'=>'min', 'placeholder' => 'Référence'])!!}  
+                    {!!Form::input('min', 'min', $posologie->min, ['class' => 'form-control', 'name'=>'min', 'placeholder' => 'Référence'])!!}
                 </div>
                 <div class="form-group">
                     {!! Form::label('max', 'Maximum :') !!}
-                    {!!Form::input('max', 'max', $posologie->max, ['class' => 'form-control', 'name'=>'max', 'placeholder' => 'Référence'])!!} 
+                    {!!Form::input('max', 'max', $posologie->max, ['class' => 'form-control', 'name'=>'max', 'placeholder' => 'Référence'])!!}
                 </div>
                 <div class="form-group">
                     {!! Form::label('coeff', 'Coefficient :') !!}
-                    {!!Form::input('coeff', 'coeff', $posologie->coeff, ['class' => 'form-control', 'name'=>'coeff', 'placeholder' => 'Référence'])!!}   
+                    {!!Form::input('coeff', 'coeff', $posologie->coeff, ['class' => 'form-control', 'name'=>'coeff', 'placeholder' => 'Référence'])!!}
                 </div>
 			</div><!-- /.box-body -->
 		</div><!-- /.box -->
@@ -64,7 +78,7 @@
 	</div><!-- /.col -->
 </div><!-- /.row -->
 {!!  Form::close() !!}
-
+</section>
 @stop
 @section('footer')
 	<!-- DATA TABES SCRIPT -->
