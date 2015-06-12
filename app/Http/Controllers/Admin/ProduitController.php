@@ -239,7 +239,8 @@ class ProduitController extends Controller {
 	public function destroy($produit)
 	{
 		//Suppression de des données dans la table produit
-		$produit->delete();
+				$produit->delete();
+				
         return redirect()->back()->withFlashMessage("Suppression du produit effectuée avec succès");
 	}
 

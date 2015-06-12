@@ -45,7 +45,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body class="skin-blue">
+  <body class="skin-blue  sidebar-mini">
     <div class="wrapper">
 
       <header class="main-header">
@@ -64,7 +64,7 @@
         <div class="pull-right hidden-xs">
           <b>Version</b> 2.0
         </div>
-        <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2014-2015 Admin PHARMARKET.</strong> All rights reserved.
       </footer>
     </div><!-- ./wrapper -->
 
