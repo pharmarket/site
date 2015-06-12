@@ -38,4 +38,5 @@ return [
 	'prepared' => 'Preparation in progress',
 	'delivry' => 'Out for delivery',
 	'deliver' => 'Supplied',
+	'tva' => 'vat',
 ];

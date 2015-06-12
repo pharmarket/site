@@ -51,7 +51,9 @@ class BasketController extends Controller {
 	 */
 	public function index()
 	{
-		return view('front.purchase.commande');
+		$pays = \App\Pays::join('Langue', 'pays.langue_id', '=', 'Langue.id')->where('Langue.code', \Lang::getLocale())->first();
+
+		return view('front.purchase.commande', compact('pays'));
 	}
 
 

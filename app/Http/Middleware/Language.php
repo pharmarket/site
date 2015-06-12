@@ -31,7 +31,7 @@ class Language implements Middleware {
         if(!session()->has('locale')){
             session()->put('locale', strtolower(substr(\Request::server('HTTP_ACCEPT_LANGUAGE'), 0, 2)));
         }
-        // dd($map[session('locale')]);
+
         $this->app->setLocale(session('locale'));
         setlocale(LC_ALL, $map[session('locale')]);
         return $next($request);

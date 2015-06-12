@@ -38,4 +38,5 @@ return [
 	'prepared' => 'Vorbereitung im Gange',
 	'delivry' => 'Out für die Lieferung',
 	'deliver' => 'Geliefert',
+	'tva' => 'Mehrwertsteuer',
 ];

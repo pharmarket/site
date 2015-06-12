@@ -60,13 +60,19 @@
 								<th class="cart_unit item text-right">{{Lang::get('purchase.basket_price_unit')}}</th>
 								<th class="cart_quantity item text-center">{{Lang::get('purchase.basket_qty')}}</th>
 								<th class="cart_delete last_item">&nbsp;</th>
+								<th class="cart_total item text-right">{{Lang::get('purchase.tva')}}</th>
 								<th class="cart_total item text-right">{{Lang::get('purchase.basket_total')}}</th>
 							</tr>
 						</thead>
 						<tfoot>
+							<tr>
+								<td rowspan="3" colspan="5" id="cart_voucher" class="cart_voucher"></td>
+								<td colspan="1" class="text-right">{{Lang::get('purchase.tva')}} :</td>
+								<td id="panier_foot_total" colspan="2" class="price" id="total_product"></td>
+							</tr>
 							<tr class="cart_total_price">
-								<td rowspan="3" colspan="2" id="cart_voucher" class="cart_voucher"></td>
-								<td colspan="3" class="text-right">{{Lang::get('purchase.basket_total')}} :</td>
+								<td rowspan="3" colspan="5" id="cart_voucher" class="cart_voucher"></td>
+								<td colspan="1" class="text-right">{{Lang::get('purchase.basket_total')}} :</td>
 								<td id="panier_foot_total" colspan="2" class="price" id="total_product"></td>
 							</tr>
 						</tfoot>
@@ -91,6 +97,11 @@
 										<div>
 				            						<a href="{{ route('basket.destroy', $row->rowid) }}" style="border:none;display:inline;background: none;"><i class="fa fa-times"></i></a>
 										</div>
+									</td>
+									<td data-title="tva">
+										<span>
+											{{round($row->subtotal*$pays->tva, 2)}}
+										</span>
 									</td>
 									<td data-title="Total" class="panier_row_subtotal">
 										<span class="price" id="total_product_price_3_13_0">

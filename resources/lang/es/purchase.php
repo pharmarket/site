@@ -38,4 +38,5 @@ return [
 	'prepared' => 'Preparación en progreso',
 	'delivry' => 'Salida para la entrega',
 	'deliver' => 'Suministrado',
+	'tva' => 'Tina',
 ];

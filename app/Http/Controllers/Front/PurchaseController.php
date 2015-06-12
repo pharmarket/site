@@ -161,8 +161,8 @@ class PurchaseController extends Controller {
 			foreach (\Cart::content() as $row) {
 				$pdf->CreateTextBox($row->qty, 0, $currY, 20, 10, 10, '', 'C');
 				$pdf->CreateTextBox($row->name, 20, $currY, 90, 10, 10, '');
-				$pdf->CreateTextBox('$'.$row->price, 110, $currY, 30, 10, 10, '', 'R');
-				$pdf->CreateTextBox('$'.$row->subtotal, 140, $currY, 30, 10, 10, '', 'R');
+				$pdf->CreateTextBox($row->price.$devise->id, 110, $currY, 30, 10, 10, '', 'R');
+				$pdf->CreateTextBox($row->subtotal.$devise->id, 140, $currY, 30, 10, 10, '', 'R');
 				$currY += 5;
 			}
 			$pdf->Line(20, $currY+4, 195, $currY+4);
@@ -170,13 +170,13 @@ class PurchaseController extends Controller {
 			$currY += 5;
 			// output the delivry price
 			$pdf->CreateTextBox(\Lang::get('purchase.breadscrumbs_livraison'), 20, $currY, 135, 10, 10, 'B', 'R');
-			$pdf->CreateTextBox('$'.number_format($livreur->frais($user), 2, '.', ''), 140, $currY, 30, 10, 10, 'B', 'R');
+			$pdf->CreateTextBox(number_format($livreur->frais($user), 2, '.', '').$devise->id, 140, $currY, 30, 10, 10, 'B', 'R');
 
 			$currY += 5;
 
 			// output the total row
 			$pdf->CreateTextBox(\Lang::get('purchase.basket_total'), 20, $currY, 135, 10, 10, 'B', 'R');
-			$pdf->CreateTextBox('$'.number_format(\Cart::total() + $livreur->frais($user), 2, '.', ''), 140, $currY, 30, 10, 10, 'B', 'R');
+			$pdf->CreateTextBox(number_format(\Cart::total() + $livreur->frais($user), 2, '.', '').$devise->id, 140, $currY, 30, 10, 10, 'B', 'R');
 
 			//Close and output PDF document
 			$file = public_path() . '/pdf/invoice-'.date('Y-m-d').'-'.$commande.'.pdf';
