@@ -15,20 +15,7 @@
                           <li><p><a style="padding-left: 35%" href="{{ URL::to('forum') }}">{{ Lang::get('footer.forum') }}</a><p></li>
                       </ul>
                   </div>
-                  <div class="widget_title">
-                      <h4><span>Newsletter</span></h4>
-                  </div>
 
-                  <div class="widget_content">
-                      <ul class="contact-details-alt">
-                          <li>
-                          	{!! Form::open(['route' => ['newsletter.post'], 'method' => 'POST']) !!}
-                          		{!! Form::text('mail', null, ['placeholder' => 'Mail']) !!}
-                          		{!!Form::submit(Lang::get('show.submit'), ['class' => 'submit-newsletter'])!!}
-			{!!  Form::close() !!}
-                          </li>
-                      </ul>
-                  </div>
               </div>
               <div class="col-sm-6 col-md-3 col-lg-3">
                   <div class="widget_title">
@@ -62,6 +49,20 @@
                       <div class="flickr">
                           {!! HTML::image('img/paiement.png', '', array('width'=>'250')) !!}
                       </div>
+                  </div>
+                  <div class="widget_title">
+                      <h4><span>Newsletter</span></h4>
+                  </div>
+
+                  <div class="widget_content">
+                      <ul class="contact-details-alt">
+                          <li>
+                            {!! Form::open(['route' => ['newsletter.post'], 'method' => 'POST']) !!}
+                              {!! Form::text('mail', null, ['placeholder' => 'Mail' ,"class"=>"input-text"]) !!}
+                              {!!Form::submit(Lang::get('show.submit'), ['class' => 'submit-newsletter'])!!}
+      {!!  Form::close() !!}
+                          </li>
+                      </ul>
                   </div>
               </div>
           </div>
