@@ -39,4 +39,6 @@ return [
 	'delivry' => 'En cours de livraison',
 	'deliver' => 'Livré',
 	'tva' => 'TVA',
+	'totaltva' => 'Total TVA',
+	'totalht' => 'total HT',
 ];

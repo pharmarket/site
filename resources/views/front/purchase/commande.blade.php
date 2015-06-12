@@ -60,20 +60,25 @@
 								<th class="cart_unit item text-right">{{Lang::get('purchase.basket_price_unit')}}</th>
 								<th class="cart_quantity item text-center">{{Lang::get('purchase.basket_qty')}}</th>
 								<th class="cart_delete last_item">&nbsp;</th>
-								<th class="cart_total item text-right">{{Lang::get('purchase.tva')}}</th>
+								<th class="cart_total item text-right">{{Lang::get('purchase.totalht')}}</th>
 								<th class="cart_total item text-right">{{Lang::get('purchase.basket_total')}}</th>
 							</tr>
 						</thead>
 						<tfoot>
 							<tr>
-								<td rowspan="3" colspan="5" id="cart_voucher" class="cart_voucher"></td>
-								<td colspan="1" class="text-right">{{Lang::get('purchase.tva')}} :</td>
-								<td id="panier_foot_total" colspan="2" class="price" id="total_product"></td>
+								<td colspan="5" id="cart_voucher" class="cart_voucher"></td>
+								<td colspan="1" class="text-right">{{Lang::get('purchase.totalht')}} :</td>
+								<td id="panier_foot_total_ht" colspan="1" class="price" id="total_ht_product"></td>
+							</tr>
+							<tr>
+								<td colspan="5" id="cart_voucher" class="cart_voucher"></td>
+								<td colspan="1" class="text-right">{{Lang::get('purchase.totaltva')}} :</td>
+								<td id="panier_foot_total_tva" colspan="1" class="price" id="total_tva_product"></td>
 							</tr>
 							<tr class="cart_total_price">
 								<td rowspan="3" colspan="5" id="cart_voucher" class="cart_voucher"></td>
 								<td colspan="1" class="text-right">{{Lang::get('purchase.basket_total')}} :</td>
-								<td id="panier_foot_total" colspan="2" class="price" id="total_product"></td>
+								<td id="panier_foot_total" colspan="1" class="price" id="total_product"></td>
 							</tr>
 						</tfoot>
 						<tbody>
@@ -98,7 +103,7 @@
 				            						<a href="{{ route('basket.destroy', $row->rowid) }}" style="border:none;display:inline;background: none;"><i class="fa fa-times"></i></a>
 										</div>
 									</td>
-									<td data-title="tva">
+									<td>
 										<span>
 											{{round($row->subtotal*$pays->tva, 2)}}
 										</span>
@@ -140,7 +145,7 @@
 		$(".panier_row_qty input").keyup(function() {
 			qty = parseInt($(this).val());
 			console.log($(this).parent().parent().find('.panier_row_price'));
-			price = parseInt($(this).parent().parent().find('.panier_row_price').text());
+			price = parseFloat($(this).parent().parent().find('.panier_row_price').text().replace(',', '.'));
 			$(this).parent().parent().find('.panier_row_subtotal').html(qty*price);
 			calculPanier();
 		});
@@ -148,10 +153,17 @@
 
 	function calculPanier(){
 		total = 0;
+		tva = {{$pays->tva}};
+
 		$( ".panier_row_subtotal" ).each(function( index ) {
-		  	total += parseInt($( this ).text()) ;
+		  	total = parseFloat($( this ).text().replace(',', '.').trim());
 		});
-		$("#panier_foot_total").html(total + ' ' + devise);
+		console.log(total);
+		ht = total * tva;
+		taxe = total - ht;
+		$("#panier_foot_total").html(total.toFixed(2) + ' ' + devise);
+		$("#panier_foot_total_tva").html(taxe.toFixed(2) + ' ' + devise);
+		$("#panier_foot_total_ht").html(ht.toFixed(2) + ' ' + devise);
 	}
 </script>
 @stop

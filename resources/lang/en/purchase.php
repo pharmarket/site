@@ -39,4 +39,6 @@ return [
 	'delivry' => 'Out for delivery',
 	'deliver' => 'Supplied',
 	'tva' => 'vat',
+	'totaltva' => 'total VAT',
+	'totalht' => 'total HT',
 ];

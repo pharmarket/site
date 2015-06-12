@@ -39,4 +39,6 @@ return [
 	'delivry' => 'Out für die Lieferung',
 	'deliver' => 'Geliefert',
 	'tva' => 'Mehrwertsteuer',
+	'totaltva' => 'Gesamt MwSt',
+	'totalht' => 'insgesamt HT',
 ];

@@ -50,10 +50,19 @@
 									<th class="cart_description item">{{Lang::get('purchase.basket_description')}}</th>
 									<th class="cart_unit item text-right">{{Lang::get('purchase.basket_price_unit')}}</th>
 									<th class="cart_quantity item text-center">{{Lang::get('purchase.basket_qty')}}</th>
+									<th class="cart_total item text-right">{{Lang::get('purchase.totalht')}}</th>
 									<th class="cart_total last_item text-right">{{Lang::get('purchase.basket_total')}}</th>
 								</tr>
 							</thead>
 							<tfoot>
+								<tr class="cart_total_price">
+									<td colspan="4" class="text-right">{{Lang::get('purchase.totalht')}} :</td>
+									<td colspan="2" class="price" id="total_product">{{$ht = round(Cart::total() * $pays->tva,2)}} {{ Lang::get('menu.devise') }}</td>
+								</tr>
+								<tr class="cart_total_price">
+									<td colspan="4" class="text-right">{{Lang::get('purchase.totaltva')}} :</td>
+									<td colspan="2" class="price" id="total_product">{{Cart::total()  - $ht}} {{ Lang::get('menu.devise') }}</td>
+								</tr>
 								<tr class="cart_total_price">
 									<td colspan="4" class="text-right">{{Lang::get('purchase.basket_total_produit')}} :</td>
 									<td colspan="2" class="price" id="total_product">{{Cart::total()}} {{ Lang::get('menu.devise') }}</td>
@@ -87,6 +96,11 @@
 										<td class="cart_quantity text-center">
 											<span>{{$row->qty}}</span>
 										</td>
+									<td>
+										<span>
+											{{round($row->subtotal*$pays->tva, 2)}}
+										</span>
+									</td>
 										<td class="cart_total" data-title="Total">
 											<span class="price" id="total_product_price_3_13_5">{{$row->subtotal}} {{ Lang::get('menu.devise') }}</span>
 										</td>

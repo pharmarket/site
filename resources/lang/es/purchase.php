@@ -39,4 +39,6 @@ return [
 	'delivry' => 'Salida para la entrega',
 	'deliver' => 'Suministrado',
 	'tva' => 'Tina',
+	'totaltva' => 'IVA totales',
+	'totalht' => 'HT total',
 ];

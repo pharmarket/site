@@ -40,6 +40,7 @@ class PurchaseController extends Controller {
 		//Ramplacer par l'utilisateur connecter quand ce sera possible
 		$user =  \Auth::user();
 		$livreur = \Session::get('livreur');
+		$pays = \App\Pays::join('Langue', 'pays.langue_id', '=', 'Langue.id')->where('Langue.code', \Lang::getLocale())->first();
 
 		//Si il n'y a pas de livreur, on redirige vers la page de choix du livreur
 		if(empty($livreur)){ return \Redirect::route('purchase.livraison'); }
@@ -49,7 +50,7 @@ class PurchaseController extends Controller {
 		//Calcul total
 		$total = \Cart::total() + $livreurPrix;
 
-		return view('front.purchase.payment', compact('produits', 'livreurPrix', 'total'));
+		return view('front.purchase.payment', compact('produits', 'livreurPrix', 'total', 'pays'));
 	}
 
 	public function confirm(){
