@@ -111,11 +111,11 @@
 					                        </p>
 				                            	<!-- availability or doesntExist -->
 					                        <p id="availability_statut">
-						                        @if($exemplaire >= 5)
-						                            	<span id="availability_value" class="label label-success">{{$exemplaire}} {{ Lang::get('show.stock') }}</span>
-						                        @elseif($exemplaire == 5)
+						                        @if($exemplaire >= 50)
+						                            	<span id="availability_value" class="label label-success">{{ Lang::get('show.stock') }}</span>
+						                        @elseif($exemplaire == 49)
 						                            	<span id="availability_value" class="label label-warning">{{$exemplaire}} {{ Lang::get('show.stock') }}</span>
-						                        @elseif($exemplaire <= 3)
+						                        @elseif($exemplaire <= 10)
 						                            	<span id="availability_value" class="label label-danger">{{$exemplaire}} {{ Lang::get('show.stock') }}</span>
 						                        @elseif($exemplaire == 0)
 						                            	<span id="availability_value" class="label label-danger">{{ Lang::get('show.indi') }}</span>
