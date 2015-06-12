@@ -47,31 +47,16 @@
 
 
 .header {
-    color: #36A0FF;
+    color: #78AB4E;
     font-size: 27px;
     padding: 10px;
 }
 
 .bigicon {
     font-size: 35px;
-    color: #36A0FF;
+    color: #78AB4E;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-@import url(//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
-
-body {padding-top:50px;}
 
 .box {
     border-radius: 3px;

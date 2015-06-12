@@ -213,7 +213,7 @@
 											            </div>
 												<div class="form-group">
 										                    		<div class="col-md-12 text-center">
-										                        		<button type="submit" class="btn btn-primary btn-lg">{{Lang::get('show.submit')}}</button>
+										                        		<button type="submit" class="btn btn-default btn-lg">{{Lang::get('show.submit')}}</button>
 										                    		</div>
 										                	</div>
 										            </fieldset>
@@ -271,7 +271,7 @@
 
 														@if(Auth::check() == true)
 															@if($row->user_id == Auth::user()->id)
-																<button type="submit" class="btn btn-danger glyphicon glyphicon-trash " data-toggle="modal" data-target="#myModal{{$row->id}}"></button>
+																<button type="submit" class="btn btn-danger  glyphicon glyphicon-trash " data-toggle="modal" data-target="#myModal{{$row->id}}"></button>
 															@endif
 														@else
 															<p><i style="font-size: 0.7em">{{ Lang::get('show.prefaceCommentaire') }}</i></p>

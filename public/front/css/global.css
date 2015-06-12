@@ -1718,7 +1718,7 @@ a.back_home {
 }
 .social_media_team {
     position:absolute;
-    background:rgba(231, 76, 60, 0.6);
+    background:rgba(120, 171, 78, 0.6);
     border:1px solid #ccc;
     height:100%;
     width:100%;
@@ -1815,7 +1815,7 @@ textarea {
 .form-control:focus,#site-searchform #s:focus
 {
     border-color: #78AB4E;
-    box-shadow:0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(231, 76, 60, 0.6);
+    box-shadow:0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(120, 171, 78, 0.6);
     outline:none;
 }
 
@@ -1987,7 +1987,7 @@ label{
     overflow:hidden;
 }
 .item-description {
-    background:rgba(231, 76, 60, 0.55);
+    background:rgba(120, 171, 78, 0.55);
     padding:2px;
     border:1px solid #f2f2f2;
     position:absolute;
