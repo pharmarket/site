@@ -61,10 +61,6 @@ class Kernel extends ConsoleKernel {
 										})
 					                 	->get();
 
-				//var_dump($nbExemplairesProduit);
-				
-				
-
 				if(!empty($nbExemplairesProduit)){
 					// Recpuère les informations du produit désiré
 					$produit = \App\Produit::find($row->produit_id);
@@ -77,7 +73,7 @@ class Kernel extends ConsoleKernel {
 
 					// Mise à jour de la date Sended_at
 					$row->sended_at = \DB::raw('NOW()');
-					//$row->save();
+					$row->save();
 				}
 			}
 
