@@ -129,6 +129,8 @@ Route::group(['prefix' => 'ws', 'middleware' =>['ws', 'language']], function(){
 
             Route::resource('recherche', 'Ws\RechercheController');
 
+            Route::resource('categorie', 'Ws\CategorieController');
+
             Route::get('lastProducts', ['as' => 'homeApp.lastProducts', 'uses' => 'Ws\HomeAppController@lastProducts']);
             Route::get('bestProducts', ['as' => 'homeApp.bestProducts', 'uses' => 'Ws\HomeAppController@bestProducts']);
             Route::resource('homeApp', 'Ws\HomeAppController');
