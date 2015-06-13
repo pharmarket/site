@@ -56,12 +56,12 @@ class Paypal{
 		$requete = $requete."&METHOD=SetExpressCheckout".
 					"&CANCELURL=".urlencode(route('purchase.cancel')).
 					"&RETURNURL=".urlencode(route('purchase.return')).
-					"&AMT=".self::getTotalCart().
-					// "&CURRENCYCODE=".$currency_code.
+					"&AMT=".number_format(self::getTotalCart(), 2, '.', ',').
 					"&CURRENCYCODE=".$currency_code.
 					"&DESC=".urlencode("Commande des vos médicaments").
 					"&LOCALECODE=".$mapping[strtoupper(\Lang::getLocale())].
 					"&HDRIMG=".urlencode(asset('front/images/Logo-pharmarket.jpg') );
+
 		$resultat_paypal = file_get_contents($requete);// S'il y a une erreur, on affiche "Erreur", suivi du détail de l'erreur.
 		if (empty($resultat_paypal)){echo "<p>Erreur</p><p>".curl_error($ch)."</p>";}
 		else {
@@ -86,7 +86,7 @@ class Paypal{
 		// La fonction urlencode permet d'encoder au format URL les espaces, slash, deux points, etc.)
 		$requete = $requete."&METHOD=DoExpressCheckoutPayment".
 					"&TOKEN=".htmlentities(\Input::get('token'), ENT_QUOTES). // Ajoute le jeton qui nous a été renvoyé
-					"&AMT=".self::getTotalCart().
+					"&AMT=".number_format(self::getTotalCart(), 2, '.', ',').
 					"&CURRENCYCODE=".$currency_code.
 					"&PayerID=".htmlentities(\Input::get('PayerID'), ENT_QUOTES). // Ajoute l'identifiant du paiement qui nous a également été renvoyé
 					"&PAYMENTACTION=sale";

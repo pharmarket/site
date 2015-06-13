@@ -76,7 +76,8 @@ class PurchaseController extends Controller {
 
 		$user =  \Auth::user();
 		$livreur =  \App\Livreur::find(\Session::get('livreur'));
-		$devise = \App\Devise::where('symbole', '=', \Lang::get('menu.devise'))->get()[0];
+		$devise = \App\Devise::where('symbole', '=', \Lang::get('menu.devise'))->first();
+		$pays = \App\Pays::join('Langue', 'pays.langue_id', '=', 'Langue.id')->where('Langue.code', \Lang::getLocale())->first();
 
 		try{
 			\DB::beginTransaction();
@@ -153,7 +154,8 @@ class PurchaseController extends Controller {
 			// list headers
 			$pdf->CreateTextBox(\Lang::get('purchase.basket_qty'), 0, 120, 20, 10, 10, 'B', 'C');
 			$pdf->CreateTextBox(\Lang::get('purchase.basket_produit'), 20, 120, 90, 10, 10, 'B');
-			$pdf->CreateTextBox(\Lang::get('purchase.basket_price_unit'), 110, 120, 30, 10, 10, 'B', 'R');
+			$pdf->CreateTextBox(\Lang::get('purchase.basket_price_unit'), 80, 120, 30, 10, 10, 'B', 'R');
+			$pdf->CreateTextBox(\Lang::get('purchase.totalht'), 110, 120, 30, 10, 10, 'B', 'R');
 			$pdf->CreateTextBox(\Lang::get('purchase.basket_total'), 140, 120, 30, 10, 10, 'B', 'R');
 
 			$pdf->Line(20, 129, 195, 129);
@@ -162,22 +164,33 @@ class PurchaseController extends Controller {
 			foreach (\Cart::content() as $row) {
 				$pdf->CreateTextBox($row->qty, 0, $currY, 20, 10, 10, '', 'C');
 				$pdf->CreateTextBox($row->name, 20, $currY, 90, 10, 10, '');
-				$pdf->CreateTextBox($row->price.$devise->id, 110, $currY, 30, 10, 10, '', 'R');
-				$pdf->CreateTextBox($row->subtotal.$devise->id, 140, $currY, 30, 10, 10, '', 'R');
+				$pdf->CreateTextBox(number_format($row->price, 2, '.', '').$devise->symbole, 80, $currY, 30, 10, 10, '', 'R');
+				$pdf->CreateTextBox(number_format($row->price * $pays->tva, 2, '.', '') . $devise->symbole, 110, $currY, 30, 10, 10, '', 'R');
+				$pdf->CreateTextBox(number_format($row->subtotal, 2, '.', '').$devise->symbole, 140, $currY, 30, 10, 10, '', 'R');
 				$currY += 5;
 			}
 			$pdf->Line(20, $currY+4, 195, $currY+4);
 
 			$currY += 5;
 			// output the delivry price
+			$pdf->CreateTextBox(\Lang::get('purchase.totalht'), 20, $currY, 135, 10, 10, 'B', 'R');
+			$pdf->CreateTextBox(number_format(\Cart::total()  *  $pays->tva, 2, '.', '').$devise->symbole, 140, $currY, 30, 10, 10, 'B', 'R');
+
+			$currY += 5;
+			// output the delivry price
+			$pdf->CreateTextBox(\Lang::get('purchase.totaltva'), 20, $currY, 135, 10, 10, 'B', 'R');
+			$pdf->CreateTextBox(number_format(\Cart::total()  *  (1-$pays->tva), 2, '.', '').$devise->symbole, 140, $currY, 30, 10, 10, 'B', 'R');
+
+			$currY += 5;
+			// output the delivry price
 			$pdf->CreateTextBox(\Lang::get('purchase.breadscrumbs_livraison'), 20, $currY, 135, 10, 10, 'B', 'R');
-			$pdf->CreateTextBox(number_format($livreur->frais($user), 2, '.', '').$devise->id, 140, $currY, 30, 10, 10, 'B', 'R');
+			$pdf->CreateTextBox(number_format($livreur->frais($user), 2, '.', '').$devise->symbole, 140, $currY, 30, 10, 10, 'B', 'R');
 
 			$currY += 5;
 
 			// output the total row
 			$pdf->CreateTextBox(\Lang::get('purchase.basket_total'), 20, $currY, 135, 10, 10, 'B', 'R');
-			$pdf->CreateTextBox(number_format(\Cart::total() + $livreur->frais($user), 2, '.', '').$devise->id, 140, $currY, 30, 10, 10, 'B', 'R');
+			$pdf->CreateTextBox(number_format(\Cart::total() + $livreur->frais($user), 2, '.', '').$devise->symbole, 140, $currY, 30, 10, 10, 'B', 'R');
 
 			//Close and output PDF document
 			$file = public_path() . '/pdf/invoice-'.date('Y-m-d').'-'.$commande.'.pdf';
