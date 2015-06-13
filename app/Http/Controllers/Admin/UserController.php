@@ -80,8 +80,8 @@ class UserController extends Controller {
 	 */
 	public function show($user)
 	{
-        $users = \App\User::with('ville', 'role', 'pays')->find($user->id);
-        return view('admin.user.show', compact('user', 'users'));
+	            $users = \App\User::with('ville', 'role', 'pays')->find($user->id);
+	            return view('admin.user.show', compact('user', 'users'));
 	}
 
 	/**
@@ -92,14 +92,14 @@ class UserController extends Controller {
 	 */
 	public function edit($user)
 	{
-        // Récuperer list select
-        $role = \App\Role::lists('label', 'id');
-        $ville = \App\Ville::lists('adresse', 'id');
+		// Récuperer list select
+		$role = \App\Role::lists('label', 'id');
+		$ville = \App\Ville::lists('adresse', 'id');
 
-        // table ext
-        $pays = \App\Pays::lists('nom', 'id');
+		// table ext
+		$pays = \App\Pays::lists('nom', 'id');
 
-        return View('admin.user.edit', compact('user', 'role', 'ville','pays'));
+		return View('admin.user.edit', compact('user', 'role', 'ville','pays'));
 	}
 
 	/**
@@ -110,42 +110,46 @@ class UserController extends Controller {
 	 */
 	public function update($user, EditUserRequest $request)
 	{
-            // Enregistrement dans la table user
-            $user->role_id = $request->role_id;
-            $user->nom = $request->nom;
-            $user->prenom = $request->prenom;
+		// Enregistrement dans la table user
+		$user->role_id = $request->role_id;
+		$user->nom = $request->nom;
+		$user->prenom = $request->prenom;
 
-            $countMail = \App\User::where('mail', '=', $request->mail)->count();
-            if($countMail > 0){
-                $user->mail = $user->mail;
-            }else{
-                $user->mail = $request->mail;
-            }
+		$countMail = \App\User::where('mail', '=', $request->mail)->count();
+		if($countMail > 0){
+			$user->mail = $user->mail;
+		}else{
+			$user->mail = $request->mail;
+		}
 
-            $user->password = \Hash::make($request->password. \Config::get('constant.salt'));
-            $user->pseudo = $request->pseudo;
-            $user->avatar = $request->avatar;
-            $user->birth = $request->birth;
-            $user->phone = $request->phone;
-            $user->mobile = $request->mobile;
+		$user->password = \Hash::make($request->password. \Config::get('constant.salt'));
+		$user->pseudo = $request->pseudo;
+		$user->avatar = $request->avatar;
+		$user->birth = $request->birth;
+		$user->phone = $request->phone;
+		$user->mobile = $request->mobile;
 
-            $user->save();
+		$user->save();
 
 
 
-        $ville = \App\Ville::with('pays')->where('id', '=', $user->ville_id)->get();
-        foreach($ville as $item){
-            // Enregistrement dans la table ville
-            $city = \App\Ville::find($item->id);
-            $city->pays_id      = $request->pays_id;
-            $city->nom      = $request->nom;
-            $city->cp      = $request->cp;
-            $city->adresse      = $request->adresse;
+		$ville = \App\Ville::with('pays')->where('id', '=', $user->ville_id)->first();
 
-            $city->save();
-        }
+		$city['pays_id']      = $request->pays_id;
+		$city['nom']      = $request->ville;
+		$city['cp']      = $request->cp;
+		$city['adresse']      = $request->adresse;
 
-        return redirect('/admin/user')->withFlashMessage("Mise à jour de l'utilisateur effectuée avec succès");
+		// Enregistrement dans la table ville
+		if(!empty($user->ville_id)){
+			$ville= \DB::table('ville')->where('id', $user->ville_id)->update($city);
+		}else{
+			$ville= \DB::table('ville')->insertGetId($city);
+			$user->ville_id = $ville;
+			$user->save();
+		}
+
+		return redirect('/admin/user')->withFlashMessage("Mise à jour de l'utilisateur effectuée avec succès");
 	}
 
 

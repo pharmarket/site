@@ -41,4 +41,5 @@ return [
 	'tva' => 'Mehrwertsteuer',
 	'totaltva' => 'Gesamt MwSt',
 	'totalht' => 'insgesamt HT',
+	'updateAddress' => 'Aktualisieren Sie Ihre Adresse'
 ];

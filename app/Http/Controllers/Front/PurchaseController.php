@@ -21,7 +21,7 @@ class PurchaseController extends Controller {
 		            ->where('Langue.code', \Lang::getLocale())
 		            ->get();
 
-		$taux = \App\Devise::where('symbole', '=', \Lang::get('menu.devise'))->get()[0]->taux;
+		$taux = \App\Devise::where('symbole', '=', \Lang::get('menu.devise'))->first()->taux;
 
 		return view('front.purchase.livraison', compact('livreurs', 'user', 'taux'));
 	}

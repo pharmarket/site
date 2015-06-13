@@ -52,7 +52,7 @@
 
                                             <div class="row">
                                                 <div class="col-md-3" style="text-align: right; font-weight: bold;">VILLE :</div>
-                                                <div class="col-md-9">{{ $user->ville->nom }}</div>
+                                                <div class="col-md-9">{{ $user->ville_id?$user->ville->nom:'' }}</div>
                                             </div>
 
                                             <div class="row">

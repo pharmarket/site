@@ -22,20 +22,13 @@ class EditUserRequest extends Request {
 	public function rules()
 	{
 		return [
-            'role_id' => 'required|numeric',
-            'nom' => 'required|alpha',
-            'prenom' => 'required|alpha',
-            'mail' => 'required|email',
-            'pseudo' => 'alpha_dash',
-            'avatar' => '',
-            'birth' => 'required|date|after:1900-01-01|before:now',
-            'phone' => 'required_without:mobile|numeric',
-            'mobile' => 'required_without:phone|numeric',
-
-            'pays_id' => 'required|numeric',
-            'nom' => 'required|alpha',
-            'cp' => 'required|numeric',
-            'adresse' => 'required'
+		            'role_id' => 'required|numeric',
+		            'mail' => 'required|email',
+		            'pseudo' => 'alpha_dash',
+		            'pays_id' => 'required|numeric',
+		            'ville' => 'required|alpha',
+		            'cp' => 'required|numeric',
+		            'adresse' => 'required'
 		];
 	}
 

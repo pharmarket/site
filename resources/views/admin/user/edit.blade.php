@@ -122,22 +122,22 @@
                                         <div class="box-body">
                                             <div class="form-group">
                                                 {!! Form::label('pays_id', 'pays :') !!}
-                                                {!! Form::select('pays_id', $pays, $user->ville->pays_id, ['class'=>'form-control']) !!}
+                                                {!! Form::select('pays_id', $pays, ($user->ville_id)?$user->ville->pays_id:'', ['class'=>'form-control']) !!}
                                             </div>
 
                                             <div class="form-group">
-                                                {!! Form::label('nom', 'nom :') !!}
-                                                {!! Form::text('nom', $user->ville->nom, array('class'=>'form-control', 'name'=>'nom', 'placeholder' => 'nom :')) !!}
+                                                {!! Form::label('ville', 'nom :') !!}
+                                                {!! Form::text('ville', ($user->ville_id)?$user->ville->nom:'', array('class'=>'form-control', 'name'=>'ville', 'placeholder' => 'nom :')) !!}
                                             </div>
 
                                             <div class="form-group">
                                                 {!! Form::label('cp', 'cp :') !!}
-                                                {!! Form::text('cp', $user->ville->cp, array('class'=>'form-control', 'name'=>'cp', 'placeholder' => 'cp :')) !!}
+                                                {!! Form::text('cp', ($user->ville_id)?$user->ville->cp:'', array('class'=>'form-control', 'name'=>'cp', 'placeholder' => 'cp :')) !!}
                                             </div>
 
                                             <div class="form-group">
                                                 {!! Form::label('adresse', 'adresse :') !!}
-                                                {!! Form::textarea('adresse', $user->ville->adresse, array('class'=>'form-control', 'name'=>'adresse', 'placeholder' => 'adresse :')) !!}
+                                                {!! Form::textarea('adresse', ($user->ville_id)?$user->ville->adresse:'', array('class'=>'form-control', 'name'=>'adresse', 'placeholder' => 'adresse :')) !!}
                                             </div>
 
                                         </div><!-- /.box-body -->

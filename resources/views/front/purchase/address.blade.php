@@ -44,17 +44,21 @@
 
 				<div class="addresses clearfix">
 					<div class="row">
-						<div class="col-xs-12 col-sm-6">
-							<ul class="address item box" id="address_delivery">
-								<li class="address_title"><h3 class="page-subheading">{{Lang::get('purchase.delivery_choice')}}</h3></li>
-								<li class="address_firstname address_lastname">{{$user->fullname}}</li>
-								<li class="address_address1">{{$user->ville->adresse}}</li>
-								<li class="address_postcode address_city">{{$user->ville->cp}}, {{$user->ville->nom}}</li>
-								<li class="address_country_name">{{$user->ville->pays->nom}}</li>
-								<li class="address_phone">{{$user->phone}}</li>
-								<li class="address_update"><a class="button button-small btn btn-default" href="{{route('user.account')}}" title="{{Lang::get('purchase.update')}}"><span>{{Lang::get('purchase.update')}}<i class="icon-chevron-right right"></i></span></a></li>
-							</ul>
-						</div>
+						@if(!empty($user->ville_id))
+							<div class="col-xs-12 col-sm-6">
+								<ul class="address item box" id="address_delivery">
+										<li class="address_title"><h3 class="page-subheading">{{Lang::get('purchase.delivery_choice')}}</h3></li>
+										<li class="address_firstname address_lastname">{{$user->fullname}}</li>
+										<li class="address_address1">{{$user->ville->adresse}}</li>
+										<li class="address_postcode address_city">{{$user->ville->cp}}, {{$user->ville->nom}}</li>
+										<li class="address_country_name">{{$user->ville->pays->nom}}</li>
+										<li class="address_phone">{{$user->phone}}</li>
+									<li class="address_update"><a class="button button-small btn btn-default" href="{{route('user.account')}}" title="{{Lang::get('purchase.update')}}"><span>{{Lang::get('purchase.update')}}<i class="icon-chevron-right right"></i></span></a></li>
+								</ul>
+							</div>
+						@else
+							<a class="button button-small btn btn-default" href="{{route('user.account')}}" title="{{Lang::get('purchase.updateAddress')}}"><span>{{Lang::get('purchase.updateAddress')}}<i class="icon-chevron-right right"></i></span></a>
+						@endif
 					</div> <!-- end addresses -->
 					<p class="cart_navigation clearfix">
 						<a href="{{ route('basket.index') }}" title="{{Lang::get('purchase.back')}}" class="button-exclusive btn btn-default">

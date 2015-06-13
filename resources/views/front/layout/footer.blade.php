@@ -104,7 +104,7 @@
 <script type="text/javascript" src="{{ asset('front/js/jquery.isotope.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('front/js/swipe.js') }}"></script>
   <script type="text/javascript" src="{{ asset('front/js/jquery-scrolltofixed-min.js') }}"></script>
-
+<script src='https://www.google.com/recaptcha/api.js'></script>
 
 
 

@@ -41,4 +41,5 @@ return [
 	'tva' => 'TVA',
 	'totaltva' => 'Total TVA',
 	'totalht' => 'total HT',
+	'updateAddress' => 'Mettre à jour votre addresse'
 ];

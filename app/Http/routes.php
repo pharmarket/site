@@ -169,7 +169,7 @@ Route::group(['middleware' => 'language'], function(){
     Route::get('basket', ['as' => 'basket.index', 'uses' => 'Front\BasketController@index']);
     Route::post('basket', ['as' => 'basket.post', 'uses' => 'Front\BasketController@post']);
     Route::post('basket/store/{produit}', ['as' => 'basket.store', 'uses' => 'Front\BasketController@store']);
-    Route::group(['middleware' => 'auth', 'roles' => ['customer']], function(){
+    Route::group(['middleware' => ['auth'], 'roles' => ['customer']], function(){
         //Route pour la commande
         Route::get('purchase/address', ['as' => 'purchase.address', 'uses' => 'Front\PurchaseController@address']);
         Route::get('purchase/livraison', ['as' => 'purchase.livraison', 'uses' => 'Front\PurchaseController@livraison']);
@@ -179,7 +179,7 @@ Route::group(['middleware' => 'language'], function(){
        Route::get('purchase/suivi', ['as' => 'purchase.suivi', 'uses' => 'Front\PurchaseController@suivi']);
         Route::get('purchase/cancel', ['as' => 'purchase.cancel', 'uses' => 'Front\PurchaseController@cancel']);
         Route::get('purchase/return', ['as' => 'purchase.return', 'uses' => 'Front\PurchaseController@retour']);
-        Route::match(['get', 'post'], 'account', ['as' => 'user.account', 'uses' => 'UserController@suscribe']);
+        Route::match(['get', 'post'], 'account', ['as' => 'user.account', 'uses' => 'UserController@account']);
        Route::get('user/home', ['as' => 'user.home', 'uses' => 'UserController@home']);
     });
 
