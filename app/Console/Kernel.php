@@ -24,6 +24,10 @@ class Kernel extends ConsoleKernel {
 	{
 		$schedule->command('inspire')
 				 ->hourly();
+		$schedule->command('composer self-update')
+				 ->dailyAt('01:00');
+		$schedule->command('composer update')
+				 ->dailyAt('01:30');
 
 		$schedule->call(function(){
 
