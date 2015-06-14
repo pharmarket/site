@@ -35,9 +35,41 @@ class UserController extends Controller {
 	 */
 	public function store()
 	{
+		// Recupère les données postées par le formulaire
 		$data = \Input::get('data');
-		\App\User::create($data);
+		// Recupère la liste des produits
+		$pays = \App\Pays::lists('nom', 'id');
+
+		// Règles de validation
+		$validator = \Validator::make(
+            $data,
+            array(
+                'mail' 			=> 'required|max:100|email|unique:user,mail',
+			    'pseudo' 		=> 'required|max:45',
+			    'password' 		=> 'required|max:45|same:repassword',
+            )
+        );
+
+		// Verification des règles de validation
+		if ($validator->fails()){ 
+			return $validator->errors();
+		}else{
+			$user = new \App\User;
+			$user->mail = $data['mail'];
+			$user->pseudo = $data['pseudo'];
+			// On ajout le role client 
+			$user->role_id = \Config::get('constant.role_customer');
+			// Cryptage du mot de passe
+			$user->password = \Hash::make($data['password']. \Config::get('constant.salt'));
+			// Insertion en base de données 
+			if($user->save()){
+				return response()->json(['user' => $user], 200);
+			}else{
+				return response()->json('Internal Server Error', 400);
+			}
+		}
 	}
+
 	/**
 	 * GHet user by ID
 	 *
@@ -57,6 +89,16 @@ class UserController extends Controller {
 		$data = \Input::get('data');
 
 		$user->update($data);
+	}
+
+	/**
+	 * Store a newly created resource in storage
+	 *
+	 * @return Response
+	 */
+	public function subscribe(){
+
+		
 	}
 
 }
