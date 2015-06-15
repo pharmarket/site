@@ -36,9 +36,10 @@ class ProduitController extends Controller {
 	 */
 	public function store()
 	{
+		// on recupere les inputs
         $data = \Input::get('data');
-        //dd($data);
 
+				//Validation des données
         $validator = \Validator::make(
             $data,
             array(
