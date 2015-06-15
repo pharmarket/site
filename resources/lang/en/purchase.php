@@ -41,5 +41,9 @@ return [
 	'tva' => 'vat',
 	'totaltva' => 'total VAT',
 	'totalht' => 'total HT',
-	'updateAddress' => 'Update your address'
+	'updateAddress' => 'Update your address',
+	'cancel' => 'The payment was canceled. Hope you change your mind, we send you our sincere greetings.',
+	'cancelTitle' => 'Payment canceled',
+	'return' => 'Payment confirmed',
+	'returnThanks' => 'Your payment has been accepted, we thank you for your confidence.',
 ];

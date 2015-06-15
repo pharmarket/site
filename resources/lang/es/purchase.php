@@ -41,5 +41,9 @@ return [
 	'tva' => 'Tina',
 	'totaltva' => 'IVA totales',
 	'totalht' => 'HT total',
-	'updateAddress' => 'Actualice su dirección'
+	'updateAddress' => 'Actualice su dirección',
+	'cancel' => 'El pago se canceló. Espero que cambia de opinión, le enviamos nuestros saludos sinceros.',
+	'cancelTitle' => 'Pago cancelado',
+	'return' => 'Pago confirmado',
+	'returnThanks' => 'Su pago ha sido aceptado, le damos las gracias por su confianza.',
 ];

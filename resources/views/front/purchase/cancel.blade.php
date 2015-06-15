@@ -4,9 +4,9 @@
 	{!!HTML::style('front/css/purchase.css') !!}
 @stop
 @section('content')
-<h1>Paiement annulé</h1>
+<h1>{{Lang::get('purchase.cancelTitle')}}</h1>
 <p>
-Le paiement a été annulé. En espérant que vous changerez d'avis, nous vous adressons nos salutations les plus sincères.
+{{Lang::get('purchase.cancel')}}
 </p>
 
 @stop
