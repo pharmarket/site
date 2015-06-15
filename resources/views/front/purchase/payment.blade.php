@@ -22,7 +22,7 @@
 						</a>
 					</li>
 					<li class="step_done second">
-						<a href="http://localhost:8888/prestashop/commande?step=1">
+						<a href="{{route('home')}}">
 							<em>02.</em> {{Lang::get('purchase.breadscrumbs_connexion')}}
 						</a>
 					</li>
@@ -115,7 +115,7 @@
 							<div class="col-xs-12">
 								<p class="payment_module">
 										{!! Form::open(['route' => ['purchase.confirm'], 'method' => 'post', 'id' => 'validPanier', 'style' => 'display:inline;']) !!}
-											<input type="image" src="https://www.paypalobjects.com/fr_FR/FR/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal - la solution de paiement en ligne la plus simple et la plus sécurisée !">
+											<input style="float:right;margin:15px;" type="image" src="https://www.paypalobjects.com/fr_FR/FR/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal - la solution de paiement en ligne la plus simple et la plus sécurisée !">
 										{!!  Form::close() !!}
 								</p>
 							</div>
