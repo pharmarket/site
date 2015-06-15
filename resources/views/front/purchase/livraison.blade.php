@@ -30,7 +30,7 @@
 							</a>
 						</li>
 						<li class="step_done second">
-							<a href="http://localhost:8888/prestashop/commande?step=1">
+							<a href="{{route('purchase.address')}}">
 								<em>02.</em> {{Lang::get('purchase.breadscrumbs_connexion')}}
 							</a>
 						</li>

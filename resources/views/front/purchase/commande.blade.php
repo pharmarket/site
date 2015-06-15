@@ -13,7 +13,7 @@
 
 		<!-- Breadcrumb -->
 		<div class="breadcrumb clearfix">
-			<a class="home" href="http://localhost:8888/prestashop/" title="retour à Accueil"><i class="icon-home"></i></a>
+			<a class="home" href="{{route('home')}}" title="retour à Accueil"><i class="icon-home"></i></a>
 			<span class="navigation-pipe">&gt;</span>
 			{{Lang::get('purchase.basket_yours')}}
 		</div>
@@ -167,4 +167,3 @@
 	}
 </script>
 @stop
-
