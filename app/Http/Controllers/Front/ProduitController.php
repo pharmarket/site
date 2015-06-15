@@ -26,8 +26,10 @@ class ProduitController extends Controller {
 
 		// Pagination
 
+		//$produit = $produit->paginate(3);
+		//	$produit->setPath('/site/public/produit');
 		$produit = $produit->paginate(3);
-	//	$produit->setPath('/site/public/produit');
+		$produit->setPath('/site/public/categorie');
 
 
 		return View('front.produit.categories', compact('produit', 'produit_categorie', 'sous_categorie', 'product'));
