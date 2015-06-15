@@ -4,9 +4,9 @@
 	{!!HTML::style('front/css/purchase.css') !!}
 @stop
 @section('content')
-<h1>Paiement confirmé</h1>
+<h1>{{Lang::get('purchase.return')}}</h1>
 <p>
-Votre paiement a été accepté, nous vous remerçions de votre confiance.
+{{Lang::get('purchase.returnThanks')}}
 </p>
 
 @stop

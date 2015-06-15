@@ -41,5 +41,9 @@ return [
 	'tva' => 'Mehrwertsteuer',
 	'totaltva' => 'Gesamt MwSt',
 	'totalht' => 'insgesamt HT',
-	'updateAddress' => 'Aktualisieren Sie Ihre Adresse'
+	'updateAddress' => 'Aktualisieren Sie Ihre Adresse',
+	'cancel' => 'Die Zahlung wurde abgebrochen. Hoffe, dass Sie Ihre Meinung ändern, senden wir Ihnen unseren aufrichtigen Grüße.',
+	'cancelTitle' => 'Payment abgesagt',
+	'return' => 'Bezahlung bestätigt',
+	'returnThanks' => 'Ihre Zahlung akzeptiert wurde, wir danken Ihnen für Ihr Vertrauen.',
 ];

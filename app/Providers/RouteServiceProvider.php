@@ -85,26 +85,31 @@ class RouteServiceProvider extends ServiceProvider {
         $router->model('produit', 'App\Produit', function() {
             App::abort(404);
         });
+
         $router->model('categorie', 'App\Produit_categorie', function() {
             App::abort(404);
         });
+
         $router->model('sous_categorie', 'App\Sous_categorie', function() {
             App::abort(404);
         });
-				$router->model('commentaire', 'App\Commentaire', function() {
+
+        $router->model('marque', 'App\Produit_marque', function() {
             App::abort(404);
         });
-				$router->model('forum_category', 'App\forum_category', function() {
-						App::abort(404);
-				});
+
+		$router->model('commentaire', 'App\Commentaire', function() {
+            App::abort(404);
+        });
+		
+		$router->model('forum_category', 'App\forum_category', function() {
+			App::abort(404);
+		});
 
 
         $router->model('vente', 'App\Vente', function() {
             \App::abort(404);
         });
-
-
-
 
 
         $router->model('commande', 'App\Commande', function() {
