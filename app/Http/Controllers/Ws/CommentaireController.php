@@ -26,7 +26,7 @@ class CommentaireController extends Controller {
 	{
 		$where = \Input::get('where');
 		if(!empty($where)) { return \App\Commentaire::whereRaw($where)->get(); }
-		else{ return \App\Commentaire::with('user', 'produit')->orderBy('id', 'desc')->get(); }
+		else{ return \App\Commentaire::with('user', 'produit')->orderBy('id', 'desc')->where('done', '=', '1')->get(); }
 	}
 
 	/**
