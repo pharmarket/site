@@ -44,6 +44,8 @@ class CommentaireController extends Controller {
 	 */
 	public function destroy($commentaire)
 	{
+        $commentaire->delete();
+        return $commentaire;
 	}
 	/**
 	 * GHet Commentaire by ID
