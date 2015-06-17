@@ -3,12 +3,11 @@
 class ProductTest extends TestCase {
 
 	/**
-	 * Verification de reactions quand un produit existe et quand il n'existe pas
+	 * Vérification de reactions quand un produit existe et quand il n'existe pas
 	 *
 	 * @return void
 	 */
-	public function testExist()
-	{
+	public function testExist(){
 		//Un produit qui existe
 		$response = $this->call('GET', 'produit/167');
 		$this->assertResponseStatus(200);
