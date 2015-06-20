@@ -12,12 +12,12 @@ class CategorieController extends Controller {
 	/**
 	 * Display a listing of the resource.
 	 *
-	 * @return Response
+	 * @return view
 	 */
 	public function index()
 	{
 		$categorie = \App\Produit_categorie::with('langue')->get();
-		return view('admin.categorie.categorie', compact('categorie'));	
+		return view('admin.categorie.categorie', compact('categorie'));
 	}
 
 	/**
@@ -41,7 +41,7 @@ class CategorieController extends Controller {
 		// Vérification des données
 
 		// Enregistrement dans la table Produit_catégorie
-		
+
 
 		for ($i=1; $i<5 ; $i++) {
 			$categorie = new \App\Produit_categorie;

@@ -65,7 +65,7 @@
 							<a href="{{route('produit.callCategorie')}}">{{ Lang::get('menu.catalog') }}</a>
 						</li>
 						<li class="dropdown">
-							<a id="dLabel" role="button" data-toggle="dropdown" class="btn" data-target="#" href="#">
+							<a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#">
 								{{ Lang::get('menu.products') }}
 							</a>
 							<ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">

@@ -1,4 +1,13 @@
-<?php namespace App\Http\Controllers\Front;
+<?php
+namespace App\Http\Controllers\Front;
+	use \App\Langue as Langue;
+	use \App\Media as Media;
+	use \App\Produit_info as Produit_info;
+	use \Lang as Lang;
+	use \DB as DB;
+	use \Cart as Cart;
+	use  \Input as  Input;
+
 
 class BasketController extends Controller {
 
@@ -66,27 +75,38 @@ class BasketController extends Controller {
 	*/
 	public function store($produit)
 	{
-		//On verifie la quantité		
+		//On verifie la quantité
+
+
+		$langue 	= 	Langue::where('code', Lang::getLocale())->first();
+		$media 		= 	Media::where('produit_id', $produit->id)->where('default', 1)->first()->chemin;
+		$nom 			= 	Produit_info::where('produit_id', $produit->id)->where('langue_id', $langue->id)->first()->nom;
+
 		// Récupération des stock sur le produit
-		$exemplaire  = \DB::table('produit_exemplaire AS pe')
-		->leftJoin('commande_exemplaire AS ce', 'pe.id', '=', 'ce.exemplaire_id')
-		->where('produit_id', $produit->id)
-		->whereNull('ce.exemplaire_id')
-		->count();
+		$exemplaire  = DB::table('produit_exemplaire AS pe')
+			->leftJoin('commande_exemplaire AS ce', 'pe.id', '=', 'ce.exemplaire_id')
+			->where('produit_id', $produit->id)
+			->whereNull('ce.exemplaire_id')
+			->count();
 
 		//On recupere le nombre de produit deja dans le panier
-		$cart_row = \Cart::search(array('id' => $produit->id));
+		$cart_row = Cart::search(array('id' => $produit->id));
 		$qty=0;
-		if(!empty($cart_row)){$qty = \Cart::get($cart_row[0])->qty;}
 
-		//Si on a pas assez d'exemplaire, on lance une erreur
-		if($exemplaire <  \Input::get('quantite')+$qty){return back()->withErrors(['error' => \Lang::get('show.product_insufisant')]);}
-
-		\Cart::add([
-			['id' => $produit->id, 'name' => $nom, 'qty' => \Input::get('quantite'), 'price' => $produit->montant, 'options' => array('logo' => $media)],
-			]);
-			return back();
+		if(!empty($cart_row)){
+			$qty = Cart::get($cart_row[0])->qty;
 		}
 
+		//Si on a pas assez d'exemplaire, on lance une erreur
+		if($exemplaire <  Input::get('quantite')+$qty){
+			return back()->withErrors(['error' => Lang::get('show.product_insufisant')]);
+		}
 
+		Cart::add([
+			['id' => $produit->id, 'name' => $nom, 'qty' => Input::get('quantite'), 'price' => $produit->montant, 'options' => array('logo' => $media)],
+			]);
+			return back();
 	}
+
+
+}

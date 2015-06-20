@@ -98,7 +98,7 @@
 									</span>
 								</div>
 								<label for="cgv">{{Lang::get('purchase.cgv')}}</label>
-								<a href="{{route('cgv')}}" class="iframe" rel="nofollow">({{Lang::get('purchase.cgv_link')}})</a>
+								<a href="{{route('cgv.index')}}" class="iframe" rel="nofollow">({{Lang::get('purchase.cgv_link')}})</a>
 							</div>
 						</div> <!-- end delivery_options_address -->
 						<p class="cart_navigation clearfix">

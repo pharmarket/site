@@ -47,10 +47,6 @@ class Commande extends Model {
     }
 
 
-
-
-
-
     public function commandeExemplaire(){
         return $this->hasMany('\App\Commande_exemplaire', 'commande_id');
     }

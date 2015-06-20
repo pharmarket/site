@@ -5,11 +5,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Forum_thread extends Model {
 
     use SoftDeletes;
-
-
     protected $dates = ['deleted_at'];
-
-
-	protected $table = 'forum_threads';
+    protected $table = 'forum_threads';
 
 }
